@@ -1,0 +1,25 @@
+# 사이트에 필요한 파일만 올린다 (교과서 원본·작업 도구·백업 제외)
+/*
+!/.gitignore
+!/.nojekyll
+!/index.html
+!/timeline-content.js
+!/audio-engine.js
+!/iba-emblem.js
+!/assets/
+/assets/*
+!/assets/w1/
+/assets/w1/*
+!/assets/w1/고대/
+!/assets/w1/기관/
+
+# 백업·시스템 파일
+_pre_upscale_backup/
+.DS_Store
+
+# 화면에서 쓰지 않는 이미지
+/assets/w1/고대/동아시아/위·진·남북조 시대/이미지 2026. 5. 28. 14.56.png
+/assets/w1/고대/유럽·미주/로마 공화정/12표법의 의의.jpg
+/assets/w1/고대/유럽·미주/로마 공화정/[[]비상교육] 고등_세계사_1-3_50p_로마 공화정의 구조.jpg
+/assets/w1/고대/유럽·미주/로마 공화정/미래엔_세계사_이미지_48쪽_로마_공화정.JPG
+/assets/w1/고대/서아시아·인도/이집트 문명/[[]비상교육] 고등_세계사_1-1_15p_오시리스를 미라로 만드는 모습.jpg
