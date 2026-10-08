@@ -3920,7 +3920,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   }, true);
 })();
 </script>
-<script src="audio-engine.js?v=20260930b"></script>
+<script src="audio-engine.js?v=20261008a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·제2국 내부판·세로 락업 SVG 생성기 -->
 <script src="iba-emblem.js?v=20260915b"></script>
@@ -19819,15 +19819,12 @@ function App() {
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('connect');
   }, []);
 
-  const stopAudio = useCallbackApp(() => {
-    if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.stopAll();
-  }, []);
-
   if (view === 'portal')   return <Portal   rebooted={rebootRef.current} onBypass={() => { rebootRef.current = false; setView('landing'); }}/>;
   if (view === 'landing')  return <Landing  onConnect={() => { bootAudio(); setView('loader'); }}/>;
   if (view === 'loader')   return <Loader   onDone={() => setView('briefing')}/>;
   if (view === 'briefing') return <Briefing onEnter={() => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('connect'); setView('terminal'); }}/>;
-  return <Terminal onReboot={() => { stopAudio(); rebootRef.current = true; setView('portal'); }}/>;
+  // REBOOT으로 대문에 돌아가도 켜 둔 배경음악·앰비언트는 끊지 않고 이어 간다 (사용자 요청 2026-10-08)
+  return <Terminal onReboot={() => { rebootRef.current = true; setView('portal'); }}/>;
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App/>);

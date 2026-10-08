@@ -201,7 +201,7 @@ var MOTIF=[
 ];
 
 /* 예약된 노드를 채널별 목록에 등록한다. 채널을 끄면 예약분까지 즉시 정지된다. */
-function track(list,node){ list.push(node); if(list.length>600) list.splice(0,300); }
+function track(list,node){ list.push(node); if(list.length>2400) list.splice(0,1200); }   /* 15초 앞까지 예약한 음도 끌 수 있도록 넉넉히 */
 
 function pluck(f,t,pk,dec,ds){
   var o=AC.createOscillator(),g=AC.createGain(),lp=AC.createBiquadFilter();
@@ -282,20 +282,26 @@ function startMus(){
   if(AC){ try{ MG.gain.cancelScheduledValues(AC.currentTime);
                MG.gain.setValueAtTime(VOL.music,AC.currentTime); }catch(e){} }
   var next=AC.currentTime+0.25;
+  /* 15초 앞까지 미리 예약하고 1초마다 확인한다 — 다른 탭으로 넘어가 브라우저가 타이머를 늦춰도 끊기지 않는다.
+     오래 멈췄다 깨어나면(밀린 시간이 이미 지났으면) 몰아 틀지 않고 지금부터 이어 간다 */
+  var AHEAD=15;
   (function block(){
     if(!musOn) return;
-    var L;
-    switch(sec%6){
-      case 0: L={pad:1,ost:1,tick:0,bass:0,mel:0}; break;
-      case 1: L={pad:1,ost:1,tick:1,bass:1,mel:0}; break;
-      case 2: L={pad:1,ost:1,tick:1,bass:1,mel:1}; break;
-      case 3: L={pad:1,ost:0,tick:1,bass:1,mel:1}; break;
-      case 4: L={pad:1,ost:1,tick:1,bass:1,mel:1}; break;
-      default:L={pad:1,ost:0,tick:0,bass:0,mel:0}; break;
+    if(next<AC.currentTime+0.05) next=AC.currentTime+0.1;
+    while(next<AC.currentTime+AHEAD){
+      var L;
+      switch(sec%6){
+        case 0: L={pad:1,ost:1,tick:0,bass:0,mel:0}; break;
+        case 1: L={pad:1,ost:1,tick:1,bass:1,mel:0}; break;
+        case 2: L={pad:1,ost:1,tick:1,bass:1,mel:1}; break;
+        case 3: L={pad:1,ost:0,tick:1,bass:1,mel:1}; break;
+        case 4: L={pad:1,ost:1,tick:1,bass:1,mel:1}; break;
+        default:L={pad:1,ost:0,tick:0,bass:0,mel:0}; break;
+      }
+      for(var b=0;b<4;b++) playBar(b,next+b*BAR,L);
+      next+=BAR*4; sec++;
     }
-    for(var b=0;b<4;b++) playBar(b,next+b*BAR,L);
-    next+=BAR*4; sec++;
-    musT.push(setTimeout(block,BAR*4*1000-180));
+    musT.push(setTimeout(block,1000));
     if(musT.length>200) musT.splice(0,120);
   })();
   musT.push(setTimeout(function whisper(){
@@ -426,14 +432,13 @@ var API={
   }
 };
 
-/* 페이지가 화면에서 사라지면(창·앱을 닫음, 탭 전환, 최소화, 미리보기 창 숨김) 소리를 멈춘다.
-   다시 보이면 켜 두었던 채널만 이어서 재생한다. 페이지를 떠날 때도 즉시 멈춘다.
-   (다른 창을 옆에 띄워 두는 것만으로는 숨김이 아니므로 재생이 유지된다) */
+/* 다른 탭·창으로 넘어가거나 최소화해도 켜 둔 소리는 계속 재생한다(사용자 요청 2026-10-08).
+   페이지를 닫거나 떠날 때(pagehide·beforeunload)만 즉시 멈춘다.
+   브라우저가 숨은 사이에 장치를 멈췄다면 다시 보일 때 켜 둔 채널을 이어서 재생한다. */
 if(typeof document!=='undefined'){
   document.addEventListener('visibilitychange',function(){
-    if(!AC) return;
-    if(document.hidden){ if(AC.state==='running') AC.suspend(); }
-    else if(AC.state==='suspended' && (ambOn||musOn)) AC.resume();
+    if(!AC || document.hidden) return;
+    if(AC.state==='suspended' && (ambOn||musOn)) AC.resume();
   });
   var shutdown=function(){ if(AC && AC.state==='running'){ try{ AC.suspend(); }catch(e){} } };
   global.addEventListener('pagehide',shutdown);
