@@ -518,7 +518,7 @@ a{color:inherit;text-decoration:none}
 
 /* SYNC 진행 막대 */
 .op-meter{
-  position:relative;flex:1;height:5px;
+  position:relative;flex:1;min-width:24px;height:5px;
   background:rgba(47,174,94,.12);border:1px solid var(--amber-line);overflow:hidden;
 }
 .op-meter__fill{
@@ -533,7 +533,7 @@ a{color:inherit;text-decoration:none}
 
 /* 기록줄기 편차(VARIANCE) — 구역별 트랙 + 마커 */
 .op-var{
-  position:relative;flex:1;height:6px;border:1px solid var(--amber-line);
+  position:relative;flex:1;min-width:24px;height:6px;border:1px solid var(--amber-line);
   background:linear-gradient(90deg,
      var(--green) 0 52%, var(--amber) 52% 78%, #c0392b 78% 100%);
 }
@@ -545,7 +545,7 @@ a{color:inherit;text-decoration:none}
 /* 미터 라벨 행 */
 .op-mrow{display:flex;align-items:center;gap:8px;margin:1px 0}
 .op-mrow .k{
-  flex:none;width:76px;white-space:nowrap;font-family:var(--font-mono);font-size:12px;
+  flex:none;min-width:76px;white-space:nowrap;font-family:var(--font-mono);font-size:12px;   /* 글자가 길면 칸이 늘고 막대가 줄어든다 */
   letter-spacing:.10em;text-transform:uppercase;color:var(--amber-dim);
 }
 .op-mrow .vnum{
@@ -3292,7 +3292,8 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
   .op-sect{padding:7px 7px}
   .op-data{flex:1.03 1 0;min-width:0}      /* 12px 기준 — 두 칸이 필요한 폭 비율대로 나눈다 */
   .op-stab{flex:1 1 0;min-width:0}
-  .op-mrow .k{width:72px}
+  .op-mrow .k{min-width:72px}
+  .subnav__sidemeta-row:first-child .k{letter-spacing:.04em}   /* 오른쪽 칸 170px — '대응반 상황실' 제목이 넘치지 않게 */
 }
 @media (max-width:900px){ .iba-about__body{grid-template-columns:1fr} .iba-about__left{border-right:0;padding-right:0} }
 
@@ -3371,7 +3372,7 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 .d2-table th{color:var(--amber-2);font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 .d2-table td{color:var(--amber)}
 .d2-list{margin:0 0 14px;padding-left:18px;font-family:var(--font-ko);font-size:16px;line-height:1.85;color:var(--amber)}
-.d2-redact{background:rgba(47,174,94,.10);color:var(--amber-dim);cursor:help;letter-spacing:0}
+.d2-redact{background:rgba(47,174,94,.10);color:var(--amber-dim);cursor:help;letter-spacing:0;word-break:break-all}   /* 띄어쓰기 없는 말소 막대도 줄바꿈 */
 .d2doc code{font-family:var(--font-mono);font-size:12px;color:var(--amber-2)}
 .d2-fig{margin:0 0 18px}
 .d2-fig img{width:100%;display:block;border:1px solid var(--amber-line);cursor:zoom-in}
@@ -3465,7 +3466,7 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 .annex-item__re{color:var(--amber)}
 .annex-item__body{margin:6px 0 0;font-family:var(--font-ko);font-size:16px;line-height:1.75;color:var(--amber)}
 /* 데이터로 지정한 말소 구간 — 제1종(부속 자료 등재 시 복원) · 제2종(복원 불가) */
-.rec-redact{background:#050505;color:transparent;border-radius:1px;padding:0 2px;cursor:help;user-select:none;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.rec-redact{background:#050505;color:transparent;border-radius:1px;padding:0 2px;cursor:help;user-select:none;box-decoration-break:clone;-webkit-box-decoration-break:clone;word-break:break-all}
 .rec-redact--2{outline:1px solid rgba(255,68,34,.35)}
 
 /* 현재 위치 표시 (연표 머리줄) */
@@ -5773,10 +5774,10 @@ window.TIMELINE_DATA = {
 
     // ---------- 선사시대 ----------
     { id: 'k-paleo', track: 'korea', year: -698050, yearLabel: '약 70만 년 전 ~', label: '구석기 시대', en: 'Paleolithic',
-      state: '구석기', theme: '사회', kind: 'theme', alwaysLit: true,
+      state: '구석기', theme: '사회', kind: 'turning',
       body: '약 70만 년 전부터 한반도에 인류가 거주. 단양 금굴·공주 석장리·연천 전곡리 유적에서 뗀석기와 동굴 거주 흔적이 발견된다. 채집·사냥·이동 생활.' },
     { id: 'k-neolithic', track: 'korea', year: -8000, yearLabel: '8000 BCE 무렵 ~', label: '신석기 시대', en: 'Neolithic',
-      state: '신석기', theme: '사회', kind: 'theme', alwaysLit: true,
+      state: '신석기', theme: '사회', kind: 'turning',
       body: '기원전 8000년 무렵부터 빗살무늬토기·간석기를 사용. 농경과 정착 생활이 시작되며 강가·바닷가에 마을을 이루고 평등한 부족 사회를 형성. 서울 암사동·부산 동삼동 유적이 대표적.' },
     { id: 'k-gojoseon', track: 'korea', year: -2333, label: '고조선', en: 'Gojoseon',
       state: '고조선', theme: '정치', kind: 'turning',
@@ -5788,10 +5789,10 @@ window.TIMELINE_DATA = {
       },
       body: '단군왕검이 청동기 문화를 바탕으로 우리 역사 최초의 국가 고조선을 건국. 8조법으로 사회 질서를 유지하였다. 주요 사건: 고조선 멸망(BCE 108).' },
     { id: 'k-bronze', track: 'korea', year: -2000, yearLabel: '20~15세기 BCE 무렵', label: '청동기 시대', en: 'Bronze Age',
-      state: '청동기', theme: '사회', kind: 'theme', alwaysLit: true,
+      state: '청동기', theme: '사회', kind: 'turning',
       body: '비파형 동검·고인돌·민무늬토기로 대표되는 청동기 문화. 계급 사회와 군장 국가 형성의 물질적 기반이 마련된다.' },
     { id: 'k-iron', track: 'korea', year: -450, yearLabel: '5세기 BCE경', label: '철기 시대', en: 'Iron Age',
-      state: '철기', theme: '경제', kind: 'theme', alwaysLit: true,
+      state: '철기', theme: '경제', kind: 'turning',
       body: '중국 전국시대의 영향으로 철기가 한반도에 보급. 농업 생산력이 크게 증가하고 여러 나라가 등장하기 시작.' },
     { id: 'k-buyeo', track: 'korea', year: -200, yearLabel: '2세기 BCE경', label: '부여', en: 'Buyeo',
       state: '부여', theme: '정치', kind: 'turning',
@@ -6105,10 +6106,10 @@ window.TIMELINE_DATA = {
     // ============================================================
     // ---------- 선사시대 ----------
     { id: 'e-paleo', track: 'eastasia', year: -2098050, yearLabel: '약 210만 년 전 ~', label: '구석기 시대', en: 'Paleolithic',
-      state: '구석기', theme: '사회', kind: 'theme',
+      state: '구석기', theme: '사회', kind: 'turning',
       body: '동아시아의 구석기 시대 — 중국 상천(上陳) 유적의 석기(약 210만 년 전)가 동아시아에서 가장 오래된 인류의 흔적이다. 뗀석기, 채집·수렵·어로, 이동 생활. 중국 베이징원인(주구점) 유적 등 호모 에렉투스 단계 화석이 발견되었다.' },
     { id: 'e-neolithic', track: 'eastasia', year: -8050, yearLabel: '약 1만 년 전 ~', label: '신석기 시대', en: 'Neolithic',
-      state: '신석기', theme: '사회', kind: 'theme',
+      state: '신석기', theme: '사회', kind: 'turning',
       body: '동아시아의 신석기 시대 — 황허강 유역 양사오 문화(채도), 룽산 문화(흑도). 농경·목축의 시작, 정착 생활, 토기·간석기 사용.' },
     // ---------- 일본 갈래 시작 ----------
     { id: 'e-jomon', track: 'eastasia', year: -8050, yearLabel: '약 1만 년 전 ~ 3세기 BCE', label: '조몬(縄文) 시대', en: 'Jōmon',
@@ -6116,7 +6117,7 @@ window.TIMELINE_DATA = {
       body: '일본 열도의 신석기 시대. 약 1만 년 전부터 BCE 3세기경까지. 새끼줄 무늬(縄文) 토기, 정착 채집·수렵·어로 생활. 일본 역사의 시작점.' },
     // ---------- 청동기 ----------
     { id: 'e-bronze', track: 'eastasia', year: -2500, yearLabel: '2500 BCE 무렵 ~', label: '청동기 시대', en: 'Bronze Age',
-      state: '청동기', theme: '경제', kind: 'theme',
+      state: '청동기', theme: '경제', kind: 'turning',
       body: '동아시아의 청동기 시대 — 황허강 유역에서 BCE 2500년경 청동기 사용. 농업 생산력 증대와 함께 계급 사회 형성, 도시 국가·초기 왕조(하·상)의 물질적 기반이 됨. 한반도는 비파형 동검·고인돌, 일본은 야요이 시대의 청동기·철기 동시 유입.' },
     // ---------- 중국 문명 형성 (하·상·주) ----------
     { id: 'e-xia', track: 'eastasia', year: -2000, yearLabel: '2000 BCE경', label: '하(夏)', en: 'Xia',
@@ -6335,13 +6336,13 @@ window.TIMELINE_DATA = {
     // ============================================================
     // ---------- 선사시대 ----------
     { id: 'w-paleo', track: 'west', year: -1198050, yearLabel: '약 120만 년 전 ~', label: '구석기 시대', en: 'Paleolithic',
-      state: '구석기', theme: '사회', kind: 'theme',
+      state: '구석기', theme: '사회', kind: 'turning',
       body: '유럽의 구석기 시대 — 스페인 아타푸에르카의 시마 델 엘레판테 유적(약 140만~110만 년 전)에서 서유럽에서 가장 오래된 인류 화석이 발견되었다. 뗀석기, 동굴·바위 그늘 거주, 이동 생활. 프랑스 쇼베·라스코, 스페인 알타미라 동굴 벽화와 오스트리아 빌렌도르프 비너스 등 예술 활동의 흔적이 남아 있다.' },
     { id: 'w-neolithic', track: 'west', year: -8050, yearLabel: '약 1만 년 전 ~', label: '신석기 시대', en: 'Neolithic',
-      state: '신석기', theme: '사회', kind: 'theme',
+      state: '신석기', theme: '사회', kind: 'turning',
       body: '유럽의 신석기 시대 — 빙하기 종료 후 농경·목축 시작. 간석기·토기 사용. 영국 스톤헨지 등 거석 문화 유적이 후기에 출현하였다.' },
     { id: 'w-bronze', track: 'west', year: -3000, yearLabel: '3000 BCE 무렵 ~', label: '청동기 시대', en: 'Bronze Age',
-      state: '청동기', theme: '경제', kind: 'theme',
+      state: '청동기', theme: '경제', kind: 'turning',
       body: '유럽의 청동기 시대 — BCE 3000년경부터 동지중해(에게해)와 발칸·중부 유럽에서 청동기 보급. 크레타(미노스)·미케네 등 에게 문명이 대표적. 청동제 무기·장식과 거석 문화 발달, 사회 계급 분화와 도시·궁전 사회 형성.' },
     // ---------- 문명 형성 ----------
     { id: 'w-egypt-civ', track: 'westasia', year: -3000, label: '이집트 문명', en: 'Egyptian Civilization',
@@ -6535,13 +6536,13 @@ window.TIMELINE_DATA = {
     // ============================================================
     // ---------- 선사시대 ----------
     { id: 's-paleo', track: 'westasia', year: -1798050, yearLabel: '약 180만 년 전 ~', label: '구석기 시대', en: 'Paleolithic',
-      state: '구석기', theme: '사회', kind: 'theme',
+      state: '구석기', theme: '사회', kind: 'turning',
       body: '서아시아·인도의 구석기 시대 — 조지아 드마니시 유적(약 180만 년 전)에서 아프리카 밖에서 가장 이른 시기의 인류 화석이 발견되었다. 뗀석기, 채집·수렵, 동굴 거주. 이라크 샤니다르 동굴(네안데르탈인 매장 흔적)과 같은 화석 인류 유적이 분포한다.' },
     { id: 's-neolithic', track: 'westasia', year: -8050, yearLabel: '약 1만 년 전 ~', label: '신석기 시대', en: 'Neolithic',
-      state: '신석기', theme: '사회', kind: 'theme',
+      state: '신석기', theme: '사회', kind: 'turning',
       body: '서아시아의 신석기 시대 — 비옥한 초승달 지대에서 최초의 농경·목축. 튀르키예 차탈회위크·괴베클리 테페, 요르단강 서안의 예리코 등의 신석기 촌락 유적이 대표적이다.' },
     { id: 's-bronze', track: 'westasia', year: -3500, yearLabel: '3500 BCE 무렵 ~', label: '청동기 시대', en: 'Bronze Age',
-      state: '청동기', theme: '경제', kind: 'theme',
+      state: '청동기', theme: '경제', kind: 'turning',
       body: '서아시아·인도의 청동기 시대 — BCE 3500년경 메소포타미아에서 청동기를 사용한 최초의 문명 발생. 도시 국가(우르·우루크 등) 발달, 쐐기 문자, 지구라트. 인도에서는 인더스 문명(모헨조다로·하라파)이 청동기 도시 문명으로 발전.' },
     // ---------- 문명 형성 ----------
     { id: 's-mesopotamia', track: 'westasia', year: -3500, label: '메소포타미아 문명', en: 'Mesopotamian Civilization',
@@ -6563,7 +6564,7 @@ window.TIMELINE_DATA = {
       state: '헤브라이', theme: '종교', kind: 'turning',
       body: 'BCE 11세기경 이스라엘 왕국 건설, 다윗·솔로몬 왕 때 전성. 예루살렘에 야훼의 성전 건설. 유일신 신앙(유대교) 창시. 솔로몬 사후 이스라엘·유대로 분열, 후일 바빌론 유수.' },
     { id: 's-assyria', track: 'westasia', year: -700, yearLabel: '7세기 BCE경', label: '아시리아', en: 'Assyrian Empire',
-      state: '아시리아', theme: '군사', kind: 'event',
+      state: '아시리아', theme: '군사', kind: 'turning',
       body: 'BCE 7세기경 철제 무기와 기마병으로 오리엔트 세계를 처음 통일한 제국. 강압적인 통치로 반란이 잇따름.' },    { id: 's-buddhism', track: 'westasia', year: -563, yearLabel: '6세기 BCE경', label: '불교 성립', en: 'Buddhism',
       state: '불교', theme: '종교', kind: 'turning', sub: 1,
       body: '갠지스강 유역에서 고타마 싯다르타(석가모니, BCE 563?~483?)가 창시. 사성제(四聖諦)·팔정도(八正道)와 윤회·해탈 사상. 카스트(바르나) 제도와 베다의 권위를 비판하고 평등을 주장. 이후 마우리아 아소카왕 때 인도 전역과 스리랑카·동남아시아로 전파.' },
@@ -6580,7 +6581,7 @@ window.TIMELINE_DATA = {
       state: '인도', theme: '종교', kind: 'turning', sub: 1,
       body: '칼링가 전쟁의 참혹을 본 아소카왕이 불교에 귀의. 비폭력(아힘사) 정치, 불교의 세계 종교화.' },
     { id: 's-parthia', track: 'westasia', year: -247, label: '파르티아', en: 'Parthian Empire',
-      state: '파르티아', theme: '정치', kind: 'event',
+      state: '파르티아', theme: '정치', kind: 'turning',
       body: '이란계 유목민 아르사케스가 셀레우코스로부터 독립. 동서 무역(비단길)의 중계자.' },
     { id: 's-kushan', track: 'westasia', year: 50, yearLabel: '1세기 CE 중엽', label: '쿠샨 왕조', en: 'Kushan Empire',
       state: '인도', theme: '문화', kind: 'turning', sub: 1,
