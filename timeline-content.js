@@ -160,6 +160,9 @@ window.TIMELINE_DATA = {
     { id: 'k-buyeo', track: 'korea', year: -200, yearLabel: '2세기 BCE경', label: '부여', en: 'Buyeo',
       state: '부여', theme: '정치', kind: 'turning',
       body: '만주 송화강 유역에 부여가 성립. 왕 아래 마가·우가·저가·구가 등 제가가 사출도를 다스린 연맹 왕국. 영고(迎鼓) 제천 행사와 순장·1책 12법 풍속.' },
+    { id: 'k-wiman', track: 'korea', year: -190, yearLabel: '2세기 BCE 무렵', label: '위만 집권', en: 'Wiman Takes the Throne',
+      state: '고조선', theme: '정치', kind: 'event', noSync: true,
+      body: '중국에서 건너온 위만이 준왕을 몰아내고 고조선의 왕이 되었다. 이후 고조선은 철기 문화를 더욱 발전시켜 주변 지역을 정복하고, 한과 한반도 여러 나라 사이의 중계 무역을 장악하였다.' },
     { id: 'k-okjeo', track: 'korea', year: -130, yearLabel: '2세기 BCE경', label: '옥저', en: 'Okjeo',
       state: '옥저', theme: '정치', kind: 'turning',
       body: '함경도 동해안 일대에 옥저가 성립. 해산물과 소금이 풍부하였으나 고구려에 복속됨. 민며느리제와 골장제(가족 공동묘) 풍속.' },
@@ -169,6 +172,9 @@ window.TIMELINE_DATA = {
     { id: 'k-samhan', track: 'korea', year: -110, yearLabel: '2세기 BCE 말', label: '삼한', en: 'Samhan',
       state: '삼한', theme: '정치', kind: 'turning',
       body: '한반도 남부에 마한 54국·진한 12국·변한 12국의 삼한이 성립. 정치적 지도자 신지·읍차, 제사장 천군과 신성 구역 소도(蘇塗)를 두었다.' },
+    { id: 'k-gojoseon-fall', track: 'korea', year: -108, label: '고조선 멸망', en: 'Fall of Gojoseon',
+      state: '고조선', theme: '군사', kind: 'event', noSync: true,
+      body: '한의 공격에 1년여 동안 맞서 싸웠으나 수도 왕검성이 함락되며 고조선이 멸망하였다. 한은 옛 고조선과 주변 지역에 낙랑군 등 군현을 설치하였다.' },
     { id: 'k-silla', track: 'korea', year: -57, label: '신라', en: 'Silla',
       state: '신라', theme: '정치', kind: 'turning',
       body: '박혁거세가 사로국(신라)을 건국. 6촌 촌장이 알에서 태어난 혁거세를 추대했다는 건국 신화가 전한다. 신라는 갈래 없이 원줄기로 이어진다. 주요 사건: 삼국시대 성립(1세기 BCE).' },
@@ -187,6 +193,85 @@ window.TIMELINE_DATA = {
     { id: 'k-gaya', track: 'korea', year: 42, label: '가야', en: 'Gaya',
       state: '가야', theme: '정치', kind: 'turning', sub: 3,
       body: '낙동강 하류 김해 일대에 여러 소국이 가야 연맹을 이루었고, 초기에는 김수로왕의 금관가야가 연맹을 이끌었다. 풍부한 철 생산과 해상 교역으로 번성. 주요 사건: 가야 멸망(562).' },
+    // 삼국 시대 — 한국 줄기 포커스에서만 보이는 왕·사건 노드 (focusOnly). 갈래 sub: 0 고구려 · 1 백제 · 없음 신라 · 3 가야
+    { id: 'k-taejo', track: 'korea', year: 53, yearLabel: '53~146 CE', label: '태조왕', en: 'King Taejo',
+      state: '고구려', theme: '정치', kind: 'turning', sub: 0, focusOnly: true,
+      body: '1세기 후반 옥저를 복속시키고 한 군현을 공격하면서 왕권을 강화하였다.' },
+    { id: 'k-gogukcheon', track: 'korea', year: 179, yearLabel: '179~197 CE', label: '고국천왕', en: 'King Gogukcheon',
+      state: '고구려', theme: '사회', kind: 'turning', sub: 0, focusOnly: true,
+      body: '진대법을 실시하여(194) 봄에 곡식을 빌려주고 수확한 뒤 갚게 하였다.' },
+    { id: 'k-gaya-early', track: 'korea', year: 200, yearLabel: '2~4세기 CE', label: '전기 가야 연맹', en: 'Early Gaya Confederacy',
+      state: '가야', theme: '정치', kind: 'turning', sub: 3, focusOnly: true,
+      body: '김해의 금관가야가 연맹을 이끌었다. 질 좋은 철을 생산·수출하며 주변 지역과 활발히 교류하였다.' },
+    { id: 'k-goi', track: 'korea', year: 234, yearLabel: '234~286 CE', label: '고이왕', en: 'King Goi',
+      state: '백제', theme: '정치', kind: 'turning', sub: 1, focusOnly: true,
+      body: '관등제를 정비하고 등급별로 관복의 색깔을 정하였으며, 마한을 이끌던 목지국을 병합하여 한강 유역 대부분을 차지하였다.' },
+    { id: 'k-micheon', track: 'korea', year: 300, yearLabel: '300~331 CE', label: '미천왕', en: 'King Micheon',
+      state: '고구려', theme: '군사', kind: 'turning', sub: 0, focusOnly: true,
+      body: '낙랑군을 공격하여 한반도에서 몰아냈다(313).' },
+    { id: 'k-gogugwon', track: 'korea', year: 331, yearLabel: '331~371 CE', label: '고국원왕', en: 'King Gogugwon',
+      state: '고구려', theme: '군사', kind: 'turning', sub: 0, focusOnly: true,
+      body: '전연의 침입으로 국내성이 함락되었고, 백제 근초고왕의 평양성 공격으로 전사하였다(371).' },
+    { id: 'k-geunchogo', track: 'korea', year: 346, yearLabel: '346~375 CE', label: '근초고왕', en: 'King Geunchogo',
+      state: '백제', theme: '군사', kind: 'turning', sub: 1, focusOnly: true,
+      body: '마한의 남은 세력을 공격하고 가야에 영향력을 행사하였으며, 고구려의 평양성을 공격하여 고국원왕을 전사시켰다. 동진·왜와 교류하였다.' },
+    { id: 'k-naemul', track: 'korea', year: 356, yearLabel: '356~402 CE', label: '내물왕', en: 'King Naemul',
+      state: '신라', theme: '정치', kind: 'turning', focusOnly: true,
+      body: '김씨의 왕위 세습을 확립하고 왕의 칭호로 ‘마립간’을 사용하였다. 왜와 가야의 침입을 물리치려 광개토 대왕의 도움을 받았다.' },
+    { id: 'k-sosurim', track: 'korea', year: 371, yearLabel: '371~384 CE', label: '소수림왕', en: 'King Sosurim',
+      state: '고구려', theme: '정치', kind: 'turning', sub: 0, focusOnly: true,
+      body: '불교를 받아들이고 태학을 세웠으며, 율령을 반포하여 국가 체제를 정비하였다.' },
+    { id: 'k-chimnyu', track: 'korea', year: 384, yearLabel: '384~385 CE', label: '침류왕', en: 'King Chimnyu',
+      state: '백제', theme: '종교', kind: 'turning', sub: 1, focusOnly: true,
+      body: '동진에서 불교를 받아들였다.' },
+    { id: 'k-gwanggaeto', track: 'korea', year: 391, yearLabel: '391~412 CE', label: '광개토 대왕', en: 'King Gwanggaeto the Great',
+      state: '고구려', theme: '군사', kind: 'turning', sub: 0, focusOnly: true,
+      body: '백제를 공격하여 한강 이북을 점령하고 만주 대부분을 차지하였으며, 신라에 침입한 왜를 물리쳤다(400).' },
+    { id: 'k-jangsu', track: 'korea', year: 412, yearLabel: '412~491 CE', label: '장수왕', en: 'King Jangsu',
+      state: '고구려', theme: '군사', kind: 'turning', sub: 0, focusOnly: true,
+      body: '평양으로 수도를 옮기고(427) 남진 정책을 펼쳐 백제의 한성을 함락하고 한강 유역 전체를 차지하였다.' },
+    { id: 'k-gaero', track: 'korea', year: 455, yearLabel: '455~475 CE', label: '개로왕', en: 'King Gaero',
+      state: '백제', theme: '군사', kind: 'turning', sub: 1, focusOnly: true,
+      body: '북위에 고구려를 칠 군대를 요청하였으나 거절당하였고, 장수왕의 공격으로 한성이 함락될 때 사로잡혀 죽었다(475).' },
+    { id: 'k-gaya-late', track: 'korea', year: 470, yearLabel: '5세기 후반 CE', label: '후기 가야 연맹', en: 'Late Gaya Confederacy',
+      state: '가야', theme: '정치', kind: 'turning', sub: 3, focusOnly: true,
+      body: '금관가야가 약해진 뒤 고령의 대가야가 가야를 주도하는 세력으로 성장하였다. 대가야는 신라 진흥왕에게 정복되었다(562).' },
+    { id: 'k-munju', track: 'korea', year: 475, yearLabel: '475~477 CE', label: '문주왕', en: 'King Munju',
+      state: '백제', theme: '정치', kind: 'turning', sub: 1, focusOnly: true,
+      body: '고구려에 한성을 빼앗긴 뒤 웅진(공주)으로 수도를 옮겼다(475).' },
+    { id: 'k-jijeung', track: 'korea', year: 500, yearLabel: '500~514 CE', label: '지증왕', en: 'King Jijeung',
+      state: '신라', theme: '정치', kind: 'turning', focusOnly: true,
+      body: '나라 이름을 ‘신라’로 정하고 ‘국왕’ 칭호를 사용하였으며, 우산국을 복속시켰다(512).' },
+    { id: 'k-muryeong', track: 'korea', year: 501, yearLabel: '501~523 CE', label: '무령왕', en: 'King Muryeong',
+      state: '백제', theme: '정치', kind: 'turning', sub: 1, focusOnly: true,
+      body: '웅진으로 수도를 옮긴 뒤 무령왕을 거치면서 백제가 국력을 회복하였다.' },
+    { id: 'k-beopheung', track: 'korea', year: 514, yearLabel: '514~540 CE', label: '법흥왕', en: 'King Beopheung',
+      state: '신라', theme: '정치', kind: 'turning', focusOnly: true,
+      body: '율령을 반포하고 불교를 공인하여 중앙 집권 체제를 확립하였다. 독자적 연호 ‘건원’을 사용하고 금관가야를 병합하였다(532).' },
+    { id: 'k-seong', track: 'korea', year: 523, yearLabel: '523~554 CE', label: '성왕', en: 'King Seong',
+      state: '백제', theme: '정치', kind: 'turning', sub: 1, focusOnly: true,
+      body: '사비(부여)로 수도를 옮기고 신라와 연합하여 한강 하류 지역을 일시적으로 되찾았으나 신라에 다시 빼앗겼다. 신라와 싸우다 전사하였다(554).' },
+    { id: 'k-jinheung', track: 'korea', year: 540, yearLabel: '540~576 CE', label: '진흥왕', en: 'King Jinheung',
+      state: '신라', theme: '군사', kind: 'turning', focusOnly: true,
+      body: '화랑도를 국가적 조직으로 개편하고, 한강 상류와 하류 지역을 차지하였으며, 대가야를 정복하였다(562).' },
+    { id: 'k-goguryeo-sui', track: 'korea', year: 598, yearLabel: '598~614 CE', label: '고구려-수 전쟁', en: 'Goguryeo–Sui Wars',
+      state: '고구려', theme: '군사', kind: 'turning', sub: 0, focusOnly: true,
+      body: '중국을 통일한 수가 여러 차례 고구려를 공격하였으나 모두 물리쳤다. 612년 을지문덕이 살수에서 수의 대군을 크게 물리쳤다(살수 대첩).' },
+    { id: 'k-goguryeo-tang', track: 'korea', year: 645, label: '고구려-당 전쟁', en: 'Goguryeo–Tang War',
+      state: '고구려', theme: '군사', kind: 'turning', sub: 0, focusOnly: true,
+      body: '수를 이어 중국을 통일한 당이 여러 차례 고구려를 침입하였으나, 고구려는 안시성 전투(645) 등에서 당의 군대를 물리쳤다.' },
+    { id: 'k-baekje-fall', track: 'korea', year: 660, label: '백제 멸망', en: 'Fall of Baekje',
+      state: '백제', theme: '군사', kind: 'turning', sub: 1, focusOnly: true,
+      body: '나당 연합군이 지배층의 분열로 혼란한 백제를 공격하여 멸망시켰다(660).' },
+    { id: 'k-goguryeo-fall', track: 'korea', year: 668, label: '고구려 멸망', en: 'Fall of Goguryeo',
+      state: '고구려', theme: '군사', kind: 'turning', sub: 0, focusOnly: true,
+      body: '연개소문이 죽은 뒤 내분으로 혼란하던 고구려를 나당 연합군이 공격하여 멸망시켰다(668).' },
+    { id: 'k-nadang', track: 'korea', year: 670, yearLabel: '670~676 CE', label: '나당 전쟁', en: 'Silla–Tang War',
+      state: '신라', theme: '군사', kind: 'turning', focusOnly: true,
+      body: '한반도 전체를 장악하려는 당에 맞서 신라가 전쟁에 나서 매소성·기벌포 전투에서 이기고 당군을 몰아내어 삼국을 통일하였다(676).' },
+    { id: 'k-era-samguk', track: 'korea', year: 300, yearLabel: '57 BCE~676 CE', label: '삼국 시대', en: 'Three Kingdoms Period',
+      state: '삼국', theme: '정치', kind: 'event', hidden: true,
+      body: '고구려·백제·신라가 가야와 함께 성장하여 중앙 집권적 고대 국가로 발전하고, 한강 유역을 두고 경쟁한 시대. 신라가 나당 전쟁에서 이겨 삼국을 통일하면서(676) 끝났다.' },
     { id: 'k-unify', track: 'korea', year: 676, label: '통일신라', en: 'Unified Silla',
       state: '통일신라', theme: '정치', kind: 'turning',
       body: '문무왕이 매소성·기벌포 전투에서 당군을 축출하고 대동강 이남을 통일. 통일신라 시대 개막. 주요 사건: 신라 멸망(935).' },
@@ -8899,6 +8984,494 @@ window.TIMELINE_DB = {
     sources: [],
     artifacts: [],
     linked: ['k-silla', 'k-baekje', 'k-samhan']
+  },
+  'k-era-samguk': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '삼국 시대 — 삼국 시대 초기에는 여러 부가 연합하여 국가를 이루었고, 고구려의 제가 회의 같은 회의 제도가 발달하였다. 삼국은 주변 지역을 정복하며 성장하는 과정에서 왕권이 강해졌고, 관등제와 신분제를 정비하였다. 또한 율령을 반포하여 왕을 중심으로 하는 지배 체제를 확립하고, 불교를 받아들여 왕권을 뒷받침하고 국가를 정신적으로 통합하려 하였다. 4세기에는 백제(근초고왕), 5세기에는 고구려(광개토 대왕·장수왕), 6세기에는 신라(진흥왕)가 차례로 한강 유역을 차지하며 성장하였다. 고구려는 수·당의 침략을 물리쳤으나, 나당 연합군에 백제(660)와 고구려(668)가 멸망하였고, 신라가 나당 전쟁에서 당군을 몰아내고 삼국을 통일하였다(676).',
+      terms: [
+        { label: '제가 회의', def: '고구려의 회의 제도. 각 부의 지배자인 ‘가’가 모여 나라의 중요한 일을 논의하여 결정하였다.' },
+        { label: '율령', def: '범죄를 처벌하는 법(율)과 행정에 관한 법(령). 왕의 이름으로 반포되면서 귀족은 왕의 지배를 받는 존재가 되었다.' },
+        { label: '관등제', def: '관리의 등급을 나누어 서열화한 제도.' },
+        { label: '한강 유역', def: '원래 백제의 수도가 있던 곳. 삼국이 치열하게 다투었으며 고구려, 신라가 차례로 차지하였다.' }
+      ],
+      timeline: [
+        { y: -57, label: '신라 건국' },
+        { y: -37, label: '고구려 건국' },
+        { y: -18, label: '백제 건국' },
+        { y: 427, label: '고구려, 평양 천도' },
+        { y: 554, label: '백제 성왕 전사' },
+        { y: 562, label: '대가야 정복' },
+        { y: 612, label: '살수 대첩' },
+        { y: 645, label: '안시성 전투' },
+        { y: 648, label: '나당 동맹' },
+        { y: 660, label: '백제 멸망' },
+        { y: 668, label: '고구려 멸망' },
+        { y: 676, label: '◆ 신라, 삼국 통일' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-silla', 'k-goguryeo', 'k-baekje', 'k-gaya', 'k-unify']
+  },
+  'k-taejo': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '태조왕 — 고구려는 국내성으로 수도를 옮기면서 주변 지역으로 세력을 넓혔다. 1세기 후반 태조왕은 옥저를 복속시키고 한 군현을 공격하면서 왕권을 강화하였다.',
+      terms: [
+        { label: '국내성', def: '고구려가 졸본에서 옮긴 수도.' },
+        { label: '옥저', def: '함경도 동해안 일대의 나라. 고구려의 간섭을 받다가 복속되었다.' }
+      ],
+      timeline: [
+        { y: 53, label: '◆ 태조왕 즉위' },
+        { y: 146, label: '태조왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-okjeo', 'k-era-samguk']
+  },
+  'k-gogukcheon': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '고국천왕 — 194년 고구려는 가난한 백성을 돕기 위해 진대법을 실시하였다. 매년 봄 3월부터 가을 7월까지 관청의 곡식을 집안 식구의 많고 적음에 따라 빌려주고 겨울 10월에 갚게 하였다. 삼국은 진대법 등의 정책으로 백성의 생활을 안정시키고 재정을 튼튼히 하려 하였다.',
+      terms: [
+        { label: '진대법', def: '고구려가 가난한 백성을 도우려고 실시한 제도. 봄에 곡식을 빌려주고 수확한 뒤 갚게 하였다.' }
+      ],
+      timeline: [
+        { y: 179, label: '고국천왕 즉위' },
+        { y: 194, label: '◆ 진대법 실시' },
+        { y: 197, label: '고국천왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-era-samguk']
+  },
+  'k-micheon': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '미천왕 — 4세기 초 고구려의 미천왕은 낙랑군을 공격하여 한반도에서 몰아냈다(313). 미천왕이 죽은 뒤 고국원왕 때 전연의 침입으로 국내성이 함락되어 미천왕의 시신과 왕후 등이 포로로 잡혀가기도 하였다.',
+      terms: [
+        { label: '낙랑군', def: '고조선을 멸망시킨 한이 옛 고조선 지역에 설치한 군현.' }
+      ],
+      timeline: [
+        { y: 300, label: '미천왕 즉위' },
+        { y: 313, label: '◆ 낙랑군 축출' },
+        { y: 331, label: '미천왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-gojoseon-fall', 'k-gogugwon']
+  },
+  'k-gogugwon': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '고국원왕 — 4세기 고구려는 중국의 전연, 백제 근초고왕의 공격을 잇따라 받으며 위기를 겪었다. 고국원왕 때 전연의 침입으로 국내성이 함락되어 미천왕의 시신과 왕후 등이 포로로 잡혀가기도 하였으며, 고국원왕은 백제 근초고왕이 평양성을 공격하였을 때 전사하였다.',
+      terms: [
+        { label: '전연', def: '4세기 고구려를 침입한 중국의 나라.' }
+      ],
+      timeline: [
+        { y: 331, label: '고국원왕 즉위' },
+        { y: 371, label: '◆ 백제의 평양성 공격, 고국원왕 전사' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-geunchogo', 'k-sosurim']
+  },
+  'k-sosurim': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '소수림왕 — 위기 속에서 고구려는 4세기 후반 소수림왕 때 중앙 집권 체제를 정비하였다. 소수림왕은 불교를 받아들였으며, 태학을 세워 인재를 키웠다. 그리고 율령을 반포하여 국가 체제를 정비하였다. 이를 바탕으로 광개토 대왕 때 영토를 크게 넓혔다.',
+      terms: [
+        { label: '태학', def: '소수림왕이 세운 교육 기관. 인재를 키웠다.' },
+        { label: '율령', def: '범죄를 처벌하는 법(율)과 행정에 관한 법(령).' }
+      ],
+      timeline: [
+        { y: 371, label: '◆ 소수림왕 즉위' },
+        { y: 384, label: '소수림왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-gogugwon', 'k-gwanggaeto']
+  },
+  'k-gwanggaeto': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '광개토 대왕 — 고구려는 소수림왕의 체제 정비를 바탕으로 4세기 말 광개토 대왕 때 영토를 크게 넓혔다. 광개토 대왕은 백제를 공격하여 한강 이북 지역을 점령하였으며, 북쪽으로는 만주 지역 대부분을 차지하였다. 또한 군대를 보내 신라에 침입한 왜를 물리쳤다(400). 이때 고구려의 공격으로 금관가야의 세력이 약해졌다.',
+      terms: [
+        { label: '광개토 대왕릉비', def: '광개토 대왕의 업적을 새긴 비석(중국 지린).' },
+        { label: '호우명 그릇', def: '경주 호우총에서 출토된 ‘광개토 대왕’ 명 청동 그릇. 고구려와 신라의 관계를 보여 준다.' }
+      ],
+      timeline: [
+        { y: 391, label: '◆ 광개토 대왕 즉위' },
+        { y: 400, label: '신라 구원, 왜 격퇴' },
+        { y: 412, label: '광개토 대왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-sosurim', 'k-jangsu', 'k-gaya-early']
+  },
+  'k-jangsu': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '장수왕 — 광개토 대왕의 뒤를 이은 장수왕은 평양으로 수도를 옮기고(427) 남진 정책을 펼쳤다. 백제와 신라는 고구려에 맞서 나제 동맹을 맺었지만, 장수왕은 백제의 수도인 한성을 함락하고 한강 유역 전체를 차지하였다. 이때 백제의 개로왕은 사로잡혀 죽었다. 이 시기 고구려는 동북아시아의 강대국으로 성장하였다.',
+      terms: [
+        { label: '남진 정책', def: '남쪽으로 진출하려는 정책.' },
+        { label: '나제 동맹', def: '고구려의 남진에 맞서 백제와 신라가 맺은 동맹.' },
+        { label: '충주 고구려비', def: '고구려의 남쪽 진출을 보여 주는 비석(충북).' }
+      ],
+      timeline: [
+        { y: 412, label: '장수왕 즉위' },
+        { y: 427, label: '◆ 평양 천도' },
+        { y: 475, label: '백제 한성 함락' },
+        { y: 491, label: '장수왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-gwanggaeto', 'k-gaero']
+  },
+  'k-goguryeo-sui': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '고구려-수 전쟁 — 6세기 후반 분열되었던 중국이 통일되면서 동아시아 정세에 큰 변화가 나타났다. 중국을 통일한 수는 고구려를 압박하여 복속시키려 하였고, 고구려가 반발하자 여러 차례 고구려를 공격하였다. 고구려는 수의 공격을 모두 물리쳤으며, 특히 612년에는 을지문덕이 수의 대군을 살수(청천강) 일대에서 크게 물리쳤다(살수 대첩).',
+      terms: [
+        { label: '살수 대첩', def: '612년 고구려의 을지문덕이 수의 대군을 살수(청천강)에서 크게 격파한 싸움.' }
+      ],
+      timeline: [
+        { y: 598, label: '◆ 수의 고구려 침입' },
+        { y: 612, label: '살수 대첩' },
+        { y: 614, label: '수, 고구려에서 철수' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-goguryeo-tang']
+  },
+  'k-goguryeo-tang': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '고구려-당 전쟁 — 수를 이어 중국을 통일한 당도 여러 차례 고구려를 침입하였다. 고구려는 안시성 전투(645) 등에서 당의 군대를 물리치면서 당의 침입을 막아 냈다. 이후 신라는 김춘추를 당에 보내 나당 동맹을 맺었다(648).',
+      terms: [
+        { label: '안시성 전투', def: '645년 고구려가 안시성에서 당의 군대를 물리친 싸움.' },
+        { label: '천리장성', def: '고구려가 당의 침입에 대비하여 쌓은 장성(위치에 대해서는 여러 의견이 있다).' }
+      ],
+      timeline: [
+        { y: 645, label: '◆ 안시성 전투' },
+        { y: 648, label: '나당 동맹' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-goguryeo-sui', 'k-goguryeo-fall']
+  },
+  'k-goguryeo-fall': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '고구려 멸망 — 나당 연합군은 백제를 멸망시킨(660) 뒤, 연개소문이 죽고 내분으로 혼란하던 고구려도 공격하여 멸망시켰다(668). 이후 고구려를 다시 세우려는 움직임(안승·검모잠 등)이 있었으나 성공하지 못하였다. 당은 고구려의 옛 땅에 안동 도호부를 설치하였다.',
+      terms: [
+        { label: '안동 도호부', def: '고구려 멸망 뒤 당이 옛 고구려 땅에 설치한 기구.' },
+        { label: '고구려 부흥 운동', def: '안승·검모잠 등이 고구려를 다시 세우려 한 움직임.' }
+      ],
+      timeline: [
+        { y: 660, label: '백제 멸망' },
+        { y: 668, label: '◆ 고구려 멸망' },
+        { y: 670, label: '신라·고구려 부흥군, 당 공격' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-goguryeo', 'k-baekje-fall', 'k-nadang']
+  },
+  'k-goi': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '고이왕 — 마한의 한 소국이었던 백제는 한강 유역을 발판으로 빠르게 성장하였다. 3세기 고이왕 때는 관등제를 정비하고 등급별로 관복의 색깔을 정하여 관리의 서열을 명확히 하는 등 지배 체제를 정비하였다. 그리고 마한을 이끌던 목지국을 병합하여 한강 유역 대부분을 차지하였다.',
+      terms: [
+        { label: '관등제', def: '관리의 등급을 나누어 서열화한 제도.' },
+        { label: '목지국', def: '마한을 이끌던 소국.' }
+      ],
+      timeline: [
+        { y: 234, label: '◆ 고이왕 즉위' },
+        { y: 286, label: '고이왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-samhan', 'k-era-samguk']
+  },
+  'k-geunchogo': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '근초고왕 — 4세기 후반 백제의 근초고왕은 남쪽으로 마한의 남은 세력을 공격하였으며, 가야에도 영향력을 행사하였다. 북쪽으로는 고구려의 평양성을 공격하여 고국원왕을 전사시키고 황해도 일대를 차지하였다. 또한 중국의 동진, 왜와 우호 관계를 맺고 교류하였다. 이로써 백제가 삼국 항쟁의 주도권을 잡았다.',
+      terms: [
+        { label: '칠지도', def: '백제와 왜의 활발한 교류를 보여 주는 칼(일본 나라).' },
+        { label: '동진', def: '근초고왕 때 백제가 우호 관계를 맺은 중국의 나라.' }
+      ],
+      timeline: [
+        { y: 346, label: '근초고왕 즉위' },
+        { y: 371, label: '◆ 평양성 공격' },
+        { y: 375, label: '근초고왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-gogugwon', 'k-chimnyu']
+  },
+  'k-chimnyu': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '침류왕 — 4세기 말 백제의 침류왕 때 동진에서 불교를 받아들였다. 삼국은 불교를 받아들여 왕권을 뒷받침하고 국가를 정신적으로 통합하려고 하였다.',
+      terms: [
+        { label: '불교 수용', def: '삼국은 불교를 받아들여 왕권을 뒷받침하고 국가를 정신적으로 통합하려 하였다.' }
+      ],
+      timeline: [
+        { y: 384, label: '◆ 침류왕 즉위, 불교 수용' },
+        { y: 385, label: '침류왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-geunchogo', 'k-sosurim']
+  },
+  'k-gaero': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '개로왕 — 백제는 개로왕 때 북위에 고구려를 칠 군대를 요청하였으나 북위가 거절하였다. 이후 고구려 장수왕의 공격으로 백제의 수도 한성이 함락되고, 개로왕은 사로잡혀 죽었다(475). 이후 백제는 웅진으로 수도를 옮겼다.',
+      terms: [
+        { label: '한성', def: '한강 유역에 있던 백제의 수도.' }
+      ],
+      timeline: [
+        { y: 455, label: '개로왕 즉위' },
+        { y: 475, label: '◆ 한성 함락, 개로왕 전사' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-jangsu', 'k-munju']
+  },
+  'k-munju': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '문주왕 — 백제는 고구려에 한성을 빼앗긴 뒤 문주왕 때 웅진(공주)으로 수도를 옮겼다(475). 문주왕 때 탐라가 사신을 보내 공물을 바쳤다.',
+      terms: [
+        { label: '웅진', def: '한성을 빼앗긴 뒤 옮긴 백제의 수도. 지금의 공주.' }
+      ],
+      timeline: [
+        { y: 475, label: '◆ 문주왕 즉위, 웅진 천도' },
+        { y: 477, label: '문주왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-gaero', 'k-muryeong']
+  },
+  'k-muryeong': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '무령왕 — 백제는 고구려에 한성을 빼앗긴 뒤 웅진(공주)으로 수도를 옮겼다. 이후 무령왕을 거치면서 국력을 회복하였고, 이를 바탕으로 6세기 중엽 성왕 때 사비(부여)로 수도를 옮겼다.',
+      terms: [
+        { label: '웅진', def: '한성을 빼앗긴 뒤 옮긴 백제의 수도. 지금의 공주.' }
+      ],
+      timeline: [
+        { y: 501, label: '◆ 무령왕 즉위' },
+        { y: 523, label: '무령왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-munju', 'k-seong']
+  },
+  'k-seong': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '성왕 — 국력을 회복한 백제는 6세기 중엽 성왕 때 사비(부여)로 수도를 옮겼다. 그리고 신라와 연합하여 한강 하류 지역을 일시적으로 되찾았으나, 신라에 다시 빼앗겼다. 성왕은 관산성에서 신라와 싸우다 전사하였다(554).',
+      terms: [
+        { label: '사비', def: '성왕이 옮긴 백제의 수도. 지금의 부여.' },
+        { label: '관산성', def: '554년 백제 성왕이 전사한 곳.' }
+      ],
+      timeline: [
+        { y: 523, label: '성왕 즉위' },
+        { y: 554, label: '◆ 성왕 전사' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-muryeong', 'k-jinheung']
+  },
+  'k-baekje-fall': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '백제 멸망 — 고구려가 수·당과 전쟁을 벌이는 동안 백제는 여러 차례 신라를 공격하였다. 위기를 맞은 신라는 김춘추를 당에 보내 나당 동맹을 맺었다(648). 나당 연합군은 지배층의 분열로 혼란한 백제를 공격하여 멸망시켰다(660). 이후 백제를 다시 세우려는 움직임(복신·도침·부여풍·흑치상지 등)이 있었으나 성공하지 못하였고, 당은 백제의 옛 땅에 웅진 도독부를 설치하였다.',
+      terms: [
+        { label: '나당 동맹', def: '648년 신라의 김춘추가 당 태종을 만나 맺은 동맹.' },
+        { label: '백강 전투', def: '663년 백제 부흥군과 왜의 지원군이 나당 연합군과 싸워 패배한 전투.' },
+        { label: '웅진 도독부', def: '백제 멸망 뒤 당이 옛 백제 땅에 설치한 기구.' }
+      ],
+      timeline: [
+        { y: 648, label: '나당 동맹' },
+        { y: 660, label: '◆ 백제 멸망' },
+        { y: 663, label: '백강 전투' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-baekje', 'k-goguryeo-fall', 'k-nadang']
+  },
+  'k-naemul': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '내물왕 — 초기 신라에서는 박·석·김씨가 돌아가며 왕위에 올랐다. 4세기 말 내물왕은 왕권을 강화하여 김씨의 왕위 세습을 확립하고, 왕의 칭호로 ‘마립간’을 사용하였다. 그러나 왜와 가야의 침입을 물리치기 위해 고구려 광개토 대왕의 도움을 받으면서, 고구려의 간섭을 받게 되었다.',
+      terms: [
+        { label: '마립간', def: '‘대군장’이라는 뜻의 신라 왕호. 내물왕부터 사용하였다.' }
+      ],
+      timeline: [
+        { y: 356, label: '◆ 내물왕 즉위' },
+        { y: 400, label: '고구려군, 신라에 침입한 왜 격퇴' },
+        { y: 402, label: '내물왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-silla', 'k-gwanggaeto', 'k-era-samguk']
+  },
+  'k-jijeung': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '지증왕 — 신라는 6세기에 중앙 집권 체제를 정비하고 영토를 크게 넓혔다. 지증왕은 나라 이름을 ‘신라’로 정하고 ‘국왕’ 칭호를 사용하였으며, 이사부를 보내 우산국을 복속시켰다(512).',
+      terms: [
+        { label: '우산국', def: '512년 이사부가 복속시킨 나라.' }
+      ],
+      timeline: [
+        { y: 500, label: '◆ 지증왕 즉위' },
+        { y: 512, label: '우산국 복속' },
+        { y: 514, label: '지증왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-silla', 'k-naemul', 'k-beopheung']
+  },
+  'k-beopheung': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '법흥왕 — 법흥왕은 율령을 반포하고 불교를 공인하여 중앙 집권 체제를 확립하였다. 또한 독자적 연호인 ‘건원’을 사용하고 금관가야를 병합하였다(532). 다른 나라의 연호를 쓰지 않고 독자적 연호를 사용한 것은 자주성을 표현한 것이다.',
+      terms: [
+        { label: '연호', def: '군주가 자신이 다스리는 시기를 나타내려고 붙이는 명칭. 독자적 연호는 자주성을 표현한다.' },
+        { label: '건원', def: '법흥왕이 사용한 신라의 독자적 연호.' }
+      ],
+      timeline: [
+        { y: 514, label: '법흥왕 즉위' },
+        { y: 532, label: '◆ 금관가야 병합' },
+        { y: 540, label: '법흥왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-silla', 'k-jijeung', 'k-jinheung', 'k-gaya-early']
+  },
+  'k-jinheung': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '진흥왕 — 진흥왕은 청소년 수련 단체인 화랑도를 국가적 조직으로 개편하여 인재를 키웠다. 그리고 백제와 연합하여 한강 상류 지역을 점령하였으며, 이후 백제를 공격해 한강 하류 지역도 차지하였다. 또한 대가야를 정복하고(562) 한때 함흥평야까지 진출하였다. 단양 신라 적성비와 진흥왕 순수비가 이 시기 신라의 영토 확장을 보여 준다.',
+      terms: [
+        { label: '화랑도', def: '청소년 수련 단체. 진흥왕이 국가적 조직으로 개편하였다.' },
+        { label: '진흥왕 순수비', def: '진흥왕 때 세워진 비석(서울 북한산·황초령·마운령). 창녕 척경비, 단양 신라 적성비와 함께 신라의 영토 확장을 보여 준다.' }
+      ],
+      timeline: [
+        { y: 540, label: '진흥왕 즉위' },
+        { y: 554, label: '관산성에서 백제 성왕 전사' },
+        { y: 562, label: '◆ 대가야 정복' },
+        { y: 576, label: '진흥왕 재위 끝' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-silla', 'k-beopheung', 'k-seong', 'k-gaya-late']
+  },
+  'k-nadang': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '나당 전쟁 — 백제와 고구려가 멸망한 뒤 당은 옛 땅에 웅진 도독부와 안동 도호부를 설치하고, 신라에도 계림 대도독부를 두어 한반도 전체를 장악하려 하였다. 이에 신라는 당과의 전쟁에 나섰다. 고구려 유민과 힘을 합쳐 요동을 공격하였으며(670), 이후 매소성 전투(675)와 기벌포 전투(676)에서 큰 승리를 거두었다. 이로써 신라는 당군을 몰아내고 삼국을 통일하였다(676).',
+      terms: [
+        { label: '계림 대도독부', def: '당이 신라에 두려 한 기구. 한반도 전체를 장악하려는 의도였다.' },
+        { label: '매소성 전투', def: '675년 신라가 당군에 크게 이긴 싸움.' },
+        { label: '기벌포 전투', def: '676년 신라가 당군에 이긴 싸움.' }
+      ],
+      timeline: [
+        { y: 670, label: '◆ 신라·고구려 부흥군, 당 공격' },
+        { y: 675, label: '매소성 전투' },
+        { y: 676, label: '기벌포 전투, 삼국 통일' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-silla', 'k-unify', 'k-goguryeo-fall', 'k-baekje-fall']
+  },
+  'k-gaya-early': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '전기 가야 연맹 — 낙동강 하류의 변한 지역에서는 여러 소국이 가야 연맹을 이루어 성장하였다. 초기에는 김해의 금관가야가 가야 연맹을 이끌었다. 금관가야는 질 좋은 철을 생산·수출하면서 주변 지역과 활발히 교류하였고, 백제·신라와 경쟁하면서 성장하였다. 그러나 광개토 대왕 때 고구려의 공격으로 금관가야의 세력이 약해졌다.',
+      terms: [
+        { label: '금관가야', def: '김해의 가야. 전기 가야 연맹을 이끌었다.' },
+        { label: '변한', def: '낙동강 하류 지역의 삼한. 가야 연맹의 바탕이 되었다.' }
+      ],
+      timeline: [
+        { y: 200, label: '◆ 금관가야 중심의 가야 연맹' },
+        { y: 400, label: '고구려의 공격으로 금관가야 약화' },
+        { y: 532, label: '금관가야, 신라에 병합' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-gaya', 'k-gaya-late', 'k-gwanggaeto']
+  },
+  'k-gaya-late': {
+    notes: { sections: [] },
+    fileRef: '동아출판 한국사1',
+    overview: {
+      summary: '후기 가야 연맹 — 고구려의 공격으로 금관가야의 세력이 약해지면서 5세기 후반에는 고령의 대가야가 가야를 주도하는 세력으로 성장하였다. 가야는 중앙 집권 국가로 발전하지 못하였고, 대가야는 신라 진흥왕에게 정복되었다(562).',
+      terms: [
+        { label: '대가야', def: '고령의 가야. 후기 가야 연맹을 이끌었다.' }
+      ],
+      timeline: [
+        { y: 470, label: '◆ 대가야 중심의 가야 연맹' },
+        { y: 562, label: '대가야 멸망' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['k-gaya', 'k-gaya-early', 'k-jinheung']
   },
   'k-unify': {
     notes: { sections: [] },
