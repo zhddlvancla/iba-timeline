@@ -38,7 +38,8 @@
  * TIMELINE_DB 스키마 — 키는 노드 id
  * ----------------------------------------------------------------------------
  *   syncRatio : 0~1                                    (구 헤더 게이지 — 지금은 쓰지 않는다. 헤더는 「기록 두께」)
- *   annex     : [{ id?, type, author_code, year, reply_to?, body }]   부속 자료 (ANNEX 탭 · DENDRO P3-4)
+ *   annex     : [{ id?, type, author_code, year, reply_to?, body }]   부속 자료 (기록 열람 머리의 「부속 자료 열람」 버튼 → 가운데 창 · DENDRO P3-4)
+ *   research  : [{ 같은 모양 }]   연구원 기록 (RESEARCH 탭 — 연결 탭 오른쪽)
  *               type = 주해 | 증언 | 분기 | 복원 | 결손 신고 · author_code 예 RS-26-20301-SIT
  *               reply_to = 반박 대상 항목의 id(또는 배열 순번) — 대상 오른쪽 아래로 한 단 들여 표시
  *               화면 입력은 없다. 여기에 추가한다. 건수가 「기록 두께」 게이지에 반영된다

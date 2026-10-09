@@ -2088,6 +2088,29 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 }
 .sync-head__dot{color:var(--amber-dim)}
 .sync-head__right{display:flex;align-items:flex-start;gap:14px}
+/* 부속 자료 열람 버튼 — 기록 두께 상자와 같은 높이·결로 나란히 */
+.sync-annexbtn{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:150px;padding:8px 14px;cursor:pointer;
+  border:1.5px dashed var(--amber-line);background:transparent;color:var(--amber);text-align:left;transition:all .15s ease}
+.sync-annexbtn:hover,.sync-annexbtn:focus-visible{border-style:solid;border-color:var(--amber);background:rgba(47,174,94,.10);box-shadow:0 0 14px var(--amber-glow);outline:none}
+.sync-annexbtn__k{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--amber-dim);white-space:nowrap}
+.sync-annexbtn__v{display:flex;align-items:center;gap:8px;font-family:var(--font-ko);font-size:22px;line-height:1.2;color:var(--amber-2);text-shadow:0 0 8px var(--amber-glow)}
+.sync-annexbtn__v svg{width:18px;height:18px}
+.sync-annexbtn__n{font-family:var(--font-ko);font-size:12px;color:var(--amber-dim);white-space:nowrap}
+/* 부속 자료 열람 창 — 기록 열람 창 위에 떠 있는 가운데 창 */
+.annexmodal{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:rgba(2,6,4,.62);backdrop-filter:blur(2px);animation:annexmodal-in .25s ease both}
+.annexmodal__box{position:relative;width:min(760px,92%);max-height:min(640px,82%);display:flex;flex-direction:column;
+  background:var(--panel);border:2px solid var(--amber);box-shadow:0 0 0 6px var(--bg),0 0 50px rgba(47,174,94,.28)}
+.annexmodal__head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 22px 14px;border-bottom:1px dashed var(--amber-line)}
+.annexmodal__k{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--amber)}
+.annexmodal__t{margin-top:6px;font-family:var(--font-ko);font-size:26px;color:var(--amber-2);text-shadow:0 0 10px var(--amber-glow)}
+.annexmodal__sub{margin-top:4px;font-family:var(--font-ko);font-size:13px;color:var(--amber-dim)}
+.annexmodal__body{flex:1;min-height:0;overflow:auto;padding:4px 6px}
+.annexmodal__foot{display:flex;justify-content:space-between;gap:12px;padding:10px 22px;border-top:1px dashed var(--amber-line);
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--amber-dim)}
+@keyframes annexmodal-in{from{opacity:0}to{opacity:1}}
+.annexmodal__box{animation:annexmodal-box .3s ease both}
+@keyframes annexmodal-box{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
 .sync-head__ratio{
   border:1.5px solid var(--amber);
   padding:8px 14px;min-width:170px;
@@ -2724,20 +2747,18 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 [style*="--red-300"], [style*="--red-500"]{color:var(--red) !important}
 
 /* ============================================================
-   NOTICE — 첫 안내문 (세계관 밖). 연출 효과 없이 읽기 쉽게
+   NOTICE — 첫 안내문 (세계관 밖). 칸 없이 바탕 가운데 글씨만 — 나타났다가 사라진다
    ============================================================ */
 .notice-view{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:24px 16px;
-  background:var(--bg);overflow:auto}
-.notice-card{width:min(620px,100%);padding:30px 34px 28px;border:1.5px solid var(--amber-line);background:var(--panel-2);
-  box-shadow:0 0 24px rgba(47,174,94,.10);font-family:var(--font-ko);color:var(--amber-2)}
-.notice-card__k{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;color:var(--amber-dim)}
-.notice-card__t{margin:12px 0 18px;font-size:22px;line-height:1.45;font-weight:600;color:var(--amber-2);word-break:keep-all}
-.notice-card__list{margin:0 0 24px;padding-left:20px;display:flex;flex-direction:column;gap:9px;
-  font-size:16px;line-height:1.65;color:var(--amber);word-break:keep-all}
-.notice-card__ok{display:block;margin-left:auto;padding:11px 26px;cursor:pointer;
-  border:1.5px solid var(--amber);background:rgba(47,174,94,.12);color:var(--amber-2);
-  font-family:var(--font-ko);font-size:15px;letter-spacing:.12em;transition:all .15s ease}
-.notice-card__ok:hover,.notice-card__ok:focus-visible{background:rgba(47,174,94,.22);box-shadow:0 0 14px var(--amber-glow);outline:none}
+  background:var(--bg);cursor:default}
+.notice-text{max-width:min(900px,100%);text-align:center;font-family:var(--font-ko);color:var(--amber);
+  font-size:16px;line-height:1.8;word-break:keep-all;opacity:0;transition:opacity 1.1s ease}
+.notice-text p{margin:0 0 6px}
+.notice-text__t{font-size:22px !important;color:var(--amber-2);margin-bottom:18px !important;text-shadow:0 0 10px var(--amber-glow)}
+.notice-view.is-in .notice-text{animation:notice-in 1.2s ease forwards}
+.notice-view.is-hold .notice-text{opacity:1}
+.notice-view.is-out .notice-text{opacity:0}
+@keyframes notice-in{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:none}}
 
 /* ============================================================
    PORTAL VIEW — 대외 포털 (대외판 인장 + 포털 우회 로그인)
@@ -18445,13 +18466,17 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
     return () => clearTimeout(t);
   }, [event && event.id]);
 
-  // 부속 자료 탭을 열면 — V-RD-010 / 등재 없음 V-RD-011
-  useEffectSync(() => {
-    if (!event || tab !== 'annex') return;
+  // 부속 자료 열람 창 — 머리의 「부속 자료 열람」 버튼으로 연다. 열면 V-RD-010 / 등재 없음 V-RD-011
+  const [annexOpen, setAnnexOpen] = useStateSync(false);
+  useEffectSync(() => { setAnnexOpen(false); }, [event && event.id]);
+  const openAnnex = () => {
     const d = window.TIMELINE_DB && window.TIMELINE_DB[event.id];
-    if (!d || d.docMode) return;
-    window.VESTIGIA.say(Array.isArray(d.annex) && d.annex.length ? 'V-RD-010' : 'V-RD-011');
-  }, [tab, event && event.id]);
+    if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('open');
+    window.VESTIGIA.say(d && Array.isArray(d.annex) && d.annex.length ? 'V-RD-010' : 'V-RD-011');
+    setAnnexOpen(true);
+  };
+  const closeAnnex = () => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setAnnexOpen(false); };
+  window.useEscLayer(!!event && annexOpen, closeAnnex);
 
   // ESC + backdrop close
   window.useEscLayer(!!event, onClose);   /* 소리는 onClose(closeSync)가 담당 */
@@ -18502,7 +18527,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
     { id: 'sources',   label: 'INQUIRY',    ko: '탐구',   icon: <SyncIcon.Doc/> },
     { id: 'linked',    label: 'LINKED',     ko: '연결',   icon: <SyncIcon.Link/> },
     // 연구원 기록 — 부속 자료(주해·증언·분기·복원) 보기. 2026-10-09 이름을 바꾸고 연결 옆으로 옮김
-    { id: 'annex',     label: 'RESEARCH',   ko: '연구원 기록', icon: <SyncIcon.Doc/> },
+    { id: 'research',  label: 'RESEARCH',   ko: '연구원 기록', icon: <SyncIcon.Doc/> },
   ];
 
   const yearStr = window.eventYearText(event);
@@ -18548,6 +18573,14 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
             </div>
           </div>
           <div className="sync-head__right">
+            {/* 부속 자료 열람 — 확정 기록 옆에 등재된 주해·증언·분기 기록·복원. 누르면 가운데에 따로 창이 뜬다 */}
+            {db && !docMode && (
+              <button className="sync-annexbtn" onClick={openAnnex} title="부속 자료 열람 — 주해·증언·분기 기록·복원">
+                <span className="sync-annexbtn__k">ANNEX · 부속 자료</span>
+                <span className="sync-annexbtn__v"><SyncIcon.Doc/><span>열람</span></span>
+                <span className="sync-annexbtn__n">등재 {thick.annexN}건</span>
+              </button>
+            )}
             {/* 기록 두께 — 부속 자료·출처가 쌓일수록 찬다 (얇음 · 보통 · 두꺼움) */}
             <div className="sync-head__ratio" title={`기록 두께 · 부속 자료 ${thick.annexN}건 · 출처 ${thick.srcN}건`}>
               <div className="sync-head__ratio-k">기록 두께</div>
@@ -18589,7 +18622,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
         <div className={`sync-body ${docMode ? 'sync-body--doc' : ''}`}>
           {!db && <NoDataView event={event}/>}
           {docMode && <DocView tab={tab} db={db} event={event} redactOn={redactOn} restored={restored} onRestore={restore}/>}
-          {db && !docMode && tab === 'annex'     && <AnnexTab     db={db}/>}
+          {db && !docMode && tab === 'research'  && <ResearchTab  db={db}/>}
           {db && !docMode && tab === 'notes'     && <NotesTab     db={db} event={event}/>}
           {db && !docMode && tab === 'overview'  && <OverviewTab  db={db} event={event}/>}
           {db && !docMode && tab === 'sources'   && <SourcesTab   db={db}/>}
@@ -18605,6 +18638,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
           <span className="sync-foot__r">{phase === 'boot' ? 'BOOTING…' : 'READY'} · ESC TO RELEASE</span>
         </footer>
       </div>
+      {annexOpen && db && <AnnexModal event={event} db={db} onClose={closeAnnex}/>}
     </div>
   );
 }
@@ -18627,21 +18661,21 @@ function NoDataView({ event }) {
 }
 
 // =================================================
-// TAB: ANNEX — 부속 자료 (DENDRO P3-4)
-//   db.annex = [{ id?, type: '주해'|'증언'|'분기'|'복원'|'결손 신고', author_code, year, reply_to?, body }]
+// 등재 목록 — 부속 자료(annex)와 연구원 기록(research)이 같은 모양을 쓴다 (DENDRO P3-4)
+//   [{ id?, type: '주해'|'증언'|'분기'|'복원'|'결손 신고', author_code, year, reply_to?, body }]
 //   화면 입력 없음 — 데이터(JSON)에 추가한다. 반박(reply_to)은 대상 항목 오른쪽 아래로 한 단 들여 벽 주해처럼 계단식으로.
 //   reply_to 는 대상 항목의 id 또는 배열 순번.
 // =================================================
-function AnnexTab({ db }) {
-  const list = Array.isArray(db.annex) ? db.annex : [];
+function EntryList({ list, hint, empty, emptyHint, cls }) {
+  list = Array.isArray(list) ? list : [];
   if (!list.length) {
     return (
-      <div className="sync-pane sync-pane--annex">
-        <div className="sync-pane__hint">// RESEARCH · 연구원 기록</div>
+      <div className={`sync-pane ${cls || ''}`}>
+        <div className="sync-pane__hint">{hint}</div>
         <div className="sync-empty" style={{padding:'40px 24px'}}>
           <div className="sync-empty__icon">◇</div>
-          <div className="sync-empty__body">등재된 연구원 기록이 없습니다.</div>
-          <div className="sync-empty__hint">// VESTIGIA V-RD-011</div>
+          <div className="sync-empty__body">{empty}</div>
+          {emptyHint && <div className="sync-empty__hint">{emptyHint}</div>}
         </div>
       </div>
     );
@@ -18659,8 +18693,8 @@ function AnnexTab({ db }) {
   // 대상이 없는 반박도 빠뜨리지 않는다
   list.forEach((a, i) => { const k = keyOf(a, i); if (!rows.some(r => r.k === k)) rows.push({ a, k, depth: 1 }); });
   return (
-    <div className="sync-pane sync-pane--annex">
-      <div className="sync-pane__hint">// RESEARCH · 연구원 기록 · {list.length}건</div>
+    <div className={`sync-pane ${cls || ''}`}>
+      <div className="sync-pane__hint">{hint} · {list.length}건</div>
       <ol className="annex-list">
         {rows.map(({ a, k, depth }) => (
           <li key={k} className={`annex-item annex-item--${depth ? 'reply' : 'root'}`} style={{ marginLeft: `${Math.min(depth, 6) * 34}px` }}>
@@ -18674,6 +18708,39 @@ function AnnexTab({ db }) {
           </li>
         ))}
       </ol>
+    </div>
+  );
+}
+
+/* 연구원 기록 탭 — db.research (부속 자료와 별개). 비어 있으면 빈 화면 */
+function ResearchTab({ db }) {
+  return <EntryList list={db.research} cls="sync-pane--annex" hint="// RESEARCH · 연구원 기록" empty="등재된 연구원 기록이 없습니다."/>;
+}
+
+/* 부속 자료 열람 창 — 기록 열람 창 위 가운데에 떠 있는 창. db.annex */
+function AnnexModal({ event, db, onClose }) {
+  const n = Array.isArray(db.annex) ? db.annex.length : 0;
+  return (
+    <div className="annexmodal" onClick={(e) => { e.stopPropagation(); onClose(); }}>
+      <div className="annexmodal__box" role="dialog" aria-modal="true" aria-label="부속 자료 열람" onClick={(e) => e.stopPropagation()}>
+        <span className="sync-corner sync-corner--tl"/><span className="sync-corner sync-corner--tr"/>
+        <span className="sync-corner sync-corner--bl"/><span className="sync-corner sync-corner--br"/>
+        <header className="annexmodal__head">
+          <div>
+            <div className="annexmodal__k">▸ 부속 자료 열람 · ANNEX // {window.eventCallNo(event)}</div>
+            <div className="annexmodal__t">{event.label}</div>
+            <div className="annexmodal__sub">주해 · 증언 · 분기 기록 · 복원 · 등재 {n}건</div>
+          </div>
+          <button className="sync-close" onClick={onClose} aria-label="닫기"><SyncIcon.Close/></button>
+        </header>
+        <div className="annexmodal__body">
+          <EntryList list={db.annex} cls="sync-pane--annex" hint="// ANNEX · 부속 자료" empty="등재된 부속 자료가 없습니다." emptyHint="// VESTIGIA V-RD-011"/>
+        </div>
+        <footer className="annexmodal__foot">
+          <span>// 확정 기록 옆에 등재된 사본 · 본문은 고치지 않는다</span>
+          <span>ESC · 닫기</span>
+        </footer>
+      </div>
     </div>
   );
 }
@@ -19502,27 +19569,37 @@ const IbaSealBF = window.IbaSeal;
    확인 클릭이 브라우저의 첫 사용자 조작이 되어 이후 효과음이 바로 난다.
    ==================================================================== */
 function Notice({ onOk }) {
-  const go = useCallbackApp(() => {
+  /* 바탕 가운데 글씨가 서서히 나타났다 잠시 머문 뒤 사라지고 대외판 화면으로 넘어간다. 누르거나 키를 치면 바로 사라지기 시작 */
+  const [phase, setPhase] = useStateApp('in');   // in → hold → out
+  const doneRef = useRefApp(false);
+  const finish = useCallbackApp(() => {
+    if (doneRef.current) return;
+    doneRef.current = true;
     try { sessionStorage.setItem('iba.notice', '1'); } catch (e) {}
     onOk();
   }, [onOk]);
+  const leave = useCallbackApp(() => { setPhase(p => (p === 'out' ? p : 'out')); }, []);
   useEffectApp(() => {
-    const onKey = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+    const t1 = setTimeout(() => setPhase(p => (p === 'in' ? 'hold' : p)), 1200);
+    const t2 = setTimeout(leave, 6200);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [leave]);
+  useEffectApp(() => {
+    if (phase !== 'out') return;
+    const t = setTimeout(finish, 1100);
+    return () => clearTimeout(t);
+  }, [phase, finish]);
+  useEffectApp(() => {
+    const onKey = () => leave();
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [go]);
+  }, [leave]);
   return (
-    <div className="notice-view" role="dialog" aria-modal="true" aria-labelledby="notice-t">
-      <div className="notice-card">
-        <div className="notice-card__k">NOTICE · 안내</div>
-        <h1 className="notice-card__t" id="notice-t">이 웹사이트는 가상의 설정으로 만든 교육용 사이트입니다</h1>
-        <ul className="notice-card__list">
-          <li>역사 공부를 돕기 위해 꾸며 낸 세계관을 바탕으로 만들었습니다.</li>
-          <li>화면에 나오는 국제기록보존기구(IBA)와 그 부서·인물·코드·문서·안내 방송은 모두 지어낸 것이며, 실제 기관과 관계가 없습니다.</li>
-          <li>연표에 실린 사건·연도·설명은 실제 역사를 바탕으로 합니다.</li>
-          <li>효과음과 배경음이 나올 수 있습니다.</li>
-        </ul>
-        <button className="notice-card__ok" onClick={go} autoFocus>확인하고 시작하기</button>
+    <div className={`notice-view is-${phase}`} onClick={leave} aria-live="polite">
+      <div className="notice-text">
+        <p className="notice-text__t">이 웹사이트는 가상의 설정으로 만든 교육용 사이트입니다</p>
+        <p>국제기록보존기구(IBA)를 비롯해 화면에 나오는 기구·인물·코드·문서는 모두 지어낸 것이며, 실제 기관과 관계가 없습니다.</p>
+        <p>연표에 실린 사건·연도·설명은 실제 역사를 바탕으로 합니다.</p>
       </div>
     </div>
   );
