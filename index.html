@@ -17937,7 +17937,7 @@ function generateTicks() {
 
 /* 트랙 갈래(sub-lane) 상수 — 라벨 배치(positioned)와 세로 위치(eventY) 양쪽에서 쓰므로
    컴포넌트 밖에 둔다. 두 곳이 같은 기준으로 레인을 판정해야 겹침 계산이 맞는다. */
-const SUB_OFFSET = { 0: -64, 1: -28, 3: 60 };
+const SUB_OFFSET = { 0: -64, 1: -28, 3: 60 };   // applySubScale(vpH)가 박스 높이에 맞춰 고쳐 쓴다
 // 라벨 지시선의 가로 통로 높이 — 마커 윗변(선 위 7px)과 라벨 아랫변(16px) 사이의 두 줄.
 // 위 줄을 먼저 쓰고, 그 지시선을 가로질러야 하는 바깥쪽 지시선은 아래 줄로 지나간다.
 const LEADER_BANDS = [13.5, 10];
@@ -17988,6 +17988,17 @@ function layoutLanes(tracks, focusedTrack, vpH) {
   let y = head + Math.max(0, (H - BOTTOM - head - block) / 2);
   activeTracks.forEach((t) => { trackY[t] = y; y += gap; });
   return { activeTracks, trackY, lanesEnd: trackY[activeTracks[n - 1]] };
+}
+/* 갈래 레인 간격 — 포커스하면 그 줄기 하나만 그리므로 박스 높이에 맞춰 갈래 사이를 넓힌다(2026-10-09 사용자 요청).
+   한국: 고구려 −2u · 백제 −u · 신라 0 · 가야 +u. 위로 라벨 2단(128), 아래로 삼국 시대 브래킷(+u+34±13)과 바닥 여백이 들어가는 만큼.
+   일본·인도: 원줄기 아래 한 갈래 s. 렌더·라벨 배치·레인 배치가 모두 SUB_OFFSET / TRACK_BRANCH 를 읽으므로
+   TimelineCanvas가 vpH를 알게 되는 즉시 한 번 부른다(같은 vpH면 결과가 같다). */
+function applySubScale(vpH) {
+  const H = vpH || 700;
+  const u = Math.round(Math.max(40, Math.min(110, (H - LANE_LABEL_HEAD - (GROUP_Y + 14) - LANE_BOTTOM_PAD) / 3)));
+  SUB_OFFSET[0] = -2 * u; SUB_OFFSET[1] = -u; SUB_OFFSET[3] = u;
+  const sb = Math.round(Math.max(70, Math.min(150, (H - LANE_LABEL_HEAD - LANE_BOTTOM_PAD) / 2)));
+  Object.values(TRACK_BRANCH).forEach(c => { c.subOffset = sb; });
 }
 // 노드 묶음 브래킷(주제 노드) — 트랙선 아래 GROUP_Y 에 놓인다
 const GROUP_PAD_X = 14;
@@ -18108,6 +18119,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
   const draggingRef = useRefTC(null);
   // 연표 박스 높이 — 기록줄기를 박스 안에 맞추는 기준 (창 크기가 바뀌면 다시 계산)
   const [vpH, setVpH] = useStateTC(0);
+  applySubScale(vpH);   // 갈래 레인 간격을 박스 높이에 맞춘다 — 아래 배치 계산들이 모두 이 값을 쓴다
   useEffectTC(() => {
     const el = viewportRef.current; if (!el) return;
     const update = () => setVpH(el.clientHeight);
