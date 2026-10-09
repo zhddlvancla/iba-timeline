@@ -3435,7 +3435,23 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 
 
 /* 배속 승인 번호 입력 칸 — [부서]-[배속 연도]-[등록 일련번호]-[출입 관측소]. 버튼과 입력 칸이 같은 자리를 써서 인장이 움직이지 않게 높이를 고정 */
-.portal-view .pt-auth{min-height:84px;display:flex;align-items:center;justify-content:center}
+.portal-view .pt-auth{position:relative;min-height:84px;display:flex;align-items:center;justify-content:center}
+/* 인증 경과 줄 — 입력 칸 아래 빈 틈에 겹쳐 띄워 인장·VESTIGIA 줄 자리를 밀지 않는다 */
+.portal-view .pt-alog{position:absolute;left:50%;top:calc(100% + 4px);transform:translateX(-50%);
+  display:flex;align-items:center;gap:10px;white-space:nowrap;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--amber-dim);
+  animation:pt-alog-in .5s steps(12) both}
+.portal-view .pt-alog__n{padding:1px 5px;border:1px solid var(--amber-line);color:var(--amber-dim)}
+.portal-view .pt-alog__t{color:var(--amber)}
+.portal-view .pt-alog.is-ok .pt-alog__t{color:var(--amber-2);text-shadow:0 0 8px var(--amber-glow)}
+.portal-view .pt-alog.is-ok .pt-alog__n{border-color:var(--amber);color:var(--amber-2)}
+.portal-view .pt-alog.is-bad .pt-alog__t{color:var(--red)}
+.portal-view .pt-alog__dots{display:inline-flex;gap:3px}
+.portal-view .pt-alog__dots i{width:4px;height:4px;background:var(--amber);animation:pt-alog-dot 1s steps(1) infinite}
+.portal-view .pt-alog__dots i:nth-child(2){animation-delay:.2s}
+.portal-view .pt-alog__dots i:nth-child(3){animation-delay:.4s}
+@keyframes pt-alog-in{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes pt-alog-dot{0%{opacity:1}50%{opacity:.15}}
 .portal-view .pt-code{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:8px;max-width:calc(100vw - 48px);animation:pt-btn-in .35s ease both}
 .portal-view .pt-code__cell{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:text}
 .portal-view .pt-code__cell input{
@@ -19339,6 +19355,8 @@ function Portal({ onBypass, rebooted = false }) {
   });
   const [bad, setBad] = useStateApp([]);
   const [shake, setShake] = useStateApp(0);
+  /* 인증 경과 줄 — 대외판 뒤에 숨은 제2국 회선으로 넘어가는 과정. VESTIGIA 문형과 별개의 화면 표시(단말 기록) */
+  const [alog, setAlog] = useStateApp(null);   // { n, t, st: 'run' | 'ok' | 'bad' }
   const inputs = useRefApp({});
   const FIELDS = [
     { k: 'dept',   cap: '부서',          ph: 'RS',    len: 2, re: /[^A-Z]/g, mode: 'text' },
@@ -19362,6 +19380,7 @@ function Portal({ onBypass, rebooted = false }) {
     const wrong = window.checkAgent(vals);
     if (wrong.length) {
       setBad(wrong); setShake(n => n + 1);
+      setAlog({ n: 0, t: '비공개 명부 대조 실패 · 등재되지 않은 번호', st: 'bad' });
       V.clear(); V.say('V-SYS-007');
       if (A) A.sfx('denied');
       setTimeout(() => inputs.current[wrong[0]]?.focus(), 0);
@@ -19374,15 +19393,21 @@ function Portal({ onBypass, rebooted = false }) {
     V.clear();
     V.say('V-SYS-005');
     if (A) A.sfx('key');
+    setAlog({ n: 1, t: '대외 회선 차단 · 제2국 비공개 회선으로 전환', st: 'run' });
     setTimeout(() => {
+      setAlog({ n: 2, t: '비공개 명부 대조 · ' + window.agentCode(false), st: 'run' });
+      if (A) A.sfx('key');
+    }, 800);
+    setTimeout(() => {
+      setAlog({ n: 3, t: '등재 확인 · 대외판 접속 기록 말소', st: 'ok' });
       V.clear(); V.say('V-SYS-006');
       if (A) A.sfx('connect');
-    }, 900);
+    }, 1700);
     setTimeout(() => {
       setGlitch(true);
       if (A) { A.sfx('redacted'); setTimeout(() => A.sfx('transition'), 360); }
       setTimeout(() => onBypass(), 950);
-    }, 2100);
+    }, 2900);
   }, [vals, onBypass]);
 
   /* 한 칸을 고친다. 첫 칸에 RS-26-20301-SIT 처럼 통째로 붙여 넣으면 네 칸에 나눠 넣는다 */
@@ -19401,6 +19426,7 @@ function Portal({ onBypass, rebooted = false }) {
     const v = up.replace(f.re, '').slice(0, f.len);
     setVals(o => ({ ...o, [f.k]: v }));
     if (bad.includes(f.k)) setBad(b => b.filter(x => x !== f.k));
+    if (alog && alog.st === 'bad') setAlog(null);
     if (v.length === f.len && i < FIELDS.length - 1) inputs.current[FIELDS[i + 1].k]?.focus();
   };
   const keyDown = (i, e) => {
@@ -19456,6 +19482,13 @@ function Portal({ onBypass, rebooted = false }) {
                 <span aria-hidden="true">▸</span><span>인증</span>
               </button>
             </form>
+          )}
+          {alog && (
+            <div className={`pt-alog is-${alog.st}`} key={alog.n + alog.st} aria-live="polite">
+              {alog.n > 0 && <span className="pt-alog__n">{alog.n}/3</span>}
+              <span className="pt-alog__t">{alog.t}</span>
+              {alog.st === 'run' && <span className="pt-alog__dots" aria-hidden="true"><i/><i/><i/></span>}
+            </div>
           )}
         </div>
         <div className={`pt-vline ${vline && vline.id === 'V-SYS-006' ? 'is-ok' : ''} ${vline && vline.id === 'V-SYS-007' ? 'is-bad' : ''}`} aria-live="polite">
