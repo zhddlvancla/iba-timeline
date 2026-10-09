@@ -17953,29 +17953,40 @@ const LANE_GAP_MIN = 80, LANE_GAP_MAX = 220;   // 한국 포커스(갈래 레인
 function layoutLanes(tracks, focusedTrack, vpH) {
   const all = TRACK_ORDER.filter(t => tracks[t]);
   const isFocus = !!focusedTrack && all.includes(focusedTrack);
-  // Focused track goes first (top), then others
-  const activeTracks = isFocus ? [focusedTrack, ...all.filter(t => t !== focusedTrack)] : all;
+  // 포커스 — 그 줄기 하나만 그린다(다른 줄기는 숨김, 2026-10-09 사용자 요청). 갈래 레인까지 넣어 세로 가운데
+  const activeTracks = isFocus ? [focusedTrack] : all;
   const n = activeTracks.length;
   const H = vpH || 700;
-  const offs = !isFocus ? [0]
-    : focusedTrack === 'korea' ? Object.values(SUB_OFFSET)
-    : [TRACK_BRANCH[focusedTrack] ? TRACK_BRANCH[focusedTrack].subOffset : 0];
-  const subUp = Math.max(0, -Math.min(0, ...offs));
-  const subDown = Math.max(0, ...offs);
-  const top = ERA_STRIP_H + LANE_LABEL_HEAD + subUp;
-  const bottom = H - LANE_BOTTOM_PAD;
   const trackY = {};
+  if (isFocus) {
+    const offs = focusedTrack === 'korea' ? Object.values(SUB_OFFSET)
+      : [TRACK_BRANCH[focusedTrack] ? TRACK_BRANCH[focusedTrack].subOffset : 0];
+    const subUp = Math.max(0, -Math.min(0, ...offs));
+    // 아래로 뻗는 몫 — 갈래 레인, 한국은 가야 갈래 아래로 내린 삼국 시대 브래킷(+94±13)까지
+    const subDown = Math.max(0, ...offs) + (focusedTrack === 'korea' ? GROUP_Y + 14 : 0);
+    const top = ERA_STRIP_H + LANE_LABEL_HEAD + subUp;
+    const bottom = H - LANE_BOTTOM_PAD;
+    trackY[focusedTrack] = top + Math.max(0, (bottom - top - subDown) / 2);
+    return { activeTracks, trackY, lanesEnd: trackY[focusedTrack] + subDown };
+  }
   if (n <= 1) {
-    if (n === 1) trackY[activeTracks[0]] = Math.max(top, (top + bottom) / 2);
+    const top = ERA_STRIP_H + LANE_LABEL_HEAD;
+    if (n === 1) trackY[activeTracks[0]] = Math.max(top, (top + H - LANE_BOTTOM_PAD) / 2);
     return { activeTracks, trackY, lanesEnd: n ? trackY[activeTracks[0]] : top };
   }
-  const gap = Math.max(LANE_GAP_MIN, Math.min(LANE_GAP_MAX, (bottom - top - subDown) / (n - 1)));
-  const block = subDown + gap * (n - 1);
-  let y = top + Math.max(0, (bottom - top - block) / 2);
-  activeTracks.forEach((t, k) => {
-    trackY[t] = y;
-    y += gap + (k === 0 ? subDown : 0);
-  });
+  /* 여러 줄기 — 맨 위 줄기 위 라벨 자리를 다른 줄기 사이 간격과 같은 몫으로 본다(간격 − 눈금 자리).
+     전에는 위에 라벨 2단(128) 자리를 늘 비우고 맨 아래 줄기를 바닥(−50)에 붙여 전체가 아래로 쏠려 보였다.
+     아래 여백도 조금 더 두어 위·아래 균형을 맞춘다. */
+  //   HEAD_MIN — 한국 1920년대처럼 라벨이 두 단으로 쌓이는 곳이 박스 위로 넘지 않는 최소 자리(실측 103)
+  const TICK_ROOM = 24, HEAD_MIN = 108, BOTTOM = LANE_BOTTOM_PAD + 16;
+  let gap = (H - BOTTOM + TICK_ROOM) / n;
+  let head = Math.min(LANE_LABEL_HEAD, gap - TICK_ROOM);
+  if (head < HEAD_MIN) { head = HEAD_MIN; gap = (H - BOTTOM - head) / (n - 1); }   // 낮은 화면 — 위 자리를 먼저 지키고 나머지를 고르게
+  gap = Math.max(LANE_GAP_MIN, Math.min(LANE_GAP_MAX, gap));
+  head += ERA_STRIP_H;
+  const block = gap * (n - 1);
+  let y = head + Math.max(0, (H - BOTTOM - head - block) / 2);
+  activeTracks.forEach((t) => { trackY[t] = y; y += gap; });
   return { activeTracks, trackY, lanesEnd: trackY[activeTracks[n - 1]] };
 }
 // 노드 묶음 브래킷(주제 노드) — 트랙선 아래 GROUP_Y 에 놓인다
@@ -18117,6 +18128,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
     return TIMELINE_DATA.events.filter(e => {
       if (e.hidden) return false;
       if (!tracks[e.track]) return false;
+      if (focusedTrack && e.track !== focusedTrack) return false;   // 포커스 — 다른 줄기는 숨김
       if (e.focusOnly && focusedTrack !== e.track) return false;   // 삼국 시대 왕·사건 — 그 줄기를 눌렀을 때만
       if (!q) return true;
       return [e.label, e.en, e.state, e.theme, String(e.year), e.body].some(v => v && v.toLowerCase().includes(q));
