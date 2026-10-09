@@ -6,6 +6,9 @@
 !/timeline-content.js
 !/audio-engine.js
 !/iba-emblem.js
+!/semantic-search.js
+!/semantic-worker.js
+!/search-index.js
 !/assets/
 /assets/*
 !/assets/w1/
