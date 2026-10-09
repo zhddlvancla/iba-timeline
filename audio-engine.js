@@ -20,7 +20,7 @@
 (function(global){
 'use strict';
 
-var AC=null,M=null,V=null,AG=null,MG=null,HPF=null;
+var AC=null,M=null,V=null,AG=null,MG=null,HPF=null,DG=null;
 var ambOn=false,musOn=false,zone=0,den=0.5;
 var ambN=[],musN=[],ambT=[],musT=[];
 var VOL={master:0.70,ambient:0.55,music:0.62};
@@ -38,6 +38,10 @@ function boot(){
   var vg=AC.createGain(); vg.gain.value=0.5; V.connect(vg); vg.connect(M);
   AG=AC.createGain(); AG.gain.value=VOL.ambient; AG.connect(M);
   MG=AC.createGain(); MG.gain.value=VOL.music; MG.connect(M); MG.connect(V);
+  /* 저음 전용 경로 — 주 출력의 110Hz 고역 통과 필터를 거치지 않는다(묵직한 효과음용). 음량은 master를 따른다 */
+  DG=AC.createGain(); DG.gain.value=VOL.master;
+  var dlp=AC.createBiquadFilter(); dlp.type='lowpass'; dlp.frequency.value=900;
+  DG.connect(dlp); dlp.connect(AC.destination);
   }catch(e){ AC=false; if(global.console) console.warn('[DENDRO_AUDIO] 오디오 기동 실패: '+e.message); }
 }
 function ir(dur,decay){
@@ -74,8 +78,45 @@ function N(t,du,pk,lo,hi,ds,q){
   s.start(t); s.stop(t+du+0.05);
 }
 
+/* 주파수가 미끄러지는 음 — f0→f1 (저음 효과음용). att초 동안 차오른 뒤 du까지 사라진다 */
+function SW(f0,f1,t,du,pk,ds,lp,att,ty){
+  var o=AC.createOscillator(),g=AC.createGain(),f=AC.createBiquadFilter();
+  o.type=ty||'sine'; o.frequency.setValueAtTime(f0,t); o.frequency.exponentialRampToValueAtTime(f1,t+du);
+  f.type='lowpass'; f.frequency.value=lp||400;
+  g.gain.setValueAtTime(0.0001,t);
+  g.gain.exponentialRampToValueAtTime(pk,t+(att||0.02));
+  g.gain.exponentialRampToValueAtTime(0.0001,t+du);
+  o.connect(f); f.connect(g); g.connect(ds||DG);
+  o.start(t); o.stop(t+du+0.05);
+}
+/* 저역 잡음 — 낮게 깔리는 웅웅거림. 서서히 차올랐다 사라진다 */
+function RB(t,du,pk,lp,att){
+  var s=AC.createBufferSource(); s.buffer=nb(du+0.1);
+  var f=AC.createBiquadFilter(); f.type='lowpass'; f.frequency.setValueAtTime(lp||160,t); f.Q.value=0.7;
+  var g=AC.createGain();
+  g.gain.setValueAtTime(0.0001,t);
+  g.gain.exponentialRampToValueAtTime(pk,t+(att||du*0.5));
+  g.gain.exponentialRampToValueAtTime(0.0001,t+du);
+  s.connect(f); f.connect(g); g.connect(DG);
+  s.start(t); s.stop(t+du+0.1);
+}
+
 /* ── 효과음 ───────────────────────────── */
 var SFX={
+  /* 기록줄기 불러오기(약 2.6초) — 서고 잠금장치가 풀리는 쿵 소리, 기계가 돌며 차오르는 저음, 톱니 딸깍임, 끝에 멈춤 */
+  archiveLoad: function(t){
+    SW(92,48,t,0.55,0.34,DG,320,0.008); N(t,0.10,0.11,260,110,M,1.1);
+    SW(36,64,t+0.15,2.35,0.20,DG,220,1.4); RB(t+0.1,2.4,0.16,150,1.5);
+    for(var i=0;i<7;i++) N(t+0.35+i*0.3,0.045,0.035+i*0.004,520,null,M,2.2);
+    SW(78,40,t+2.45,0.6,0.30,DG,260,0.01); N(t+2.45,0.08,0.07,300,140,M,1.0);
+  },
+  /* 기록줄기가 퍼져 나갈 때(약 2.4초) — 깊게 울리는 붐과 낮은 화음, 위로 번지는 바람 소리 */
+  archiveSpread: function(t){
+    SW(64,30,t,2.0,0.42,DG,280,0.015); SW(64,30,t,1.4,0.10,V,300,0.015);
+    SW(49,47,t+0.05,2.4,0.10,DG,200,0.6); SW(73.5,71,t+0.05,2.3,0.07,DG,240,0.6);
+    RB(t,1.8,0.12,180,0.25);
+    N(t+0.1,1.7,0.035,180,1400,M,0.6);
+  },
   click: function(t){ T(320,t,0.06,'square',0.075,M,1400); T(200,t,0.09,'triangle',0.055,M,900); },
   select: function(t){ T(660,t,0.06,'triangle',0.06,M,3000); T(988,t+0.05,0.10,'triangle',0.05,M,3400); },
   open: function(t){ N(t,0.26,0.055,600,2600,M); T(440,t,0.16,'triangle',0.04,M,2000); },
@@ -352,7 +393,9 @@ var SFX_LABEL={
   alert: '경보 · 왜곡 감지',
   hold: '등재 보류',
   key: '타자기 타건 1회',
-  carriageReturn: '캐리지 리턴'
+  carriageReturn: '캐리지 리턴',
+  archiveLoad: '기록줄기 불러오기',
+  archiveSpread: '기록줄기 펼침'
 };
 
 /* ── 공개 인터페이스 ─────────────────────────────────── */
@@ -408,7 +451,7 @@ var API={
     v=Math.max(0,Math.min(1,v)); VOL[ch]=v;
     if(!AC) return v;
     var t=AC.currentTime;
-    if(ch==='master')  M.gain.setTargetAtTime(v,t,0.1);
+    if(ch==='master'){ M.gain.setTargetAtTime(v,t,0.1); if(DG) DG.gain.setTargetAtTime(v,t,0.1); }
     if(ch==='ambient') AG.gain.setTargetAtTime(v,t,0.1);
     if(ch==='music')   MG.gain.setTargetAtTime(v,t,0.1);
     return v;

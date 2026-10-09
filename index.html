@@ -4087,7 +4087,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   }, true);
 })();
 </script>
-<script src="audio-engine.js?v=20261008a"></script>
+<script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·제2국 내부판·세로 락업 SVG 생성기 -->
 <script src="iba-emblem.js?v=20261009a"></script>
@@ -18391,7 +18391,10 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
           {phase === 'idle' && (
             <button className="tl-intro__btn" onClick={() => {
               setPhase('loading');
-              setTimeout(() => setPhase('branching'), 2600);
+              // 묵직한 효과음 — 불러오기(서고 기계음) → 줄기가 퍼질 때(깊은 울림)
+              const A = window.DENDRO_AUDIO;
+              if (A) A.sfx('archiveLoad');
+              setTimeout(() => { setPhase('branching'); if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('archiveSpread'); }, 2600);
               setTimeout(() => setPhase('ready'), 2600 + 2400);
             }}>
               <span className="tl-intro__btn-k">▸ LOAD RECORD ARCHIVE</span>
