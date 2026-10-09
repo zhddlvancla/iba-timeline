@@ -842,6 +842,7 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 .tl-viewport{
   position:relative;flex:1;
   overflow:hidden;cursor:grab;
+  touch-action:pinch-zoom;   /* 손가락으로 밀면 화면 대신 연표가 넘어가게 (두 손가락 확대는 그대로) */
   min-height:0;   /* 박스 높이를 그대로 따르고, 레인 높이를 거기에 맞춘다 */
   background:
     linear-gradient(180deg, transparent, transparent 30%),
@@ -1815,6 +1816,8 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
   display:flex;align-items:flex-start;gap:10px;
 }
 .detail__year--label{font-size:40px;line-height:1.15;letter-spacing:0;font-family:var(--font-ko);font-weight:500;word-break:keep-all}
+.detail__year--name{overflow-wrap:anywhere}
+.detail__year--name.is-long{font-size:32px}
 .detail__year-era{
   font-family:var(--font-mono);
   font-size:22px;line-height:1;
@@ -2170,6 +2173,12 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
   min-width:0;white-space:nowrap;   /* 좁으면 탭을 밀어내지 않고 말줄임 */
 }
 .sync-tabs__file-v{color:var(--amber);text-shadow:var(--shadow-text);min-width:0;overflow:hidden;text-overflow:ellipsis}
+/* 탭 이름은 한 줄로 — 「연구원 기록」처럼 긴 한글 이름이 세로로 접히지 않게.
+   탭 줄 폭(컨테이너)에 맞춰 줄인다: 먼저 FILE_REF 글자를 빼고, 더 좁으면(강의 모드 1280 등) 영문 이름을 빼고 한글만 */
+.sync-tabs{container-type:inline-size}
+.sync-tab{white-space:nowrap;padding:12px 12px;letter-spacing:.12em}
+@container (max-width:1160px){ .sync-tabs__file > span:first-child{display:none} }
+@container (max-width:1090px){ .sync-tab__label{display:none} .sync-tab__ko{margin-left:0} }
 
 .sync-body{
   flex:1;overflow:auto;
@@ -2713,6 +2722,22 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 [style*="--cyan-300"], [style*="--cyan-400"], [style*="--cyan-200"]{color:var(--amber) !important}
 [style*="--amber-300"], [style*="--amber-500"]{color:var(--amber-2) !important}
 [style*="--red-300"], [style*="--red-500"]{color:var(--red) !important}
+
+/* ============================================================
+   NOTICE — 첫 안내문 (세계관 밖). 연출 효과 없이 읽기 쉽게
+   ============================================================ */
+.notice-view{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:24px 16px;
+  background:var(--bg);overflow:auto}
+.notice-card{width:min(620px,100%);padding:30px 34px 28px;border:1.5px solid var(--amber-line);background:var(--panel-2);
+  box-shadow:0 0 24px rgba(47,174,94,.10);font-family:var(--font-ko);color:var(--amber-2)}
+.notice-card__k{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;color:var(--amber-dim)}
+.notice-card__t{margin:12px 0 18px;font-size:22px;line-height:1.45;font-weight:600;color:var(--amber-2);word-break:keep-all}
+.notice-card__list{margin:0 0 24px;padding-left:20px;display:flex;flex-direction:column;gap:9px;
+  font-size:16px;line-height:1.65;color:var(--amber);word-break:keep-all}
+.notice-card__ok{display:block;margin-left:auto;padding:11px 26px;cursor:pointer;
+  border:1.5px solid var(--amber);background:rgba(47,174,94,.12);color:var(--amber-2);
+  font-family:var(--font-ko);font-size:15px;letter-spacing:.12em;transition:all .15s ease}
+.notice-card__ok:hover,.notice-card__ok:focus-visible{background:rgba(47,174,94,.22);box-shadow:0 0 14px var(--amber-glow);outline:none}
 
 /* ============================================================
    PORTAL VIEW — 대외 포털 (대외판 인장 + 포털 우회 로그인)
@@ -3315,6 +3340,8 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 }
 .iba-about__txt b{color:var(--amber-2);margin-right:6px;font-weight:700}
 .iba-about__note{color:var(--amber-dim) !important;font-size:12.5px !important}
+/* 1401~1500 — 휴대폰·아이패드는 화면 폭을 1440으로 잡으므로 이 구간에서 기관명이 잘리지 않게 */
+@media (min-width:1401px) and (max-width:1500px){ .topbar__title{letter-spacing:.22em} }
 /* ── 좁은 화면(노트북·1280 프로젝터) — 글자가 잘리거나 겹치지 않도록 간격을 줄이고 장식 요소를 뺀다 ── */
 @media (max-width:1400px){
   .topbar__title{letter-spacing:.11em}
@@ -3508,6 +3535,13 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
   font-family:var(--font-ko);font-size:15px;letter-spacing:.22em;transition:all .15s ease}
 .portal-view .pt-code__go:hover,.portal-view .pt-code__go:focus-visible{border-color:var(--amber);color:var(--amber);background:rgba(47,174,94,.12);text-shadow:0 0 6px var(--amber-glow);box-shadow:0 0 14px var(--amber-glow);outline:none}
 .portal-view .pt-code__go[disabled]{cursor:default}
+.portal-view .pt-code__gocol{display:flex;flex-direction:column;align-items:stretch;gap:6px;margin-left:10px}
+.portal-view .pt-code__gocol .pt-code__go{margin-left:0;justify-content:center}
+.portal-view .pt-code__guest{padding:0;background:transparent;border:0;cursor:pointer;
+  font-family:var(--font-ko);font-size:12px;letter-spacing:.08em;color:var(--amber-dim);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:var(--amber-line);white-space:nowrap;line-height:1.3}
+.portal-view .pt-code__guest:hover,.portal-view .pt-code__guest:focus-visible{color:var(--amber);text-decoration-color:var(--amber);outline:none}
+.portal-view .pt-code__guest[disabled]{cursor:default;opacity:.5}
 .portal-view .pt-code.is-ok .pt-code__cell input{border-color:var(--amber-2);box-shadow:0 0 12px var(--amber-glow)}
 .portal-view .pt-code.sh-1{animation:pt-shake1 .36s ease}
 .portal-view .pt-code.sh-2{animation:pt-shake2 .36s ease}
@@ -3715,7 +3749,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   window.IBA_DEPTS = { AR: { name: '기록관리과', rank: '기록관' }, RS: { name: '연구과', rank: '연구원' },
                        FS: { name: '현장조사과', rank: '조사관' }, DA: { name: '분기평가과', rank: '평가관' } };
   window.IBA_AGENT = window.IBA_AGENT || { dept: 'RS', year: '26', serial: '20301', site: 'SIT' };
-  try { var _ag = JSON.parse(sessionStorage.getItem(AGENT_KEY) || 'null'); if (_ag && window.IBA_DEPTS[_ag.dept]) window.IBA_AGENT = _ag; } catch (e) {}
+  try { var _ag = JSON.parse(sessionStorage.getItem(AGENT_KEY) || 'null'); if (_ag && (_ag.guest || window.IBA_DEPTS[_ag.dept])) window.IBA_AGENT = _ag; } catch (e) {}
   /* 형식 검사 — 맞지 않는 자리 이름 목록을 돌려준다(빈 배열이면 통과) */
   window.checkAgent = function (a) {
     var bad = [];
@@ -3729,10 +3763,21 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     window.IBA_AGENT = { dept: a.dept, year: a.year, serial: a.serial, site: a.site };
     try { sessionStorage.setItem(AGENT_KEY, JSON.stringify(window.IBA_AGENT)); } catch (e) {}
   };
-  window.agentDept = function (resp) { return resp ? 'DA-R' : (window.IBA_AGENT.dept || 'RS'); };
+  /* 단순 열람 — 승인 번호 없이 들어온 접속. 명부에 없으므로 코드 대신 「미등재」로 표시한다 */
+  window.setGuestAgent = function () {
+    window.IBA_AGENT = { guest: true, dept: '', year: '', serial: '', site: 'SIT' };
+    try { sessionStorage.setItem(AGENT_KEY, JSON.stringify(window.IBA_AGENT)); } catch (e) {}
+  };
+  window.isGuestAgent = function () { return !!(window.IBA_AGENT && window.IBA_AGENT.guest); };
+  window.agentDept = function (resp) { return resp ? 'DA-R' : (window.isGuestAgent() ? '—' : (window.IBA_AGENT.dept || 'RS')); };
+  window.agentRank = function (resp) { return resp ? '대응요원' : (window.isGuestAgent() ? '열람자' : window.IBA_DEPTS[window.agentDept(false)].rank); };
   /* 정리 내용이 실제로 있는지 — 빈 정리({ sections: [] })는 탭만 두고 내용은 없는 것으로 친다 */
   window.hasNotes = function (db) { var n = db && db.notes; if (!n) return false; if (typeof n === 'string') return !!n.trim(); return !!(n.summary || (Array.isArray(n.sections) && n.sections.length)); };
-  window.agentCode = function (resp) { var a = window.IBA_AGENT; return window.agentDept(resp) + '-' + a.year + '-' + a.serial + '-' + a.site; };
+  window.agentCode = function (resp) {
+    var a = window.IBA_AGENT;
+    if (a.guest) return resp ? 'DA-R · 미등재' : '미등재 · 단순 열람';
+    return window.agentDept(resp) + '-' + a.year + '-' + a.serial + '-' + a.site;
+  };
   /* 청구 기호 — 화면에는 내부 ID 대신 이것을 쓴다 (예: REC-0698-K) */
   window.eventCallNo = function (e) { return 'REC-' + window.eventYearCode(e) + '-' + String(e.id || e.track || '?')[0].toUpperCase(); };   // K 한국 · E 동아시아 · W 서양 · S 서아시아·인도
   /* React 훅 — active 동안 창을 한 층으로 올린다. 닫기 함수는 항상 최신 것을 쓴다 */
@@ -16527,8 +16572,8 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
           onClick={() => onAccessMode && onAccessMode('researcher')}
           title="연구원 접속 — 기록 열람"
         >
-          <span className="systab__k">[T]</span>
-          <span className="systab__l">TEMPORAL</span>
+          <span className="systab__k">[RS]</span>
+          <span className="systab__l">RESEARCH</span>
           <span className="systab__ko">연구원 접속</span>
         </button>
         <button
@@ -16538,7 +16583,7 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
           onClick={() => onAccessMode && onAccessMode('response')}
           title="대응반 접속 — LUMINA 왜곡 위험 노드 노출"
         >
-          <span className="systab__k">[R]</span>
+          <span className="systab__k">[DA-R]</span>
           <span className="systab__l">RESPONSE</span>
           <span className="systab__ko">대응반 접속</span>
         </button>
@@ -16905,9 +16950,9 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
           <div className="op-sect__cap"><span>{resp ? '대응반 데이터 · ' : '접속자 데이터 · '}<b>{resp ? 'RESPONSE' : 'ENTITY'}</b></span><span>{window.agentDept(resp)}</span></div>
           <div className="op-row"><span className="k">등록 코드</span><span className="v">{window.agentCode(resp)}</span></div>
           <div className="op-row"><span className="k">소속</span><span className="v">{resp ? '제4지역국 · 왜곡 대응반' : '제4지역국 · 한국 지부'}</span></div>
-          <div className="op-row"><span className="k">직급</span><span className="v ok">{resp ? '대응요원' : window.IBA_DEPTS[window.agentDept(false)].rank}</span></div>
+          <div className="op-row"><span className="k">직급</span><span className="v ok">{window.agentRank(resp)}</span></div>
           <div className="op-row"><span className="k">열람 등급</span><span className="v">{resp ? '폐가 출입' : '상시'}</span></div>
-          <div className="op-row"><span className="k">명부 등재</span><span className="v ok">{resp ? '확인 · LUMINA 감시' : '확인'}</span></div>
+          <div className="op-row"><span className="k">명부 등재</span><span className="v ok">{window.isGuestAgent() ? (resp ? '미등재 · LUMINA 감시' : '미등재') : (resp ? '확인 · LUMINA 감시' : '확인')}</span></div>
         </div>
 
         {/* (3) 기록줄기 단말기 접속 & 무결성 */}
@@ -17023,18 +17068,12 @@ function MemoryDetail({ event, onSync, onJumpTo, onClose, accessMode = 'research
 
       <div className="detail__scroll">
       <div className="detail__id"><span className="detail__id-t">RECORD · {e.id.toUpperCase()} · {e.track.toUpperCase()}</span></div>
-      {e.yearLabel ? (
-        <div className="detail__year detail__year--label"><span>{e.yearLabel}</span></div>
-      ) : (
-        <div className="detail__year">
-          <span>{e.year < 0 ? Math.abs(e.year) : e.year}</span>
-          <span className="detail__year-era">{e.year < 0 ? 'BCE' : 'CE'}</span>
-        </div>
-      )}
-      <div className="detail__year-en">{e.year < 0 ? 'BEFORE COMMON ERA' : 'COMMON ERA'} · {yearStr} · {window.eraOfYear ? `${window.eraOfYear(e.year).en} · ${window.eraOfYear(e.year).ko}` : ''}</div>
+      {/* 큰 자리에 노드 이름, 아래 자리에 연도 (2026-10-09 사용자 요청 — 자리만 바꾸고 각 자리의 모양은 그대로) */}
+      <div className={`detail__year detail__year--label detail__year--name ${String(e.label).length > 9 ? 'is-long' : ''}`}><span>{e.label}</span></div>
+      <div className="detail__year-en">{e.en}</div>
 
-      <div className="detail__label">{e.label}</div>
-      <div className="detail__en">{e.en}</div>
+      <div className="detail__label">{yearStr}</div>
+      <div className="detail__en">{e.year < 0 ? 'BEFORE COMMON ERA' : 'COMMON ERA'}{window.eraOfYear ? ` · ${window.eraOfYear(e.year).en} · ${window.eraOfYear(e.year).ko}` : ''}</div>
 
       <div style={{display:'flex',gap:8,marginTop:14,flexWrap:'wrap'}}>
         {e.kind === 'turning' && <span className="badge badge--turn">◆ TURNING POINT</span>}
@@ -17832,9 +17871,10 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
     setPanX(p => Math.max(0, Math.min(totalW - w, p + delta)));
   }, [scale]);
 
-  const onMouseDown = (e) => { draggingRef.current = { x: e.clientX, panX }; };
+  /* 끌어서 넘기기 — 포인터 이벤트라 마우스와 손가락(아이패드·휴대폰) 모두 된다. 마우스는 왼쪽 버튼만 */
+  const onMouseDown = (e) => { if (e.pointerType === 'mouse' && e.button !== 0) return; draggingRef.current = { x: e.clientX, panX, id: e.pointerId }; };
   const onMouseMove = (e) => {
-    if (!draggingRef.current) return;
+    if (!draggingRef.current || (draggingRef.current.id != null && e.pointerId !== draggingRef.current.id)) return;
     const w = viewportRef.current?.clientWidth || 800;
     const totalW = trackWidth(scale);
     // 강의 모드(zoom 1.4)에서는 마우스 이동량이 화면 px라 배율로 나눠 CSS px로 맞춘다
@@ -17974,10 +18014,11 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
         data-focus={focusedTrack || ''}
         ref={viewportRef}
         onWheel={onWheel}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
+        onPointerDown={onMouseDown}
+        onPointerMove={onMouseMove}
+        onPointerUp={onMouseUp}
+        onPointerCancel={onMouseUp}
+        onPointerLeave={(e) => { if (e.pointerType === 'mouse') onMouseUp(); }}
       >
         <div className="tl-inner" style={{width: totalW, left: -panX}}>
           {/* Branching trunk — 고대 ORIGIN → 4 tracks */}
@@ -18397,7 +18438,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
     if (!event) return;
     const dbx = window.TIMELINE_DB && window.TIMELINE_DB[event.id];
     // 대응반 접속으로 위험 노드를 열면 LUMINA 보고서부터 보여 준다
-    setTab(dbx && dbx.docMode && event.risk && accessMode === 'response' ? 'lumina' : (dbx && dbx.docMode ? 'notes' : (window.hasNotes(dbx) ? 'notes' : 'annex')));
+    setTab(dbx && dbx.docMode && event.risk && accessMode === 'response' ? 'lumina' : (dbx && dbx.docMode ? 'notes' : (window.hasNotes(dbx) ? 'notes' : 'overview')));   // 정리가 비었으면 개요부터
     setRestored(new Set());
     setPhase('boot');
     const t = setTimeout(() => setPhase('ready'), 900);
@@ -18453,7 +18494,6 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   });
 
   const TABS = docMode ? DOC_TABS : [
-    { id: 'annex',     label: 'ANNEX',      ko: '부속 자료', icon: <SyncIcon.Doc/> },
     // 정리 — 모든 기록에 둔다. 내용이 비어 있으면 빈 정리 화면 (2026-10-04)
     ...(db && db.notes ? [{ id: 'notes', label: 'NOTES', ko: '정리', icon: <SyncIcon.Info/> }] : []),
     { id: 'map',       label: 'MAP',        ko: '지도',   icon: <SyncIcon.Map/> },
@@ -18461,6 +18501,8 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
     { id: 'artifacts', label: 'ARTIFACTS',  ko: '자료',   icon: <SyncIcon.Image/> },
     { id: 'sources',   label: 'INQUIRY',    ko: '탐구',   icon: <SyncIcon.Doc/> },
     { id: 'linked',    label: 'LINKED',     ko: '연결',   icon: <SyncIcon.Link/> },
+    // 연구원 기록 — 부속 자료(주해·증언·분기·복원) 보기. 2026-10-09 이름을 바꾸고 연결 옆으로 옮김
+    { id: 'annex',     label: 'RESEARCH',   ko: '연구원 기록', icon: <SyncIcon.Doc/> },
   ];
 
   const yearStr = window.eventYearText(event);
@@ -18595,10 +18637,10 @@ function AnnexTab({ db }) {
   if (!list.length) {
     return (
       <div className="sync-pane sync-pane--annex">
-        <div className="sync-pane__hint">// ANNEX · 부속 자료</div>
+        <div className="sync-pane__hint">// RESEARCH · 연구원 기록</div>
         <div className="sync-empty" style={{padding:'40px 24px'}}>
           <div className="sync-empty__icon">◇</div>
-          <div className="sync-empty__body">등재된 부속 자료가 없습니다.</div>
+          <div className="sync-empty__body">등재된 연구원 기록이 없습니다.</div>
           <div className="sync-empty__hint">// VESTIGIA V-RD-011</div>
         </div>
       </div>
@@ -18618,7 +18660,7 @@ function AnnexTab({ db }) {
   list.forEach((a, i) => { const k = keyOf(a, i); if (!rows.some(r => r.k === k)) rows.push({ a, k, depth: 1 }); });
   return (
     <div className="sync-pane sync-pane--annex">
-      <div className="sync-pane__hint">// ANNEX · 부속 자료 · {list.length}건</div>
+      <div className="sync-pane__hint">// RESEARCH · 연구원 기록 · {list.length}건</div>
       <ol className="annex-list">
         {rows.map(({ a, k, depth }) => (
           <li key={k} className={`annex-item annex-item--${depth ? 'reply' : 'root'}`} style={{ marginLeft: `${Math.min(depth, 6) * 34}px` }}>
@@ -19455,6 +19497,37 @@ const { useState: useStateApp, useCallback: useCallbackApp, useEffect: useEffect
 // PORTAL VIEW — 대외 포털 (대외판 인장) → 포털 우회 로그인 → 글리치 → 대문
 // ====================================================================
 const IbaSealBF = window.IbaSeal;
+/* ====================================================================
+   첫 안내문 — 세계관 밖의 안내. 사이트를 처음 열면 대외판 화면보다 먼저 한 번 보인다(같은 탭에서는 다시 안 뜸).
+   확인 클릭이 브라우저의 첫 사용자 조작이 되어 이후 효과음이 바로 난다.
+   ==================================================================== */
+function Notice({ onOk }) {
+  const go = useCallbackApp(() => {
+    try { sessionStorage.setItem('iba.notice', '1'); } catch (e) {}
+    onOk();
+  }, [onOk]);
+  useEffectApp(() => {
+    const onKey = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [go]);
+  return (
+    <div className="notice-view" role="dialog" aria-modal="true" aria-labelledby="notice-t">
+      <div className="notice-card">
+        <div className="notice-card__k">NOTICE · 안내</div>
+        <h1 className="notice-card__t" id="notice-t">이 웹사이트는 가상의 설정으로 만든 교육용 사이트입니다</h1>
+        <ul className="notice-card__list">
+          <li>역사 공부를 돕기 위해 꾸며 낸 세계관을 바탕으로 만들었습니다.</li>
+          <li>화면에 나오는 국제기록보존기구(IBA)와 그 부서·인물·코드·문서·안내 방송은 모두 지어낸 것이며, 실제 기관과 관계가 없습니다.</li>
+          <li>연표에 실린 사건·연도·설명은 실제 역사를 바탕으로 합니다.</li>
+          <li>효과음과 배경음이 나올 수 있습니다.</li>
+        </ul>
+        <button className="notice-card__ok" onClick={go} autoFocus>확인하고 시작하기</button>
+      </div>
+    </div>
+  );
+}
+
 function Portal({ onBypass, rebooted = false }) {
   const [glitch, setGlitch] = useStateApp(false);
   const [fired, setFired] = useStateApp(false);
@@ -19475,7 +19548,7 @@ function Portal({ onBypass, rebooted = false }) {
   const [vals, setVals] = useStateApp(() => {
     const a = window.IBA_AGENT || {};
     let saved = false; try { saved = !!sessionStorage.getItem('iba.agent'); } catch (e) {}
-    return saved ? { dept: a.dept, year: a.year, serial: a.serial, site: a.site } : { dept: '', year: '', serial: '', site: '' };
+    return saved && !a.guest ? { dept: a.dept, year: a.year, serial: a.serial, site: a.site } : { dept: '', year: '', serial: '', site: '' };
   });
   const [bad, setBad] = useStateApp([]);
   const [shake, setShake] = useStateApp(0);
@@ -19533,6 +19606,27 @@ function Portal({ onBypass, rebooted = false }) {
       setTimeout(() => onBypass(), 950);
     }, 2900);
   }, [vals, onBypass]);
+
+  /* 단순 열람 — 승인 번호 없이 들어간다. 명부 대조를 건너뛰고 열람 전용으로 접속 */
+  const guest = useCallbackApp(() => {
+    if (firedRef.current) return;
+    firedRef.current = true;
+    setFired(true); setBad([]);
+    window.setGuestAgent();
+    if (document.activeElement) document.activeElement.blur();
+    const A = window.DENDRO_AUDIO;
+    if (A) A.sfx('key');
+    setAlog({ n: 1, t: '단순 열람 · 명부 대조 생략', st: 'run', of: 2 });
+    setTimeout(() => {
+      setAlog({ n: 2, t: '열람 전용 접속 · 기록 수정 권한 없음', st: 'ok', of: 2 });
+      if (A) A.sfx('connect');
+    }, 800);
+    setTimeout(() => {
+      setGlitch(true);
+      if (A) { A.sfx('redacted'); setTimeout(() => A.sfx('transition'), 360); }
+      setTimeout(() => onBypass(), 950);
+    }, 1900);
+  }, [onBypass]);
 
   /* 한 칸을 고친다. 첫 칸에 RS-26-20301-SIT 처럼 통째로 붙여 넣으면 네 칸에 나눠 넣는다 */
   const change = (i, raw) => {
@@ -19602,14 +19696,18 @@ function Portal({ onBypass, rebooted = false }) {
                   </label>
                 </React.Fragment>
               ))}
-              <button type="submit" className="pt-code__go" disabled={fired}>
-                <span aria-hidden="true">▸</span><span>인증</span>
-              </button>
+              <div className="pt-code__gocol">
+                <button type="submit" className="pt-code__go" disabled={fired}>
+                  <span aria-hidden="true">▸</span><span>인증</span>
+                </button>
+                <button type="button" className="pt-code__guest" onClick={guest} disabled={fired}
+                        title="승인 번호 없이 열람 전용으로 들어간다">단순 열람 ▸</button>
+              </div>
             </form>
           )}
           {alog && (
             <div className={`pt-alog is-${alog.st}`} key={alog.n + alog.st} aria-live="polite">
-              {alog.n > 0 && <span className="pt-alog__n">{alog.n}/3</span>}
+              {alog.n > 0 && <span className="pt-alog__n">{alog.n}/{alog.of || 3}</span>}
               <span className="pt-alog__t">{alog.t}</span>
               {alog.st === 'run' && <span className="pt-alog__dots" aria-hidden="true"><i/><i/><i/></span>}
             </div>
@@ -20105,7 +20203,8 @@ function Briefing({ onEnter }) {
 // ROOT APP — view router: portal → landing → loader → briefing → terminal → (REBOOT → portal)
 // ====================================================================
 function App() {
-  const [view, setView] = useStateApp('portal'); // 'portal' | 'landing' | 'loader' | 'briefing' | 'terminal'
+  // 'notice' | 'portal' | 'landing' | 'loader' | 'briefing' | 'terminal' — 첫 안내문은 탭마다 한 번
+  const [view, setView] = useStateApp(() => { try { return sessionStorage.getItem('iba.notice') ? 'portal' : 'notice'; } catch (e) { return 'notice'; } });
   const rebootRef = useRefApp(false);   // REBOOT로 돌아온 대문 — 열람 종료(V-SYS-017)부터 알린다
 
   // 접속 시 오디오 장치 기동 — 브라우저 자동재생 정책상 최초 1회는
@@ -20115,6 +20214,7 @@ function App() {
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('connect');
   }, []);
 
+  if (view === 'notice')   return <Notice onOk={() => setView('portal')}/>;
   if (view === 'portal')   return <Portal   rebooted={rebootRef.current} onBypass={() => { rebootRef.current = false; setView('landing'); }}/>;
   if (view === 'landing')  return <Landing  onConnect={() => { bootAudio(); setView('loader'); }}/>;
   if (view === 'loader')   return <Loader   onDone={() => setView('briefing')}/>;
