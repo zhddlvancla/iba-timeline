@@ -29,10 +29,12 @@ function ticksGlobe(C,bg){
 function opts(p){p=p||{};return {C:p.color||'#24804e',bg:p.bg||'#040806'};}
 function internal(p){
   var o=opts(p),C=o.C,bg=o.bg,id='iba-e'+(++uid);
-  var s='<defs><path id="'+id+'t" d="M 46 200 A 154 154 0 0 1 354 200" fill="none"/>'+
+  /* 윗글 경로는 수평선 아래 20°까지 둔다. 반원(484)보다 글줄(514)이 길어 양끝 I·S가 잘리던 것을 고침.
+     자간 1.6→0.6으로 글줄은 다시 반원 안에 들어오고, 늘린 경로는 글꼴이 바뀔 때의 여유분 */
+  var s='<defs><path id="'+id+'t" d="M 55.29 252.67 A 154 154 0 1 1 344.71 252.67" fill="none"/>'+
         '<path id="'+id+'b" d="M 29 200 A 171 171 0 0 0 371 200" fill="none"/></defs>';
   s+=circle(192,C,3.5)+circle(184,C,1)+circle(140,C,1.6);
-  s+='<text font-family="Georgia,serif" font-size="21" font-weight="700" letter-spacing="1.6" style="fill:'+C+'">'+
+  s+='<text font-family="Georgia,serif" font-size="21" font-weight="700" letter-spacing="0.6" style="fill:'+C+'">'+
      '<textPath href="#'+id+'t" startOffset="50%" text-anchor="middle">INTERNATIONAL BUREAU OF ARCHIVES</textPath></text>';
   s+='<text font-family="\'Noto Sans KR\',sans-serif" font-size="26" font-weight="700" letter-spacing="5" style="fill:'+C+'">'+
      '<textPath href="#'+id+'b" startOffset="50%" text-anchor="middle">국제기록보존기구 제2국</textPath></text>';

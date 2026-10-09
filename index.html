@@ -3434,6 +3434,35 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 @media (max-width:820px){ .d2doc__body{grid-template-columns:1fr} .d2doc__tabs{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px dashed var(--amber-line)} }
 
 
+/* 배속 승인 번호 입력 칸 — [부서]-[배속 연도]-[등록 일련번호]-[출입 관측소]. 버튼과 입력 칸이 같은 자리를 써서 인장이 움직이지 않게 높이를 고정 */
+.portal-view .pt-auth{min-height:84px;display:flex;align-items:center;justify-content:center}
+.portal-view .pt-code{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:8px;max-width:calc(100vw - 48px);animation:pt-btn-in .35s ease both}
+.portal-view .pt-code__cell{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:text}
+.portal-view .pt-code__cell input{
+  box-sizing:border-box;height:46px;padding:0 10px;text-align:center;
+  border:1.5px solid #24804e;background:rgba(186,117,23,.08);color:var(--amber-2);caret-color:var(--amber-2);
+  font-family:var(--font-mono);font-size:22px;letter-spacing:.08em;text-transform:uppercase;outline:none;border-radius:0;
+  transition:border-color .15s ease, box-shadow .15s ease, background .15s ease}
+.portal-view .pt-code__cell input::placeholder{color:var(--amber-dim);opacity:.55}
+.portal-view .pt-code__cell input:focus{border-color:var(--amber);background:rgba(47,174,94,.12);box-shadow:0 0 14px var(--amber-glow)}
+.portal-view .pt-code__cell input:disabled{opacity:1;color:var(--amber-2)}
+.portal-view .pt-code__cap{font-family:var(--font-ko);font-size:12px;letter-spacing:.08em;color:var(--amber-dim);white-space:nowrap}
+.portal-view .pt-code__cell.is-bad input{border-color:var(--red);color:var(--red);box-shadow:0 0 12px var(--red-glow);background:rgba(255,68,34,.08)}
+.portal-view .pt-code__cell.is-bad .pt-code__cap{color:var(--red)}
+.portal-view .pt-code__dash{height:46px;display:flex;align-items:center;font-family:var(--font-mono);font-size:22px;color:var(--amber-dim)}
+.portal-view .pt-code__go{
+  height:46px;margin-left:10px;padding:0 20px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1.5px solid #24804e;background:rgba(186,117,23,.08);color:#4aa672;
+  font-family:var(--font-ko);font-size:15px;letter-spacing:.22em;transition:all .15s ease}
+.portal-view .pt-code__go:hover,.portal-view .pt-code__go:focus-visible{border-color:var(--amber);color:var(--amber);background:rgba(47,174,94,.12);text-shadow:0 0 6px var(--amber-glow);box-shadow:0 0 14px var(--amber-glow);outline:none}
+.portal-view .pt-code__go[disabled]{cursor:default}
+.portal-view .pt-code.is-ok .pt-code__cell input{border-color:var(--amber-2);box-shadow:0 0 12px var(--amber-glow)}
+.portal-view .pt-code.sh-1{animation:pt-shake1 .36s ease}
+.portal-view .pt-code.sh-2{animation:pt-shake2 .36s ease}
+@keyframes pt-shake1{0%,100%{transform:none}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+@keyframes pt-shake2{0%,100%{transform:none}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+.portal-view .pt-vline.is-bad .pt-vline__t{color:var(--red)}
+
 /* 배속 승인 — VESTIGIA 문형 표시 줄 (버튼 아래, 자리 고정으로 레이아웃이 흔들리지 않게) */
 .portal-view .pt-vline{min-height:22px;display:flex;align-items:center;justify-content:center;gap:10px;
   font-family:var(--font-ko);font-size:14px;letter-spacing:.04em;color:var(--amber-dim)}
@@ -3628,11 +3657,30 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     return out;
   };
   /* 요원 등록 코드 — [부서]-[배속 연도 두 자리]-[등록 일련번호]-[출입 관측소] (정본 제05장).
-     지금은 고정값. 접속자별로 바뀌게 되면 IBA_AGENT만 채우면 된다. 대응반은 부서가 DA-R */
-  window.IBA_AGENT = window.IBA_AGENT || { year: '26', serial: '20301', site: 'SIT' };
+     첫 화면의 배속 승인 번호 입력이 IBA_AGENT를 채운다(window.setAgent). 같은 탭에서는 sessionStorage로 유지.
+     대응반 접속 중에는 부서 자리만 DA-R로 바뀐다(정본: 부서 이동 시 앞자리만 바뀐다) */
+  var AGENT_KEY = 'iba.agent';
+  window.IBA_DEPTS = { AR: { name: '기록관리과', rank: '기록관' }, RS: { name: '연구과', rank: '연구원' },
+                       FS: { name: '현장조사과', rank: '조사관' }, DA: { name: '분기평가과', rank: '평가관' } };
+  window.IBA_AGENT = window.IBA_AGENT || { dept: 'RS', year: '26', serial: '20301', site: 'SIT' };
+  try { var _ag = JSON.parse(sessionStorage.getItem(AGENT_KEY) || 'null'); if (_ag && window.IBA_DEPTS[_ag.dept]) window.IBA_AGENT = _ag; } catch (e) {}
+  /* 형식 검사 — 맞지 않는 자리 이름 목록을 돌려준다(빈 배열이면 통과) */
+  window.checkAgent = function (a) {
+    var bad = [];
+    if (!window.IBA_DEPTS[a.dept]) bad.push('dept');
+    if (!/^\d{2}$/.test(a.year)) bad.push('year');
+    if (!/^\d{5}$/.test(a.serial)) bad.push('serial');
+    if (!/^[A-Z]{3}$/.test(a.site)) bad.push('site');
+    return bad;
+  };
+  window.setAgent = function (a) {
+    window.IBA_AGENT = { dept: a.dept, year: a.year, serial: a.serial, site: a.site };
+    try { sessionStorage.setItem(AGENT_KEY, JSON.stringify(window.IBA_AGENT)); } catch (e) {}
+  };
+  window.agentDept = function (resp) { return resp ? 'DA-R' : (window.IBA_AGENT.dept || 'RS'); };
   /* 정리 내용이 실제로 있는지 — 빈 정리({ sections: [] })는 탭만 두고 내용은 없는 것으로 친다 */
   window.hasNotes = function (db) { var n = db && db.notes; if (!n) return false; if (typeof n === 'string') return !!n.trim(); return !!(n.summary || (Array.isArray(n.sections) && n.sections.length)); };
-  window.agentCode = function (resp) { var a = window.IBA_AGENT; return (resp ? 'DA-R' : 'RS') + '-' + a.year + '-' + a.serial + '-' + a.site; };
+  window.agentCode = function (resp) { var a = window.IBA_AGENT; return window.agentDept(resp) + '-' + a.year + '-' + a.serial + '-' + a.site; };
   /* 청구 기호 — 화면에는 내부 ID 대신 이것을 쓴다 (예: REC-0698-K) */
   window.eventCallNo = function (e) { return 'REC-' + window.eventYearCode(e) + '-' + String(e.id || e.track || '?')[0].toUpperCase(); };   // K 한국 · E 동아시아 · W 서양 · S 서아시아·인도
   /* React 훅 — active 동안 창을 한 층으로 올린다. 닫기 함수는 항상 최신 것을 쓴다 */
@@ -3924,7 +3972,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261008a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·제2국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20260915b"></script>
+<script src="iba-emblem.js?v=20261009a"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -16717,10 +16765,10 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
 
         {/* (2) 접속자 데이터 */}
         <div className="op-sect op-data">
-          <div className="op-sect__cap"><span>{resp ? '대응반 데이터 · ' : '접속자 데이터 · '}<b>{resp ? 'RESPONSE' : 'ENTITY'}</b></span><span>{resp ? 'DA-R' : 'RS'}</span></div>
+          <div className="op-sect__cap"><span>{resp ? '대응반 데이터 · ' : '접속자 데이터 · '}<b>{resp ? 'RESPONSE' : 'ENTITY'}</b></span><span>{window.agentDept(resp)}</span></div>
           <div className="op-row"><span className="k">등록 코드</span><span className="v">{window.agentCode(resp)}</span></div>
           <div className="op-row"><span className="k">소속</span><span className="v">{resp ? '제4지역국 · 왜곡 대응반' : '제4지역국 · 한국 지부'}</span></div>
-          <div className="op-row"><span className="k">직급</span><span className="v ok">{resp ? '대응요원' : '연구원'}</span></div>
+          <div className="op-row"><span className="k">직급</span><span className="v ok">{resp ? '대응요원' : window.IBA_DEPTS[window.agentDept(false)].rank}</span></div>
           <div className="op-row"><span className="k">열람 등급</span><span className="v">{resp ? '폐가 출입' : '상시'}</span></div>
           <div className="op-row"><span className="k">명부 등재</span><span className="v ok">{resp ? '확인 · LUMINA 감시' : '확인'}</span></div>
         </div>
@@ -16728,7 +16776,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
         {/* (3) 기록줄기 단말기 접속 & 무결성 */}
         <div className="op-sect op-stab">
           <div className="op-sect__cap"><span>{resp ? '기록 왜곡 감시 · ' : '기록줄기 무결성 · '}<b>{resp ? 'DISTORTION' : 'INTEGRITY'}</b></span><span className="v ok" style={{display:'inline-flex',alignItems:'center',gap:5}}><span className="op-dot"/>{resp ? 'ALERT' : 'NOMINAL'}</span></div>
-          <div className="op-row"><span className="k">출입 관측소</span><span className="v ok">{resp ? 'SIT · 대응 개방' : 'SIT · 개방'}</span></div>
+          <div className="op-row"><span className="k">출입 관측소</span><span className="v ok">{window.IBA_AGENT.site + (resp ? ' · 대응 개방' : ' · 개방')}</span></div>
           {resp ? <>
           <div className="op-mrow">
             <span className="k">탐지 DETECT</span>
@@ -19280,33 +19328,97 @@ function Portal({ onBypass, rebooted = false }) {
     V.chain((rebooted ? ['V-SYS-017'] : []).concat(['V-SYS-001', 'V-SYS-002', 'V-SYS-003']));
   }, []);
 
-  /* 배속 승인 번호 입력 — V-SYS-004(요청) → 005(인증 확인 중) → 006(인증 성공) 뒤 글리치로 대문 진입.
-     (개발용 우회: 번호를 실제로 받지는 않는다) */
-  const go = useCallbackApp(() => {
+  /* 배속 승인 번호 입력 — 버튼을 누르면 V-SYS-004(요청)와 함께 입력 칸 네 개가 열린다.
+     [부서]-[배속 연도]-[등록 일련번호]-[출입 관측소]. 형식이 맞으면 005(인증 확인 중) → 006(인증 성공) 뒤
+     글리치로 대문 진입, 틀리면 007(인증 실패)과 함께 틀린 칸을 붉게 표시한다. 입력값은 window.setAgent로 접속자 데이터가 된다. */
+  const [asking, setAsking] = useStateApp(false);
+  const [vals, setVals] = useStateApp(() => {
+    const a = window.IBA_AGENT || {};
+    let saved = false; try { saved = !!sessionStorage.getItem('iba.agent'); } catch (e) {}
+    return saved ? { dept: a.dept, year: a.year, serial: a.serial, site: a.site } : { dept: '', year: '', serial: '', site: '' };
+  });
+  const [bad, setBad] = useStateApp([]);
+  const [shake, setShake] = useStateApp(0);
+  const inputs = useRefApp({});
+  const FIELDS = [
+    { k: 'dept',   cap: '부서',          ph: 'RS',    len: 2, re: /[^A-Z]/g, mode: 'text' },
+    { k: 'year',   cap: '배속 연도',     ph: '26',    len: 2, re: /[^0-9]/g, mode: 'numeric' },
+    { k: 'serial', cap: '등록 일련번호', ph: '00000', len: 5, re: /[^0-9]/g, mode: 'numeric' },
+    { k: 'site',   cap: '출입 관측소',   ph: 'SIT',   len: 3, re: /[^A-Z]/g, mode: 'text' }
+  ];
+
+  const ask = useCallbackApp(() => {
     if (firedRef.current) return;
-    firedRef.current = true;
-    setFired(true);
+    setAsking(true);
     const A = window.DENDRO_AUDIO, V = window.VESTIGIA;
-    V.clear();
-    V.say('V-SYS-004');
+    V.clear(); V.say('V-SYS-004');
     if (A) A.sfx('key');
-    setTimeout(() => { V.clear(); V.say('V-SYS-005'); }, 900);
+    setTimeout(() => { const f = FIELDS.find(f => !vals[f.k]) || FIELDS[0]; inputs.current[f.k]?.focus(); }, 40);
+  }, [vals]);
+
+  const submit = useCallbackApp(() => {
+    if (firedRef.current) return;
+    const A = window.DENDRO_AUDIO, V = window.VESTIGIA;
+    const wrong = window.checkAgent(vals);
+    if (wrong.length) {
+      setBad(wrong); setShake(n => n + 1);
+      V.clear(); V.say('V-SYS-007');
+      if (A) A.sfx('denied');
+      setTimeout(() => inputs.current[wrong[0]]?.focus(), 0);
+      return;
+    }
+    firedRef.current = true;
+    setFired(true); setBad([]);
+    window.setAgent(vals);
+    if (document.activeElement) document.activeElement.blur();
+    V.clear();
+    V.say('V-SYS-005');
+    if (A) A.sfx('key');
     setTimeout(() => {
       V.clear(); V.say('V-SYS-006');
       if (A) A.sfx('connect');
-    }, 1800);
+    }, 900);
     setTimeout(() => {
       setGlitch(true);
       if (A) { A.sfx('redacted'); setTimeout(() => A.sfx('transition'), 360); }
       setTimeout(() => onBypass(), 950);
-    }, 3000);
-  }, [onBypass]);
+    }, 2100);
+  }, [vals, onBypass]);
 
+  /* 한 칸을 고친다. 첫 칸에 RS-26-20301-SIT 처럼 통째로 붙여 넣으면 네 칸에 나눠 넣는다 */
+  const change = (i, raw) => {
+    const up = String(raw).toUpperCase();
+    if (i === 0 && /-/.test(up)) {
+      const parts = up.split(/\s*-\s*/);
+      if (parts.length >= 4) {
+        const next = {}; FIELDS.forEach((f, j) => { next[f.k] = (parts[j] || '').replace(f.re, '').slice(0, f.len); });
+        setVals(next); setBad([]);
+        inputs.current.site?.focus();
+        return;
+      }
+    }
+    const f = FIELDS[i];
+    const v = up.replace(f.re, '').slice(0, f.len);
+    setVals(o => ({ ...o, [f.k]: v }));
+    if (bad.includes(f.k)) setBad(b => b.filter(x => x !== f.k));
+    if (v.length === f.len && i < FIELDS.length - 1) inputs.current[FIELDS[i + 1].k]?.focus();
+  };
+  const keyDown = (i, e) => {
+    const el = e.currentTarget;
+    if (e.key === 'Enter') { e.preventDefault(); submit(); }
+    else if (e.key === 'Backspace' && !el.value && i > 0) { e.preventDefault(); inputs.current[FIELDS[i - 1].k]?.focus(); }
+    else if (e.key === 'ArrowLeft' && el.selectionStart === 0 && el.selectionEnd === 0 && i > 0) { e.preventDefault(); inputs.current[FIELDS[i - 1].k]?.focus(); }
+    else if (e.key === 'ArrowRight' && el.selectionStart === el.value.length && i < FIELDS.length - 1) { e.preventDefault(); inputs.current[FIELDS[i + 1].k]?.focus(); }
+    else if (e.key === '-' && el.value && i < FIELDS.length - 1) { e.preventDefault(); inputs.current[FIELDS[i + 1].k]?.focus(); }
+  };
+
+  /* 입력 칸이 열리기 전에는 Enter·Space가 버튼과 같다 */
   useEffectApp(() => {
-    const onKey = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+    if (asking) return;
+    const onKey = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ask(); } };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [go]);
+  }, [asking, ask]);
 
   return (
     <div className={`portal-view ${glitch ? 'is-glitching' : ''}`}>
@@ -19318,10 +19430,35 @@ function Portal({ onBypass, rebooted = false }) {
           <IbaSealBF kind="lockupV" bg="var(--bg)" color="#ff4422" className="pt-seal__ghost pt-seal__ghost--r"/>
           <IbaSealBF kind="lockupV" bg="var(--bg)" color="#4ad6e0" className="pt-seal__ghost pt-seal__ghost--c"/>
         </div>
-        <button className="pt-bypass" onClick={go} disabled={glitch || fired}>
-          <span aria-hidden="true">◇</span><span>배속 승인 번호 입력</span>
-        </button>
-        <div className={`pt-vline ${vline && vline.id === 'V-SYS-006' ? 'is-ok' : ''}`} aria-live="polite">
+        <div className="pt-auth">
+          {!asking ? (
+            <button className="pt-bypass" onClick={ask}>
+              <span aria-hidden="true">◇</span><span>배속 승인 번호 입력</span>
+            </button>
+          ) : (
+            <form className={`pt-code ${fired ? 'is-ok' : ''} ${shake ? 'sh-' + (shake % 2 + 1) : ''}`}
+                  onSubmit={(e) => { e.preventDefault(); submit(); }} autoComplete="off">
+              {FIELDS.map((f, i) => (
+                <React.Fragment key={f.k}>
+                  {i > 0 && <span className="pt-code__dash" aria-hidden="true">-</span>}
+                  <label className={`pt-code__cell pt-code__cell--${f.k} ${bad.includes(f.k) ? 'is-bad' : ''}`}>
+                    <input ref={el => { inputs.current[f.k] = el; }} value={vals[f.k]} placeholder={f.ph}
+                           maxLength={i === 0 ? 24 : f.len} inputMode={f.mode} spellCheck={false} autoCapitalize="characters"
+                           disabled={fired} aria-label={f.cap} aria-invalid={bad.includes(f.k) || undefined}
+                           style={{ width: `calc(${f.len * 1.1}ch + 26px)` }}
+                           onChange={e => change(i, e.target.value)} onKeyDown={e => keyDown(i, e)}
+                           onFocus={e => e.target.select()}/>
+                    <span className="pt-code__cap">{f.cap}</span>
+                  </label>
+                </React.Fragment>
+              ))}
+              <button type="submit" className="pt-code__go" disabled={fired}>
+                <span aria-hidden="true">▸</span><span>인증</span>
+              </button>
+            </form>
+          )}
+        </div>
+        <div className={`pt-vline ${vline && vline.id === 'V-SYS-006' ? 'is-ok' : ''} ${vline && vline.id === 'V-SYS-007' ? 'is-bad' : ''}`} aria-live="polite">
           {vline && <><span className="pt-vline__id">{vline.id}</span><span className="pt-vline__t">{vline.text}</span></>}
         </div>
       </div>
@@ -19435,7 +19572,7 @@ function Landing({ onConnect }) {
             <span>ACCESSING AGENT</span>
             <b>{window.agentCode(false)}</b>
             <span style={{color:'var(--amber-dim)'}}>·</span>
-            <span>IBA · D-II · RO-4 / KR-04 / RS</span>
+            <span>IBA · D-II · RO-4 / KR-04 / {window.agentDept(false)}</span>
           </div>
 
           <div className="lv-actions lv-actions--single">
