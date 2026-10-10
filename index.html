@@ -3902,7 +3902,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     "V-SYS-005": ["인증 확인 중", "제2국 인증을 확인하고 있습니다."],
     "V-SYS-006": ["인증 성공", "인증이 확인되었습니다. 기록보관소 접속을 허가합니다."],
     "V-SYS-007": ["인증 실패", "배속 승인 번호가 확인되지 않습니다. 다시 입력하십시오."],
-    "V-SYS-008": ["브리핑 시작", "기본 규정을 낭독합니다."],
+    "V-SYS-008": ["브리핑 시작", "맹세를 낭독합니다."],
     "V-SYS-009": ["접속 완료", "현재 위치는 한국 지부입니다. 도착층은 지하 3층, 19세기 서가입니다."],
     "V-SYS-010": ["접속 완료 직후", "도착층이 개작 구역임을 확인하십시오."],
     "V-SYS-011": ["강의 모드 진입", "열람 표시 방식을 전환합니다. 지속 음향을 정지합니다."],
@@ -4208,6 +4208,17 @@ International Bureau of Archives
 ---
 
 # 제01장 · 기본 규정
+
+## 맹세
+
+```
+가장 깊은 층에서도, 가장 얇은 기록 속에서도,
+지워진 문장은 잠들지 않고, 빈자리는 눈을 뜨리라.
+시간의 결을 도려내는 자여, 네 발자국 없는 발자국을 두려워하라.
+우리는 적되 적히지 않고, 보되 과거를 깨우지 않으리.
+```
+
+## 규정
 
 ```
 제1조 (보존)   기록은 보존한다.
@@ -25028,23 +25039,18 @@ function Terminal({ onReboot }) {
 }
 
 // ====================================================================
-// BRIEFING VIEW — VESTIGIA 기본 규정 안내 다이얼로그
+// BRIEFING VIEW — VESTIGIA 맹세 낭독 다이얼로그
 // ====================================================================
-/* VESTIGIA 말풍선 — 문형 목록의 문구만 쓴다: 브리핑 시작 V-SYS-008 → 규정 V-RL-001~008 → 기동 직후 V-SYS-002 */
+/* VESTIGIA 말풍선 — 브리핑 시작 V-SYS-008 → 맹세(사용자 지정 문안, 2026-10-11) → 기동 직후 V-SYS-002 */
 const IBA_DOCTRINE = [
   window.VESTIGIA.text('V-SYS-008'),
   '',
-  '【 기본 규정 】',
+  '【 맹세 】',
   '',
-  '제1조 (보존)   기록은 보존한다.',
-  '제2조 (불가침) 기록 본문은 수정하지 아니한다.',
-  '제3조 (주석)   해석은 주석으로만 존재한다.',
-  '제4조 (불개입) 과거에 개입하지 아니한다.',
-  '제5조 (보안)   제2국의 존재 및 활동은 공표하지 아니한다.',
-  '제6조 (실격)   제2조 및 제4조를 위반한 자는 구성원이 아니다.',
-  '',
-  '본 규정은 기구 설립 이래 개정된 바 없다.',
-  '본 문서의 사본 제작을 금한다.',
+  '가장 깊은 층에서도, 가장 얇은 기록 속에서도,',
+  '지워진 문장은 잠들지 않고, 빈자리는 눈을 뜨리라.',
+  '시간의 결을 도려내는 자여, 네 발자국 없는 발자국을 두려워하라.',
+  '우리는 적되 적히지 않고, 보되 과거를 깨우지 않으리.',
   '',
   '— ' + window.VESTIGIA.text('V-SYS-002').replace(/\.$/, '') + ' —',
 ];
@@ -25104,7 +25110,7 @@ function Briefing({ onEnter }) {
         <span className="bf-c-bl"/><span className="bf-c-br"/>
         <div className="bf-head">
           <span className="bf-head__title">▸ IBA DIRECTIVE · BRIEFING</span>
-          <span className="bf-head__sub">국제기록보존기구 기본 규정</span>
+          <span className="bf-head__sub">국제기록보존기구 맹세</span>
           <span className="bf-head__id">FILE DR-0001-K</span>
         </div>
         <div className="bf-body">
@@ -25114,7 +25120,7 @@ function Briefing({ onEnter }) {
           </div>
 
           {/* 말풍선 — 규정 타이핑 */}
-          <div className="bf-bubble" role="article" aria-label="IBA 기본 규정">
+          <div className="bf-bubble" role="article" aria-label="IBA 맹세">
             <div className="bf-bubble-head">
               <span className="who">▸ VESTIGIA</span>
               <span style={{color:'var(--amber-dim)'}}>·</span>
@@ -25124,7 +25130,7 @@ function Briefing({ onEnter }) {
           </div>
         </div>
         <div className="bf-foot">
-          <span className="bf-skip">{done ? '규정 확인 완료' : '[ENTER] · [SPACE] TO SKIP TYPING'}</span>
+          <span className="bf-skip">{done ? '맹세 낭독 완료' : '[ENTER] · [SPACE] TO SKIP TYPING'}</span>
           <button
             className={`bf-enter ${done ? 'is-ready' : ''}`}
             onClick={done ? onEnter : undefined}
