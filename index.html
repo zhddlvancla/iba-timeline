@@ -19803,9 +19803,10 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   });
 
   const TABS = docMode ? DOC_TABS : [
+    // 지도 → 정리 순 (2026-10-10 사용자 요청으로 자리 바꿈)
+    { id: 'map',       label: 'MAP',        ko: '지도',   icon: <SyncIcon.Map/> },
     // 정리 — 모든 기록에 둔다. 내용이 비어 있으면 빈 정리 화면 (2026-10-04)
     ...(db && db.notes ? [{ id: 'notes', label: 'NOTES', ko: '정리', icon: <SyncIcon.Info/> }] : []),
-    { id: 'map',       label: 'MAP',        ko: '지도',   icon: <SyncIcon.Map/> },
     { id: 'overview',  label: 'OVERVIEW',   ko: '개요',   icon: <SyncIcon.Info/> },
     { id: 'artifacts', label: 'ARTIFACTS',  ko: '자료',   icon: <SyncIcon.Image/> },
     { id: 'sources',   label: 'INQUIRY',    ko: '탐구',   icon: <SyncIcon.Doc/> },
