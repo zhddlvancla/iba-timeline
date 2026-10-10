@@ -88,7 +88,7 @@
     if (window.IBA_SEARCH_INDEX) return Promise.resolve(window.IBA_SEARCH_INDEX);
     return new Promise(function (ok) {
       var s = document.createElement('script');
-      s.src = 'search-index.js?v=' + (window.IBA_SEARCH_INDEX_VER || '20261010d');   // 색인을 다시 만들면 이 값도 바꾼다(브라우저 캐시)
+      s.src = 'search-index.js?v=' + (window.IBA_SEARCH_INDEX_VER || '20261010e');   // 색인을 다시 만들면 이 값도 바꾼다(브라우저 캐시)
       s.onload = function () { ok(window.IBA_SEARCH_INDEX || null); };
       s.onerror = function () { ok(null); };   // 없으면 전부 그 자리에서 계산
       document.head.appendChild(s);
