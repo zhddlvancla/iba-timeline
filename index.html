@@ -2541,6 +2541,12 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 .sync-pane--notes .sync-notes-list li::before{
   font-size:14px;left:10px;top:11px;
 }
+.sync-notes-sub{   /* 정리 — 머리 항목 아래 세부 항목 */
+  list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:3px;
+  font-size:16px;line-height:1.6;color:var(--amber-2);
+}
+.sync-notes-list .sync-notes-sub li{padding:0 0 0 18px;background:none;border-left:none}
+.sync-notes-list .sync-notes-sub li::before{content:'–';left:2px;top:0;font-size:14px;color:var(--amber-dim)}
 .sync-notes-list b{   /* 정리 강조 — **글자** */
   font-weight:700;color:var(--amber-2);
   background:var(--amber-soft);padding:0 3px;
@@ -3279,7 +3285,7 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 .canvas__era-caret{font-family:var(--font-mono);font-size:12px;color:var(--amber-dim);transition:transform .15s}
 .canvas__era.is-open .canvas__era-caret{transform:rotate(180deg);color:var(--amber)}
 .canvas__era-menu{
-  position:absolute;top:calc(100% + 6px);left:0;min-width:260px;margin:0;padding:4px;list-style:none;
+  position:absolute;top:calc(100% + 6px);left:0;min-width:260px;width:max-content;max-width:min(400px, calc(100vw - 32px));margin:0;padding:4px;list-style:none;
   background:var(--panel);border:1.5px solid var(--amber);
   box-shadow:0 0 0 1px rgba(0,0,0,.6), 0 10px 28px rgba(0,0,0,.65), 0 0 14px var(--amber-glow);
   max-height:min(440px, 72vh);overflow-y:auto;   /* 휴대폰 가로 화면처럼 낮은 화면에서도 끝까지 고를 수 있게 */
@@ -3722,6 +3728,22 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   /* 연도 표기 — 기원전은 BCE, 기원후는 CE.
      노드에 yearLabel(교과서에 적힌 범위, 예: '약 70만 년 전 ~')이 있으면 배치용 year 대신 그것을 보인다 */
   window.fmtYear = function (y) { return y < 0 ? (-y) + ' BCE' : y + ' CE'; };
+  /* 상세 패널의 state 칸 이름 — 왕조·국가·시대·시기·문명·종교·지역 (2026-10-10: 근현대 노드에 '왕조'가 맞지 않아 노드마다 나눔)
+     노드에 stateKind가 있으면 그것, 없으면 state 값으로 정한다 */
+  var STATE_KINDS = { dynasty: 'DYNASTY / 왕조', state: 'STATE / 국가', era: 'ERA / 시대', period: 'PERIOD / 시기',
+                      civ: 'CIVILIZATION / 문명', religion: 'RELIGION / 종교', region: 'REGION / 지역' };
+  var KIND_OF = {};
+  [['era', '구석기 신석기 청동기 철기 춘추 전국 삼국|춘추·전국 시대|위·진·남북조|5호 16국(五胡十六國)'],
+   ['period', '|일제 강점기|광복 이후'],
+   ['civ', '|에게 문명|아메리카 문명|메소포타미아 문명|이집트 문명|인도 문명'],
+   ['dynasty', '하(夏) 상(商) 주(周) 진(秦) 전한 한 신 후한 위 서진(西晉) 동진(東晉) 북위(北魏) 수(隋) 당(唐) 당 송 금 남송 원 명 후금 청 고려 조선 페르시아 파르티아 사산 우마이야 아바스 파티마|셀주크 튀르크'],
+   ['religion', '크리스트교 불교 자이나교 이슬람'],
+   ['region', '그리스 아메리카 유럽 국제 인도 팔레스타인|라틴 아메리카|일본 열도|이슬람 세계']
+  ].forEach(function (r) {
+    var parts = r[1].split('|'), words = parts[0] ? parts[0].split(' ') : [];
+    words.concat(parts.slice(1)).forEach(function (w) { if (w) KIND_OF[w] = r[0]; });
+  });
+  window.stateKindLabel = function (e) { return STATE_KINDS[(e && e.stateKind) || KIND_OF[e && e.state] || 'state']; };
   window.eventYearText = function (e) { return (e && e.yearLabel) || window.fmtYear(e.year); };
   window.tlYearText = function (t) { return t.yl || window.fmtYear(t.y); };   // 기록 안 미니 연표 항목
   /* 청구 기호용 연도 코드 — MEM--3100 처럼 하이픈이 겹치지 않게 */
@@ -5907,15 +5929,16 @@ DENDRO v2.4 · 최종 갱신 1987
 // 시대 구분 — 기록줄기 전체를 고대부터 현대까지 한 화면에서 다룬다 (한국사 기준)
 //   고대: ~ 통일신라·발해 / 중세: 고려 / 근세: 조선 전기(~양 난)
 //   근대 태동기: 조선 후기(양 난 이후 ~ 개항 전) / 근대: 개항(1876)부터 / 현대: 광복(1945)부터
+//   sub는 한국사 기준, subs는 다른 기록줄기를 골랐을 때 그 지역 기준 설명(시대 이동 메뉴)
 // ============================================================
 window.TIMELINE_ERAS = [
-  { key: 'prehistory',   ko: '선사',        en: 'PREHISTORY',   sub: '구석기·신석기',        start: -4498050, end: -4000 },
-  { key: 'ancient',      ko: '고대',        en: 'ANCIENT',      sub: '~ 통일신라·발해',      start: -4000, end: 918  },
-  { key: 'medieval',     ko: '중세',        en: 'MEDIEVAL',     sub: '고려',                 start: 918,   end: 1392 },
-  { key: 'earlymodern',  ko: '근세',        en: 'EARLY MODERN', sub: '조선 전기',            start: 1392,  end: 1637 },
-  { key: 'protomodern',  ko: '근대 태동기', en: 'PRE-MODERN',   sub: '조선 후기',            start: 1637,  end: 1876 },
-  { key: 'modern',       ko: '근대',        en: 'MODERN',       sub: '개항(1876) 이후',      start: 1876,  end: 1945 },
-  { key: 'contemporary', ko: '현대',        en: 'CONTEMPORARY', sub: '광복(1945) 이후',      start: 1945,  end: 2030 }
+  { key: 'prehistory',   ko: '선사',        en: 'PREHISTORY',   sub: '구석기·신석기', subs: { eastasia: '구석기·신석기', west: '구석기·신석기', westasia: '구석기·신석기' },        start: -4498050, end: -4000 },
+  { key: 'ancient',      ko: '고대',        en: 'ANCIENT',      sub: '~ 통일신라·발해', subs: { eastasia: '중국 문명 ~ 당', west: '그리스·로마 ~ 프랑크 왕국', westasia: '오리엔트·인도 문명 ~ 아바스 왕조' },      start: -4000, end: 918  },
+  { key: 'medieval',     ko: '중세',        en: 'MEDIEVAL',     sub: '고려', subs: { eastasia: '송·원 · 가마쿠라 막부', west: '봉건 사회 · 십자군 전쟁', westasia: '셀주크 튀르크 · 델리 술탄 왕조' },                 start: 918,   end: 1392 },
+  { key: 'earlymodern',  ko: '근세',        en: 'EARLY MODERN', sub: '조선 전기', subs: { eastasia: '명 · 무로마치 막부·센고쿠 시대', west: '신항로 개척 · 종교 개혁', westasia: '오스만 제국 · 사파비 왕조 · 무굴 제국' },            start: 1392,  end: 1637 },
+  { key: 'protomodern',  ko: '근대 태동기', en: 'PRE-MODERN',   sub: '조선 후기', subs: { eastasia: '청 · 에도 막부', west: '시민 혁명 · 산업 혁명', westasia: '오스만 제국의 개혁 · 영국의 인도 지배' },            start: 1637,  end: 1876 },
+  { key: 'modern',       ko: '근대',        en: 'MODERN',       sub: '개항(1876) 이후', subs: { eastasia: '제국주의 침략 · 중화민국', west: '제국주의 · 두 차례 세계 대전', westasia: '민족 운동 · 튀르키예 공화국' },      start: 1876,  end: 1945 },
+  { key: 'contemporary', ko: '현대',        en: 'CONTEMPORARY', sub: '광복(1945) 이후', subs: { eastasia: '중화 인민 공화국 · 전후 일본', west: '냉전 · 유럽 연합', westasia: '인도·파키스탄 독립 · 중동 분쟁' },      start: 1945,  end: 2030 }
 ];
 window.eraOfYear = (y) => window.TIMELINE_ERAS.find(e => y < e.end) || window.TIMELINE_ERAS[window.TIMELINE_ERAS.length - 1];
 
@@ -6459,47 +6482,47 @@ window.TIMELINE_DATA = {
       body: '중·일 전쟁 이후 침략 전쟁에 한국인을 동원하기 위해 한국인을 일본인으로 동화시키려 한 정책.' },
     // ── 현대 · 광복(1945) 이후 — 동아출판 한국사2 Ⅱ·Ⅲ단원 ──
     { id: 'k-liberation', track: 'korea', year: 1945, month: 8, label: '8·15 광복', en: 'Liberation',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '1945년 8월 15일 일제가 무조건 항복하면서 한국은 광복을 맞이하였다. 그러나 38도선을 경계로 미·소 군정이 시작되었다.' },
     // ── 광복 ~ 정부 수립 (1945~1948) — 동아출판 한국사2 Ⅱ-1 ──
     { id: 'k-geonjun', track: 'korea', year: 1945, month: 8, label: '조선 건국 준비 위원회', en: 'Committee for the Preparation of Korean Independence',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '광복 직후 여운형이 조선 건국 동맹을 중심으로 좌익과 우익을 아울러 조직하였다(건준). 전국에 지부와 치안대를 조직하고 조선 인민 공화국 수립을 선포하였다.' },
     { id: 'k-moscow', track: 'korea', year: 1945, month: 12, label: '모스크바 3국 외상 회의', en: 'Moscow Conference of Foreign Ministers',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1945년 12월 미국·영국·소련의 외무 장관이 모스크바에 모여 한반도에 민주주의 임시 정부를 수립하고 최대 5년간 신탁 통치를 실시하기로 결정하였다.' },
     { id: 'k-jointcomm1', track: 'korea', year: 1946, month: 3, label: '제1차 미·소 공동 위원회', en: 'First US–Soviet Joint Commission',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1946년 3월 서울 덕수궁에서 열렸으나, 민주주의 임시 정부 수립에 참여할 정당과 사회단체의 범위를 놓고 미국과 소련이 대립하여 휴회되었다.' },
     { id: 'k-jeongeup', track: 'korea', year: 1946, month: 6, label: '이승만의 정읍 발언', en: 'Syngman Rhee\'s Jeongeup Speech',
-      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      state: '광복 이후', theme: '정치', kind: 'event', noSync: true,
       body: '1946년 6월 이승만이 정읍에서 통일 정부 수립이 어렵다면 남한만이라도 임시 정부를 수립할 것을 주장하였다.' },
     { id: 'k-jwau', track: 'korea', year: 1946, month: 7, label: '좌우 합작 운동', en: 'Left–Right Coalition Movement',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '여운형과 김규식 등 중도 세력이 좌우 합작 위원회를 구성하여 통일 정부 수립 운동을 펼치고, 좌우 합작 7원칙(1946)을 발표하였다.' },
     { id: 'k-jointcomm2', track: 'korea', year: 1947, month: 5, label: '제2차 미·소 공동 위원회', en: 'Second US–Soviet Joint Commission',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1947년 5월에 열렸으나 아무런 성과를 거두지 못하였다. 이에 미국은 한반도 문제를 유엔 총회에 넘겼다.' },
     { id: 'k-un-ga', track: 'korea', year: 1947, month: 11, label: '유엔 총회', en: 'UN General Assembly',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1947년 11월 유엔 총회는 유엔 감시하에 인구 비례에 따른 남북한 총선거를 실시하여 한반도에 정부를 세울 것을 결정하였다.' },
     { id: 'k-un-little', track: 'korea', year: 1948, month: 2, label: '유엔 소총회', en: 'UN Interim Committee',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '소련이 유엔 한국 임시 위원단의 38도선 이북 방문을 거부하자, 1948년 2월 유엔은 소총회를 열어 선거 감시가 가능한 지역에서만 선거를 치르기로 결정하였다.' },
     { id: 'k-samcheonman', track: 'korea', year: 1948, month: 2, label: '김구의 삼천만 동포에게 읍고함', en: 'Kim Ku\'s Appeal to Thirty Million Compatriots',
-      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      state: '광복 이후', theme: '정치', kind: 'event', noSync: true,
       body: '1948년 2월 김구가 남한만의 단독 정부 수립에 반대하며 발표한 성명. 38선을 베고 쓰러질지언정 단독 정부를 세우는 데는 협력하지 않겠다고 밝혔다.' },
     { id: 'k-jeju43', track: 'korea', year: 1948, month: 4, label: '제주 4·3 사건', en: 'Jeju April 3 Incident',
-      state: '대한민국', theme: '사회', kind: 'turning',
+      state: '광복 이후', theme: '사회', kind: 'turning',
       body: '1948년 4월 3일 제주도의 좌익 세력이 단독 선거 반대, 통일 정부 수립을 내세우며 무장봉기를 일으켰다. 이를 진압하는 과정에서 제주도의 수많은 민간인이 희생되었다.' },
     { id: 'k-nambuk', track: 'korea', year: 1948, month: 4, label: '남북 협상', en: 'North–South Negotiations',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '남한만의 단독 선거가 결정되자 1948년 4월 김구와 김규식이 38도선을 넘어 평양에서 북한 지도부와 남북 협상을 가졌다.' },
     { id: 'k-510', track: 'korea', year: 1948, month: 5, label: '5·10 총선거', en: 'May 10 General Election',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '1948년 5월 10일 유엔 한국 임시 위원단의 감시 아래 남한에서 실시된 국회의원 총선거. 우리 역사 최초의 민주 선거였다.' },
     { id: 'k-constitution', track: 'korea', year: 1948, month: 7, label: '제헌 헌법 공포', en: 'Promulgation of the Constitution',
-      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      state: '광복 이후', theme: '정치', kind: 'event', noSync: true,
       body: '1948년 7월 17일 제헌 국회가 제헌 헌법을 공포하였다. 대한민국이 대한민국 임시 정부의 법통을 계승한 민주 공화국임을 밝혔다.' },
     { id: 'k-rok', track: 'korea', year: 1948, month: 8, label: '대한민국 정부 수립', en: 'Establishment of the Republic of Korea',
       state: '대한민국', theme: '정치', kind: 'turning',
@@ -6697,7 +6720,7 @@ window.TIMELINE_DATA = {
       body: '동아시아의 신석기 시대 — 황허강 유역 양사오 문화(채도), 룽산 문화(흑도). 농경·목축의 시작, 정착 생활, 토기·간석기 사용.' },
     // ---------- 일본 갈래 시작 ----------
     { id: 'e-jomon', track: 'eastasia', year: -8050, yearLabel: '약 1만 년 전 ~ 3세기 BCE', label: '조몬(縄文) 시대', en: 'Jōmon',
-      state: '일본', theme: '사회', kind: 'turning', sub: 1,
+      state: '일본 열도', theme: '사회', kind: 'turning', sub: 1,
       body: '일본 열도의 신석기 시대. 약 1만 년 전부터 BCE 3세기경까지. 새끼줄 무늬(縄文) 토기, 정착 채집·수렵·어로 생활. 일본 역사의 시작점.' },
     // ---------- 청동기 ----------
     { id: 'e-bronze', track: 'eastasia', year: -2500, yearLabel: '2500 BCE 무렵 ~', label: '청동기 시대', en: 'Bronze Age',
@@ -6745,7 +6768,7 @@ window.TIMELINE_DATA = {
       body: '조비가 한 헌제로부터 선양받아 위(魏)를 건국 (220). 약 400년의 한(漢) 왕조 멸망. 삼국 시대 개막.' },
     // 일본 — 야요이
     { id: 'e-yayoi', track: 'eastasia', year: -300, yearLabel: '3세기 BCE경 ~', label: '야요이 시대', en: 'Yayoi Period',
-      state: '일본', theme: '사회', kind: 'turning', sub: 1,
+      state: '일본 열도', theme: '사회', kind: 'turning', sub: 1,
       body: '한반도로부터 벼농사·청동기·철기가 일본 열도로 전해짐. 농경 사회와 소국 분립이 시작.' },
     // 위·진·남북조 시대 묶음 라벨 노드 (hidden) — 기록 열람으로 통합 내용 확인
     { id: 'e-wei-jin-nbc', track: 'eastasia', year: 400, yearLabel: '220~589 CE', label: '위·진·남북조 시대', en: 'Wei · Jin · Northern & Southern Dynasties',
@@ -7202,20 +7225,20 @@ window.TIMELINE_DATA = {
       state: '이슬람', theme: '종교', kind: 'turning',
       body: '무함마드가 박해를 피해 메카에서 메디나로 이주(헤지라). 이슬람력의 원년(AH 1). 움마(이슬람 공동체) 수립. 이슬람교의 공식 출발점.' },
     { id: 's-rashidun', track: 'westasia', year: 632, label: '정통 칼리프 시대', en: 'Rashidun Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '이슬람 세계', theme: '정치', kind: 'turning',
       body: '무함마드 사후 아부 바크르가 1대 칼리프로 선출. 우마르·우스만·알리에 이르는 4대 정통 칼리프 시대(~661).' },
     // ============================================================
     // 서아시아·인도 WEST ASIA · INDIA — 중세 ~ 현대 (7세기 ~)
     //   중세·근세는 국가·왕조만 노드로 두고 그 시기 사건은 해당 국가 본문에 담는다 (사용자 지시 2026-10-02)
     // ============================================================
     { id: 's-umayyad', track: 'westasia', year: 661, label: '우마이야 왕조', en: 'Umayyad Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '우마이야', theme: '정치', kind: 'turning',
       body: '우마이야 가문이 칼리프 자리를 세습하며 다마스쿠스에 도읍한 왕조(661~750). 인더스강 유역에서 이베리아반도에 이르는 영토를 확보하였다. 시리아 지역의 아랍인을 우대하여 비아랍인의 불만이 높아졌다.' },
     { id: 's-abbasid', track: 'westasia', year: 750, label: '아바스 왕조', en: 'Abbasid Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '아바스', theme: '정치', kind: 'turning',
       body: '아바스 가문이 비아랍인과 시아파의 도움으로 우마이야 왕조를 무너뜨리고 세운 왕조(750~1258). 바그다드를 새 수도로 삼고 민족 차별 정책을 폐지하였다. 751년 탈라스 전투 이후 제지법이 이슬람 세계에 전해졌다. 1258년 몽골에 멸망하였다.' },
     { id: 's-fatimid', track: 'westasia', year: 909, label: '파티마 왕조', en: 'Fatimid Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '파티마', theme: '정치', kind: 'turning',
       body: '10세기 초 북아프리카에서 일어나 이집트를 정복한 시아파 왕조(909~1171). 칼리프 칭호를 사용하여 아바스 왕조·후우마이야 왕조와 함께 칼리프가 셋으로 나뉜 분열의 시대를 열었다.' },
     { id: 's-seljuk', track: 'westasia', year: 1055, label: '셀주크 튀르크', en: 'Seljuk Turks',
       state: '셀주크 튀르크', theme: '정치', kind: 'turning',
@@ -18325,23 +18348,18 @@ window.TIMELINE_DB = {
     linked: ['k-gov-choi', 'k-gov-roh']
   },
   'k-gov-roh': {
-    notes: {   // 정리 — 사용자 정리본 그대로 (정치·경제·통일)
+    notes: {   // 정리 — 사용자 정리본 (머리 항목 아래 세부 항목으로 배치 정리, 2026-10-10)
       sections: [
         { head: '정치', list: [
-          '9차 개헌',
-          '대통령 직선제, 5년 단임',
-          '여·야 합의 불발, 단일화 실패',
-          '13대 대통령 노태우(1987) → 노태우 정부 출범(1988)',
+          { t: '9차 개헌', sub: ['대통령 직선제, 5년 단임'] },
+          { t: '13대 대통령 노태우(1987) → 노태우 정부 출범(1988)', sub: ['여·야 합의 불발, 단일화 실패'] },
           '서울 올림픽 개최(1988)',
           '북방 외교: 소련 및 중국과 수교'
         ] },
         { head: '통일', list: [
           '남북 고위급 회담 개최(1990)',
           'UN 동시 가입(1991)',
-          '**남북 기본 합의서**(1991)',
-          '상호 체제 인정, 상호 불가침',
-          '남북 관계 → 잠정적 특수 관계',
-          '남북 교류 → 민족 내부 교류',
+          { t: '**남북 기본 합의서**(1991)', sub: ['상호 체제 인정, 상호 불가침', '남북 관계 → 잠정적 특수 관계', '남북 교류 → 민족 내부 교류'] },
           '한반도 비핵화 공동 선언(1992)'
         ] }
       ]
@@ -18364,13 +18382,11 @@ window.TIMELINE_DB = {
     linked: ['k-gov-chun', 'k-gov-kys', 'w-ussr']
   },
   'k-gov-kys': {
-    notes: {   // 정리 — 사용자 정리본 그대로 (정치·경제·통일)
+    notes: {   // 정리 — 사용자 정리본 (머리 항목 아래 세부 항목으로 배치 정리, 2026-10-10)
       sections: [
         { head: '정치', list: [
-          '지방 자치제',
-          '전면 실시',
-          '역사 바로 세우기 운동',
-          '전두환·노태우 구속',
+          { t: '지방 자치제', sub: ['전면 실시'] },
+          { t: '역사 바로 세우기 운동', sub: ['전두환·노태우 구속'] },
           '임기 말 외환 위기 발생'
         ] },
         { head: '경제', list: [
@@ -18401,31 +18417,19 @@ window.TIMELINE_DB = {
     linked: ['k-gov-roh', 'k-gov-kdj']
   },
   'k-gov-kdj': {
-    notes: {   // 정리 — 사용자 정리본 그대로 (정치·경제·통일)
+    notes: {   // 정리 — 사용자 정리본 (머리 항목 아래 세부 항목으로 배치 정리, 2026-10-10)
       sections: [
         { head: '정치', list: [
           '평화적 여야 정권 교체'
         ] },
         { head: '경제', list: [
-          '신자유주의 경제 정책',
-          '경쟁·효율 중시',
-          '합병',
-          '정리 해고',
-          '비정규직',
-          '외환 위기 졸업',
-          '금모으기 운동',
-          '노사정 위원회',
+          { t: '신자유주의 경제 정책', sub: ['경쟁·효율 중시', '합병', '정리 해고', '비정규직'] },
+          { t: '외환 위기 졸업', sub: ['금모으기 운동', '노사정 위원회'] },
           '한·칠레 FTA'
         ] },
         { head: '통일', list: [
-          '햇볕 정책',
-          '정주영 소 떼 방북',
-          '금강산 해로 관광',
-          '**6·15 남북 공동 선언**(2000)',
-          '최초 남북 정상 회담',
-          '(남)연합체≒(북)낮은 단계 연방제',
-          '개성 공단, 이산 가족 상봉',
-          '경의선, 금강산 육로 관광'
+          { t: '햇볕 정책', sub: ['정주영 소 떼 방북', '금강산 해로 관광'] },
+          { t: '**6·15 남북 공동 선언**(2000)', sub: ['최초 남북 정상 회담', '(남)연합체≒(북)낮은 단계 연방제', '개성 공단, 이산 가족 상봉', '경의선, 금강산 육로 관광'] }
         ] }
       ]
     },
@@ -18915,7 +18919,7 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
   }, []);
 
   /* 강의 모드 — 배경음악·앰비언트를 stopAll()로 멈춘다(효과음은 유지).
-     해제해도 자동으로 다시 켜지 않는다 — 사용자가 음향 패널에서 다시 켠다 (AUDIO_INTEGRATION 4항).
+     해제하면 저장된 재생 설정대로 다시 켠다 (2026-10-10 사용자 요청 — 예전에는 음향 패널에서 직접 켜야 했다).
      사용자가 저장한 재생 설정(sessionStorage)은 바꾸지 않는다. 인장(기관 안내)도 열리지 않는다. */
   const [lecture, setLecture] = useState(() => !!(window.IBA_LECTURE && window.IBA_LECTURE.on()));
   useEffect(() => {
@@ -18923,7 +18927,9 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
       const on = !!(e.detail && e.detail.on);
       setLecture(on);
       const A = window.DENDRO_AUDIO; if (!A) return;
-      if (on) { A.stopAll(); setMusOn(false); setAmbOn(false); }
+      if (on) { A.stopAll(); setMusOn(false); setAmbOn(false); return; }
+      if (load('musOn', true) && !A.state().music) setMusOn(!!A.music(true));
+      if (load('ambOn', true) && !A.state().ambient) setAmbOn(!!A.ambient(true));
     };
     window.addEventListener('iba:lecture', onLecture);
     return () => window.removeEventListener('iba:lecture', onLecture);
@@ -19539,7 +19545,7 @@ function MemoryDetail({ event, onSync, onJumpTo, onClose, accessMode = 'research
           <div className="v">{TRACK_KO[e.track] || e.track}</div>
         </div>
         <div className="detail__meta-row">
-          <div className="k">STATE / 왕조</div>
+          <div className="k">{window.stateKindLabel(e)}</div>
           <div className="v">{e.state}</div>
         </div>
         <div className="detail__meta-row">
@@ -20490,11 +20496,11 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                 </button>
                 {eraMenu && (
                   <ul className="canvas__era-menu" role="listbox" aria-label="시대 이동">
-                    {/* 시대 설명(고려·조선 전기 등)은 한국사 구분이라 기록줄기를 골랐을 때만 붙인다 */}
+                    {/* 시대 설명은 기록줄기를 골랐을 때만 — 한국은 sub(고려·조선 전기 등), 다른 줄기는 그 지역 기준 subs */}
                     {window.TIMELINE_ERAS.map(er => (
                       <li key={er.key}>
                         <button type="button" role="option" aria-selected={er.key === era.key} className={er.key === era.key ? 'is-cur' : ''} onClick={() => goEra(er)}>
-                          <b>{er.ko}</b><span>{er.en}</span>{focusedTrack && <i>{er.sub}</i>}
+                          <b>{er.ko}</b><span>{er.en}</span>{focusedTrack && <i>{focusedTrack === 'korea' ? er.sub : ((er.subs && er.subs[focusedTrack]) || er.sub)}</i>}
                         </button>
                       </li>
                     ))}
@@ -21280,7 +21286,16 @@ function NotesTab({ db, event }) {
           {s.body && <p className="sync-prose">{s.body}</p>}
           {Array.isArray(s.list) && s.list.length > 0 && (
             <ul className="sync-notes-list">
-              {s.list.map((item, j) => <li key={j}>{notesEm(item)}</li>)}
+              {s.list.map((item, j) => (
+                // 항목은 문자열, 또는 { t, sub: [...] } — 머리 항목 아래 세부 항목을 들여 단다
+                typeof item === 'object' && item
+                  ? <li key={j}>{notesEm(item.t)}
+                      {Array.isArray(item.sub) && item.sub.length > 0 && (
+                        <ul className="sync-notes-sub">{item.sub.map((x, k) => <li key={k}>{notesEm(x)}</li>)}</ul>
+                      )}
+                    </li>
+                  : <li key={j}>{notesEm(item)}</li>
+              ))}
             </ul>
           )}
         </section>

@@ -625,47 +625,47 @@ window.TIMELINE_DATA = {
       body: '중·일 전쟁 이후 침략 전쟁에 한국인을 동원하기 위해 한국인을 일본인으로 동화시키려 한 정책.' },
     // ── 현대 · 광복(1945) 이후 — 동아출판 한국사2 Ⅱ·Ⅲ단원 ──
     { id: 'k-liberation', track: 'korea', year: 1945, month: 8, label: '8·15 광복', en: 'Liberation',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '1945년 8월 15일 일제가 무조건 항복하면서 한국은 광복을 맞이하였다. 그러나 38도선을 경계로 미·소 군정이 시작되었다.' },
     // ── 광복 ~ 정부 수립 (1945~1948) — 동아출판 한국사2 Ⅱ-1 ──
     { id: 'k-geonjun', track: 'korea', year: 1945, month: 8, label: '조선 건국 준비 위원회', en: 'Committee for the Preparation of Korean Independence',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '광복 직후 여운형이 조선 건국 동맹을 중심으로 좌익과 우익을 아울러 조직하였다(건준). 전국에 지부와 치안대를 조직하고 조선 인민 공화국 수립을 선포하였다.' },
     { id: 'k-moscow', track: 'korea', year: 1945, month: 12, label: '모스크바 3국 외상 회의', en: 'Moscow Conference of Foreign Ministers',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1945년 12월 미국·영국·소련의 외무 장관이 모스크바에 모여 한반도에 민주주의 임시 정부를 수립하고 최대 5년간 신탁 통치를 실시하기로 결정하였다.' },
     { id: 'k-jointcomm1', track: 'korea', year: 1946, month: 3, label: '제1차 미·소 공동 위원회', en: 'First US–Soviet Joint Commission',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1946년 3월 서울 덕수궁에서 열렸으나, 민주주의 임시 정부 수립에 참여할 정당과 사회단체의 범위를 놓고 미국과 소련이 대립하여 휴회되었다.' },
     { id: 'k-jeongeup', track: 'korea', year: 1946, month: 6, label: '이승만의 정읍 발언', en: 'Syngman Rhee\'s Jeongeup Speech',
-      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      state: '광복 이후', theme: '정치', kind: 'event', noSync: true,
       body: '1946년 6월 이승만이 정읍에서 통일 정부 수립이 어렵다면 남한만이라도 임시 정부를 수립할 것을 주장하였다.' },
     { id: 'k-jwau', track: 'korea', year: 1946, month: 7, label: '좌우 합작 운동', en: 'Left–Right Coalition Movement',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '여운형과 김규식 등 중도 세력이 좌우 합작 위원회를 구성하여 통일 정부 수립 운동을 펼치고, 좌우 합작 7원칙(1946)을 발표하였다.' },
     { id: 'k-jointcomm2', track: 'korea', year: 1947, month: 5, label: '제2차 미·소 공동 위원회', en: 'Second US–Soviet Joint Commission',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1947년 5월에 열렸으나 아무런 성과를 거두지 못하였다. 이에 미국은 한반도 문제를 유엔 총회에 넘겼다.' },
     { id: 'k-un-ga', track: 'korea', year: 1947, month: 11, label: '유엔 총회', en: 'UN General Assembly',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '1947년 11월 유엔 총회는 유엔 감시하에 인구 비례에 따른 남북한 총선거를 실시하여 한반도에 정부를 세울 것을 결정하였다.' },
     { id: 'k-un-little', track: 'korea', year: 1948, month: 2, label: '유엔 소총회', en: 'UN Interim Committee',
-      state: '대한민국', theme: '외교', kind: 'turning',
+      state: '광복 이후', theme: '외교', kind: 'turning',
       body: '소련이 유엔 한국 임시 위원단의 38도선 이북 방문을 거부하자, 1948년 2월 유엔은 소총회를 열어 선거 감시가 가능한 지역에서만 선거를 치르기로 결정하였다.' },
     { id: 'k-samcheonman', track: 'korea', year: 1948, month: 2, label: '김구의 삼천만 동포에게 읍고함', en: 'Kim Ku\'s Appeal to Thirty Million Compatriots',
-      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      state: '광복 이후', theme: '정치', kind: 'event', noSync: true,
       body: '1948년 2월 김구가 남한만의 단독 정부 수립에 반대하며 발표한 성명. 38선을 베고 쓰러질지언정 단독 정부를 세우는 데는 협력하지 않겠다고 밝혔다.' },
     { id: 'k-jeju43', track: 'korea', year: 1948, month: 4, label: '제주 4·3 사건', en: 'Jeju April 3 Incident',
-      state: '대한민국', theme: '사회', kind: 'turning',
+      state: '광복 이후', theme: '사회', kind: 'turning',
       body: '1948년 4월 3일 제주도의 좌익 세력이 단독 선거 반대, 통일 정부 수립을 내세우며 무장봉기를 일으켰다. 이를 진압하는 과정에서 제주도의 수많은 민간인이 희생되었다.' },
     { id: 'k-nambuk', track: 'korea', year: 1948, month: 4, label: '남북 협상', en: 'North–South Negotiations',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '남한만의 단독 선거가 결정되자 1948년 4월 김구와 김규식이 38도선을 넘어 평양에서 북한 지도부와 남북 협상을 가졌다.' },
     { id: 'k-510', track: 'korea', year: 1948, month: 5, label: '5·10 총선거', en: 'May 10 General Election',
-      state: '대한민국', theme: '정치', kind: 'turning',
+      state: '광복 이후', theme: '정치', kind: 'turning',
       body: '1948년 5월 10일 유엔 한국 임시 위원단의 감시 아래 남한에서 실시된 국회의원 총선거. 우리 역사 최초의 민주 선거였다.' },
     { id: 'k-constitution', track: 'korea', year: 1948, month: 7, label: '제헌 헌법 공포', en: 'Promulgation of the Constitution',
-      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      state: '광복 이후', theme: '정치', kind: 'event', noSync: true,
       body: '1948년 7월 17일 제헌 국회가 제헌 헌법을 공포하였다. 대한민국이 대한민국 임시 정부의 법통을 계승한 민주 공화국임을 밝혔다.' },
     { id: 'k-rok', track: 'korea', year: 1948, month: 8, label: '대한민국 정부 수립', en: 'Establishment of the Republic of Korea',
       state: '대한민국', theme: '정치', kind: 'turning',
@@ -863,7 +863,7 @@ window.TIMELINE_DATA = {
       body: '동아시아의 신석기 시대 — 황허강 유역 양사오 문화(채도), 룽산 문화(흑도). 농경·목축의 시작, 정착 생활, 토기·간석기 사용.' },
     // ---------- 일본 갈래 시작 ----------
     { id: 'e-jomon', track: 'eastasia', year: -8050, yearLabel: '약 1만 년 전 ~ 3세기 BCE', label: '조몬(縄文) 시대', en: 'Jōmon',
-      state: '일본', theme: '사회', kind: 'turning', sub: 1,
+      state: '일본 열도', theme: '사회', kind: 'turning', sub: 1,
       body: '일본 열도의 신석기 시대. 약 1만 년 전부터 BCE 3세기경까지. 새끼줄 무늬(縄文) 토기, 정착 채집·수렵·어로 생활. 일본 역사의 시작점.' },
     // ---------- 청동기 ----------
     { id: 'e-bronze', track: 'eastasia', year: -2500, yearLabel: '2500 BCE 무렵 ~', label: '청동기 시대', en: 'Bronze Age',
@@ -911,7 +911,7 @@ window.TIMELINE_DATA = {
       body: '조비가 한 헌제로부터 선양받아 위(魏)를 건국 (220). 약 400년의 한(漢) 왕조 멸망. 삼국 시대 개막.' },
     // 일본 — 야요이
     { id: 'e-yayoi', track: 'eastasia', year: -300, yearLabel: '3세기 BCE경 ~', label: '야요이 시대', en: 'Yayoi Period',
-      state: '일본', theme: '사회', kind: 'turning', sub: 1,
+      state: '일본 열도', theme: '사회', kind: 'turning', sub: 1,
       body: '한반도로부터 벼농사·청동기·철기가 일본 열도로 전해짐. 농경 사회와 소국 분립이 시작.' },
     // 위·진·남북조 시대 묶음 라벨 노드 (hidden) — 기록 열람으로 통합 내용 확인
     { id: 'e-wei-jin-nbc', track: 'eastasia', year: 400, yearLabel: '220~589 CE', label: '위·진·남북조 시대', en: 'Wei · Jin · Northern & Southern Dynasties',
@@ -1368,20 +1368,20 @@ window.TIMELINE_DATA = {
       state: '이슬람', theme: '종교', kind: 'turning',
       body: '무함마드가 박해를 피해 메카에서 메디나로 이주(헤지라). 이슬람력의 원년(AH 1). 움마(이슬람 공동체) 수립. 이슬람교의 공식 출발점.' },
     { id: 's-rashidun', track: 'westasia', year: 632, label: '정통 칼리프 시대', en: 'Rashidun Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '이슬람 세계', theme: '정치', kind: 'turning',
       body: '무함마드 사후 아부 바크르가 1대 칼리프로 선출. 우마르·우스만·알리에 이르는 4대 정통 칼리프 시대(~661).' },
     // ============================================================
     // 서아시아·인도 WEST ASIA · INDIA — 중세 ~ 현대 (7세기 ~)
     //   중세·근세는 국가·왕조만 노드로 두고 그 시기 사건은 해당 국가 본문에 담는다 (사용자 지시 2026-10-02)
     // ============================================================
     { id: 's-umayyad', track: 'westasia', year: 661, label: '우마이야 왕조', en: 'Umayyad Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '우마이야', theme: '정치', kind: 'turning',
       body: '우마이야 가문이 칼리프 자리를 세습하며 다마스쿠스에 도읍한 왕조(661~750). 인더스강 유역에서 이베리아반도에 이르는 영토를 확보하였다. 시리아 지역의 아랍인을 우대하여 비아랍인의 불만이 높아졌다.' },
     { id: 's-abbasid', track: 'westasia', year: 750, label: '아바스 왕조', en: 'Abbasid Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '아바스', theme: '정치', kind: 'turning',
       body: '아바스 가문이 비아랍인과 시아파의 도움으로 우마이야 왕조를 무너뜨리고 세운 왕조(750~1258). 바그다드를 새 수도로 삼고 민족 차별 정책을 폐지하였다. 751년 탈라스 전투 이후 제지법이 이슬람 세계에 전해졌다. 1258년 몽골에 멸망하였다.' },
     { id: 's-fatimid', track: 'westasia', year: 909, label: '파티마 왕조', en: 'Fatimid Caliphate',
-      state: '이슬람', theme: '정치', kind: 'turning',
+      state: '파티마', theme: '정치', kind: 'turning',
       body: '10세기 초 북아프리카에서 일어나 이집트를 정복한 시아파 왕조(909~1171). 칼리프 칭호를 사용하여 아바스 왕조·후우마이야 왕조와 함께 칼리프가 셋으로 나뉜 분열의 시대를 열었다.' },
     { id: 's-seljuk', track: 'westasia', year: 1055, label: '셀주크 튀르크', en: 'Seljuk Turks',
       state: '셀주크 튀르크', theme: '정치', kind: 'turning',
@@ -12476,23 +12476,18 @@ window.TIMELINE_DB = {
     linked: ['k-gov-choi', 'k-gov-roh']
   },
   'k-gov-roh': {
-    notes: {   // 정리 — 사용자 정리본 그대로 (정치·경제·통일)
+    notes: {   // 정리 — 사용자 정리본 (머리 항목 아래 세부 항목으로 배치 정리, 2026-10-10)
       sections: [
         { head: '정치', list: [
-          '9차 개헌',
-          '대통령 직선제, 5년 단임',
-          '여·야 합의 불발, 단일화 실패',
-          '13대 대통령 노태우(1987) → 노태우 정부 출범(1988)',
+          { t: '9차 개헌', sub: ['대통령 직선제, 5년 단임'] },
+          { t: '13대 대통령 노태우(1987) → 노태우 정부 출범(1988)', sub: ['여·야 합의 불발, 단일화 실패'] },
           '서울 올림픽 개최(1988)',
           '북방 외교: 소련 및 중국과 수교'
         ] },
         { head: '통일', list: [
           '남북 고위급 회담 개최(1990)',
           'UN 동시 가입(1991)',
-          '**남북 기본 합의서**(1991)',
-          '상호 체제 인정, 상호 불가침',
-          '남북 관계 → 잠정적 특수 관계',
-          '남북 교류 → 민족 내부 교류',
+          { t: '**남북 기본 합의서**(1991)', sub: ['상호 체제 인정, 상호 불가침', '남북 관계 → 잠정적 특수 관계', '남북 교류 → 민족 내부 교류'] },
           '한반도 비핵화 공동 선언(1992)'
         ] }
       ]
@@ -12515,13 +12510,11 @@ window.TIMELINE_DB = {
     linked: ['k-gov-chun', 'k-gov-kys', 'w-ussr']
   },
   'k-gov-kys': {
-    notes: {   // 정리 — 사용자 정리본 그대로 (정치·경제·통일)
+    notes: {   // 정리 — 사용자 정리본 (머리 항목 아래 세부 항목으로 배치 정리, 2026-10-10)
       sections: [
         { head: '정치', list: [
-          '지방 자치제',
-          '전면 실시',
-          '역사 바로 세우기 운동',
-          '전두환·노태우 구속',
+          { t: '지방 자치제', sub: ['전면 실시'] },
+          { t: '역사 바로 세우기 운동', sub: ['전두환·노태우 구속'] },
           '임기 말 외환 위기 발생'
         ] },
         { head: '경제', list: [
@@ -12552,31 +12545,19 @@ window.TIMELINE_DB = {
     linked: ['k-gov-roh', 'k-gov-kdj']
   },
   'k-gov-kdj': {
-    notes: {   // 정리 — 사용자 정리본 그대로 (정치·경제·통일)
+    notes: {   // 정리 — 사용자 정리본 (머리 항목 아래 세부 항목으로 배치 정리, 2026-10-10)
       sections: [
         { head: '정치', list: [
           '평화적 여야 정권 교체'
         ] },
         { head: '경제', list: [
-          '신자유주의 경제 정책',
-          '경쟁·효율 중시',
-          '합병',
-          '정리 해고',
-          '비정규직',
-          '외환 위기 졸업',
-          '금모으기 운동',
-          '노사정 위원회',
+          { t: '신자유주의 경제 정책', sub: ['경쟁·효율 중시', '합병', '정리 해고', '비정규직'] },
+          { t: '외환 위기 졸업', sub: ['금모으기 운동', '노사정 위원회'] },
           '한·칠레 FTA'
         ] },
         { head: '통일', list: [
-          '햇볕 정책',
-          '정주영 소 떼 방북',
-          '금강산 해로 관광',
-          '**6·15 남북 공동 선언**(2000)',
-          '최초 남북 정상 회담',
-          '(남)연합체≒(북)낮은 단계 연방제',
-          '개성 공단, 이산 가족 상봉',
-          '경의선, 금강산 육로 관광'
+          { t: '햇볕 정책', sub: ['정주영 소 떼 방북', '금강산 해로 관광'] },
+          { t: '**6·15 남북 공동 선언**(2000)', sub: ['최초 남북 정상 회담', '(남)연합체≒(북)낮은 단계 연방제', '개성 공단, 이산 가족 상봉', '경의선, 금강산 육로 관광'] }
         ] }
       ]
     },
