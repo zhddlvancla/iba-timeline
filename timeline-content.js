@@ -705,6 +705,45 @@ window.TIMELINE_DATA = {
     { id: 'k-pres12', track: 'korea', year: 1981, month: 3, label: '12대 대통령 전두환', en: '12th President Chun Doo-hwan',
       state: '대한민국', theme: '정치', kind: 'event', noSync: true,
       body: '1980년 8월 통일 주체 국민회의에서 대통령으로 선출된 전두환은 헌법을 바꾸어 대통령 임기를 7년 단임으로 하고, 대통령 선거인단이 간접 선거로 대통령을 뽑도록 하였다(제8차 개헌). 이듬해 전두환은 새 헌법에 따라 대통령 선거인단 선거에서 4,755표(90.2%)를 얻어 제12대 대통령으로 다시 선출되었다.' },
+    { id: 'k-pres1', track: 'korea', year: 1948, month: 8, label: '1대 대통령 이승만', en: '1st President Rhee Syng-man',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '5·10 총선거로 구성된 제헌 국회는 제헌 헌법을 공포하고, 1948년 7월 국회에서 이승만을 초대 대통령, 이시영을 부통령으로 선출하였다. 이어 8월 15일 대한민국 정부 수립이 선포되었다.' },
+    { id: 'k-pres5', track: 'korea', year: 1963, month: 12, label: '5대 대통령 박정희', en: '5th President Park Chung-hee',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '5·16 군사 정변 당시 민정에 참여하지 않겠다고 한 박정희는 전역 직후 민주공화당 후보로 출마하여, 1963년 제5대 대통령 선거에서 윤보선을 근소한 차이로 누르고 당선되었다(박정희 46.6%, 윤보선 45.1%). 제5차 개헌으로 대통령은 국민의 직접 선거로 뽑았다.' },
+    { id: 'k-pres10', track: 'korea', year: 1979, month: 12.7, label: '10대 대통령 최규하', en: '10th President Choi Kyu-hah',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '10·26 사태 이후 제주도를 제외한 전국에 비상계엄이 선포되었고, 국무총리였던 최규하가 1979년 12월 통일 주체 국민회의를 통해 제10대 대통령으로 선출되었다. 그러나 12·12 군사 반란으로 신군부가 권력을 장악하였고, 최규하는 신군부의 압력으로 1980년 8월 물러났다.' },
+    { id: 'k-pres11', track: 'korea', year: 1980, month: 9, label: '11대 대통령 전두환', en: '11th President Chun Doo-hwan',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '신군부의 압력으로 최규하 대통령이 물러나자, 1980년 8월 전두환은 통일 주체 국민회의에서 2,525표 중 2,524표를 얻어 제11대 대통령으로 선출되었다. 이후 헌법을 바꾸어 대통령 임기를 7년 단임으로 하고 대통령 선거인단이 간접 선거로 대통령을 뽑도록 하였다.' },
+    { id: 'k-pres13', track: 'korea', year: 1988, month: 2, label: '13대 대통령 노태우', en: '13th President Roh Tae-woo',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '6월 민주 항쟁의 결과 대통령 직선제와 5년 단임제를 담은 제9차 개헌이 이루어졌다. 1987년 12월 직선제로 치러진 제13대 대통령 선거에서 야당 후보의 단일화가 이루어지지 않아 민주 정의당의 노태우가 당선되었고, 1988년 2월 취임하였다.' },
+    { id: 'k-pres14', track: 'korea', year: 1993, month: 2, label: '14대 대통령 김영삼', en: '14th President Kim Young-sam',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '1992년 12월 제14대 대통령 선거에서 민주 자유당의 김영삼이 당선되어 1993년 2월 취임하였다. 군인 출신이 아닌 대통령의 정부라는 뜻에서 ‘문민정부’를 내세웠다.' },
+    { id: 'k-pres15', track: 'korea', year: 1998, month: 2, label: '15대 대통령 김대중', en: '15th President Kim Dae-jung',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '1997년 12월 제15대 대통령 선거에서 야당인 새정치 국민회의의 김대중이 당선되어 1998년 2월 취임하였다. 선거를 통해 여야 간 평화적 정권 교체가 처음으로 이루어졌다.' },
+    { id: 'k-pres16', track: 'korea', year: 2003, label: '16대 대통령 노무현', en: '16th President Roh Moo-hyun',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '2002년 12월 제16대 대통령 선거에서 새천년 민주당의 노무현이 당선되어 2003년 2월 취임하였다.' },
+    { id: 'k-pres17', track: 'korea', year: 2008, label: '17대 대통령 이명박', en: '17th President Lee Myung-bak',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '2007년 12월 제17대 대통령 선거에서 한나라당의 이명박이 당선되어 2008년 2월 취임하였다. 야당 후보가 당선되어 다시 여야 간 정권 교체가 이루어졌다.' },
+    { id: 'k-pres18', track: 'korea', year: 2013, label: '18대 대통령 박근혜', en: '18th President Park Geun-hye',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '2012년 12월 제18대 대통령 선거에서 새누리당의 박근혜가 당선되어 2013년 2월 취임하였다. 우리 역사 최초의 여성 대통령이었으나, 2017년 3월 헌법 재판소의 탄핵 결정으로 파면되었다.' },
+    { id: 'k-pres19', track: 'korea', year: 2017, label: '19대 대통령 문재인', en: '19th President Moon Jae-in',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '박근혜 대통령이 탄핵으로 파면된 뒤 2017년 5월 치러진 제19대 대통령 선거에서 더불어민주당의 문재인이 당선되어 곧바로 취임하였다.' },
+    { id: 'k-pres20', track: 'korea', year: 2022, label: '20대 대통령 윤석열', en: '20th President Yoon Suk-yeol',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '2022년 3월 제20대 대통령 선거에서 국민의힘의 윤석열이 당선되어 5월 취임하였다. 2024년 12월 비상계엄을 선포하였다가 국회의 요구로 해제하였고, 2025년 4월 헌법 재판소의 탄핵 결정으로 파면되었다.' },
+    { id: 'k-pres21', track: 'korea', year: 2025, month: 6, label: '21대 대통령 이재명', en: '21st President Lee Jae-myung',
+      state: '대한민국', theme: '정치', kind: 'event', noSync: true,
+      body: '윤석열 대통령이 탄핵으로 파면된 뒤 2025년 6월 3일 치러진 제21대 대통령 선거에서 더불어민주당의 이재명이 당선되어 이튿날 곧바로 취임하였다.' },
     { id: 'k-amend1', track: 'korea', year: 1952, month: 7, label: '제1차 개헌', en: '1st Constitutional Amendment',
       state: '대한민국', theme: '정치', kind: 'event', noSync: true,
       body: '1950년 총선거에서 이승만 반대 세력이 국회에 대거 진출하여 국회 간선으로는 재선이 어려워지자, 이승만 정부는 대통령 직선제 개헌을 추진하였다. 6·25 전쟁 중 임시 수도 부산에서 계엄령을 선포하고 야당 의원들을 연행하는 등 공포 분위기를 조성한 가운데, 정부의 직선제안과 국회의 내각 책임제안을 발췌·혼합한 개헌안이 기립 투표로 통과되었다(발췌 개헌, 1952). 이 헌법에 따라 실시된 대통령 선거에서 이승만이 재선되었다.' },
@@ -8577,7 +8616,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-moscow-plan.png',
+        caption: '모스크바 3국 외상 회의 결정에 따른 한국 문제 해결 방안',
+        ref: '미·소 공동 위원회 설치 → 민주적 정당·사회단체와 협의 → 조선 임시 정부 수립 → 4대국에 의한 신탁 통치 실시(최장 5년) → 독립 국가 수립' }
+    ],
     linked: ['k-moscow', 'w-jointcomm1']
   },
   'w-jointcomm1': {
@@ -12343,7 +12386,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-hanjung-map.webp',
+        caption: '1930년대 한·중 연합 작전',
+        ref: '조선 혁명군(총사령관 양세봉): ① 영릉가 전투(1932) ② 흥경성 전투(1933) / 한국 독립군(총사령관 지청천): ③ 쌍성보 전투(1932) ④ 경박호 전투(1932) ⑤ 사도하자 전투(1933) ⑥ 동경성 전투(1933) ⑦ 대전자령 전투(1933)' }
+    ],
     linked: ['k-era-munhwa', 'k-mobilization', 'k-oath', 'k-soshi', 'k-joseoneo', 'k-liberation']
   },
   'k-company-law': {
@@ -12616,7 +12663,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-provisional-map.png',
+        caption: '대한민국 임시 정부의 수립',
+        ref: '대한 국민 의회(1919.3., 블라디보스토크) · 한성 정부(1919.4., 경성) · 대한민국 임시 정부(1919.4., 상하이) → 통합 대한민국 임시 정부(1919.9., 상하이)' }
+    ],
     linked: ['k-samil', 'k-national-rep', 'k-hanin', 'k-gwangbokgun', 'k-founding-plan', 'k-rok']
   },
   'k-uiyeoldan': {
@@ -13011,7 +13062,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-3bu.png',
+        caption: '3부의 성립과 통합',
+        ref: '참의부·정의부·신민부 → 국민부(조선 혁명당·조선 혁명군)와 혁신 의회(한국 독립당·한국 독립군)' },
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-hanjung-map.webp',
+        caption: '1930년대 한·중 연합 작전',
+        ref: '조선 혁명군(총사령관 양세봉): ① 영릉가 전투(1932) ② 흥경성 전투(1933) / 한국 독립군(총사령관 지청천): ③ 쌍성보 전투(1932) ④ 경박호 전투(1932) ⑤ 사도하자 전투(1933) ⑥ 동경성 전투(1933) ⑦ 대전자령 전투(1933)' }
+    ],
     linked: ['k-jayusi', 'k-provisional']
   },
   'k-610': {
@@ -13179,7 +13237,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-parties.webp',
+        caption: '1930년대 중국 관내 민족 운동 단체의 변화',
+        ref: '조선 민족 혁명당(1935, 김원봉·조소앙·지청천) → 조선 민족 전선 연맹(1937, 조선 의용대 1938) → 조선 독립 동맹(1942, 김두봉 — 조선 의용대 화북 지대 → 조선 의용군) / 한국 국민당(1935, 김구) → 한국 광복 운동 단체 연합회(1937) → 충칭 시기 대한민국 임시 정부: 한국 독립당(1940, 김구·조소앙·지청천), 조선 민족 혁명당(김원봉), 한국광복군(1940)' }
+    ],
     linked: ['k-uiyeoldan', 'k-uiyongdae', 'k-provisional']
   },
   'k-oath': {
@@ -13241,7 +13303,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-parties.webp',
+        caption: '1930년대 중국 관내 민족 운동 단체의 변화',
+        ref: '조선 민족 혁명당(1935, 김원봉·조소앙·지청천) → 조선 민족 전선 연맹(1937, 조선 의용대 1938) → 조선 독립 동맹(1942, 김두봉 — 조선 의용대 화북 지대 → 조선 의용군) / 한국 국민당(1935, 김구) → 한국 광복 운동 단체 연합회(1937) → 충칭 시기 대한민국 임시 정부: 한국 독립당(1940, 김구·조소앙·지청천), 조선 민족 혁명당(김원봉), 한국광복군(1940)' }
+    ],
     linked: ['k-minhyeok', 'k-gwangbokgun', 'k-hwabuk']
   },
   'k-soshi': {
@@ -13301,7 +13367,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.png',
+        caption: '광복 직전 국내외의 건국 준비 활동',
+        ref: '옌안의 조선 독립 동맹, 충칭의 대한민국 임시 정부, 서울의 조선 건국 동맹' }
+    ],
     linked: ['k-provisional', 'k-gwangbokgun', 'k-rok']
   },
   'k-joseoneo': {
@@ -13357,7 +13427,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.png',
+        caption: '광복 직전 국내외의 건국 준비 활동',
+        ref: '옌안의 조선 독립 동맹, 충칭의 대한민국 임시 정부, 서울의 조선 건국 동맹' },
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-parties.webp',
+        caption: '1930년대 중국 관내 민족 운동 단체의 변화',
+        ref: '조선 민족 혁명당(1935, 김원봉·조소앙·지청천) → 조선 민족 전선 연맹(1937, 조선 의용대 1938) → 조선 독립 동맹(1942, 김두봉 — 조선 의용대 화북 지대 → 조선 의용군) / 한국 국민당(1935, 김구) → 한국 광복 운동 단체 연합회(1937) → 충칭 시기 대한민국 임시 정부: 한국 독립당(1940, 김구·조소앙·지청천), 조선 민족 혁명당(김원봉), 한국광복군(1940)' }
+    ],
     linked: ['k-uiyongdae', 'k-provisional', 'k-geonguk']
   },
   'k-geonguk': {
@@ -13383,7 +13460,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.png',
+        caption: '광복 직전 국내외의 건국 준비 활동',
+        ref: '옌안의 조선 독립 동맹, 충칭의 대한민국 임시 정부, 서울의 조선 건국 동맹' }
+    ],
     linked: ['k-hwabuk', 'k-provisional', 'k-liberation', 'k-geonjun']
   },
   'k-mobilization': {
@@ -13449,7 +13530,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-parties.webp',
+        caption: '1930년대 중국 관내 민족 운동 단체의 변화',
+        ref: '조선 민족 혁명당(1935, 김원봉·조소앙·지청천) → 조선 민족 전선 연맹(1937, 조선 의용대 1938) → 조선 독립 동맹(1942, 김두봉 — 조선 의용대 화북 지대 → 조선 의용군) / 한국 국민당(1935, 김구) → 한국 광복 운동 단체 연합회(1937) → 충칭 시기 대한민국 임시 정부: 한국 독립당(1940, 김구·조소앙·지청천), 조선 민족 혁명당(김원봉), 한국광복군(1940)' }
+    ],
     linked: ['k-provisional', 'k-uiyongdae', 'k-founding-plan', 'k-liberation']
   },
   // ── 광복 ~ 6·25 전쟁 (2026-10-10) — 개요: 동아출판 한국사2 Ⅱ-1·2 본문 / 정리: 사용자 정리본 ──
@@ -13512,7 +13597,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-moscow-plan.png',
+        caption: '모스크바 3국 외상 회의 결정에 따른 한국 문제 해결 방안',
+        ref: '미·소 공동 위원회 설치 → 민주적 정당·사회단체와 협의 → 조선 임시 정부 수립 → 4대국에 의한 신탁 통치 실시(최장 5년) → 독립 국가 수립' }
+    ],
     linked: ['k-geonjun', 'k-jointcomm1', 'k-liberation', 'w-moscow']
   },
   'k-jointcomm1': {
@@ -13572,7 +13661,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-jwau-cartoon.webp',
+        caption: '좌우 합작 운동을 그린 만평',
+        ref: '여운형과 김규식이 손을 맞잡고, 극좌와 극우가 각각 뒤에서 두 사람을 잡아당기고 있다.' }
+    ],
     linked: ['k-jointcomm1', 'k-jeongeup', 'k-jointcomm2', 'k-geonjun']
   },
   'k-jointcomm2': {
@@ -13779,7 +13872,11 @@ window.TIMELINE_DB = {
         { list: [
           { t: '배경', sub: ['소련과 중국의 북한 원조, 애치슨 선언(1950)'] },
           { t: '전개: 북한의 기습 남침', sub: ['UN군 참전, 국군 작전권 이관', '낙동강 방어선: 임시 수도 부산', '**인천 상륙 작전**', '서울 수복', '중국군 개입', 'UN군 최대 북진선 형성', '**흥남 철수, 1·4후퇴**', '중국 최대 남진선 형성'] },
-          { t: '소련 휴전 제의', sub: ['휴전 회담(1951.07.): 자유 송환 VS 자동 송환', '이승만의 반공 포로 석방(1953.06.18.)', '정전 협정 조인, DMZ 형성(1953)', '한·미 상호 방위 조약 체결'] }
+          '소련 휴전 제의',
+          '휴전 회담(1951.07.): 자유 송환 VS 자동 송환',
+          '이승만의 반공 포로 석방(1953.06.18.)',
+          '정전 협정 조인, DMZ 형성(1953)',
+          '한·미 상호 방위 조약 체결'
         ] }
       ]
     },
@@ -13804,7 +13901,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-625-map.webp',
+        caption: '6·25 전쟁의 전개',
+        ref: '① 대전 함락(1950.7.20.) → ② 유엔군 최후 방어선(9.2.) → ③ 국군과 유엔군의 인천 상륙(9.15.) → ④ 서울 수복(9.28.) → ⑤ 평양 탈환(10.19.) · ⑥ 중국군 개입(10.19.) → ⑦ 국군과 유엔군의 최대 북진선(11.25.) → ⑧ 흥남 철수 작전(12.) → ⑨ 1·4 후퇴(1951.1.4.) → ⑩ 중국군 최대 남진선(1951.1.) → ⑪ 정전 협정 체결(1953.7.27.)' }
+    ],
     linked: ['k-gov-rhee', 'k-yeosun', 'e-prc', 'w-coldwar'],
     // 지도 — 이승만 정부 기록의 「6·25 전쟁의 전개」와 같은 지도
     map: {

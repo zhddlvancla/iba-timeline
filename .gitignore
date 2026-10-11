@@ -15,6 +15,7 @@
 /assets/w1/*
 !/assets/w1/고대/
 !/assets/w1/기관/
+!/assets/w1/근현대/
 
 # 백업·시스템 파일
 _pre_upscale_backup/
