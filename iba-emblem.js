@@ -1,7 +1,7 @@
 /* ============================================================
  * IBA · 국제기록보존기구 인장 (International Bureau of Archives)
  * 원본: assets/w1/iba_emblem_final2.html (인장 확정본) — 제원·도형 동일
- *   IBA_EMBLEM.internal({color, bg})  제2국 내부판  viewBox 0 0 400 400
+ *   IBA_EMBLEM.internal({color, bg})  관리국 내부판  viewBox 0 0 400 400
  *   IBA_EMBLEM.public({color, bg})    대외판        viewBox 0 0 400 400
  *   IBA_EMBLEM.lockupV({color, bg})   대외판 세로 락업 viewBox 0 0 560 620
  * 반환값은 <svg> 내부 마크업 문자열. 색은 CSS 변수도 허용(style 속성으로 출력).
@@ -37,7 +37,7 @@ function internal(p){
   s+='<text font-family="Georgia,serif" font-size="21" font-weight="700" letter-spacing="0.6" style="fill:'+C+'">'+
      '<textPath href="#'+id+'t" startOffset="50%" text-anchor="middle">INTERNATIONAL BUREAU OF ARCHIVES</textPath></text>';
   s+='<text font-family="\'Noto Sans KR\',sans-serif" font-size="26" font-weight="700" letter-spacing="5" style="fill:'+C+'">'+
-     '<textPath href="#'+id+'b" startOffset="50%" text-anchor="middle">국제기록보존기구 제2국</textPath></text>';
+     '<textPath href="#'+id+'b" startOffset="50%" text-anchor="middle">국제기록보존기구 관리국</textPath></text>';
   s+=ticksGlobe(C,bg);
   s+=circle(50,C,3.5,bg)+circle(44,C,1);
   var F='style="fill:'+C+';stroke:none"';
