@@ -2657,6 +2657,8 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
   min-height:360px;max-height:720px;
 }
 .sync-source--img-only .sync-source__img{max-height:720px}
+/* span: 가로로 긴 탐구 자료는 격자에서도 한 줄을 다 쓴다 (2026-10-13) */
+.sync-sources--grid .sync-source--span{grid-column:1 / -1}
 /* 갤러리(다중 이미지) — 한 사료 안에 여러 이미지를 묶음 */
 .sync-source__gallery{
   display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;
@@ -2718,6 +2720,8 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
 /* artifacts */
 .sync-artgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .sync-art--wide{grid-column:span 2}
+/* span: 가로로 긴 지도·그림은 두 칸을 다 쓴다 (2026-10-13) */
+.sync-art--span{grid-column:span 2}
 .sync-art--portrait .sync-art__frame{aspect-ratio:3/4}
 .sync-art--square .sync-art__frame{aspect-ratio:1/1}
 /* auto: 프레임이 이미지의 자연 해상도/비율에 맞춰 자동 조절 */
@@ -2728,6 +2732,7 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
   width:calc(100% - 12px);height:auto;
   margin:6px;
   object-fit:contain;
+  max-height:560px;   /* 세로로 긴 조각상·도식이 창을 다 덮지 않게 (2026-10-13) */
 }
 .sync-art__frame{
   position:relative;aspect-ratio:4/3;
@@ -7679,7 +7684,13 @@ window.TIMELINE_DB = {
       { slot: 'auto',
         src: 'assets/w1/고대/유럽·미주/로마 공화정/[비상교육] 고등_세계사_1-3_50p_그라쿠스 형제.jpg',
         caption: '그라쿠스 형제',
-        ref: '비상교육 세계사 1-3, p.50 — 티베리우스·가이우스 그라쿠스. 농지법(BCE 133)·곡물법(BCE 123)으로 자영농 재건과 빈민 구제를 추진했으나 원로원 귀족들의 반발로 실패' }
+        ref: '비상교육 세계사 1-3, p.50 — 티베리우스·가이우스 그라쿠스. 농지법(BCE 133)·곡물법(BCE 123)으로 자영농 재건과 빈민 구제를 추진했으나 원로원 귀족들의 반발로 실패' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/로마 공화정/roman-republic-structure.webp',
+        caption: '로마 공화정의 정치 구조',
+        ref: '원로원(국정 최고 기관, 300명, 종신) · 집정관(2명, 임기 1년) · 독재관(비상시 1명, 6개월) · 호민관(임기 1년) · 민회(병사회)와 평민회' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/로마 공화정/punic-wars-map.webp', span: true,
+        caption: '포에니 전쟁(로마·카르타고 전쟁)',
+        ref: '제1차(BCE 264~241) · 제2차(BCE 218~201) — 한니발의 진로와 스키피오의 진로, 칸나이·자마 전투' }
     ]
   },
 
@@ -7749,7 +7760,10 @@ window.TIMELINE_DB = {
       { slot: 'auto',
         src: 'assets/w1/고대/유럽·미주/그리스 문화/원반 던지는 사람.jpg',
         caption: '원반 던지는 사람',
-        ref: '미론 作 — 인체의 균형과 운동의 순간을 포착한 고전기 그리스 조각' }
+        ref: '미론 作 — 인체의 균형과 운동의 순간을 포착한 고전기 그리스 조각' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/그리스 문화/athena-parthenos-copy.webp',
+        caption: '아테나 여신상',
+        ref: '파르테논 신전에 모셨던 아테나 여신상을 작게 본뜬 로마 시대의 복제품.' }
     ],
     linked: ['w-polis', 'w-sparta', 'w-athens', 'w-alexander-empire']
   },
@@ -7825,7 +7839,10 @@ window.TIMELINE_DB = {
       { slot: 'auto',
         src: 'assets/w1/고대/유럽·미주/로마 제정/트리야누스의 원주.jpg',
         caption: '트라야누스의 원주',
-        ref: '5현제의 한 명인 트라야누스 황제의 기념 건축물. 대외 원정 과정이 부조로 새겨져 제국 최대 영토를 확보한 그의 업적을 기림' }
+        ref: '5현제의 한 명인 트라야누스 황제의 기념 건축물. 대외 원정 과정이 부조로 새겨져 제국 최대 영토를 확보한 그의 업적을 기림' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/로마 제정/augustus-prima-porta.webp',
+        caption: '아우구스투스상',
+        ref: '로마 제정을 연 아우구스투스(옥타비아누스)의 조각상(프리마 포르타).' }
     ],
     linked: ['w-rome-found', 'w-rome-rep', 'w-jesus', 'w-edict', 'w-split', 'w-fall']
   },
@@ -9495,7 +9512,10 @@ window.TIMELINE_DB = {
       { slot: 'square', caption: '인더스 인장 (모헨조다로)',     ref: 'W1 p.20' },
       { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/메소포타미아 문명/cuneiform-tablet.webp',
         caption: '쐐기 문자가 새겨진 점토판',
-        ref: '메소포타미아에서는 점토판에 쐐기 문자를 새겨 기록하였다.' }
+        ref: '메소포타미아에서는 점토판에 쐐기 문자를 새겨 기록하였다.' },
+      { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/인도 문명/indus-seal-bull.webp',
+        caption: '인더스 문자가 새겨진 인장',
+        ref: '인도 문명의 인장. 아직 해독되지 않은 인더스 문자와 소가 새겨져 있다.' }
     ],
     linked: ['s-neolithic', 's-mesopotamia', 's-indus', 's-hittite', 'e-bronze', 'w-bronze']
   },
@@ -9564,7 +9584,7 @@ window.TIMELINE_DB = {
       { kind: '탐구 자료', title: '「함무라비 법전」',
         src: 'assets/w1/고대/서아시아·인도/메소포타미아 문명/[교과서이미지] p21 함무라비 법전.jpg',
         citation: '— 교과서 탐구 자료' },
-      { kind: '탐구 자료', title: '함무라비 법전',
+      { kind: '탐구 자료', title: '함무라비 법전', span: true,
         src: 'assets/w1/고대/서아시아·인도/메소포타미아 문명/hammurabi-code-inquiry.webp',
         citation: '— 윤일구, 『고대법의 기원 함무라비 법전』 · 282개 조항, ‘눈에는 눈, 이에는 이’의 보복적 성격, 신분에 따른 차등 적용' }
     ],
@@ -9673,7 +9693,7 @@ window.TIMELINE_DB = {
         src: 'assets/w1/고대/서아시아·인도/이집트 문명/로제타석·상형 문자 (원본).png',
         citation: '— 로제타석 (영국 박물관 소장)'
       },
-      { kind: '탐구 자료', title: '「사자의 서」와 사후 심판',
+      { kind: '탐구 자료', title: '「사자의 서」와 사후 심판', span: true,
         src: 'assets/w1/고대/서아시아·인도/이집트 문명/book-of-the-dead-inquiry.webp',
         citation: '· 죽은 사람의 심장 무게를 달아, 착한 일을 많이 한 자는 오시리스 신의 판결에 따라 좋은 곳으로 간다' }
     ],
@@ -9699,7 +9719,7 @@ window.TIMELINE_DB = {
       { slot: 'square', src: 'assets/w1/고대/서아시아·인도/이집트 문명/pyramid-sphinx.png',
         caption: '기자의 대피라미드와 스핑크스',
         ref: '파라오 신권과 사후 세계 신앙의 상징' },
-      { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/이집트 문명/giza-pyramids.webp',
+      { slot: 'auto', span: true, src: 'assets/w1/고대/서아시아·인도/이집트 문명/giza-pyramids.webp',
         caption: '기자의 피라미드',
         ref: '파라오의 무덤으로 만든 거대한 피라미드.' }
     ],
@@ -9770,7 +9790,10 @@ window.TIMELINE_DB = {
     sources: [
       { kind: '탐구 자료', title: '모헨조다로의 도시 구조',
         src: 'assets/w1/고대/서아시아·인도/인도 문명/A8339060-BB01-4535-9A9E-5DE20A508FD3_4_5005_c.jpeg',
-        citation: '— 교과서 탐구 자료' }
+        citation: '— 교과서 탐구 자료' },
+      { kind: '탐구 자료', title: '인도 문명의 원거리 교역', span: true,
+        src: 'assets/w1/고대/서아시아·인도/인도 문명/indus-long-distance-trade.webp',
+        citation: '· 인도 상인은 메소포타미아 등에 곡식·도자기·세공품을 팔고 금속·보석류를 사 왔다. 인도 서부의 항구, 돛단배와 수레, 저울을 이용한 교역' }
     ],
     map: {
       title: '인도 문명 — 인더스강 유역',
@@ -9799,7 +9822,19 @@ window.TIMELINE_DB = {
         ref: '인더스 문명 — 「제사장 왕(Priest-King)」 석상' },
       { slot: 'square', src: 'assets/w1/고대/서아시아·인도/인도 문명/[비상교육] 고등_세계사_1-1_16p_모헨조다로 유적에서 발견된 인장.jpg',
         caption: '모헨조다로 유적에서 발견된 인장',
-        ref: '미해독 인장 문자 · 동물 도상 (혹소·코끼리 등)' }
+        ref: '미해독 인장 문자 · 동물 도상 (혹소·코끼리 등)' },
+      { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/인도 문명/indus-seal-bull.webp',
+        caption: '인더스 문자가 새겨진 인장',
+        ref: '인도 문명의 인장. 아직 해독되지 않은 인더스 문자와 소가 새겨져 있다.' },
+      { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/인도 문명/mohenjo-daro-great-bath.webp',
+        caption: '모헨조다로의 대목욕탕',
+        ref: '구운 벽돌로 쌓은 계획도시 모헨조다로의 공공 목욕 시설.' },
+      { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/인도 문명/caste-four-varnas.webp',
+        caption: '카스트제의 네 계급',
+        ref: '브라만(사제, 제사 담당) · 크샤트리아(무사·귀족, 정치·군사) · 바이샤(평민, 농업·목축·상업) · 수드라(노예, 각종 천업)' },
+      { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/인도 문명/aryan-migration-map.webp',
+        caption: '아리아인의 이동',
+        ref: '기원전 16세기경 인더스강 유역(펀자브)으로, 기원전 10세기경 갠지스강 유역으로 이동 · 하라파와 모헨조다로' }
     ],
     linked: ['s-neolithic', 's-aryan', 's-mesopotamia', 'w-egypt-civ']
   },
@@ -11112,7 +11147,10 @@ window.TIMELINE_DB = {
       { kind: '탐구 자료', title: '폴리스의 성립과 구조', ph: true,
         citation: '— 교과서 탐구 자료 미배치' },
       { kind: '탐구 자료', title: '폴리스의 동질감', ph: true,
-        citation: '— 교과서 탐구 자료 미배치' }
+        citation: '— 교과서 탐구 자료 미배치' },
+      { kind: '탐구 자료', title: '아테네와 스파르타의 주민 구성',
+        src: 'assets/w1/고대/유럽·미주/아테네/athens-sparta-population.webp',
+        citation: '— 빅터 에렌버그, 『그리스 국가』 · 아테네는 시민과 그 가족 54.5%·노예 36.5%·거류 외국인 9%, 스파르타는 예속 농민(헬로타이) 72.7%·반자유민(페리오이코이) 21.8%·시민 5.5%' }
     ],
     map: { title: '그리스 폴리스의 분포', bounds: { w: 360, h: 240 },
       regions: [{ d: 'M 80 60 L 280 60 L 300 130 L 280 200 L 80 200 L 60 130 Z', label: '그리스' }],
@@ -11279,7 +11317,13 @@ window.TIMELINE_DB = {
         ref: '교과서 자료 · 이집트 통치와 관용 정책' },
       { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/아케메네스 왕조 페르시아/조로아스터교 사원 입구에 새겨진 아후라 마즈다.png',
         caption: '조로아스터교 — 아후라 마즈다',
-        ref: '교과서 자료 · 조로아스터교 사원 입구의 아후라 마즈다' }
+        ref: '교과서 자료 · 조로아스터교 사원 입구의 아후라 마즈다' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/그리스·페르시아 전쟁/greco-persian-war-map.webp',
+        caption: '그리스·페르시아 전쟁의 전개',
+        ref: '1차 침입(BCE 492) · 2차 침입(BCE 490, 마라톤 전투) · 3차 침입(BCE 480, 테르모필레 전투·살라미스 해전) · 이오니아 반란 지역' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/알렉산드로스 제국/alexander-mosaic-issus.webp', span: true,
+        caption: '이소스 전투 모자이크',
+        ref: '알렉산드로스 대왕(왼쪽)과 아케메네스 왕조 페르시아의 다리우스 3세(오른쪽 전차)가 맞선 이소스 전투를 그린 폼페이의 모자이크' }
     ],
     linked: ['s-assyria', 's-mesopotamia', 's-parthia', 's-sasan', 'w-polis']
   },
@@ -11659,7 +11703,7 @@ window.TIMELINE_DB = {
       { kind: '탐구 자료', title: '상(商)의 신권 정치와 갑골문',
         src: 'assets/w1/고대/동아시아/상/이미지 2026. 5. 26. 15.28.png',
         citation: '— 교과서 탐구 자료' },
-      { kind: '탐구 자료', title: '갑골문과 상 왕조',
+      { kind: '탐구 자료', title: '갑골문과 상 왕조', span: true,
         src: 'assets/w1/고대/동아시아/상/oracle-bone-inquiry.webp',
         citation: '— 김태완, 『갑골문과 중국의 상형 문자』 · 전쟁·농사 같은 국가 중대사를 점을 쳐 결정한 상의 신권 정치. 갑골문은 한자의 원형이 되었다' }
     ],
@@ -11820,7 +11864,10 @@ window.TIMELINE_DB = {
         citation: '— 교과서 탐구 자료 · 아고게 — 7세부터 30세까지 국가 주관 공동 교육(신체 단련·군사 훈련), 목적은 덕을 겸비한 용감한 전사 양성' },
       { kind: '탐구 자료', title: '델로스 동맹과 펠로폰네소스 동맹',
         src: 'assets/w1/고대/유럽·미주/스파르타/스크린샷 2026-07-15 15.59.59.png',
-        citation: '— 아테네의 공물 징수 기록(메트로폴리탄 박물관) · 펠로폰네소스 동맹의 스파르타는 아테네가 델로스 동맹을 주도하며 세력을 확대하는 것을 견제, 양측의 대립이 점차 심화' }
+        citation: '— 아테네의 공물 징수 기록(메트로폴리탄 박물관) · 펠로폰네소스 동맹의 스파르타는 아테네가 델로스 동맹을 주도하며 세력을 확대하는 것을 견제, 양측의 대립이 점차 심화' },
+      { kind: '탐구 자료', title: '아테네와 스파르타의 주민 구성',
+        src: 'assets/w1/고대/유럽·미주/아테네/athens-sparta-population.webp',
+        citation: '— 빅터 에렌버그, 『그리스 국가』 · 아테네는 시민과 그 가족 54.5%·노예 36.5%·거류 외국인 9%, 스파르타는 예속 농민(헬로타이) 72.7%·반자유민(페리오이코이) 21.8%·시민 5.5%' }
     ],
     artifacts: [
       { slot: 'auto',
@@ -11894,7 +11941,10 @@ window.TIMELINE_DB = {
         citation: '— 아테네의 공물 징수 기록(메트로폴리탄 박물관) · 델로스 동맹을 주도한 아테네가 동맹 폴리스들로부터 공물을 징수하고 기금을 행사. 스파르타가 이를 견제하며 양측의 대립이 심화' },
       { kind: '탐구 자료', title: '아테네 민주 정치, 어떻게 평가할까?',
         src: 'assets/w1/고대/유럽·미주/아테네/아테네 민주 정치 어떻게 평가할까.jpg',
-        citation: '— 주제 토론 · 클레이스테네스(참주정 반대)·페리클레스(전성기)의 옹호와, 플루타르코스(사치·공적 남발 비판)·로렌 새먼스(여성·노예 배제, 소크라테스의 죽음 등 한계)의 비판으로 아테네 민주정을 다각도로 평가' }
+        citation: '— 주제 토론 · 클레이스테네스(참주정 반대)·페리클레스(전성기)의 옹호와, 플루타르코스(사치·공적 남발 비판)·로렌 새먼스(여성·노예 배제, 소크라테스의 죽음 등 한계)의 비판으로 아테네 민주정을 다각도로 평가' },
+      { kind: '탐구 자료', title: '아테네와 스파르타의 주민 구성',
+        src: 'assets/w1/고대/유럽·미주/아테네/athens-sparta-population.webp',
+        citation: '— 빅터 에렌버그, 『그리스 국가』 · 아테네는 시민과 그 가족 54.5%·노예 36.5%·거류 외국인 9%, 스파르타는 예속 농민(헬로타이) 72.7%·반자유민(페리오이코이) 21.8%·시민 5.5%' }
     ],
     artifacts: [
       { slot: 'auto',
@@ -11907,7 +11957,13 @@ window.TIMELINE_DB = {
         ref: '비상교육 세계사 1-3, p.48 — 아크로폴리스의 아테나 여신 신전. 고전기 그리스 건축의 정수' },
       { slot: 'auto', src: 'assets/w1/고대/유럽·미주/에게 문명/aegean-greece-map.webp',
         caption: '에게해와 그리스 세계',
-        ref: '산지가 많은 그리스 · 크레타섬의 크노소스, 미케네, 트로이 · 아테네·스파르타·코린트·테베·델포이·올림피아 등의 도시' }
+        ref: '산지가 많은 그리스 · 크레타섬의 크노소스, 미케네, 트로이 · 아테네·스파르타·코린트·테베·델포이·올림피아 등의 도시' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/아테네/ostraka-themistocles.webp',
+        caption: '도편 추방에 쓰인 도기 조각(오스트라콘)',
+        ref: '추방할 인물의 이름(테미스토클레스 등)을 새긴 도기 조각. 참주의 출현을 막기 위한 도편 추방제에 쓰였다.' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/그리스 문화/athena-parthenos-copy.webp',
+        caption: '아테나 여신상',
+        ref: '파르테논 신전에 모셨던 아테나 여신상을 작게 본뜬 로마 시대의 복제품.' }
     ],
     linked: ['w-polis', 'w-sparta', 'w-greco-persian', 'w-peloponnesian']
   },
@@ -11992,7 +12048,10 @@ window.TIMELINE_DB = {
       { slot: 'auto',
         src: 'assets/w1/고대/유럽·미주/그리스·페르시아 전쟁/미래엔_세계사_이미지_45쪽_그리스_페르시아_전쟁.JPG',
         caption: '그리스·페르시아 전쟁',
-        ref: '미래엔 세계사 1, p.45 — 아케메네스 왕조 페르시아의 3차 침입 경로. 테르모필레·마라톤·살라미스 전투' }
+        ref: '미래엔 세계사 1, p.45 — 아케메네스 왕조 페르시아의 3차 침입 경로. 테르모필레·마라톤·살라미스 전투' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/그리스·페르시아 전쟁/greco-persian-war-map.webp',
+        caption: '그리스·페르시아 전쟁의 전개',
+        ref: '1차 침입(BCE 492) · 2차 침입(BCE 490, 마라톤 전투) · 3차 침입(BCE 480, 테르모필레 전투·살라미스 해전) · 이오니아 반란 지역' }
     ],
     linked: ['w-polis', 'w-athens', 'w-sparta', 's-persia', 'w-peloponnesian']
   },
@@ -12144,7 +12203,13 @@ window.TIMELINE_DB = {
       { slot: 'auto',
         src: 'assets/w1/고대/유럽·미주/알렉산드로스 제국/밀로의 비너스.jpg',
         caption: '밀로의 비너스',
-        ref: '아프로디테로 추정되는 조각상. 1820년 밀로스섬에서 발견. 동적인 실루엣과 관능미로 헬레니즘 시대를 대표 (루브르 박물관)' }
+        ref: '아프로디테로 추정되는 조각상. 1820년 밀로스섬에서 발견. 동적인 실루엣과 관능미로 헬레니즘 시대를 대표 (루브르 박물관)' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/알렉산드로스 제국/alexander-mosaic-issus.webp', span: true,
+        caption: '이소스 전투 모자이크',
+        ref: '알렉산드로스 대왕(왼쪽)과 아케메네스 왕조 페르시아의 다리우스 3세(오른쪽 전차)가 맞선 이소스 전투를 그린 폼페이의 모자이크' },
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/알렉산드로스 제국/alexander-campaign-map.webp', span: true,
+        caption: '알렉산드로스 대왕의 원정로',
+        ref: '마케도니아에서 소아시아·이집트·페르시아를 거쳐 인더스강까지 · 이소스·가우가멜라 전투 · 각지에 세운 알렉산드리아' }
     ],
     linked: ['w-peloponnesian', 's-persia', 's-magadha']
   },
@@ -23630,7 +23695,7 @@ function SourcesTab({ db }) {
           const isImgOnly = (s.src || s.ph) && !s.body && !s.gloss && !s.images;
           const hasMulti = Array.isArray(s.images) && s.images.length > 0;
           return (
-            <li className={`sync-source ${s.src && !isImgOnly ? 'sync-source--has-img' : ''} ${isImgOnly ? 'sync-source--img-only' : ''} ${hasMulti ? 'sync-source--multi' : ''}`} key={i}>
+            <li className={`sync-source ${s.src && !isImgOnly ? 'sync-source--has-img' : ''} ${isImgOnly ? 'sync-source--img-only' : ''} ${hasMulti ? 'sync-source--multi' : ''} ${s.span ? 'sync-source--span' : ''}`} key={i}>
               <header className="sync-source__head">
                 <span className="sync-source__kind">{String(s.kind || '').replace(/^(?:교과서|세계사) 본문$/, '원본 본문').replace(/^(?:교과서|판서)\s+/, '')}</span>
                 <span className="sync-source__title">{s.title}</span>
@@ -23824,7 +23889,7 @@ function ArtifactsTab({ db }) {
       <div className="sync-pane__hint">// 부속 자료철 · 원본 사본</div>
       <div className="sync-artgrid">
         {items.map((a, i) => (
-          <div key={i} className={`sync-art sync-art--${a.slot}`}>
+          <div key={i} className={`sync-art sync-art--${a.slot}${a.span ? ' sync-art--span' : ''}`}>
             <div className="sync-art__frame">
               <span className="sync-art__corner sync-art__corner--tl"/>
               <span className="sync-art__corner sync-art__corner--tr"/>
