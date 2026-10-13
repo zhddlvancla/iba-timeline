@@ -8020,7 +8020,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/게르만족 이동/germanic-migration-map.webp', span: true,
+        caption: '게르만족의 이동',
+        ref: '훈족의 서진과 게르만족의 이동 · 서로마 제국령과 비잔티움 제국령 · 프랑크·서고트·동고트·반달·부르군트·롬바르드 왕국과 앵글로·색슨 7왕국' },
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/프랑크 왕국/verdun-mersen-map.webp',
+        caption: '베르됭 조약과 메르센 조약',
+        ref: '베르됭 조약(843)과 메르센 조약(870)으로 프랑크 왕국이 서·중·동 프랑크 왕국으로 나뉨 · 로마 교황령 · 투르·푸아티에 전투지' }
+    ],
     linked: ['w-fall', 'w-verdun', 'w-schism']
   },
   'w-verdun': {
@@ -8041,8 +8048,16 @@ window.TIMELINE_DB = {
         { y: 870, label: '메르센 조약' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '봉건 사회의 구조', span: true,
+        src: 'assets/w1/중세/유럽·미주/봉건 사회/feudal-structure-inquiry.webp',
+        citation: '· 기사 상호 간의 주종제와 영주·농노 간의 장원제로 이루어진 봉건제의 이중 구조 · 메로베우스 왕조와 카롤루스 왕조 시대의 계약서(725~750)' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/프랑크 왕국/verdun-mersen-map.webp',
+        caption: '베르됭 조약과 메르센 조약',
+        ref: '베르됭 조약(843)과 메르센 조약(870)으로 프랑크 왕국이 서·중·동 프랑크 왕국으로 나뉨 · 로마 교황령 · 투르·푸아티에 전투지' }
+    ],
     linked: ['w-charlemagne', 'w-canossa']
   },
   'w-schism': {
@@ -8064,7 +8079,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/비잔티움/justinian-empire-map.webp', span: true,
+        caption: '유스티니아누스 황제 시기의 비잔티움 제국',
+        ref: '유스티니아누스 황제 즉위 시 영토와 정복지 · 로마·콘스탄티노폴리스·안티오크·예루살렘·알렉산드리아의 5대 교구' },
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/비잔티움/hagia-sophia.webp', span: true,
+        caption: '하기아 소피아 성당',
+        ref: '유스티니아누스 황제 때 세운 비잔티움 양식의 대표 건축. 거대한 돔이 특징이며, 오스만 제국 때 모스크로 바뀌면서 첨탑(미너렛)이 더해졌다.' }
+    ],
     linked: ['w-jesus', 'w-canossa', 'w-crusade']
   },
   'w-canossa': {
@@ -8086,8 +8108,22 @@ window.TIMELINE_DB = {
         { yl: '13세기', label: '인노켄티우스 3세 — 교황권 절정' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '카노사의 굴욕', span: true,
+        src: 'assets/w1/중세/유럽·미주/교황권/canossa-inquiry.webp',
+        citation: '— 그레고리우스 7세, 『서한집』 · 교황에게 파문당한 황제 하인리히 4세가 카노사성 앞 눈밭에서 사흘간 참회한 끝에 용서를 받았다(1077)' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/중세 문화/pisa-cathedral.webp', span: true,
+        caption: '피사 대성당과 사탑',
+        ref: '둥근 아치와 두꺼운 벽이 특징인 로마네스크 양식의 대표 건축(이탈리아).' },
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/중세 문화/chartres-stained-glass.webp',
+        caption: '샤르트르 대성당의 스테인드글라스',
+        ref: '고딕 양식 성당의 창을 장식한 스테인드글라스. 성경 이야기를 그림으로 전하였다.' },
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/중세 문화/chartres-cathedral.webp',
+        caption: '샤르트르 대성당',
+        ref: '높은 첨탑과 뾰족한 아치가 특징인 고딕 양식의 대표 건축(프랑스).' }
+    ],
     linked: ['w-schism', 'w-crusade', 'w-avignon']
   },
   'w-crusade': {
@@ -8109,8 +8145,16 @@ window.TIMELINE_DB = {
         { y: 1309, label: '아비뇽 유수 — 교황권 추락' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '십자군 전쟁의 전개', span: true,
+        src: 'assets/w1/중세/유럽·미주/십자군 전쟁/crusades-inquiry.webp',
+        citation: '— 교황 우르바누스 2세의 연설문(1095) · 제1차(1096~1099)·제4차(1202~1204)·제8차(1270) 십자군의 진로, 예루살렘 왕국(1099)과 라틴 제국(1204)의 성립' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/중세 도시/medieval-trade-zones-map.webp', span: true,
+        caption: '중세 유럽의 교역권',
+        ref: '북유럽 교역권(한자 동맹)과 지중해 교역권(이탈리아 도시)을 잇는 샹파뉴 정기 시장 · 플랑드르 지방의 모직물 공업 · 롬바르드 동맹' }
+    ],
     linked: ['s-seljuk', 'w-schism', 'w-avignon', 's-fatimid']
   },
   'w-avignon': {
@@ -8132,8 +8176,16 @@ window.TIMELINE_DB = {
         { y: 1414, label: '콘스탄츠 공의회' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '아비뇽 교황청과 콘스탄츠 공의회',
+        src: 'assets/w1/중세/유럽·미주/교황권/avignon-constance-inquiry.webp',
+        citation: '— 헨리 베텐슨, 『크리스트 교회 문헌』 · 교황청이 옮겨 갔던 아비뇽 교황청 · 교회 대분열을 수습한 콘스탄츠 공의회의 선언' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/교황권/hus-burning.webp',
+        caption: '후스의 화형',
+        ref: '교회를 비판한 보헤미아의 후스가 콘스탄츠 공의회의 결정으로 화형당하는 모습(1415).' }
+    ],
     linked: ['w-canossa', 'w-crusade', 'w-luther']
   },
   'w-hundred': {
@@ -8157,7 +8209,11 @@ window.TIMELINE_DB = {
         { y: 1485, label: '헨리 7세, 튜더 왕조 개창' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '흑사병과 「죽음의 무도」', span: true,
+        src: 'assets/w1/중세/유럽·미주/흑사병/danse-macabre-inquiry.webp',
+        citation: '— 존 캐리, 『역사의 원전』 · 14세기 중엽 흑사병으로 인구가 크게 줄자 일꾼들의 품삯이 올랐다 · 신분과 관계없이 찾아오는 죽음을 그린 「죽음의 무도」' }
+    ],
     artifacts: [],
     linked: ['w-avignon', 'w-columbus']
   },
@@ -8228,7 +8284,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/교황권/hus-burning.webp',
+        caption: '후스의 화형',
+        ref: '교회를 비판한 보헤미아의 후스가 콘스탄츠 공의회의 결정으로 화형당하는 모습(1415).' }
+    ],
     linked: ['w-avignon', 'w-westphalia', 'w-armada']
   },
   'w-magellan': {
@@ -9499,7 +9559,11 @@ window.TIMELINE_DB = {
         { yl: '13세기', label: '몽골의 침입으로 멸망' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '십자군 전쟁의 전개', span: true,
+        src: 'assets/w1/중세/유럽·미주/십자군 전쟁/crusades-inquiry.webp',
+        citation: '— 교황 우르바누스 2세의 연설문(1095) · 제1차(1096~1099)·제4차(1202~1204)·제8차(1270) 십자군의 진로, 예루살렘 왕국(1099)과 라틴 제국(1204)의 성립' }
+    ],
     artifacts: [],
     linked: ['s-abbasid', 'w-crusade', 's-ottoman']
   },
@@ -9545,7 +9609,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/비잔티움/hagia-sophia.webp', span: true,
+        caption: '하기아 소피아 성당',
+        ref: '유스티니아누스 황제 때 세운 비잔티움 양식의 대표 건축. 거대한 돔이 특징이며, 오스만 제국 때 모스크로 바뀌면서 첨탑(미너렛)이 더해졌다.' }
+    ],
     linked: ['s-seljuk', 'w-armada', 's-safavid', 's-tanzimat']
   },
   's-safavid': {
