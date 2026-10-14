@@ -8639,8 +8639,16 @@ window.TIMELINE_DB = {
         { y: 1600, label: '영국 동인도 회사 설립' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '유럽의 절대 군주', span: true,
+        src: 'assets/w1/근세/유럽·미주/절대 왕정/absolute-monarchs.webp',
+        citation: '· 펠리페 2세(에스파냐)·엘리자베스 1세(영국)·루이 14세(프랑스, “짐이 곧 국가다.”)·프리드리히 2세(프로이센, “군주는 국가 제일의 공복”)·예카테리나 2세(러시아)' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/절대 왕정/absolutism-structure.webp',
+        caption: '절대 왕정의 구조',
+        ref: '왕권신수설과 중상주의를 바탕으로 관료제·상비군을 갖춘 절대 군주 · 봉건 귀족과 대상인(시민)의 세력 균형 위에 선 체제' }
+    ],
     linked: ['s-ottoman', 'w-luther', 'w-glorious']
   },
   'w-louis14': {
@@ -8663,8 +8671,25 @@ window.TIMELINE_DB = {
         { y: 1685, label: '퐁텐블로 칙령 — 낭트 칙령 폐지' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '유럽의 절대 군주', span: true,
+        src: 'assets/w1/근세/유럽·미주/절대 왕정/absolute-monarchs.webp',
+        citation: '· 펠리페 2세(에스파냐)·엘리자베스 1세(영국)·루이 14세(프랑스, “짐이 곧 국가다.”)·프리드리히 2세(프로이센, “군주는 국가 제일의 공복”)·예카테리나 2세(러시아)' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/절대 왕정/versailles-palace.webp', span: true,
+        caption: '베르사유 궁전',
+        ref: '루이 14세가 세운 화려한 바로크 양식의 궁전. 절대 왕정의 위세를 보여 준다.' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/절대 왕정/absolutism-structure.webp',
+        caption: '절대 왕정의 구조',
+        ref: '왕권신수설과 중상주의를 바탕으로 관료제·상비군을 갖춘 절대 군주 · 봉건 귀족과 대상인(시민)의 세력 균형 위에 선 체제' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/절대 왕정/mercantilism-illustration.webp',
+        caption: '중상주의 정책',
+        ref: '원료 수입, 식민지 획득, 공장 건설, 도로 정비, 관세 장벽과 완성품 수입 금지로 국부를 늘리려 한 정책' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/절대 왕정/sanssouci-palace.webp', span: true,
+        caption: '상수시 궁전',
+        ref: '프로이센의 프리드리히 2세가 포츠담에 세운 로코코 양식의 궁전.' }
+    ],
     linked: ['w-westphalia', 'w-glorious', 'w-french-rev']
   },
   'w-westphalia': {
@@ -8712,7 +8737,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/시민 혁명/bill-of-rights-presentation.webp', span: true,
+        caption: '권리 장전의 승인',
+        ref: '명예혁명으로 즉위한 윌리엄 3세와 메리 2세가 의회가 제출한 권리 선언을 받아들이는 장면(1689). 이를 권리 장전으로 공포하여 입헌 군주제의 기틀을 마련하였다.' }
+    ],
     linked: ['w-armada', 'w-us-indep', 'w-industrial']
   },
   'w-industrial': {
@@ -8766,7 +8795,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/시민 혁명/american-revolution-map.webp',
+        caption: '미국 혁명의 전개',
+        ref: '보스턴 차 사건(1773) · 렉싱턴 전투(1775) · 독립 선언문 발표(1776, 필라델피아) · 요크타운 전투(1781) · 독립을 선언한 13개 주와 파리 조약으로 획득한 영토(1783)' }
+    ],
     linked: ['w-glorious', 'w-french-rev', 'w-civilwar']
   },
   'w-french-rev': {
@@ -8813,7 +8846,13 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'document', caption: '프랑스 인권 선언 (1789. 8. 26.)', ref: 'W4, p. 2924' },
       { slot: 'wide', caption: '바스티유 광장 · 베르사유 궁전', ref: 'W4, pp. 2563–2566' },
-      { slot: 'portrait', caption: '프랑스 혁명에서 활약한 시에예스', ref: 'W4, p. 2733' }
+      { slot: 'portrait', caption: '프랑스 혁명에서 활약한 시에예스', ref: 'W4, p. 2733' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/시민 혁명/ancien-regime-cartoon.webp',
+        caption: '구제도의 모순을 풍자한 그림',
+        ref: '고위 성직자(제1 신분)와 귀족·고위 관직자(제2 신분)가 농민·수공업자·상인(제3 신분)의 등에 올라탄 모습' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/시민 혁명/french-revolution-governments.webp',
+        caption: '프랑스 혁명기 정치 구조의 변화',
+        ref: '국민 의회(1789~1791, 테니스코트의 서약·인권 선언) → 입법 의회(1791~1792) → 국민 공회(1792~1795, 공화정 선포·루이 16세 처형·공포 정치) → 총재 정부(1795~1799) → 통령 정부(1799~1804, 나폴레옹의 독재)' }
     ],
     linked: ['w-us-indep', 'w-napoleon', 'w-louis14', 'w-ww1', 'w-russia', 'e-meiji'],
     map: {
@@ -8855,7 +8894,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/시민 혁명/napoleon-campaigns-map.webp', span: true,
+        caption: '나폴레옹의 정복 활동',
+        ref: '황제 즉위 전·후의 진로와 100일 천하 · 프랑스 제국령·위성국·동맹국 · 트라팔가르 해전(1805)·워털루 전투·이집트 원정(1798) · 세인트헬레나 유배(1815)' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/시민 혁명/french-revolution-governments.webp',
+        caption: '프랑스 혁명기 정치 구조의 변화',
+        ref: '국민 의회(1789~1791, 테니스코트의 서약·인권 선언) → 입법 의회(1791~1792) → 국민 공회(1792~1795, 공화정 선포·루이 16세 처형·공포 정치) → 총재 정부(1795~1799) → 통령 정부(1799~1804, 나폴레옹의 독재)' }
+    ],
     linked: ['w-french-rev', 'w-vienna', 'w-haiti']
   },
   'w-haiti': {
@@ -8902,7 +8948,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/시민 혁명/napoleon-campaigns-map.webp', span: true,
+        caption: '나폴레옹의 정복 활동',
+        ref: '황제 즉위 전·후의 진로와 100일 천하 · 프랑스 제국령·위성국·동맹국 · 트라팔가르 해전(1805)·워털루 전투·이집트 원정(1798) · 세인트헬레나 유배(1815)' }
+    ],
     linked: ['w-napoleon', 'w-july', 'w-feb', 's-tanzimat']
   },
   'w-july': {
