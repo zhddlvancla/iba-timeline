@@ -4209,9 +4209,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20261013c"></script>
+<script src="iba-emblem.js?v=20261014a"></script>
 <!-- 연관 기록 대조 — 브라우저 안 의미 검색 (semantic-worker.js · search-index.js) -->
-<script src="semantic-search.js?v=20261013c"></script>
+<script src="semantic-search.js?v=20261014a"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -7176,6 +7176,9 @@ window.TIMELINE_DATA = {
     { id: 'w-hundred', track: 'west', year: 1337, label: '백년 전쟁', en: 'Hundred Years\' War',
       state: '영국·프랑스', theme: '군사', kind: 'turning',
       body: '프랑스 왕위 계승권 등을 두고 영국과 프랑스가 벌인 전쟁(1337~1453). 잔 다르크 등의 활약으로 프랑스가 승리하였고, 두 나라는 중앙 집권 국가로 나아갔다.' },
+    { id: 'w-renaissance', track: 'west', year: 1420, yearLabel: '14~16세기 CE', label: '르네상스', en: 'Renaissance',
+      state: '이탈리아', theme: '문화', kind: 'turning',
+      body: '14~16세기 서유럽에서 그리스·로마 고전 문화의 부흥을 통해 인간 중심의 문화를 창출하려는 르네상스가 일어났다. 이탈리아에서 시작되어 16세기 이후 알프스 이북으로 확산되었다.' },
     { id: 'w-columbus', track: 'west', year: 1492, label: '신항로 개척', en: 'Age of Exploration',
       state: '에스파냐', theme: '경제', kind: 'turning',
       body: '에스파냐의 후원을 받은 콜럼버스가 1492년 아메리카 대륙의 서인도 제도에 도착하였다. 이후 유럽인들이 아메리카와 아시아로 가는 새로운 바닷길을 열면서 세계적인 교역망이 형성되었다.' },
@@ -14406,8 +14409,16 @@ window.TIMELINE_DB = {
         { y: 1521, label: '아스테카 제국 멸망' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '신항로 개척 전의 교역',
+        src: 'assets/w1/근세/유럽·미주/신항로 개척/pre-discovery-trade-chart.webp',
+        citation: '· 아시아의 향신료가 인도양과 지중해를 거쳐 오스만 제국을 통해 유럽으로 들어왔고, 유럽은 그 대가로 은을 지급하였다' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/신항로 개척/new-sea-routes-map.webp', span: true,
+        caption: '신항로 개척',
+        ref: '디아스(1488, 희망봉) · 콜럼버스(1492, 서인도 제도) · 바스쿠 다 가마(1498, 인도 항로) · 아메리고 베스푸치(1502) · 마젤란 일행(1519~1522, 세계 일주) · 포르투갈과 에스파냐의 식민지' }
+    ],
     linked: ['w-gama', 'w-magellan', 'w-aztec', 'w-inca', 'e-ming']
   },
   'w-gama': {
@@ -14427,8 +14438,16 @@ window.TIMELINE_DB = {
         { y: 1511, label: '포르투갈, 믈라카 점령' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '신항로 개척 전의 교역',
+        src: 'assets/w1/근세/유럽·미주/신항로 개척/pre-discovery-trade-chart.webp',
+        citation: '· 아시아의 향신료가 인도양과 지중해를 거쳐 오스만 제국을 통해 유럽으로 들어왔고, 유럽은 그 대가로 은을 지급하였다' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/신항로 개척/new-sea-routes-map.webp', span: true,
+        caption: '신항로 개척',
+        ref: '디아스(1488, 희망봉) · 콜럼버스(1492, 서인도 제도) · 바스쿠 다 가마(1498, 인도 항로) · 아메리고 베스푸치(1502) · 마젤란 일행(1519~1522, 세계 일주) · 포르투갈과 에스파냐의 식민지' }
+    ],
     linked: ['w-columbus', 'w-magellan', 's-mughal']
   },
   'w-luther': {
@@ -14457,7 +14476,19 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'auto', src: 'assets/w1/중세/유럽·미주/교황권/hus-burning.webp',
         caption: '후스의 화형',
-        ref: '교회를 비판한 보헤미아의 후스가 콘스탄츠 공의회의 결정으로 화형당하는 모습(1415).' }
+        ref: '교회를 비판한 보헤미아의 후스가 콘스탄츠 공의회의 결정으로 화형당하는 모습(1415).' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/종교 개혁/reformation-spread-map.webp',
+        caption: '종교 개혁의 확산',
+        ref: '비텐베르크에서 퍼진 루터파와 제네바에서 퍼진 칼뱅파(위그노·고이센·청교도·장로파) · 영국 국교회의 출발점 런던 · 프로테스탄트(신교)와 로마 가톨릭교(구교) 지역' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/종교 개혁/luther-portrait.webp',
+        caption: '루터',
+        ref: '「95개조 반박문」을 발표하여 종교 개혁을 일으킨 독일의 신학자.' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/종교 개혁/calvin-portrait.webp',
+        caption: '칼뱅',
+        ref: '제네바에서 종교 개혁을 이끈 신학자. 예정설을 주장하였다.' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/르네상스/st-peters-basilica.webp', span: true,
+        caption: '성 베드로 대성당',
+        ref: '르네상스 양식으로 다시 지은 바티칸의 성 베드로 대성당. 교황 레오 10세는 그 건축 비용을 마련하려 면벌부를 판매하였다.' }
     ],
     linked: ['w-avignon', 'w-westphalia', 'w-armada']
   },
@@ -14478,7 +14509,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/신항로 개척/new-sea-routes-map.webp', span: true,
+        caption: '신항로 개척',
+        ref: '디아스(1488, 희망봉) · 콜럼버스(1492, 서인도 제도) · 바스쿠 다 가마(1498, 인도 항로) · 아메리고 베스푸치(1502) · 마젤란 일행(1519~1522, 세계 일주) · 포르투갈과 에스파냐의 식민지' }
+    ],
     linked: ['w-columbus', 'w-gama', 'w-inca']
   },
   'w-aztec': {
@@ -14500,7 +14535,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/아메리카/spanish-conquest-americas-map.webp',
+        caption: '아메리카 여러 문명의 중심지와 에스파냐의 침입로',
+        ref: '아스테카(테노치티틀란)·마야(치첸이트사)·잉카(쿠스코·마추픽추) · 16세기 에스파냐인의 침입로와 식민지 경계 · 포토시 은광' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/아메리카/aztec-population-chart.webp',
+        caption: '아스테카 문명 원주민의 인구 변화',
+        ref: '1520년 무렵 2,500만 명에서 1600년 무렵 107만 명(4.28%)으로 줄었다.' }
+    ],
     linked: ['w-america', 'w-inca', 'w-columbus']
   },
   'w-inca': {
@@ -14522,7 +14564,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/아메리카/spanish-conquest-americas-map.webp',
+        caption: '아메리카 여러 문명의 중심지와 에스파냐의 침입로',
+        ref: '아스테카(테노치티틀란)·마야(치첸이트사)·잉카(쿠스코·마추픽추) · 16세기 에스파냐인의 침입로와 식민지 경계 · 포토시 은광' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/아메리카/inca-population-chart.webp',
+        caption: '잉카 문명 원주민의 인구 변화',
+        ref: '887만 명에서 67만 명(7.55%)으로 줄었다. 정복자들의 무기뿐 아니라 유럽인을 통해 유입된 천연두·홍역·발진티푸스 같은 전염병이 원주민 수를 격감시켰다.' }
+    ],
     linked: ['w-america', 'w-aztec', 'e-ming']
   },
   'w-armada': {
@@ -15289,6 +15338,52 @@ window.TIMELINE_DB = {
         ref: '대서양 헌장(1941. 8.) → 카이로 회담(1943. 11.) → 얄타 회담(1945. 2.) → 포츠담 회담·포츠담 선언(1945. 7.) → 국제 연합 창설(1945. 10.)' }
     ],
     linked: ['w-ww2', 'w-cairo', 'w-yalta', 'k-liberation', 'w-moscow']
+  },
+  'w-renaissance': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '르네상스 — ‘부활’·‘재생’을 뜻하는 르네상스는 14~16세기 서유럽에서 그리스·로마 고전 문화의 부흥을 통해 인간 중심의 문화를 창출하려 한 운동이다. 르네상스가 시작된 이탈리아에는 옛 로마 제국의 문화유산이 많이 남아 있었고, 비잔티움 제국 멸망 이후 학자들이 많이 이주하였으며, 지중해 무역으로 부유해진 상인들이 학문과 예술을 후원하였다. 르네상스는 그리스·로마의 고전을 연구하고 인간의 개성과 능력, 존엄성을 강조하는 인문주의를 바탕으로 하였다. 페트라르카는 인간과 자연의 아름다움을 서정시로 표현하였고, 보카치오는 『데카메론』에서 사회의 타락상을 풍자하였으며, 마키아벨리는 『군주론』에서 강력한 군주의 필요성을 역설하였다. 미술 분야에서는 보티첼리, 레오나르도 다빈치, 미켈란젤로 등이 인체의 아름다움을 사실적으로 표현하였다. 르네상스는 16세기 이후 알프스 이북으로 확산되었는데, 교회의 권위와 봉건 사회의 관습이 강하게 남아 있던 이 지역의 인문주의자들은 현실 사회와 교회를 비판하는 개혁적 성향이 강하였다. 에라스뮈스는 『우신예찬』에서 부패한 교회를 비판하였고, 토머스 모어는 『유토피아』에서 영국 사회의 부조리를 고발하였으며, 세르반테스는 『돈키호테』에서 몰락한 기사 계급을 풍자하였다. 미술에서는 반에이크 형제가 유화 기법을 개발하였고, 브뤼헐은 서민들의 일상적인 삶을 잘 표현하였다.',
+      terms: [
+        { label: '인문주의', def: '그리스·로마의 고전을 연구하고 가르치는 학풍. 점차 인간의 개성과 능력, 존엄성을 강조하는 사상으로 발전하였다.' },
+        { label: '『군주론』', def: '마키아벨리가 이탈리아를 통일할 강력한 군주상을 제시한 책.' },
+        { label: '『우신예찬』', def: '네덜란드의 에라스뮈스가 교회의 위선과 타락을 풍자한 책.' },
+        { label: '『유토피아』', def: '영국의 토머스 모어가 사회의 부조리한 현실을 고발한 책.' },
+        { label: '미켈란젤로', def: '「피에타」, 시스티나 성당 천장화 「천지 창조」 등을 남긴 이탈리아 르네상스의 예술가.' },
+        { label: '브뤼헐', def: '「농민의 춤」 등 서민의 일상을 그린 플랑드르(북유럽)의 화가.' }
+      ],
+      timeline: [
+        { yl: '14세기', label: '◆ 이탈리아에서 르네상스 시작 — 페트라르카·보카치오' },
+        { y: 1453, label: '비잔티움 제국 멸망 → 학자들 이탈리아로 이주' },
+        { y: 1511, label: '에라스뮈스, 『우신예찬』' },
+        { y: 1513, label: '마키아벨리, 『군주론』 집필' },
+        { y: 1516, label: '토머스 모어, 『유토피아』' },
+        { yl: '16세기', label: '알프스 이북으로 확산 → 종교 개혁' }
+      ]
+    },
+    sources: [
+      { kind: '탐구 자료', title: '북유럽·에스파냐의 르네상스 미술', span: true,
+        src: 'assets/w1/근세/유럽·미주/르네상스/northern-renaissance-inquiry.webp',
+        citation: '· 플랑드르의 화가 브뤼헐, 「농민의 춤」 — 농촌의 한가로움과 소박한 즐거움 · 에스파냐에서 활동한 엘 그레코, 「오르가스 백작의 매장」' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/유럽·미주/그리스 문화/school-of-athens.webp', span: true,
+        caption: '라파엘로, 「아테네 학당」',
+        ref: '플라톤·아리스토텔레스 등 고대 그리스 철학자들을 한자리에 그린 르네상스 벽화. 고전 문화 부흥을 보여 준다.' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/르네상스/pieta-michelangelo.webp',
+        caption: '미켈란젤로, 「피에타」',
+        ref: '십자가에 못 박혔던 그리스도를 어머니 마리아의 무릎에 눕힌 장면. 아들을 잃은 어머니의 모습을 종교적으로 승화하였다.' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/르네상스/birth-of-venus.webp', span: true,
+        caption: '보티첼리, 「비너스의 탄생」',
+        ref: '로마 신화에서 사랑의 여신인 비너스가 바다에서 태어나 해안에 도착하는 내용을 표현하였다.' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/르네상스/creation-of-adam-sistine.webp',
+        caption: '미켈란젤로, 시스티나 성당 천장화 「천지 창조」',
+        ref: '바티칸 시스티나 성당 천장에 그린 벽화의 일부(「아담의 창조」).' },
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/르네상스/st-peters-basilica.webp', span: true,
+        caption: '성 베드로 대성당',
+        ref: '르네상스 양식으로 다시 지은 바티칸의 성 베드로 대성당. 교황 레오 10세는 그 건축 비용을 마련하려 면벌부를 판매하였다.' }
+    ],
+    linked: ['w-greek-culture', 'w-hundred', 'w-luther', 'w-columbus']
   },
   'w-moscow': {
     notes: {   // 정리 — 사용자 정리본 (2026-10-11 위계 정리: 내용 그대로, 머리 항목·세부 항목 구분)
