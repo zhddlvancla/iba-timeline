@@ -7445,7 +7445,11 @@ window.TIMELINE_DB = {
         { y: 1592, label: '임진왜란' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '무로마치 막부의 감합 무역과 에도 막부의 쇄국 정책', span: true,
+        src: 'assets/w1/근세/동아시아/일본/kango-trade-sakoku-inquiry.webp',
+        citation: '· 명이 발행한 감합부로 무역을 허가한 감합 무역(영파 입항) · 주인선 무역 중지(1635)와 나가사키 데지마로 대외 창구 일원화' }
+    ],
     artifacts: [],
     linked: ['e-kamakura', 'e-sengoku', 'e-ming']
   },
@@ -7472,8 +7476,22 @@ window.TIMELINE_DB = {
         { y: 1644, label: '명 멸망' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '정화의 항해', span: true,
+        src: 'assets/w1/근세/동아시아/명/zheng-he-voyages-inquiry.webp',
+        citation: '· 영락제 때 정화의 함대가 동남아시아·인도양을 거쳐 아프리카 동해안(말린디)까지 항해 · 영토 확장이나 국제 교역의 확대가 아니라 책봉·조공 체제의 확대가 목표 · 명대 해도에 표기된 쿠론·실론·모가디슈·말린디' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/명/kunyu-wanguo-quantu.webp', span: true,
+        caption: '곤여만국전도',
+        ref: '마테오 리치가 명에서 만든 세계 지도(1602). 중국인들에게 넓은 세계를 알리는 계기가 되었다.' },
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/명/matteo-ricci.webp',
+        caption: '마테오 리치',
+        ref: '명 말에 중국에 와서 크리스트교와 서양 학문을 전한 예수회 선교사.' },
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/명/silver-ingots.webp',
+        caption: '은괴(말굽은)',
+        ref: '명·청대에 화폐로 쓰인 은덩이. 일조편법·지정은제 등 세금을 은으로 내면서 은 유통이 늘어났다.' }
+    ],
     linked: ['e-yuan', 'e-qing', 'e-ming-fall', 'k-joseon']
   },
   'e-sengoku': {
@@ -7517,8 +7535,19 @@ window.TIMELINE_DB = {
         { y: 1868, label: '메이지 정부 수립' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '무로마치 막부의 감합 무역과 에도 막부의 쇄국 정책', span: true,
+        src: 'assets/w1/근세/동아시아/일본/kango-trade-sakoku-inquiry.webp',
+        citation: '· 명이 발행한 감합부로 무역을 허가한 감합 무역(영파 입항) · 주인선 무역 중지(1635)와 나가사키 데지마로 대외 창구 일원화' },
+      { kind: '탐구 자료', title: '산킨코타이 제도와 에도 막부 시기의 교통망', span: true,
+        src: 'assets/w1/근세/동아시아/일본/sankin-kotai-roads-inquiry.webp',
+        citation: '· 지방의 다이묘가 격년으로 에도에 머물게 한 산킨코타이 제도 · 3도(에도·오사카·교토)와 5가도 · 다이묘의 왕래가 문물 교류와 상업 발달을 촉진' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/일본/dejima.webp', span: true,
+        caption: '데지마',
+        ref: '나가사키 앞바다를 메워 만든 인공 섬. 이곳에 네덜란드 상관이 설치되었다.' }
+    ],
     linked: ['e-sengoku', 'e-perry', 'e-meiji', 'k-joseon']
   },
   'e-houjin': {
@@ -7541,7 +7570,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/청/qing-cavalryman.webp',
+        caption: '청의 기병',
+        ref: '만주족의 군사·행정 조직인 팔기를 바탕으로 중국을 정복한 청의 기병을 그린 그림.' }
+    ],
     linked: ['e-ming', 'e-qing', 'k-joseon']
   },
   'e-qing': {
@@ -7570,7 +7603,20 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/청/qing-territory-map.webp', span: true,
+        caption: '청의 영역',
+        ref: '직할지와 번부(몽골·신장·티베트) · 최대 영역과 현재의 중국 국경선 · 청 군대의 출동 방향과 러시아의 진출(네르친스크)' },
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/청/qing-cavalryman.webp',
+        caption: '청의 기병',
+        ref: '만주족의 군사·행정 조직인 팔기를 바탕으로 중국을 정복한 청의 기병을 그린 그림.' },
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/청/population-diding-chart.webp',
+        caption: '인구 증가와 지정은제의 시행',
+        ref: '송·원·명 초를 거쳐 청대에 인구가 크게 늘었다. 지정은제(정세를 토지세에 합쳐 은으로 징수)가 전국에 실시된 1730년 무렵 2억 명을 넘었고 1851년 4억 명을 넘었다.' },
+      { slot: 'auto', src: 'assets/w1/근세/동아시아/명/silver-ingots.webp',
+        caption: '은괴(말굽은)',
+        ref: '명·청대에 화폐로 쓰인 은덩이. 일조편법·지정은제 등 세금을 은으로 내면서 은 유통이 늘어났다.' }
+    ],
     linked: ['e-houjin', 'e-ming-fall', 'e-opium', 'e-xinhai', 'k-joseon']
   },
   'e-ming-fall': {
@@ -10128,11 +10174,21 @@ window.TIMELINE_DB = {
         { y: 1658, label: '아우랑제브 황제 즉위' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '이슬람 문화와 힌두 문화의 만남', span: true,
+        src: 'assets/w1/근세/서아시아·인도/무굴 제국/hindu-islamic-fusion-inquiry.webp',
+        citation: '· 건축(타지마할)·미술(무굴 회화)·종교(시크교의 황금 사원)·언어와 음식(우르두어, 풀라오) 등에 나타난 힌두·이슬람 문화의 융합' }
+    ],
     artifacts: [
       { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/오스만 제국/timur-portrait.webp',
         caption: '티무르',
-        ref: '사마르칸트를 수도로 티무르 왕조를 세운 정복자. 앙카라 전투(1402)에서 오스만 제국을 격파하였으며, 그의 후손 바부르가 무굴 제국을 세웠다.' }
+        ref: '사마르칸트를 수도로 티무르 왕조를 세운 정복자. 앙카라 전투(1402)에서 오스만 제국을 격파하였으며, 그의 후손 바부르가 무굴 제국을 세웠다.' },
+      { slot: 'auto', src: 'assets/w1/근세/서아시아·인도/무굴 제국/mughal-empire-map.webp',
+        caption: '무굴 제국의 영역',
+        ref: '아크바르 대제 시대의 영역과 아우랑제브 황제 시대의 최대 영역 · 델리·아그라 · 데칸고원' },
+      { slot: 'auto', src: 'assets/w1/근세/서아시아·인도/무굴 제국/taj-mahal.webp', span: true,
+        caption: '타지마할',
+        ref: '무굴 제국의 샤 자한이 세운 묘당(인도 아그라). 인도와 페르시아의 건축 양식이 조화를 이룬 인도·이슬람 문화의 대표 건축이다.' }
     ],
     linked: ['s-delhi', 's-aurangzeb', 's-safavid', 's-plassey']
   },
@@ -10153,7 +10209,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/서아시아·인도/무굴 제국/mughal-empire-map.webp',
+        caption: '무굴 제국의 영역',
+        ref: '아크바르 대제 시대의 영역과 아우랑제브 황제 시대의 최대 영역 · 델리·아그라 · 데칸고원' }
+    ],
     linked: ['s-mughal', 's-plassey']
   },
   's-plassey': {
