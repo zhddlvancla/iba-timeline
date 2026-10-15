@@ -9233,7 +9233,19 @@ window.TIMELINE_DB = {
       { slot: 'wide',     caption: '사라예보 사건 (1914)',                      ref: 'W5, p. 2164' },
       { slot: 'wide',     caption: '독가스 방독면을 쓴 병사',                    ref: 'K3, p. 322' },
       { slot: 'wide',     caption: '범게르만주의 ↔ 범슬라브주의 대립 지도',      ref: 'K3, p. 320' },
-      { slot: 'document', caption: '윌슨의 14개조 평화 원칙 (파리 강화 회의)',    ref: 'K3, pp. 339–343' }
+      { slot: 'document', caption: '윌슨의 14개조 평화 원칙 (파리 강화 회의)',    ref: 'K3, pp. 339–343' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/imperialism-origins-chart.webp',
+        caption: '제국주의의 출현',
+        ref: '산업 혁명(18세기 후반~) → 산업 자본주의 → 독점 자본주의 / 시민 혁명(18세기 말~) → 자유주의와 민족주의 → 침략적 민족주의 · 근대 시민 사회·국민 국가 성립을 거쳐 제국주의 출현' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/africa-partition-map.webp',
+        caption: '제국주의 열강의 아프리카 분할',
+        ref: '영국의 종단 정책(카이로~케이프타운)과 프랑스의 횡단 정책이 충돌한 파쇼다 사건(1898) · 영국·프랑스·독일·포르투갈·이탈리아·에스파냐·벨기에령 · 독립국 에티오피아·라이베리아' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/asia-pacific-imperialism-map.webp', span: true,
+        caption: '제국주의 열강의 아시아·태평양 지역 침략',
+        ref: '영국령 인도·미얀마·오스트레일리아와 수에즈 운하를 잇는 영국의 주요 무역로 · 프랑스령 인도차이나, 네덜란드령 동인도, 미국령 필리핀, 일본령 한국·타이완' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/triple-alliance-entente-map.webp',
+        caption: '3국 동맹과 3국 협상',
+        ref: '독일·오스트리아·헝가리·이탈리아의 3국 동맹과 영국·프랑스·러시아의 3국 협상이 대립하였다.' }
     ],
     linked: ['w-germany', 'w-russia', 'w-paris', 's-young-turk', 'k-samil', 'k-annexation']
   },
@@ -9305,7 +9317,10 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'portrait', caption: '레닌 (1870~1924) — 1917년 11월 혁명 주도',  ref: 'W5, p. 2146' },
       { slot: 'wide',     caption: '소비에트 대회에서 연설하는 레닌',           ref: 'W5, p. 2304' },
-      { slot: 'wide',     caption: '구세력의 청소 — 레닌이 차르·귀족·자본가를 쓸어버리는 포스터', ref: 'W5, pp. 2283–2285' }
+      { slot: 'wide',     caption: '구세력의 청소 — 레닌이 차르·귀족·자본가를 쓸어버리는 포스터', ref: 'W5, pp. 2283–2285' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/lenin-speech.webp', span: true,
+        caption: '연설하는 레닌',
+        ref: '볼셰비키를 이끌고 10월 혁명으로 소비에트 정부를 세운 레닌이 군중 앞에서 연설하는 모습을 그린 그림.' }
     ],
     linked: ['w-ww1', 'w-ussr', 'e-kmt-ccp', 'k-samil', 'k-annexation']
   },
@@ -9330,7 +9345,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/versailles-europe-map.webp',
+        caption: '제1차 세계 대전 이후의 유럽',
+        ref: '동맹국과 러시아의 할양 지역 · 신생 독립 국가(핀란드·에스토니아·라트비아·리투아니아·폴란드·체코슬로바키아·헝가리·유고슬라비아) · 국제 연맹 관리 지역(단치히)과 라인란트 비무장 지대' }
+    ],
     linked: ['w-ww1', 'k-samil', 'e-may4', 'w-depression']
   },
   'w-depression': {
@@ -9355,7 +9374,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/new-deal-contents.webp',
+        caption: '뉴딜 정책의 내용',
+        ref: '농업 조정법 · 전국 산업 부흥법 · 테네시강 유역 개발 공사 · 와그너법(노동자의 단결권과 단체 교섭권 인정) · 사회 보장(노인 연금, 실업자 수당)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/bloc-economy-map.webp', span: true,
+        caption: '대공황 이후의 블록 경제',
+        ref: '파운드 블록(영국)·프랑 블록(프랑스)·달러 블록(미국)·엔 블록(일본) — 본국과 식민지를 묶어 다른 나라 상품에 높은 관세를 매겼다.' }
+    ],
     linked: ['w-paris', 'w-ww2', 'e-manchuria']
   },
   'w-ww2': {
@@ -9382,7 +9408,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/ww2-europe-map.webp', span: true,
+        caption: '제2차 세계 대전의 전개(유럽)',
+        ref: '동맹국의 공격과 최대 점령지 · 이탈리아 항복(1943) · 노르망디 상륙 작전과 연합군의 프랑스 해방(1944) · 독일 항복(1945)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/wartime-conferences-chart.webp',
+        caption: '전후 문제 해결을 위한 국제회의',
+        ref: '대서양 헌장(1941) → 카이로 회담(1943) → 얄타 회담(1945. 2.) → 포츠담 회담(1945. 7.)' }
+    ],
     linked: ['w-depression', 'e-pacific', 'w-cairo', 'w-yalta', 'w-potsdam', 'w-un', 'k-liberation']
   },
   // 한반도 문제 국제 회의 — 한국 줄기 기록과 같은 내용 (연결만 반대 줄기로)
@@ -9427,7 +9460,10 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'auto', src: 'assets/w1/근현대/국제/w-allied-conferences.webp',
         caption: '전후 처리를 위한 국제 회담',
-        ref: '대서양 헌장(1941. 8.) → 카이로 회담(1943. 11.) → 얄타 회담(1945. 2.) → 포츠담 회담·포츠담 선언(1945. 7.) → 국제 연합 창설(1945. 10.)' }
+        ref: '대서양 헌장(1941. 8.) → 카이로 회담(1943. 11.) → 얄타 회담(1945. 2.) → 포츠담 회담·포츠담 선언(1945. 7.) → 국제 연합 창설(1945. 10.)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/wartime-conferences-chart.webp',
+        caption: '전후 문제 해결을 위한 국제회의',
+        ref: '대서양 헌장(1941) → 카이로 회담(1943) → 얄타 회담(1945. 2.) → 포츠담 회담(1945. 7.)' }
     ],
     linked: ['w-ww2', 'w-yalta', 'w-potsdam', 'k-liberation', 'k-provisional']
   },
@@ -9472,7 +9508,10 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'auto', src: 'assets/w1/근현대/국제/w-allied-conferences.webp',
         caption: '전후 처리를 위한 국제 회담',
-        ref: '대서양 헌장(1941. 8.) → 카이로 회담(1943. 11.) → 얄타 회담(1945. 2.) → 포츠담 회담·포츠담 선언(1945. 7.) → 국제 연합 창설(1945. 10.)' }
+        ref: '대서양 헌장(1941. 8.) → 카이로 회담(1943. 11.) → 얄타 회담(1945. 2.) → 포츠담 회담·포츠담 선언(1945. 7.) → 국제 연합 창설(1945. 10.)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/wartime-conferences-chart.webp',
+        caption: '전후 문제 해결을 위한 국제회의',
+        ref: '대서양 헌장(1941) → 카이로 회담(1943) → 얄타 회담(1945. 2.) → 포츠담 회담(1945. 7.)' }
     ],
     linked: ['w-ww2', 'w-cairo', 'w-potsdam', 'w-un', 'k-liberation']
   },
@@ -9518,7 +9557,13 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'auto', src: 'assets/w1/근현대/국제/w-allied-conferences.webp',
         caption: '전후 처리를 위한 국제 회담',
-        ref: '대서양 헌장(1941. 8.) → 카이로 회담(1943. 11.) → 얄타 회담(1945. 2.) → 포츠담 회담·포츠담 선언(1945. 7.) → 국제 연합 창설(1945. 10.)' }
+        ref: '대서양 헌장(1941. 8.) → 카이로 회담(1943. 11.) → 얄타 회담(1945. 2.) → 포츠담 회담·포츠담 선언(1945. 7.) → 국제 연합 창설(1945. 10.)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/wartime-conferences-chart.webp',
+        caption: '전후 문제 해결을 위한 국제회의',
+        ref: '대서양 헌장(1941) → 카이로 회담(1943) → 얄타 회담(1945. 2.) → 포츠담 회담(1945. 7.)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/germany-occupation-zones-map.webp',
+        caption: '전후 독일의 분할 점령',
+        ref: '영국·프랑스·미국·소련이 독일과 베를린을 나누어 통치 · 서독과 동독, 서베를린과 동베를린으로 분단' }
     ],
     linked: ['w-ww2', 'w-cairo', 'w-yalta', 'k-liberation', 'w-moscow']
   },
@@ -9762,7 +9807,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/germany-occupation-zones-map.webp',
+        caption: '전후 독일의 분할 점령',
+        ref: '영국·프랑스·미국·소련이 독일과 베를린을 나누어 통치 · 서독과 동독, 서베를린과 동베를린으로 분단' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/nixon-mao-1972.webp',
+        caption: '미국 대통령 닉슨의 중국 방문(1972)',
+        ref: '닉슨과 마오쩌둥의 만남. 냉전 체제가 완화되는 계기가 되었다.' }
+    ],
     linked: ['w-un', 'w-cuba', 'w-berlin', 'k-gov-rhee', 'e-vietwar-end']
   },
   'w-cuba': {
@@ -9806,7 +9858,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/eastern-europe-1989-map.webp', span: true,
+        caption: '동유럽의 변화와 소련 해체',
+        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/germany-occupation-zones-map.webp',
+        caption: '전후 독일의 분할 점령',
+        ref: '영국·프랑스·미국·소련이 독일과 베를린을 나누어 통치 · 서독과 동독, 서베를린과 동베를린으로 분단' }
+    ],
     linked: ['w-coldwar', 'w-unify', 'w-ussr', 'e-tiananmen']
   },
   'w-unify': {
@@ -9827,7 +9886,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/germany-occupation-zones-map.webp',
+        caption: '전후 독일의 분할 점령',
+        ref: '영국·프랑스·미국·소련이 독일과 베를린을 나누어 통치 · 서독과 동독, 서베를린과 동베를린으로 분단' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/eastern-europe-1989-map.webp', span: true,
+        caption: '동유럽의 변화와 소련 해체',
+        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' }
+    ],
     linked: ['w-berlin', 'w-coldwar', 'w-ussr']
   },
   'w-ussr': {
@@ -9851,7 +9917,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/eastern-europe-1989-map.webp', span: true,
+        caption: '동유럽의 변화와 소련 해체',
+        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' }
+    ],
     linked: ['w-berlin', 'w-unify', 'w-russia', 'k-gov-roh']
   },
   'w-eu': {
@@ -9874,7 +9944,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/regional-blocs-map.webp',
+        caption: '지역 협력 기구',
+        ref: '유럽 연합(EU, 1993) · 아시아 태평양 경제 협력체(APEC, 1989) · 북아메리카 자유 무역 협정(NAFTA, 1994) · 아프리카 연합(AU, 2002) · 동남아시아 국가 연합(ASEAN, 1967) · 남아메리카 국가 연합(UNASUR, 2008)' }
+    ],
     linked: ['w-unify', 'w-coldwar']
   },
   'w-911': {
