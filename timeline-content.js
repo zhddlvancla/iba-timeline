@@ -7683,8 +7683,16 @@ window.TIMELINE_DB = {
         { y: 1860, label: '베이징 조약' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '중국과 영국의 무역 관계 변화', span: true,
+        src: 'assets/w1/근현대/동아시아/china-britain-trade-inquiry.webp',
+        citation: '· 초기 무역(17~18세기): 공행을 통해 차·비단·도자기 수출, 은 유입 → 삼각 무역(19세기): 인도산 아편을 청에 팔아 은 회수 · 1820년대 후반 이후 아편 밀수입액 증가와 청의 은 유출' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/opium-war-treaties-map.webp', span: true,
+        caption: '아편 전쟁과 불평등 조약',
+        ref: '난징 조약(1842): 광저우·샤먼·푸저우·닝보·상하이 5개 항구 개항, 홍콩 할양, 공행 폐지 · 톈진 조약(1858): 10개 항구 개방, 외국 공사의 베이징 주재와 크리스트교 포교 승인 · 베이징 조약(1860): 톈진 추가 개항, 주룽반도 할양' }
+    ],
     linked: ['e-qing', 'e-nanjing', 'e-taiping', 'e-yangwu']
   },
   'e-nanjing': {
@@ -7707,8 +7715,16 @@ window.TIMELINE_DB = {
         { y: 1856, label: '제2차 아편 전쟁' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '중국과 영국의 무역 관계 변화', span: true,
+        src: 'assets/w1/근현대/동아시아/china-britain-trade-inquiry.webp',
+        citation: '· 초기 무역(17~18세기): 공행을 통해 차·비단·도자기 수출, 은 유입 → 삼각 무역(19세기): 인도산 아편을 청에 팔아 은 회수 · 1820년대 후반 이후 아편 밀수입액 증가와 청의 은 유출' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/opium-war-treaties-map.webp', span: true,
+        caption: '아편 전쟁과 불평등 조약',
+        ref: '난징 조약(1842): 광저우·샤먼·푸저우·닝보·상하이 5개 항구 개항, 홍콩 할양, 공행 폐지 · 톈진 조약(1858): 10개 항구 개방, 외국 공사의 베이징 주재와 크리스트교 포교 승인 · 베이징 조약(1860): 톈진 추가 개항, 주룽반도 할양' }
+    ],
     linked: ['e-opium', 'e-qing', 'e-perry']
   },
   'e-taiping': {
@@ -7728,7 +7744,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/taiping-map.webp',
+        caption: '태평천국 운동',
+        ref: '진톈춘에서 처음 봉기하여 난징(천경)을 수도로 삼음 · 태평천국군의 진로와 점령 지역(1851~1864)' }
+    ],
     linked: ['e-opium', 'e-yangwu', 'e-qing']
   },
   'e-perry': {
@@ -7750,7 +7770,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/perry-landing-japan-ports.webp', span: true,
+        caption: '페리 제독의 요코하마 상륙과 일본의 개항',
+        ref: '페리 일행이 미일 화친 조약을 맺기 위해 상륙하는 모습(1854. 3. 8.) · 미일 화친 조약(1854)으로 시모다·하코다테, 미일 수호 통상 조약(1858)으로 요코하마·나가사키·니가타·고베 등을 개항' }
+    ],
     linked: ['e-edo', 'e-meiji', 'e-nanjing', 'k-ganghwa-treaty']
   },
   'e-yangwu': {
@@ -7820,7 +7844,10 @@ window.TIMELINE_DB = {
       { slot: 'portrait', caption: '도쿠가와 이에야스 — 1603년 에도 막부 개창', ref: 'W2, p. 1756' },
       { slot: 'wide', caption: '메이지 정부가 폐번치현 조서를 발표하는 모습', ref: 'W5, p. 1067' },
       { slot: 'wide', caption: '이와쿠라 사절단의 이동 경로 (1871)', ref: 'W5, p. 1198' },
-      { slot: 'wide', caption: '근대화된 도쿄 긴자 거리 — 마차·서양식 건축', ref: 'W5, p. 646' }
+      { slot: 'wide', caption: '근대화된 도쿄 긴자 거리 — 마차·서양식 건축', ref: 'W5, p. 646' },
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/iwakura-mission.webp',
+        caption: '이와쿠라 사절단',
+        ref: '메이지 정부가 서양 여러 나라에 파견한 사절단(1871). 이와쿠라 도모미를 대표로 이토 히로부미 등이 참여하였다.' }
     ],
     linked: ['e-perry', 'e-meiji-const', 'e-sino-jp', 'k-ganghwa-treaty', 'w-ww1', 'k-goryeo', 'k-donghak'],
     map: {
@@ -7885,7 +7912,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/sino-russo-japanese-wars-map.webp',
+        caption: '청일 전쟁과 러일 전쟁의 결과',
+        ref: '시모노세키 조약(1895)으로 일본이 타이완 등을 획득 · 포츠머스 조약(1905)으로 사할린 남부 등을 획득 · 러시아와 일본의 침략 방향' }
+    ],
     linked: ['e-yangwu', 'e-wuxu', 'e-meiji', 'k-donghak-rev', 'k-gabo']
   },
   'e-wuxu': {
@@ -7949,7 +7980,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/xinhai-revolution-map.webp',
+        caption: '신해혁명의 전개',
+        ref: '우창에서 신해혁명 발생(1911. 10. 10.) → 중화민국 수립, 쑨원 임시 대총통 취임(1912. 1. 1.) → 청의 멸망(1912. 2. 12.) → 위안스카이 임시 대총통 취임(1912. 3. 10.)' },
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/sun-yat-sen.webp',
+        caption: '쑨원',
+        ref: '삼민주의를 내세워 신해혁명을 이끌고 중화민국의 임시 대총통이 되었다.' }
+    ],
     linked: ['e-qing', 'e-xinchou', 'e-may4', 'k-annexation']
   },
   'e-may4': {
@@ -7997,7 +8035,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/sun-yat-sen.webp',
+        caption: '쑨원',
+        ref: '삼민주의를 내세워 신해혁명을 이끌고 중화민국의 임시 대총통이 되었다.' },
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/chiang-kai-shek.webp',
+        caption: '장제스',
+        ref: '쑨원의 뒤를 이어 국민당을 이끌고 북벌을 추진한 지도자. 국공 내전에서 패한 뒤 타이완으로 옮겨 갔다.' }
+    ],
     linked: ['e-may4', 'e-manchuria', 'e-sino-jp-war', 'e-civilwar']
   },
   'e-manchuria': {
@@ -8041,7 +8086,11 @@ window.TIMELINE_DB = {
         { y: 1937, label: '제2차 국공 합작, 난징 대학살' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '제2차 국공 합작', span: true,
+        src: 'assets/w1/근현대/동아시아/second-united-front-inquiry.webp',
+        citation: '— 『저우언라이 선집』 · 중국 공산당이 국민당과 함께 일본 제국주의의 침략에 맞서겠다고 선언 · 저우언라이(1898~1976)' }
+    ],
     artifacts: [],
     linked: ['e-manchuria', 'e-pacific', 'k-mobilization', 'k-gwangbokgun']
   },
@@ -8109,7 +8158,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/chiang-kai-shek.webp',
+        caption: '장제스',
+        ref: '쑨원의 뒤를 이어 국민당을 이끌고 북벌을 추진한 지도자. 국공 내전에서 패한 뒤 타이완으로 옮겨 갔다.' }
+    ],
     linked: ['e-kmt-ccp', 'e-prc']
   },
   'e-prc': {
@@ -8174,7 +8227,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/cultural-revolution-tiananmen.webp',
+        caption: '문화 대혁명',
+        ref: '톈안먼 광장에서 『마오쩌둥 어록』을 흔드는 홍위병들.' }
+    ],
     linked: ['e-prc', 'e-reform', 'e-nixon']
   },
   'e-nixon': {
@@ -8197,7 +8254,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/nixon-mao-1972.webp',
+        caption: '미국 대통령 닉슨의 중국 방문(1972)',
+        ref: '닉슨과 마오쩌둥의 만남. 냉전 체제가 완화되는 계기가 되었다.' }
+    ],
     linked: ['e-cultural', 'w-coldwar', 'k-gov-park']
   },
   'e-vietwar-end': {
@@ -8242,7 +8303,11 @@ window.TIMELINE_DB = {
         { y: 1997, label: '홍콩 반환' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '덩샤오핑의 개혁과 개방', span: true,
+        src: 'assets/w1/근현대/동아시아/deng-reform-inquiry.webp',
+        citation: '— 덩샤오핑이 중국 남부 지역을 시찰하며 발표한 담화문(남순강화) · 선전·주하이 경제특구의 발전과 사회주의 시장 경제' }
+    ],
     artifacts: [],
     linked: ['e-cultural', 'e-tiananmen', 'e-prc']
   },
