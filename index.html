@@ -15263,7 +15263,10 @@ window.TIMELINE_DB = {
         ref: '영국령 인도·미얀마·오스트레일리아와 수에즈 운하를 잇는 영국의 주요 무역로 · 프랑스령 인도차이나, 네덜란드령 동인도, 미국령 필리핀, 일본령 한국·타이완' },
       { slot: 'auto', src: 'assets/w1/근현대/세계/triple-alliance-entente-map.webp',
         caption: '3국 동맹과 3국 협상',
-        ref: '독일·오스트리아·헝가리·이탈리아의 3국 동맹과 영국·프랑스·러시아의 3국 협상이 대립하였다.' }
+        ref: '독일·오스트리아·헝가리·이탈리아의 3국 동맹과 영국·프랑스·러시아의 3국 협상이 대립하였다.' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/africa-national-movements-map.webp',
+        caption: '아프리카의 민족 운동',
+        ref: '아라비 파샤(1881~1882) · 마흐디 운동(1881~1898) · 만딩고족 · 아샨티족 · 헤헤족 · 줄루족(1879) · 헤레로족과 코이족(1904~1908) · 메날람바족 · 독립국 에티오피아·라이베리아' }
     ],
     linked: ['w-germany', 'w-russia', 'w-paris', 's-young-turk', 'k-samil', 'k-annexation']
   },
@@ -15824,14 +15827,21 @@ window.TIMELINE_DB = {
         { y: 1969, label: '닉슨 독트린' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '평화 10원칙',
+        src: 'assets/w1/근현대/세계/bandung-ten-principles.webp',
+        citation: '· 아시아·아프리카 회의(반둥 회의, 1955)에서 채택 — 기본적 인권과 국제 연합 헌장 존중, 주권과 영토 보전 존중, 내정 불간섭, 무력 침공 배제, 국제 분쟁의 평화적 해결 등' }
+    ],
     artifacts: [
       { slot: 'auto', src: 'assets/w1/근현대/세계/germany-occupation-zones-map.webp',
         caption: '전후 독일의 분할 점령',
         ref: '영국·프랑스·미국·소련이 독일과 베를린을 나누어 통치 · 서독과 동독, 서베를린과 동베를린으로 분단' },
       { slot: 'auto', src: 'assets/w1/근현대/세계/nixon-mao-1972.webp',
         caption: '미국 대통령 닉슨의 중국 방문(1972)',
-        ref: '닉슨과 마오쩌둥의 만남. 냉전 체제가 완화되는 계기가 되었다.' }
+        ref: '닉슨과 마오쩌둥의 만남. 냉전 체제가 완화되는 계기가 되었다.' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/non-aligned-timeline.webp', span: true,
+        caption: '비동맹 중립주의 노선 국가의 활동',
+        ref: '평화 공존 5원칙 발표(1954, 네루와 저우언라이) → 아시아·아프리카 회의(1955, 반둥, 29개국, 평화 10원칙) → 제1차 비동맹 회의(1961, 유고슬라비아)' }
     ],
     linked: ['w-un', 'w-cuba', 'w-berlin', 'k-gov-rhee', 'e-vietwar-end']
   },
@@ -15938,7 +15948,10 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'auto', src: 'assets/w1/근현대/세계/eastern-europe-1989-map.webp', span: true,
         caption: '동유럽의 변화와 소련 해체',
-        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' }
+        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/europe-ethnic-conflicts-map.webp', span: true,
+        caption: '냉전 이후 유럽과 주변 지역의 분쟁',
+        ref: '북아일랜드(1969년 이후) · 보스니아(1992~1995) · 코소보(1998~1999) · 체첸(1991년 이후) · 나고르노카라바흐(1988~1994) · 키프로스(1960년 이후)' }
     ],
     linked: ['w-berlin', 'w-unify', 'w-russia', 'k-gov-roh']
   },
@@ -16325,7 +16338,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/british-india-timeline.webp',
+        caption: '영국의 인도 침략 과정',
+        ref: '동인도 회사 설립(1600) → 플라시 전투, 영국 승리(1757) → 세포이의 항쟁(1857~1859) → 무굴 제국 멸망(1858) → 영국령 인도 제국 수립(1877)' },
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/plassey-sepoy-map.webp',
+        caption: '플라시 전투와 세포이 항쟁',
+        ref: '플라시 전투(1757) · 영국 동인도 회사의 지배 지역(1765) · 무굴 제국령(1775) · 세포이 항쟁 중심지(1857, 델리·아그라)' }
+    ],
     linked: ['s-mughal', 's-sepoy', 'w-industrial']
   },
   's-tanzimat': {
@@ -16347,7 +16367,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/ottoman-decline-map.webp', span: true,
+        caption: '오스만 제국의 영토 축소',
+        ref: '오스만 제국의 최대 영역과 영역 상실(1815~1871, 1871~1914), 1914년의 영역 · 독일·영국·러시아의 진출 방향 · 1675~1914년 아시아·아프리카와 유럽 영토 면적의 변화' }
+    ],
     linked: ['s-ottoman', 's-young-turk', 'w-vienna']
   },
   's-sepoy': {
@@ -16368,7 +16392,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/plassey-sepoy-map.webp',
+        caption: '플라시 전투와 세포이 항쟁',
+        ref: '플라시 전투(1757) · 영국 동인도 회사의 지배 지역(1765) · 무굴 제국령(1775) · 세포이 항쟁 중심지(1857, 델리·아그라)' },
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/british-india-timeline.webp',
+        caption: '영국의 인도 침략 과정',
+        ref: '동인도 회사 설립(1600) → 플라시 전투, 영국 승리(1757) → 세포이의 항쟁(1857~1859) → 무굴 제국 멸망(1858) → 영국령 인도 제국 수립(1877)' }
+    ],
     linked: ['s-plassey', 's-indian-empire', 's-mughal']
   },
   's-indian-empire': {
@@ -16390,7 +16421,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/british-india-timeline.webp',
+        caption: '영국의 인도 침략 과정',
+        ref: '동인도 회사 설립(1600) → 플라시 전투, 영국 승리(1757) → 세포이의 항쟁(1857~1859) → 무굴 제국 멸망(1858) → 영국령 인도 제국 수립(1877)' }
+    ],
     linked: ['s-sepoy', 's-inc']
   },
   's-inc': {
@@ -16412,7 +16447,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/bengal-partition-map.webp',
+        caption: '벵골 분할령',
+        ref: '벵골주를 힌두교도 중심의 서벵골과 이슬람교도 중심의 동벵골로 나눈 분할선(1905)' }
+    ],
     linked: ['s-bengal', 's-indian-empire', 's-partition']
   },
   's-bengal': {
@@ -16433,7 +16472,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/bengal-partition-map.webp',
+        caption: '벵골 분할령',
+        ref: '벵골주를 힌두교도 중심의 서벵골과 이슬람교도 중심의 동벵골로 나눈 분할선(1905)' }
+    ],
     linked: ['s-inc', 's-partition']
   },
   's-iran-const': {
@@ -16454,7 +16497,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/wahhabi-iran-map.webp',
+        caption: '와하브 운동과 이란의 분할',
+        ref: '아라비아반도의 와하브 운동 활동 영역(메카·메디나·리야드) · 이란의 러시아 세력권·중립 지대·영국 세력권' }
+    ],
     linked: ['s-safavid', 's-young-turk', 's-turkey']
   },
   's-young-turk': {
@@ -16473,7 +16520,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/ottoman-decline-map.webp', span: true,
+        caption: '오스만 제국의 영토 축소',
+        ref: '오스만 제국의 최대 영역과 영역 상실(1815~1871, 1871~1914), 1914년의 영역 · 독일·영국·러시아의 진출 방향 · 1675~1914년 아시아·아프리카와 유럽 영토 면적의 변화' }
+    ],
     linked: ['s-tanzimat', 's-turkey', 'w-ww1']
   },
   's-turkey': {
@@ -16519,8 +16570,19 @@ window.TIMELINE_DB = {
         { y: 1971, label: '방글라데시 독립' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '평화 10원칙',
+        src: 'assets/w1/근현대/세계/bandung-ten-principles.webp',
+        citation: '· 아시아·아프리카 회의(반둥 회의, 1955)에서 채택 — 기본적 인권과 국제 연합 헌장 존중, 주권과 영토 보전 존중, 내정 불간섭, 무력 침공 배제, 국제 분쟁의 평화적 해결 등' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/kashmir-map.webp',
+        caption: '카슈미르의 분단',
+        ref: '파키스탄령 아자드 카슈미르와 인도령 잠무 카슈미르 사이의 통제선(LOC) · 중국 점령 국경 분쟁 지역' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/non-aligned-timeline.webp', span: true,
+        caption: '비동맹 중립주의 노선 국가의 활동',
+        ref: '평화 공존 5원칙 발표(1954, 네루와 저우언라이) → 아시아·아프리카 회의(1955, 반둥, 29개국, 평화 10원칙) → 제1차 비동맹 회의(1961, 유고슬라비아)' }
+    ],
     linked: ['s-inc', 's-bengal', 'w-coldwar']
   },
   's-israel': {
@@ -16544,7 +16606,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/palestine-partition-1947.webp',
+        caption: '팔레스타인 분할안(1947)',
+        ref: '국제 연합이 팔레스타인 지역을 유대인 지역과 아랍인 지역으로 나눈 결의안. 유대인에게 유리하게 지역이 분할되었다.' }
+    ],
     linked: ['s-oslo', 's-syria', 'w-ww1']
   },
   's-oslo': {
@@ -16568,7 +16634,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/palestine-partition-1947.webp',
+        caption: '팔레스타인 분할안(1947)',
+        ref: '국제 연합이 팔레스타인 지역을 유대인 지역과 아랍인 지역으로 나눈 결의안. 유대인에게 유리하게 지역이 분할되었다.' }
+    ],
     linked: ['s-israel', 'w-coldwar']
   },
   's-syria': {
