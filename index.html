@@ -3764,7 +3764,8 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
       var h = { fn: fn }; stack.push(h);
       return function () { var i = stack.indexOf(h); if (i >= 0) stack.splice(i, 1); };
     },
-    size: function () { return stack.length; }
+    size: function () { return stack.length; },
+    top: function () { return stack.length ? stack[stack.length - 1].fn : null; }
   };
   /* 연도 표기 — 기원전은 BCE, 기원후는 CE.
      노드에 yearLabel(교과서에 적힌 범위, 예: '약 70만 년 전 ~')이 있으면 배치용 year 대신 그것을 보인다 */
@@ -4209,9 +4210,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20261016a"></script>
+<script src="iba-emblem.js?v=20261016b"></script>
 <!-- 연관 기록 대조 — 브라우저 안 의미 검색 (semantic-worker.js · search-index.js) -->
-<script src="semantic-search.js?v=20261016a"></script>
+<script src="semantic-search.js?v=20261016b"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -7280,24 +7281,9 @@ window.TIMELINE_DATA = {
     { id: 's-m-chandragupta-m', track: 'westasia', year: -322, label: '찬드라굽타 마우리아', en: 'Chandragupta Maurya',
       state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1, noMarker: true,
       body: '알렉산드로스 사후의 혼란을 틈타 마가다국을 기반으로 마우리아 왕조를 세우고 북인도를 통일하였다(기원전 322).' },
-    { id: 's-m-bindusara', track: 'westasia', year: -297, label: '빈두사라', en: 'Bindusara',
-      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
-      body: '찬드라굽타 마우리아의 뒤를 이은 왕. 인도 남부와 동부를 제외한 대부분의 지역을 편입하였다.' },
-    { id: 's-m-ardashir1', track: 'westasia', year: 226, label: '아르다시르 1세', en: 'Ardashir I',
-      state: '사산', theme: '정치', kind: 'event', noSync: true, noMarker: true,
-      body: '아케메네스 왕조의 부흥을 내걸고 파르티아를 멸망시켜 사산 왕조 페르시아를 세웠다(226).' },
-    { id: 's-m-shapur1', track: 'westasia', year: 240, label: '샤푸르 1세', en: 'Shapur I',
-      state: '사산', theme: '정치', kind: 'event', noSync: true,
-      body: '아르다시르 1세의 아들. 에데사 전투(260)에서 로마 황제 발레리아누스를 사로잡으며 사산 왕조의 전성기를 이끌었다.' },
     { id: 's-m-chandragupta1', track: 'westasia', year: 320, label: '찬드라굽타 1세', en: 'Chandragupta I',
       state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1, noMarker: true,
       body: '갠지스강 일대를 차지하고 굽타 왕조를 세웠다(320).' },
-    { id: 's-m-samudragupta', track: 'westasia', year: 335, yearLabel: '335년경', label: '사무드라굽타', en: 'Samudragupta',
-      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
-      body: '굽타 왕조의 왕. 아소카왕의 석주에 자신의 업적을 새긴 비문(알라하바드 석주)을 남겨 자신이 아소카왕과 같은 왕임을 선전하였다.' },
-    { id: 's-m-khosrow2', track: 'westasia', year: 590, label: '호스로 2세', en: 'Khosrow II',
-      state: '사산', theme: '정치', kind: 'event', noSync: true,
-      body: '조로아스터교를 국교로 신봉하여 국가 통합에 힘쓰고, 콘스탄티노폴리스를 공략하는 등 대외 팽창에 나섰다.' },
     { id: 's-m-abubakr', track: 'westasia', year: 632, label: '아부 바크르', en: 'Abu Bakr',
       state: '이슬람', theme: '정치', kind: 'event', noSync: true, noMarker: true,
       body: '무함마드가 죽은 뒤 이슬람 공동체가 선출한 초대 칼리프(632).' },
@@ -7313,9 +7299,9 @@ window.TIMELINE_DATA = {
     { id: 's-m-aibak', track: 'westasia', year: 1206, label: '아이바크', en: 'Qutb ud-Din Aibak',
       state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '구르 왕조의 맘루크(용병) 출신. 델리를 정복하고 이슬람 왕조를 세워(1206) 델리 술탄 왕조 시대를 열었다. 이를 기념하여 쿠트브 미나르를 세웠다.' },
-    { id: 's-m-timur', track: 'westasia', year: 1370, label: '티무르', en: 'Timur',
-      state: '티무르', theme: '정치', kind: 'event', noSync: true,
-      body: '중앙아시아에 티무르 왕조를 세웠다(1370). 앙카라 전투(1402)에서 오스만 제국을 물리쳤다.' },
+    { id: 's-m-timur', track: 'westasia', year: 1369, label: '티무르', en: 'Timur',
+      state: '티무르 왕조', theme: '정치', kind: 'event', noSync: true, noMarker: true,
+      body: '칭기즈 칸의 계승자를 자처하며 중앙아시아의 유목 집단을 통합하고 티무르 왕조를 세웠다(1369). 앙카라 전투(1402)에서 오스만 제국을 물리쳤으며, 명을 정복하러 가던 도중 병사하였다(1405).' },
     { id: 's-m-mehmed2', track: 'westasia', year: 1451, label: '메흐메트 2세', en: 'Mehmed II',
       state: '오스만', theme: '정치', kind: 'event', noSync: true,
       body: '콘스탄티노폴리스를 점령하여 비잔티움 제국을 멸망시키고(1453), 이곳(이스탄불)을 수도로 삼았다.' },
@@ -7943,6 +7929,9 @@ window.TIMELINE_DATA = {
     { id: 's-hijra', track: 'westasia', year: 622, label: '이슬람교 성립', en: 'Rise of Islam · Hijra',
       state: '이슬람', theme: '종교', kind: 'turning',
       body: '무함마드가 박해를 피해 메카에서 메디나로 이주(헤지라). 이슬람력의 원년(AH 1). 움마(이슬람 공동체) 수립. 이슬람교의 공식 출발점.' },
+    { id: 's-islam-culture', track: 'westasia', year: 622, label: '이슬람 문화', en: 'Islamic Culture',
+      state: '이슬람 세계', theme: '문화', kind: 'turning', hideYear: true,
+      body: '『쿠란』과 아랍어를 공통 요소로 한 이슬람 세계의 문화. 신학·법학·역사학·지리학이 발달하고 모스크와 아라베스크 장식이 쓰였으며, 아라비아 숫자·천문학·의학·화학 등 자연 과학이 발전하여 유럽의 근대 과학 성립에 영향을 주었다.' },
     { id: 's-rashidun', track: 'westasia', year: 632, label: '정통 칼리프 시대', en: 'Rashidun Caliphate',
       state: '이슬람 세계', theme: '정치', kind: 'turning',
       body: '무함마드 사후 아부 바크르가 1대 칼리프로 선출. 우마르·우스만·알리에 이르는 4대 정통 칼리프 시대(~661).' },
@@ -7956,26 +7945,38 @@ window.TIMELINE_DATA = {
     { id: 's-abbasid', track: 'westasia', year: 750, label: '아바스 왕조', en: 'Abbasid Caliphate',
       state: '아바스', theme: '정치', kind: 'turning',
       body: '아바스 가문이 비아랍인과 시아파의 도움으로 우마이야 왕조를 무너뜨리고 세운 왕조(750~1258). 바그다드를 새 수도로 삼고 민족 차별 정책을 폐지하였다. 751년 탈라스 전투 이후 제지법이 이슬람 세계에 전해졌다. 1258년 몽골에 멸망하였다.' },
+    { id: 's-cordoba', track: 'westasia', year: 756, label: '후우마이야 왕조', en: 'Umayyad Caliphate of Córdoba',
+      state: '후우마이야', theme: '정치', kind: 'turning',
+      body: '아바스 왕조에 멸망한 우마이야 왕조의 일족이 이베리아반도의 코르도바를 수도로 세운 왕조(756~1031). 지중해 교역으로 번영하였으며, 10세기에 칼리프를 칭하여 아바스 왕조·파티마 왕조와 함께 칼리프가 셋으로 나뉘었다.' },
     { id: 's-fatimid', track: 'westasia', year: 909, label: '파티마 왕조', en: 'Fatimid Caliphate',
       state: '파티마', theme: '정치', kind: 'turning',
       body: '10세기 초 북아프리카에서 일어나 이집트를 정복한 시아파 왕조(909~1171). 칼리프 칭호를 사용하여 아바스 왕조·후우마이야 왕조와 함께 칼리프가 셋으로 나뉜 분열의 시대를 열었다.' },
     { id: 's-seljuk', track: 'westasia', year: 1055, label: '셀주크 튀르크', en: 'Seljuk Turks',
       state: '셀주크 튀르크', theme: '정치', kind: 'turning',
       body: '튀르크계 셀주크 튀르크가 1055년 바그다드에 입성하여 술탄 칭호를 얻고 실권을 장악하였다. 1071년 만지케르트 전투에서 비잔티움 제국을 물리치고 예루살렘을 점령하여 십자군 전쟁의 계기가 되었다.' },
+    { id: 's-ghazni', track: 'westasia', year: 977, yearLabel: '10세기 후반', label: '가즈니 왕조', en: 'Ghaznavid Dynasty',
+      state: '인도', theme: '정치', kind: 'turning', sub: 1,
+      body: '10세기 후반 아프가니스탄 지역의 튀르크족이 세운 이슬람 왕조. 펀자브 지방으로 세력을 넓혀 이슬람 세력이 북인도로 진출하는 발판이 되었다.' },
+    { id: 's-ghur', track: 'westasia', year: 1150, yearLabel: '12세기', label: '구르 왕조', en: 'Ghurid Dynasty',
+      state: '인도', theme: '정치', kind: 'turning', sub: 1,
+      body: '가즈니 왕조가 약해진 뒤 12세기에 북인도 지역의 대부분을 지배하며 인도 내륙으로 진출한 이슬람 왕조(고르 왕조). 구르 왕조의 맘루크(용병) 출신 아이바크가 델리 술탄 왕조를 열었다.' },
     { id: 's-delhi', track: 'westasia', year: 1210, yearLabel: '13세기 초', label: '델리 술탄 왕조', en: 'Delhi Sultanate',
       state: '인도', theme: '정치', kind: 'turning', sub: 1,
       body: '아이바크가 델리를 정복한 후 이슬람 왕조를 세웠고, 13세기 초부터 북인도에서 다섯 왕조가 이어졌다. 힌두교도가 지즈야(인두세)를 내면 신앙을 인정하는 관용 정책을 펼쳤으며, 인도에 이슬람 양식의 건물들이 세워졌다.' },
     { id: 's-ottoman', track: 'westasia', year: 1299, label: '오스만 제국', en: 'Ottoman Empire',
       state: '오스만 제국', theme: '정치', kind: 'turning',
       body: '셀주크 튀르크가 몽골의 침입으로 무너지자 튀르크 계통의 오스만족이 소아시아에 세운 나라(1299). 앙카라 전투(1402)에서 티무르 왕조에 패하였으나, 1453년 콘스탄티노폴리스를 점령하여 비잔티움 제국을 멸망시켰다. 술레이만 1세 때 헝가리를 정복하고 빈을 포위하였으며(1529), 레판토 해전(1571)에서 에스파냐 등에 패하였다.' },
+    { id: 's-timurid', track: 'westasia', year: 1369, label: '티무르 왕조', en: 'Timurid Empire',
+      state: '티무르 왕조', theme: '정치', kind: 'turning',
+      body: '14세기 후반 칭기즈 칸의 계승자를 자처한 티무르가 중앙아시아의 유목 집단을 통합하여 세운 왕조(1369). 사마르칸트를 수도로 동서 무역을 통해 번영하였고, 앙카라 전투(1402)에서 오스만 제국을 물리쳤다.' },
     { id: 's-safavid', track: 'westasia', year: 1501, label: '사파비 왕조', en: 'Safavid Dynasty',
       state: '이란', theme: '정치', kind: 'turning',
       body: '1501년 이란 지역에서 성립하여 시아파 이슬람교를 국교로 정한 왕조. 아바스 1세 때 전성기를 맞아 이스파한으로 수도를 옮겼다.' },
     { id: 's-mughal', track: 'westasia', year: 1526, label: '무굴 제국', en: 'Mughal Empire',
       state: '인도', theme: '정치', kind: 'turning', sub: 1,
       body: '티무르의 후손으로 알려진 바부르가 델리 술탄 왕조를 정복하고 1526년 세운 나라. 아크바르 황제(1556 즉위)는 지즈야를 폐지하고 힌두교도에게 관직을 개방하는 등 관용 정책을 펼쳤다.' },
-    { id: 's-aurangzeb', track: 'westasia', year: 1658, label: '아우랑제브 즉위', en: 'Accession of Aurangzeb',
-      state: '인도', theme: '정치', kind: 'turning', sub: 1,
+    { id: 's-aurangzeb', track: 'westasia', year: 1658, label: '아우랑제브', en: 'Aurangzeb',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '아우랑제브 황제는 영토를 크게 넓혔으나, 이슬람 제일주의를 내세워 지즈야를 부활시키고 힌두교 사원을 파괴하는 등 비이슬람교도를 탄압하였다. 이에 각지에서 반란이 일어났다.' },
     { id: 's-plassey', track: 'westasia', year: 1757, label: '플라시 전투', en: 'Battle of Plassey',
       state: '인도', theme: '군사', kind: 'turning', sub: 1,
@@ -12267,7 +12268,7 @@ window.TIMELINE_DB = {
         caption: '6세기 서아시아의 교통로',
         ref: '비잔티움 제국과 사산 왕조 페르시아의 영역 · 종래의 교통로(사막길)와 새로운 교통로(바닷길) · 메카·메디나·아덴' }
     ],
-    linked: ['s-rashidun', 's-sasan']
+    linked: ['s-islam-culture', 's-rashidun', 's-sasan']
   },
 
   // ============================================================
@@ -16615,7 +16616,7 @@ window.TIMELINE_DB = {
         caption: '코르도바의 메스키타',
         ref: '후우마이야 왕조의 수도 코르도바에 세운 모스크. 붉은색과 흰색이 번갈아 쓰인 말굽 모양 아치가 특징이다.' }
     ],
-    linked: ['s-rashidun', 's-abbasid', 'w-charlemagne']
+    linked: ['s-rashidun', 's-abbasid', 's-cordoba', 'w-charlemagne']
   },
   's-abbasid': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16653,6 +16654,69 @@ window.TIMELINE_DB = {
     ],
     linked: ['s-umayyad', 's-fatimid', 's-seljuk', 'e-tang', 'e-mongol']
   },
+  's-islam-culture': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '이슬람 문화 — 이슬람 사회는 『쿠란』의 가르침이 사람들의 일상을 지배하는 종교 중심의 사회였다. 돼지고기를 금기시하는 식생활이 형성되었고 매년 라마단 기간에는 단식을 하였다. 아랍어로 쓰인 『쿠란』은 다른 언어로 번역하는 것이 금지되어 이슬람교가 전파된 지역에서 아랍어가 널리 쓰이게 되었고, 그 과정에서 이슬람교와 아랍어는 이슬람 문화권의 공통 요소가 되었다. 이슬람교는 상업 활동을 긍정적으로 여겨 상업이 발달하였으며, 통치자들은 여러 도시를 잇는 도로망을 정비하고 다른 종교와 민족에 관용적인 태도를 취하여 상인이 성장하고 도시가 발달하였다. 『쿠란』을 연구하는 과정에서 신학과 법학이 발달하고 아리스토텔레스의 저술이 아랍어로 번역되었으며, 무함마드의 전기를 만드는 과정에서 역사학이, 메카의 방향을 계산하고 교역로를 확보하는 과정에서 지리학이 발달하였다. 문학에서는 여러 지역의 설화를 모은 『천일야화(아라비안나이트)』가 널리 읽혔다. 건축에서는 둥근 지붕(돔)과 뾰족한 탑을 특징으로 하는 모스크 양식이 쓰였고, 사람이나 동물을 그리거나 조각하는 것을 우상 숭배로 여겨 모스크는 아라베스크와 『쿠란』 구절 등으로 장식되었다. 페르시아·인도 등지의 영향으로 자연 과학이 발달하여 인도 숫자를 도입해 아라비아 숫자를 완성하였고, 바그다드 등에 천문대를 세워 천문을 세밀하게 관측하였으며, 이븐시나는 『의학전범』을 저술하여 아라비아 의학을 집대성하였다. 금속으로 금을 만들거나 불로장생의 약을 만드는 연금술이 유행하는 과정에서 화학이 발달하여 ‘알코올’, ‘알칼리’ 등의 용어가 아랍에서 비롯되었다. 이슬람의 과학 지식은 중국에서 발명된 제지법, 나침반, 화약과 함께 유럽에 전해져 유럽의 근대 과학 성립에 영향을 주었다.',
+      terms: [
+        { label: '『쿠란』', def: '알라가 무함마드에게 내린 계시를 기록한 이슬람교의 경전. 다른 언어로 번역하는 것이 금지되어 이슬람교가 전파된 지역에서 아랍어가 널리 쓰였다.' },
+        { label: '모스크', def: '이슬람 사원. 아랍어로 마스지드, ‘엎드려 예배드리는 곳’이라는 뜻이다. 둥근 지붕(돔)과 뾰족한 탑이 특징이다.' },
+        { label: '아라베스크', def: '기하학적인 무늬 등을 사용한 장식 형태. 사람이나 동물을 그리는 것을 우상 숭배로 여겨 모스크를 아라베스크와 『쿠란』 구절로 장식하였다.' },
+        { label: '『천일야화(아라비안나이트)』', def: '여러 지역의 설화를 모은 이슬람 세계의 문학 작품.' },
+        { label: '아라비아 숫자', def: '이슬람 세계가 인도 숫자를 도입하여 완성한 숫자.' },
+        { label: '『의학전범』', def: '이븐시나가 아라비아 의학을 집대성한 의학서.' },
+        { label: '연금술', def: '금속으로 금을 만들거나 불로장생의 약을 만들려 한 기술. 이 과정에서 화학이 발달하였다.' }
+      ],
+      timeline: [
+        { y: 622, label: '이슬람교 성립(헤지라)' },
+        { y: 750, label: '아바스 왕조 — 이슬람교도의 평등 강조, 비아랍인의 정치·문화 참여 확대' },
+        { y: 751, label: '탈라스 전투 — 제지법이 이슬람 세계로 전파' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/이슬람 세계/dome-of-the-rock-tile.webp',
+        caption: '바위의 돔 — 아라베스크 타일',
+        ref: '식물 덩굴과 기하학적 무늬를 반복한 아라베스크 문양의 타일 장식.' },
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/이슬람 세계/dome-of-the-rock-calligraphy.webp',
+        caption: '바위의 돔 — 아랍 문자 장식',
+        ref: '『쿠란』 구절을 아랍 문자로 새긴 타일 장식. 우상 숭배를 금한 이슬람 미술에서는 문자와 기하학적 무늬로 건물을 꾸몄다.' },
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/이슬람 세계/cordoba-mezquita.webp', span: true,
+        caption: '코르도바의 메스키타',
+        ref: '후우마이야 왕조의 수도 코르도바에 세운 모스크. 붉은색과 흰색이 번갈아 쓰인 말굽 모양 아치가 특징이다.' }
+    ],
+    linked: ['s-hijra', 's-abbasid', 's-cordoba', 'w-renaissance']
+  },
+  's-cordoba': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '후우마이야 왕조 — 아바스 가문이 우마이야 왕조를 무너뜨리자(750), 우마이야 왕조의 일족은 이베리아반도의 코르도바를 수도로 후우마이야 왕조를 세웠다(756). 후우마이야 왕조는 관개 시설 확충, 토지 개간 등을 통해 농업 생산량을 늘리고 지중해 교역에 참여하여 경제적 번영을 누렸으며, 수도 코르도바는 이슬람 문화의 중심 도시로 성장하였다. 10세기 초 북아프리카에서 일어난 시아파의 파티마 왕조가 아바스 왕조의 권위를 부정하고 칼리프의 칭호를 사용하자 후우마이야 왕조도 칼리프를 칭하여, 한동안 이슬람 세계에는 아바스 왕조·후우마이야 왕조·파티마 왕조의 세 칼리프가 병립하였다. 이 시기 이슬람 세계의 건축술과 이베리아반도의 문화가 결합하여 ‘알 안달루스 건축’이라 불리는 새로운 형태의 건축물이 등장하였는데, 왕궁과 메스키타 사원이 대표적이다. 11세기에 이르러 후우마이야 왕조는 국력이 쇠퇴하고 각지에서 반란이 일어나 여러 이슬람 국가들로 나뉘었다(1031).',
+      terms: [
+        { label: '코르도바', def: '후우마이야 왕조의 수도. 이슬람 문화의 중심 도시로 성장하였다.' },
+        { label: '메스키타 사원', def: '코르도바에 남아 있는 후우마이야 왕조의 모스크. 25,000여 명을 동시에 수용할 수 있으며, 에스파냐가 이 지역을 재정복한 이후 가톨릭 성당으로 바뀌었다.' },
+        { label: '알 안달루스 건축', def: '이슬람 세계의 건축술과 이베리아반도의 문화가 결합한 건축 양식.' },
+        { label: '세 칼리프의 병립', def: '아바스 왕조·후우마이야 왕조·파티마 왕조가 각기 칼리프를 내세운 이슬람 세계의 분열.' }
+      ],
+      timeline: [
+        { y: 750, label: '아바스 왕조 성립 — 우마이야 왕조 멸망' },
+        { y: 756, label: '◆ 후우마이야 왕조 성립(코르도바)' },
+        { y: 909, label: '파티마 왕조 성립 — 세 칼리프 병립' },
+        { y: 1031, label: '후우마이야 왕조, 여러 이슬람 국가로 분열' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/이슬람 세계/cordoba-mezquita.webp', span: true,
+        caption: '코르도바의 메스키타',
+        ref: '후우마이야 왕조의 수도 코르도바에 세운 모스크. 붉은색과 흰색이 번갈아 쓰인 말굽 모양 아치가 특징이다.' },
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/이슬람 세계/islam-expansion-map.webp', span: true,
+        caption: '이슬람 세계의 확대',
+        ref: '무함마드 시대(622~632)·정통 칼리프 시대(632~661)·우마이야 왕조(661~750)의 정복지 · 아바스 왕조(750~1258)와 후우마이야 왕조(756~1031)의 영역 · 사산 왕조 페르시아 정복(651), 당과의 탈라스 전투(751)' }
+    ],
+    linked: ['s-umayyad', 's-abbasid', 's-fatimid', 's-islam-culture']
+  },
   's-fatimid': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
@@ -16681,7 +16745,7 @@ window.TIMELINE_DB = {
         caption: '셀주크 튀르크·티무르 왕조·파티마 왕조',
         ref: '셀주크 튀르크(1038~1307)와 티무르 왕조(1369~1507)의 최대 영역 · 파티마 왕조 · 튀르크족이 세력을 넓힌 방향' }
     ],
-    linked: ['s-abbasid', 's-umayyad', 'w-crusade']
+    linked: ['s-abbasid', 's-umayyad', 's-cordoba', 'w-crusade']
   },
   's-seljuk': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16711,6 +16775,55 @@ window.TIMELINE_DB = {
         ref: '셀주크 튀르크(1038~1307)와 티무르 왕조(1369~1507)의 최대 영역 · 파티마 왕조 · 튀르크족이 세력을 넓힌 방향' }
     ],
     linked: ['s-abbasid', 'w-crusade', 's-ottoman']
+  },
+  's-ghazni': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '가즈니 왕조 — 6세기 중엽 굽타 왕조가 멸망한 후 인도 북부는 분열과 통일을 반복하였고, 이 혼란을 틈타 8세기경부터 서아시아의 이슬람 세력이 인도 서북부로 진출하였다. 10세기 후반 아프가니스탄 지역의 튀르크족이 가즈니 왕조를 수립하여 펀자브 지방으로 세력을 확장하였다. 11세기 초부터 이슬람 계통의 가즈니 왕조와 구르(고르) 왕조가 북인도에 등장하면서 인도의 이슬람화가 진행되었다. 가즈니 왕조가 약화되자 12세기에 구르 왕조가 북인도 지역의 대부분을 지배하였고, 13세기 초에는 델리를 수도로 한 이슬람 왕조가 세워졌다.',
+      terms: [
+        { label: '가즈니 왕조', def: '10세기 후반 아프가니스탄 지역의 튀르크족이 세워 펀자브 지방으로 진출한 이슬람 왕조.' },
+        { label: '펀자브', def: '인더스강 상류 지방. 가즈니 왕조가 세력을 넓힌 곳이다.' },
+        { label: '인도의 이슬람화', def: '8세기경부터 서아시아의 이슬람 세력이 인도 서북부로 진출하고, 가즈니·구르 왕조를 거쳐 델리 술탄 왕조가 들어서며 진행된 변화.' }
+      ],
+      timeline: [
+        { yl: '8세기경', label: '이슬람 세력, 인도 서북부 진출' },
+        { yl: '10세기 후반', label: '◆ 가즈니 왕조 수립 — 펀자브 지방으로 확장' },
+        { yl: '12세기', label: '구르(고르) 왕조, 북인도 대부분 지배' },
+        { y: 1206, label: '아이바크, 델리에 이슬람 왕조 수립' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/인도/ghazni-ghur-map.webp', span: true,
+        caption: '가즈니 왕조와 구르 왕조',
+        ref: '가즈니 왕조와 구르 왕조의 최대 영역 · 구르 왕조의 발흥지(1148)와 진출 방향 · 펀자브·델리' }
+    ],
+    linked: ['s-gupta', 's-ghur', 's-delhi']
+  },
+  's-ghur': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '구르(고르) 왕조 — 10세기 후반 아프가니스탄 지역의 튀르크족이 세운 가즈니 왕조가 펀자브 지방으로 세력을 넓혔으나, 가즈니 왕조가 약화되자 12세기에 구르(고르) 왕조가 북인도 지역의 대부분을 지배하며 인도 내륙으로 진출하였다. 13세기 초에는 구르 왕조의 맘루크(용병) 출신인 아이바크가 델리를 중심으로 이슬람 왕조를 건설하였고(1206), 이후 약 300년 동안 이슬람 세력이 델리를 수도로 다섯 왕조를 이어 갔다(델리 술탄 왕조 시대).',
+      terms: [
+        { label: '구르(고르) 왕조', def: '12세기 북인도 지역의 대부분을 지배하고 인도 내륙으로 진출한 이슬람 왕조.' },
+        { label: '맘루크', def: '용병. 구르 왕조의 맘루크 출신인 아이바크가 델리에 이슬람 왕조를 세웠다.' },
+        { label: '아이바크', def: '델리를 정복하고 델리 술탄 왕조를 연 인물.' }
+      ],
+      timeline: [
+        { yl: '10세기 후반', label: '가즈니 왕조 수립' },
+        { yl: '12세기', label: '◆ 구르 왕조, 북인도 대부분 지배' },
+        { y: 1206, label: '구르 왕조의 맘루크 출신 아이바크, 델리에 이슬람 왕조 수립' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/인도/ghazni-ghur-map.webp', span: true,
+        caption: '가즈니 왕조와 구르 왕조',
+        ref: '가즈니 왕조와 구르 왕조의 최대 영역 · 구르 왕조의 발흥지(1148)와 진출 방향 · 펀자브·델리' }
+    ],
+    linked: ['s-ghazni', 's-delhi']
   },
   's-delhi': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16742,7 +16855,7 @@ window.TIMELINE_DB = {
         caption: '쿠트브 미나르',
         ref: '델리 술탄 왕조 초기에 세운 이슬람 첨탑(인도 델리). 인도에 이슬람 건축이 들어온 모습을 보여 준다.' }
     ],
-    linked: ['s-gupta', 's-mughal', 's-abbasid']
+    linked: ['s-ghazni', 's-ghur', 's-gupta', 's-mughal', 's-abbasid']
   },
   's-ottoman': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16782,7 +16895,37 @@ window.TIMELINE_DB = {
         caption: '티무르',
         ref: '사마르칸트를 수도로 티무르 왕조를 세운 정복자. 앙카라 전투(1402)에서 오스만 제국을 격파하였으며, 그의 후손 바부르가 무굴 제국을 세웠다.' }
     ],
-    linked: ['s-seljuk', 'w-armada', 's-safavid', 's-tanzimat']
+    linked: ['s-seljuk', 's-timurid', 'w-armada', 's-safavid', 's-tanzimat']
+  },
+  's-timurid': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '티무르 왕조 — 14세기 후반 칭기즈 칸의 계승자임을 자처한 티무르가 중앙아시아의 여러 유목 집단을 통합하고 몽골 제국의 부활을 내세우며 티무르 왕조를 세웠다(1369). 수도 사마르칸트는 유럽과 중국을 연결하는 동서 교역로에 위치하여 중계 무역으로 번영하였다. 티무르는 호라즘 지방을 평정하고 아프간 지방과 이란 지방, 인도 등 여러 지역으로 원정을 계속하였으며, 오스만 제국과 전쟁을 벌여 앙카라 전투(1402)에서 술탄을 생포하는 등 대승을 거두어 중앙아시아에서 서아시아에 이르는 대제국을 건설하였다. 그러나 명을 정복하러 가던 도중 티무르가 병사한 뒤(1405) 세력이 약화되다가 튀르크계 우즈베크인에게 멸망하였다(1507). 티무르 왕조는 몽골과 튀르크에 뿌리를 두었으나 이슬람교를 받아들인 이후 페르시아와 아랍 문화를 흡수하여, 페르시아·튀르크·이슬람·중국 문화가 융합된 문화를 발전시켰다. 티무르는 레기스탄 광장을 왕조의 새로운 중심으로 삼았다.',
+      terms: [
+        { label: '티무르', def: '칭기즈 칸의 계승자를 자처하며 중앙아시아의 유목 집단을 통합하고 티무르 왕조를 세운 인물.' },
+        { label: '사마르칸트', def: '티무르 왕조의 수도. 동서 교역로에 위치하여 중계 무역으로 번영하였다.' },
+        { label: '앙카라 전투', def: '1402년 티무르가 오스만 제국의 술탄을 생포하는 등 대승을 거둔 전투.' },
+        { label: '레기스탄 광장', def: '사마르칸트의 광장. ‘레기’는 모래, ‘스탄’은 광장을 뜻한다. 정기적으로 바자르가 열렸다.' }
+      ],
+      timeline: [
+        { y: 1369, label: '◆ 티무르 왕조 성립' },
+        { y: 1402, label: '앙카라 전투 — 오스만 제국 격파' },
+        { y: 1405, label: '티무르, 명 원정 중 병사' },
+        { y: 1507, label: '우즈베크인에게 멸망' },
+        { y: 1526, label: '티무르의 후손 바부르, 무굴 제국 수립' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/오스만 제국/timur-portrait.webp',
+        caption: '티무르',
+        ref: '사마르칸트를 수도로 티무르 왕조를 세운 정복자. 앙카라 전투(1402)에서 오스만 제국을 격파하였으며, 그의 후손 바부르가 무굴 제국을 세웠다.' },
+      { slot: 'auto', src: 'assets/w1/중세/서아시아·인도/이슬람 세계/seljuk-timur-fatimid-map.webp', span: true,
+        caption: '셀주크 튀르크·티무르 왕조·파티마 왕조',
+        ref: '셀주크 튀르크(1038~1307)와 티무르 왕조(1369~1507)의 최대 영역 · 파티마 왕조 · 튀르크족이 세력을 넓힌 방향' }
+    ],
+    linked: ['s-seljuk', 's-ottoman', 's-mughal', 'e-ming']
   },
   's-safavid': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16814,13 +16957,16 @@ window.TIMELINE_DB = {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
     overview: {
-      summary: '무굴 제국 — 티무르의 후손으로 알려진 바부르가 델리 술탄 왕조를 정복하고 1526년 세웠다. 아크바르 황제(1556 즉위)는 지즈야를 폐지하고 힌두교도에게 관직을 개방하는 등 관용 정책을 펼쳐 제국의 기틀을 다졌다. 힌두 문화와 이슬람 문화가 융합한 인도·이슬람 문화가 발달하였고, 샤자한은 타지마할을 세웠다. 아우랑제브 황제(1658 즉위) 때 영토가 가장 넓어졌다. 부계는 티무르, 모계는 칭기즈 칸의 혈통을 이어받았다고 알려진 바부르는 16세기 초 인도 지역의 분열을 틈타 아프가니스탄에서 북인도로 진출하였고, 파니파트 전투에서 승리하여 델리 술탄 왕조 시대를 끝냈다. 그의 손자 아크바르 황제는 데칸고원 이남을 제외한 인도 대부분을 통일하고 아그라를 수도로 삼았으며, 관료제와 지방 행정 구역을 정비하여 중앙 집권 체제를 확립하였다. 그는 힌두교도를 관료로 임명하고 힌두교도인 라지푸트족 출신 여성과 결혼하여 힌두 세력을 통합하고자 하였다. 무굴 제국 시기 인도는 농업과 상공업이 발달하여 델리, 아그라, 라호르 등 대도시가 성장하였고, 직물과 향신료를 수출하며 인도양 무역을 주도하였다.',
+      summary: '무굴 제국 — 티무르의 후손으로 알려진 바부르가 델리 술탄 왕조를 정복하고 1526년 세웠다. 아크바르 황제(1556 즉위)는 지즈야를 폐지하고 힌두교도에게 관직을 개방하는 등 관용 정책을 펼쳐 제국의 기틀을 다졌다. 힌두 문화와 이슬람 문화가 융합한 인도·이슬람 문화가 발달하였고, 샤자한은 타지마할을 세웠다. 아우랑제브 황제(1658 즉위) 때 영토가 가장 넓어졌다. 부계는 티무르, 모계는 칭기즈 칸의 혈통을 이어받았다고 알려진 바부르는 16세기 초 인도 지역의 분열을 틈타 아프가니스탄에서 북인도로 진출하였고, 파니파트 전투에서 승리하여 델리 술탄 왕조 시대를 끝냈다. 그의 손자 아크바르 황제는 데칸고원 이남을 제외한 인도 대부분을 통일하고 아그라를 수도로 삼았으며, 관료제와 지방 행정 구역을 정비하여 중앙 집권 체제를 확립하였다. 그는 힌두교도를 관료로 임명하고 힌두교도인 라지푸트족 출신 여성과 결혼하여 힌두 세력을 통합하고자 하였다. 무굴 제국 시기 인도는 농업과 상공업이 발달하여 델리, 아그라, 라호르 등 대도시가 성장하였고, 직물과 향신료를 수출하며 인도양 무역을 주도하였다. 아우랑제브는 타지마할을 세운 샤자한의 아들로, 형제끼리 벌인 왕위 다툼에서 승리한 뒤 아버지를 유폐하고 황제에 올랐다(1658). 17세기 후반 그는 데칸고원을 넘어 인도 남부의 상당 부분을 차지하여 제국의 영토를 최대로 넓혔으나, 지나친 정복 활동으로 재정이 악화되었고 이슬람 제일주의를 내세워 지즈야를 부활시키고 힌두교 사원을 파괴하는 등 비이슬람교도를 탄압하였다. 이에 북서부의 라지푸트족, 펀자브 지방의 시크교도, 중부의 힌두교도인 마라타족이 반란을 일으켰고, 18세기 마라타 왕국의 재상을 중심으로 힌두교도가 결성한 마라타 동맹의 저항은 무굴 제국을 위기에 빠뜨렸다. 이후 무굴 제국은 후계 계승 분쟁과 영국, 프랑스 등 서양 세력의 침투로 점차 쇠퇴하였다.',
       terms: [
         { label: '바부르', def: '무굴 제국을 세운 인물.' },
         { label: '아크바르', def: '관용 정책으로 무굴 제국의 기틀을 다진 황제.' },
         { label: '타지마할', def: '샤자한이 왕비를 추모하며 세운 무덤. 인도·이슬람 건축의 대표작.' },
         { label: '파니파트 전투', def: '바부르가 승리하여 델리 술탄 왕조 시대를 끝낸 전투.' },
-        { label: '아그라', def: '아크바르 황제가 수도로 삼은 도시.' }
+        { label: '아그라', def: '아크바르 황제가 수도로 삼은 도시.' },
+        { label: '이슬람 제일주의', def: '이슬람교를 앞세워 다른 종교를 차별한 아우랑제브의 정책.' },
+        { label: '시크교', def: '16세기경 나나크가 창시한 종교. 펀자브 지방의 시크교도가 아우랑제브에 맞서 반란을 일으켰다.' },
+        { label: '마라타 동맹', def: '18세기 마라타 왕국의 재상을 중심으로 힌두교도가 결성한 동맹.' }
       ],
       timeline: [
         { y: 1526, label: '◆ 무굴 제국 성립' },
@@ -16844,31 +16990,7 @@ window.TIMELINE_DB = {
         caption: '타지마할',
         ref: '무굴 제국의 샤 자한이 세운 묘당(인도 아그라). 인도와 페르시아의 건축 양식이 조화를 이룬 인도·이슬람 문화의 대표 건축이다.' }
     ],
-    linked: ['s-delhi', 's-aurangzeb', 's-safavid', 's-plassey']
-  },
-  's-aurangzeb': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '아우랑제브 즉위 — 아우랑제브 황제는 정복 활동으로 무굴 제국의 영토를 가장 넓혔다. 그러나 지나친 정복 활동으로 재정이 악화되었고, 이슬람 제일주의를 내세워 지즈야를 부활시키고 힌두교 사원을 파괴하는 등 비이슬람교도를 탄압하였다. 이에 라지푸트족 등 각지에서 반란이 일어나 제국이 쇠퇴하였다. 아우랑제브는 타지마할을 세운 샤자한의 아들로, 형제끼리 벌인 왕위 다툼에서 승리한 뒤 아버지를 유폐하고 황제에 올랐다. 17세기 후반 그는 데칸고원을 넘어 인도 남부의 상당 부분을 차지하여 제국의 영토를 최대로 넓혔다. 그러나 비이슬람교도 탄압에 맞서 북서부의 라지푸트족, 펀자브 지방의 시크교도, 중부의 힌두교도인 마라타족이 반란을 일으켰다. 18세기 마라타 왕국의 재상을 중심으로 힌두교도가 결성한 마라타 동맹의 저항은 무굴 제국을 위기에 빠뜨렸다. 이후 무굴 제국은 후계 계승 분쟁과 영국, 프랑스 등 서양 세력의 침투로 점차 쇠퇴하였다.',
-      terms: [
-        { label: '이슬람 제일주의', def: '이슬람교를 앞세워 다른 종교를 차별한 정책.' },
-        { label: '시크교', def: '16세기경 나나크가 창시한 종교. 펀자브 지방의 시크교도가 아우랑제브에 맞서 반란을 일으켰다.' },
-        { label: '마라타 동맹', def: '18세기 마라타 왕국의 재상을 중심으로 힌두교도가 결성한 동맹.' }
-      ],
-      timeline: [
-        { y: 1556, label: '아크바르 즉위' },
-        { y: 1658, label: '◆ 아우랑제브 즉위' },
-        { y: 1757, label: '플라시 전투' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근세/서아시아·인도/무굴 제국/mughal-empire-map.webp',
-        caption: '무굴 제국의 영역',
-        ref: '아크바르 대제 시대의 영역과 아우랑제브 황제 시대의 최대 영역 · 델리·아그라 · 데칸고원' }
-    ],
-    linked: ['s-mughal', 's-plassey']
+    linked: ['s-delhi', 's-timurid', 's-safavid', 's-plassey']
   },
   's-plassey': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18506,7 +18628,7 @@ window.TIMELINE_DB = {
     },
     fileRef: '동아출판 한국사1',
     overview: {
-      summary: '공민왕 — 14세기 중엽 원이 쇠퇴하자 공민왕은 반원 개혁을 추진하였다. 기철 등 친원 세력을 제거하고, 내정에 간섭하던 정동행성이문소를 폐지하였으며, 쌍성총관부를 공격하여 철령 이북의 땅을 되찾았다(1356). 몽골식 머리 모양과 의복도 버렸다. 또한 신돈을 등용하고 전민변정도감을 설치하여(1366) 권문세족이 불법으로 빼앗은 토지를 돌려주고 억울하게 노비가 된 사람을 양인으로 되돌리려 하였으며, 성균관을 정비하고 신진 사대부를 등용하였다. 기철은 원 순제의 어머니인 기황후의 오빠로, 이를 배경으로 고려에서 권력을 장악하고 불법 행위를 일삼았다. 공민왕은 원의 연호 사용을 중지하였으며, 원의 혼란을 틈타 이성계 등을 파견해 요동성을 점령하기도 하였다(1차 요동 정벌). 그러나 공민왕의 개혁은 홍건적과 왜구의 침입, 권문세족의 반발 등으로 큰 성과를 거두지 못하였고, 공민왕이 살해되면서 중단되었다.',
+      summary: '공민왕 — 14세기 중엽 원이 쇠퇴하자 공민왕은 반원 개혁을 추진하였다. 기철 등 친원 세력을 제거하고, 내정에 간섭하던 정동행성이문소를 폐지하였으며, 쌍성총관부를 공격하여 철령 이북의 땅을 되찾았다(1356). 몽골식 머리 모양과 의복도 버렸다. 또한 신돈을 등용하고 전민변정도감을 설치하여(1366) 권문세족이 불법으로 빼앗은 토지를 돌려주고 억울하게 노비가 된 사람을 양인으로 되돌리려 하였으며, 성균관을 정비하고 신진 사대부를 등용하였다. 기철은 원 순제의 황후인 기황후의 오빠로, 이를 배경으로 고려에서 권력을 장악하고 불법 행위를 일삼았다. 공민왕은 원의 연호 사용을 중지하였으며, 원의 혼란을 틈타 이성계 등을 파견해 요동성을 점령하기도 하였다(1차 요동 정벌). 그러나 공민왕의 개혁은 홍건적과 왜구의 침입, 권문세족의 반발 등으로 큰 성과를 거두지 못하였고, 공민왕이 살해되면서 중단되었다.',
       terms: [
         { label: '반원 개혁', def: '원의 간섭에서 벗어나려 공민왕이 추진한 개혁.' },
         { label: '전민변정도감', def: '권문세족이 빼앗은 토지와 노비를 바로잡으려 설치한 기구.' },
@@ -23257,6 +23379,33 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
 
 function MemoryDetail({ event, onSync, onJumpTo, onClose, accessMode = 'researcher' }) {
   const isOpen = !!event;
+  /* 기록 항목 창 닫기 (2026-10-16) — ESC, 또는 창 밖 다른 구역을 누르면 닫는다.
+     ESC 층(IBA_ESC)에 올려 두어 위에 다른 창(기록 열람 등)이 떠 있으면 그 창부터 닫히고,
+     창 밖 누르기도 이 창이 맨 위일 때만 닫는다. 노드(마커·이름표)를 누른 경우는 노드 자체의 선택 동작에 맡기고,
+     연표를 끌어 옮긴 경우(6px 이상 움직임)는 누른 것으로 보지 않는다. */
+  const asideRef = useRef(null);
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
+  useEffect(() => {
+    if (!isOpen) return;
+    const fn = () => closeRef.current && closeRef.current();
+    const off = window.IBA_ESC ? window.IBA_ESC.push(fn) : null;
+    let down = null;
+    const onDown = (ev) => { down = { x: ev.clientX, y: ev.clientY, t: ev.target }; };
+    const onUp = (ev) => {
+      const d = down; down = null;
+      if (!d || Math.hypot(ev.clientX - d.x, ev.clientY - d.y) > 6) return;
+      if (window.IBA_ESC && window.IBA_ESC.top() !== fn) return;
+      const tg = d.t;
+      if (!tg || !tg.closest || !document.contains(tg)) return;
+      if (asideRef.current && asideRef.current.contains(tg)) return;
+      if (tg.closest('.tl-node, .tl-nodelabel')) return;
+      fn();
+    };
+    document.addEventListener('pointerdown', onDown, true);
+    document.addEventListener('pointerup', onUp, true);
+    return () => { if (off) off(); document.removeEventListener('pointerdown', onDown, true); document.removeEventListener('pointerup', onUp, true); };
+  }, [isOpen]);
   // Keep last-shown event during slide-out
   const [shown, setShown] = useState(event);
   useEffect(() => {
@@ -23276,7 +23425,7 @@ function MemoryDetail({ event, onSync, onJumpTo, onClose, accessMode = 'research
   const hasDb = !!(window.TIMELINE_DB && window.TIMELINE_DB[e.id]);
   const isRisk = accessMode === 'response' && !!e.risk;   // 위험 노드 — 대응반 접속 시에만 경고 노출
   return (
-    <aside className={`detail detail--slide ${isOpen ? 'is-open' : ''} ${isRisk ? 'detail--risk' : ''}`}>
+    <aside ref={asideRef} className={`detail detail--slide ${isOpen ? 'is-open' : ''} ${isRisk ? 'detail--risk' : ''}`}>
       <button className="detail__close" onClick={onClose} aria-label="닫기">✕</button>
       <div className="detail__corner-tl"/><div className="detail__corner-tr"/>
       <div className="detail__corner-bl"/><div className="detail__corner-br"/>
@@ -24111,7 +24260,19 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
       /* 밀집 구간은 먼저 놓인 라벨이 빈자리를 차지하므로 처리 순서에 따라 결과가 달라진다.
          왼쪽→오른쪽, 오른쪽→왼쪽 두 번 배치해 보고
          한계 초과(fallback) → 지시선 수 → 이동량 순으로 적은 쪽을 쓴다. */
-      const tries = [placeBucket(asc), placeBucket([...asc].reverse())];
+      /* 연도를 숨긴 노드(hideYear — 예: 이슬람 문화)는 같은 자리의 다른 노드 다음에 놓아, 그 노드 이름표 위에 쌓이게 한다 */
+      const lift = (arr) => {
+        const res = [...arr];
+        arr.forEach(h => {
+          if (!h.hideYear) return;
+          const k = res.indexOf(h); res.splice(k, 1);
+          let j = -1;
+          res.forEach((o, n) => { if (posYear(o) === posYear(h) && subDy(o) === subDy(h)) j = n; });
+          res.splice(j >= 0 ? j + 1 : k, 0, h);
+        });
+        return res;
+      };
+      const tries = [placeBucket(lift(asc)), placeBucket(lift([...asc].reverse()))];
       const rank = (a, b) => a.fallbacks - b.fallbacks || a.leaders - b.leaders || a.total - b.total;
       tries.sort(rank);
       /* 보완 — 자리를 못 찾은 노드가 남으면 그 노드들을 맨 먼저 놓고 다시 배치해 본다(최대 3회).
