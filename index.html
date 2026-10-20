@@ -4210,9 +4210,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20261020a"></script>
+<script src="iba-emblem.js?v=20261020b"></script>
 <!-- 연관 기록 대조 — 브라우저 안 의미 검색 (semantic-worker.js · search-index.js) -->
-<script src="semantic-search.js?v=20261020a"></script>
+<script src="semantic-search.js?v=20261020b"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -6896,6 +6896,9 @@ window.TIMELINE_DATA = {
     { id: 'e-han-founded', track: 'eastasia', year: -202, label: '전한(前漢)', en: 'Former Han',
       state: '전한', theme: '정치', kind: 'turning',
       body: '유방(고조)이 항우를 해하에서 격파하고 한을 건국, 장안에 도읍. 군국제 통치 후 무제 때 중앙집권 강화, 유교 관학화, 비단길 개척. 외척 왕망의 찬탈로 신(新)에 멸망.' },
+    { id: 'e-xiongnu', track: 'eastasia', year: -209, label: '흉노', en: 'Xiongnu',
+      state: '흉노', theme: '정치', kind: 'turning',
+      body: '기원전 3세기경 흩어져 있던 여러 부족을 통합하여 국가를 수립한 북방 유목 민족. 묵특 선우 때 전성기를 맞아 유목 세계를 장악하고 한 고조를 굴복시켰으나, 한 무제의 공격으로 세력이 약해진 뒤 내부 갈등으로 남북으로 분열되었다.' },
     // ── 2026-10-15 추가 서브 노드: 춘추 5패·전국 7웅, 인물, 사건, 국가 멸망 ──
     { id: 'e-5p-qi', track: 'eastasia', year: -651, yearLabel: '7세기 BCE', label: '제(齊) 환공', en: 'Duke Huan of Qi',
       state: '춘추', theme: '정치', kind: 'event', noSync: true,
@@ -7257,39 +7260,9 @@ window.TIMELINE_DATA = {
     { id: 'e-m-puyi', track: 'eastasia', year: 1908, label: '푸이', en: 'Puyi',
       state: '청', theme: '정치', kind: 'event', noSync: true,
       body: '청의 마지막 황제(선통제). 신해혁명 뒤 퇴위하였고, 이후 일본이 세운 만주국의 황제가 되었다.' },
-    { id: 's-m-menes', track: 'westasia', year: -3100, yearLabel: '3100 BCE경', label: '메네스', en: 'Menes',
-      state: '이집트', theme: '정치', kind: 'event', noSync: true,
-      body: '나르메르. 상·하 이집트를 통일하고(기원전 3100년경) 파라오의 신권 정치를 시작하였다.' },
-    { id: 's-m-khufu', track: 'westasia', year: -2560, yearLabel: '26세기 BCE', label: '쿠푸', en: 'Khufu',
-      state: '이집트', theme: '정치', kind: 'event', noSync: true,
-      body: '이집트 고왕국의 파라오. 기자에 대피라미드를 세웠다.' },
-    { id: 's-m-khafre', track: 'westasia', year: -2558, yearLabel: '26세기 BCE', label: '카프레', en: 'Khafre',
-      state: '이집트', theme: '정치', kind: 'event', noSync: true,
-      body: '이집트 고왕국의 파라오. 쿠푸·멘카우레와 함께 기자에 피라미드를 세웠다.' },
-    { id: 's-m-menkaure', track: 'westasia', year: -2532, yearLabel: '26세기 BCE', label: '멘카우레', en: 'Menkaure',
-      state: '이집트', theme: '정치', kind: 'event', noSync: true,
-      body: '이집트 고왕국의 파라오. 기자의 3대 피라미드 가운데 하나를 세웠다.' },
-    { id: 's-m-sargon1', track: 'westasia', year: -2334, label: '사르곤 1세', en: 'Sargon of Akkad',
-      state: '아카드', theme: '정치', kind: 'event', noSync: true,
-      body: '셈족 계열 아카드의 왕. 메소포타미아를 처음으로 통일하였다(기원전 2334).' },
     { id: 's-m-hammurabi', track: 'westasia', year: -1792, label: '함무라비', en: 'Hammurabi',
       state: '바빌로니아', theme: '정치', kind: 'event', noSync: true,
       body: '바빌로니아 왕국의 왕(재위 기원전 1792~1750). 메소포타미아 전역을 통일하고 지방관을 파견하였으며, 282개 조의 『함무라비 법전』을 편찬하였다.' },
-    { id: 's-m-thutmose3', track: 'westasia', year: -1479, label: '투트모세 3세', en: 'Thutmose III',
-      state: '이집트', theme: '정치', kind: 'event', noSync: true,
-      body: '이집트 신왕국의 파라오. 이집트의 영토를 최대로 넓혔다.' },
-    { id: 's-m-muwatalli2', track: 'westasia', year: -1295, label: '무와탈리 2세', en: 'Muwatalli II',
-      state: '히타이트', theme: '정치', kind: 'event', noSync: true,
-      body: '히타이트의 왕. 왕권을 강화하고 중앙 집권 체제를 정비하였으며, 카데시 전투(기원전 1274)에서 이집트의 람세스 2세와 맞섰다.' },
-    { id: 's-m-ramesses2', track: 'westasia', year: -1279, label: '람세스 2세', en: 'Ramesses II',
-      state: '이집트', theme: '정치', kind: 'event', noSync: true,
-      body: '이집트 신왕국의 파라오. 카데시 전투(기원전 1274)에서 히타이트와 싸운 뒤 인류 최초로 알려진 국가 간 평화 조약을 맺었다(기원전 1259).' },
-    { id: 's-m-david', track: 'westasia', year: -1000, yearLabel: '1000 BCE경', label: '다윗', en: 'David',
-      state: '헤브라이', theme: '정치', kind: 'event', noSync: true,
-      body: '12지파를 통합하고 예루살렘을 수도로 삼은 이스라엘 왕국의 왕.' },
-    { id: 's-m-solomon', track: 'westasia', year: -970, label: '솔로몬', en: 'Solomon',
-      state: '헤브라이', theme: '정치', kind: 'event', noSync: true,
-      body: '다윗의 뒤를 이은 이스라엘 왕국의 왕. 예루살렘 성전을 짓고 전성기를 누렸으나, 그가 죽은 뒤 왕국은 이스라엘과 유대로 분열하였다.' },
     { id: 's-m-cyrus2', track: 'westasia', year: -550, label: '키루스 2세', en: 'Cyrus the Great',
       state: '페르시아', theme: '정치', kind: 'event', noSync: true, noMarker: true,
       body: '메디아·리디아·신바빌로니아를 정복하고 아케메네스 왕조 페르시아를 세웠다. 바빌론 유수의 유대인을 해방하고 피정복민의 문화와 종교를 존중하였다.' },
@@ -7356,6 +7329,30 @@ window.TIMELINE_DATA = {
     { id: 'w-m-philip2', track: 'west', year: -359, label: '필리포스 2세', en: 'Philip II of Macedon',
       state: '마케도니아', theme: '정치', kind: 'event', noSync: true,
       body: '마케도니아의 왕. 카이로네이아 전투(기원전 338)에서 승리하여 그리스를 제패하였다. 그가 암살된 뒤 아들 알렉산드로스가 왕위에 올랐다.' },
+    { id: 'w-solon', track: 'west', year: -594, label: '솔론', en: 'Solon',
+      state: '아테네', theme: '정치', kind: 'event', noSync: true,
+      body: '아테네의 개혁가. 기원전 6세기 초 재산 정도에 따라 시민의 정치 참여에 차등을 두는 개혁을 추진하였으나, 귀족과 평민의 갈등을 해소하지 못하였다.' },
+    { id: 'w-peisistratos', track: 'west', year: -561, label: '페이시스트라토스', en: 'Peisistratos',
+      state: '아테네', theme: '정치', kind: 'event', noSync: true,
+      body: '솔론의 개혁 이후에도 귀족과 평민의 갈등이 이어지는 혼란을 틈타 비합법적으로 정권을 장악하고 독재권을 행사한 아테네의 참주.' },
+    { id: 'w-cleisthenes', track: 'west', year: -508, label: '클레이스테네스', en: 'Cleisthenes',
+      state: '아테네', theme: '정치', kind: 'event', noSync: true,
+      body: '참주정에 반대한 아테네의 개혁가. 혈연 중심의 부족제를 거주지 중심의 부족제로 개편하고 500인 평의회를 설치하였으며, 도편 추방제를 마련하여 참주의 출현을 막는 등 민주 정치의 기틀을 다졌다.' },
+    { id: 'w-pericles', track: 'west', year: -461, label: '페리클레스', en: 'Pericles',
+      state: '아테네', theme: '정치', kind: 'event', noSync: true,
+      body: '그리스·페르시아 전쟁 이후 아테네 민주 정치의 전성기를 이끈 지도자. 관직과 배심원직에 대한 추첨제, 공무 수당제 등을 실시하여 가난한 시민도 정치에 참여할 수 있게 하였다.' },
+    { id: 'w-gp-war1', track: 'west', year: -492, label: '1차 그리스·페르시아 전쟁', en: 'First Persian Invasion of Greece',
+      state: '그리스', theme: '군사', kind: 'event', noSync: true,
+      body: '서아시아를 통일한 아케메네스 왕조 페르시아가 지중해로 세력을 넓히면서 그리스 세계와 충돌하였다. 다리우스 1세가 트라키아 방면으로 대규모 군대를 보냈으나, 폭풍으로 큰 손실을 입고 철수하였다(기원전 492).' },
+    { id: 'w-gp-war2', track: 'west', year: -490, label: '2차 그리스·페르시아 전쟁', en: 'Second Persian Invasion of Greece',
+      state: '그리스', theme: '군사', kind: 'event', noSync: true,
+      body: '페르시아군이 마라톤에 상륙하였으나, 아테네의 중장 보병들이 페르시아군을 격퇴하였다(마라톤 전투, 기원전 490).' },
+    { id: 'w-gp-war3', track: 'west', year: -480, label: '3차 그리스·페르시아 전쟁', en: 'Third Persian Invasion of Greece',
+      state: '그리스', theme: '군사', kind: 'event', noSync: true,
+      body: '크세르크세스가 이끄는 페르시아군이 침입하여 테르모필레 전투에서 스파르타군이 전멸하였으나, 살라미스 해전에서 페르시아군이 패배하였다(기원전 480). 세 차례의 전쟁에서 승리한 그리스 세계에서는 델로스 동맹의 맹주가 된 아테네가 번영하였다.' },
+    { id: 'w-issus', track: 'west', year: -333, label: '이소스 전투', en: 'Battle of Issus',
+      state: '마케도니아', theme: '군사', kind: 'event', noSync: true,
+      body: '동방 원정에 나선 알렉산드로스가 이소스에서 아케메네스 왕조 페르시아의 다리우스 3세를 물리친 전투(기원전 333). 이후 알렉산드로스는 이집트와 지중해 방면으로 영역을 넓힌 뒤 가우가멜라 전투에서 다시 다리우스 3세를 물리쳐 페르시아를 멸망시켰다.' },
     { id: 'w-m-octavian', track: 'west', year: -27, label: '옥타비아누스', en: 'Augustus',
       state: '로마', theme: '정치', kind: 'event', noSync: true, noMarker: true,
       body: '악티움 해전(기원전 31)에서 승리하고 원로원으로부터 아우구스투스(존엄한 자) 칭호를 받아 사실상 황제가 되었다(기원전 27). 스스로 프린켑스(제1시민)를 자처하였다.' },
@@ -7677,6 +7674,9 @@ window.TIMELINE_DATA = {
     { id: 'w-america', track: 'west', year: -3000, yearLabel: '3000~2000 BCE 무렵', label: '아메리카 문명', en: 'Mesoamerican Civilizations',
       state: '아메리카 문명', theme: '문화', kind: 'turning',
       body: '아메리카 대륙의 독자적 고대 문명 — 마야(BCE 3000~2000년 무렵 형성 추정, 0의 개념·20진법·천문학), 멕시코만 일대의 올멕(BCE 1500년 무렵 형성 추정), 후일 아스테카·잉카까지 이어진다. 옥수수 농경 기반 도시 문명.' },
+    { id: 'w-greek-culture', track: 'west', year: -1000, yearLabel: '10세기 BCE 무렵', label: '그리스 문화', en: 'Greek Culture',
+      state: '그리스', theme: '문화', kind: 'turning', hideYear: true,
+      body: '폴리스를 무대로 꽃핀 고대 그리스의 문화. 인간 중심적이고 합리적인 성격을 띠어 신화·서사시(호메로스), 비극, 자연 철학과 소피스트·소크라테스의 철학, 헤로도토스·투키디데스의 역사 서술, 파르테논 신전으로 대표되는 조화와 균형의 건축·조각이 발달하였다. 헬레니즘 시대를 거쳐 로마로 이어지며 서양 문화의 뿌리가 되었다.' },
     { id: 'w-polis', track: 'west', year: -1000, yearLabel: '10세기 BCE 무렵', label: '폴리스 성립', en: 'Greek Polis',
       state: '그리스', theme: '정치', kind: 'turning',
       body: '암흑기 종료 후 그리스 각지에 폴리스(도시 국가)가 형성. 아크로폴리스(성채)와 아고라(광장)를 중심으로 시민 공동체 발달. 아테네·스파르타·테베·코린토스 등 1,000여 개 폴리스. 호메로스 서사시(『일리아스』·『오디세이아』) 정착, 페니키아 알파벳 수용. 올림피아 제전(BCE 776~) 등 범그리스 축제로 동질감 유지.' },
@@ -7686,10 +7686,6 @@ window.TIMELINE_DATA = {
     { id: 'w-athens', track: 'west', year: -750, yearLabel: '8세기 BCE', label: '아테네', en: 'Athens',
       state: '아테네', theme: '정치', kind: 'turning',
       body: '아티카 반도의 폴리스. 솔론(BCE 594)·클레이스테네스(BCE 508)의 개혁을 거쳐 페리클레스 시대(BCE 461~429)에 직접 민주정 황금기. 파르테논 신전 등 고전기 그리스 문화의 중심.' },
-    // 그리스 문화 묶음 라벨 노드 (hidden) — 폴리스·스파르타·아테네를 묶어 기록 열람으로 통합 내용 확인
-    { id: 'w-greek-culture', track: 'west', year: -800, label: '그리스 문화', en: 'Greek Culture',
-      state: '그리스', theme: '문화', kind: 'event', hidden: true,
-      body: '폴리스를 무대로 꽃핀 고대 그리스의 문화. 인간 중심적이고 합리적인 성격을 띠어 신화·서사시(호메로스), 비극, 자연 철학과 소피스트·소크라테스의 철학, 헤로도토스·투키디데스의 역사 서술, 파르테논 신전으로 대표되는 조화와 균형의 건축·조각이 발달하였다. 헬레니즘 시대를 거쳐 로마로 이어지며 서양 문화의 뿌리가 되었다.' },
     { id: 'w-rome-found', track: 'west', year: -753, label: '로마', en: 'Rome',
       state: '로마', theme: '정치', kind: 'turning',
       body: '이탈리아 중부 라티움 지방의 도시 국가에서 출발하여 공화정·제정을 거쳐 지중해 일대를 통일한 고대 제국. 로물루스 건국(BCE 753 전승) → 공화정(BCE 509) → 옥타비아누스 제정 시작(BCE 27) → 5현제 시대 · Pax Romana → 4세기 분리 → 서로마 멸망(476). 12표법·만민법·콜로세움·도로망 등 보편 문명의 기틀을 남겼다.' },
@@ -7702,6 +7698,9 @@ window.TIMELINE_DATA = {
     { id: 'w-peloponnesian', track: 'west', year: -431, label: '펠로폰네소스 전쟁', en: 'Peloponnesian War',
       state: '그리스', theme: '군사', kind: 'turning',
       body: 'BCE 431~404 아테네 중심 델로스 동맹 vs 스파르타 중심 펠로폰네소스 동맹의 27년 전쟁. BCE 404 아테네 항복으로 종결. 스파르타 패권으로 이어지지만 폴리스 문명 전체가 쇠퇴.' },
+    { id: 'w-macedonia', track: 'west', year: -650, yearLabel: '7세기 BCE 무렵', label: '마케도니아', en: 'Macedonia',
+      state: '마케도니아', theme: '정치', kind: 'turning',
+      body: '그리스 북쪽의 왕국. 필리포스 2세가 펠로폰네소스 전쟁 이후 내분에 빠진 그리스 세계를 정복하였고(기원전 338), 그 뒤를 이은 알렉산드로스가 동방 원정으로 세 대륙에 걸친 제국을 세웠다.' },
     { id: 'w-alexander-empire', track: 'west', year: -336, label: '알렉산드로스 제국', en: 'Empire of Alexander',
       state: '마케도니아', theme: '정치', kind: 'turning',
       body: 'BCE 336 알렉산드로스 즉위. 그리스 폴리스 통합 후 동방원정(BCE 334~)으로 페르시아·이집트·인더스에 이르는 대제국 건설. 그리스 문화와 동방 문화가 융합된 헬레니즘 문화 형성.' },
@@ -7923,6 +7922,9 @@ window.TIMELINE_DATA = {
     { id: 's-jainism', track: 'westasia', year: -540, yearLabel: '6세기 BCE경', label: '자이나교 성립', en: 'Jainism',
       state: '자이나교', theme: '종교', kind: 'turning', sub: 1,
       body: '마하비라(바르다마나)가 창시. 극단적 불살생(아힘사)·고행·무소유. 영혼의 해탈을 위한 엄격한 계율. 카스트 제도와 베다 권위를 비판. 주로 상공업 계층에서 신봉.' },
+    { id: 's-mahavira', track: 'westasia', year: -540, yearLabel: '6세기 BCE경', label: '바르다마나(마하비라)', en: 'Vardhamana (Mahavira)',
+      state: '자이나교', theme: '종교', kind: 'event', noSync: true, sub: 1, noMarker: true,
+      body: '크샤트리아 출신으로 자이나교를 창시하였다. 브라만의 횡포와 타락, 카스트제의 계급 차별을 비판하고 고행과 금욕을 강조하였다.' },
     { id: 's-persia', track: 'westasia', year: -550, label: '아케메네스 왕조 페르시아', en: 'Achaemenid Persia',
       state: '페르시아', theme: '정치', kind: 'turning',
       body: '키루스 2세가 메디아·리디아·신바빌로니아를 정복하고 거대 제국 건설. 다리우스 1세 때 정점.' },
@@ -7953,6 +7955,9 @@ window.TIMELINE_DATA = {
     { id: 's-hijra', track: 'westasia', year: 622, label: '이슬람교 성립', en: 'Rise of Islam · Hijra',
       state: '이슬람', theme: '종교', kind: 'turning',
       body: '무함마드가 박해를 피해 메카에서 메디나로 이주(헤지라). 이슬람력의 원년(AH 1). 움마(이슬람 공동체) 수립. 이슬람교의 공식 출발점.' },
+    { id: 's-hegira', track: 'westasia', year: 622, label: '헤지라', en: 'Hijra',
+      state: '이슬람', theme: '종교', kind: 'event', noSync: true,
+      body: '무함마드가 박해를 피해 메카에서 메디나로 이주한 사건(622). ‘성스러운 이주’라는 뜻으로 이슬람력의 원년이 되었다. 무함마드는 메디나에서 이슬람 공동체를 만들어 교세를 확장하였다.' },
     { id: 's-islam-culture', track: 'westasia', year: 622, label: '이슬람 문화', en: 'Islamic Culture',
       state: '이슬람 세계', theme: '문화', kind: 'turning', hideYear: true,
       body: '『쿠란』과 아랍어를 공통 요소로 한 이슬람 세계의 문화. 신학·법학·역사학·지리학이 발달하고 모스크와 아라베스크 장식이 쓰였으며, 아라비아 숫자·천문학·의학·화학 등 자연 과학이 발전하여 유럽의 근대 과학 성립에 영향을 주었다.' },
@@ -11293,6 +11298,32 @@ window.TIMELINE_DB = {
   // ============================================================
   // 진(秦) (BCE 221~206) — 중국 최초의 통일 제국
   // ============================================================
+  'e-xiongnu': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사 / 동아시아사',
+    overview: {
+      summary: '흉노 — 북방의 초원 지대에는 중국 역사서에 ‘호(胡)’라고 기록된 유목민이 거주하였다. 유목민은 곡식과 생필품을 구하기 위해 농경 세계와 교역을 하였고, 때때로 갈등을 빚으며 약탈을 하기도 하였다. 기원전 4세기경에 전해진 기마 전술을 바탕으로 기원전 3세기경 흉노가 흩어져 있던 여러 부족을 통합하여 국가를 수립하였다. 연맹 왕국의 성격을 띠었던 흉노는 최고 통치자인 선우 아래 여러 명의 왕을 두었고, 각 왕은 영토와 군사 조직을 보유하고 하위 관료 조직을 갖추었다. 흉노의 영역은 크게 좌방과 우방으로 구분되었고, 통치 조직도 이에 따라 좌우로 나뉘어 운영되었다. 기원전 3세기 말 세력을 넓히던 흉노는 진시황제의 공격을 받아 북방으로 밀려났으나, 진·한 교체의 혼란기에 세력을 회복하여 강성해졌다. 흉노는 묵특 선우 때 전성기를 맞이하였다. 묵특 선우는 동호, 월지를 비롯한 주변의 유목 민족 집단들을 복속시켜 영토를 확대하였고, 한 고조를 평성의 백등산에서 포위하여 굴복시켰다(기원전 200). 이후 한은 흉노와 화친을 맺어 매년 물자를 바치고 황실의 여인을 시집보냈다. 그러나 흉노는 한 무제의 공격을 받아 세력이 약해졌고, 이후 내부 갈등이 일어나 남북으로 분열되었다.',
+      terms: [
+        { label: '선우', def: '흉노의 최고 통치자. 그 아래 여러 명의 왕을 두었다.' },
+        { label: '묵특 선우', def: '동호·월지 등 주변 유목 민족을 복속시켜 흉노의 전성기를 이끈 선우. 백등산에서 한 고조를 포위하였다.' },
+        { label: '백등산 전투', def: '기원전 200년 한 고조가 평성의 백등산에서 흉노에 7일간 포위되어 패한 전투.' },
+        { label: '화친', def: '한 고조의 원정 실패 후 한이 흉노에 매년 물자를 바치고 황실의 여인을 시집보내 평화를 유지한 관계(기원전 198).' },
+        { label: '화번공주', def: '한·당 등 중국 왕조가 정치적 목적으로 이민족의 왕에게 시집보낸 황제의 딸 또는 이를 대체하는 여성. 흉노의 선우에게 보내진 왕소군이 대표적이다.' },
+        { label: '만리장성', def: '진시황제가 몽염 장군을 보내 흉노를 북쪽으로 몰아낸 뒤 북방 세력을 막기 위해 쌓은 성.' }
+      ],
+      timeline: [
+        { yl: '3세기 BCE경', label: '흉노, 여러 부족을 통합하여 국가 수립' },
+        { yl: '3세기 BCE 말', label: '진시황제의 공격으로 북방으로 후퇴 — 만리장성 축조' },
+        { y: -209, label: '◆ 묵특 선우 즉위 — 흉노의 전성기' },
+        { y: -200, label: '백등산 전투 — 한 고조 패배' },
+        { y: -198, label: '한과 흉노의 화친' },
+        { y: -139, label: '한 무제, 흉노 견제를 위해 장건을 대월지에 파견' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['e-qin', 'e-han-founded', 'e-wuhu']
+  },
   'e-qin': {
     syncRatio: 0.94,
     fileRef: 'W1 · 미래엔 세계사 1',
@@ -11474,7 +11505,7 @@ window.TIMELINE_DB = {
         caption: '한의 영역과 장건의 서역 원정',
         ref: '무제 즉위 시 한의 영역과 한의 최대 영역 · 만리장성 · 장건의 서역 원정로(둔황·소륵·대완·대월지) · 흉노의 세력 확장 · 장안(전한 수도)과 뤄양(후한 수도)' }
     ],
-    linked: ['e-qin', 'e-han-gaozu', 'e-wudi', 'e-wang', 'e-later-han', 'e-han-end', 'e-3kingdoms', 'k-gojoseon']
+    linked: ['e-qin', 'e-han-gaozu', 'e-wudi', 'e-wang', 'e-later-han', 'e-han-end', 'e-3kingdoms', 'k-gojoseon', 'e-xiongnu']
   },
 
   // ============================================================
@@ -12815,12 +12846,38 @@ window.TIMELINE_DB = {
         caption: '펠로폰네소스 전쟁 관련 자료 (2)',
         ref: '교과서 자료 미배치' }
     ],
-    linked: ['w-athens', 'w-sparta', 'w-greco-persian', 'w-alexander-empire']
+    linked: ['w-athens', 'w-sparta', 'w-greco-persian', 'w-alexander-empire', 'w-macedonia']
   },
 
   // ============================================================
   // 알렉산드로스 제국
   // ============================================================
+  'w-macedonia': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '마케도니아 — 그리스 북쪽의 왕국. 그리스·페르시아 전쟁 이후 아테네와 스파르타가 대립한 펠로폰네소스 전쟁으로 그리스 세계는 극심한 내분에 빠졌고, 결국 마케도니아의 필리포스 2세에게 정복되었다(기원전 338). 필리포스 2세의 뒤를 이어 즉위한 알렉산드로스는 중장 보병과 기병대를 앞세워 동방 원정에 나섰다(기원전 334). 그는 이소스 전투에서 페르시아의 다리우스 3세를 물리치고 가우가멜라 전투에서 다시 승리하여 아케메네스 왕조 페르시아를 멸망시켰으며, 이집트를 정복하고 동쪽의 인더스강 유역까지 진출하였다. 이로써 유럽, 아시아, 아프리카의 세 대륙에 걸친 제국이 형성되어 헬레니즘 시대가 전개되었다. 알렉산드로스 사후 제국은 마케도니아, 시리아, 이집트로 분열되었고, 이후 지중해 패권을 장악한 로마가 마케도니아와 그리스를 정복하였다.',
+      terms: [
+        { label: '필리포스 2세', def: '마케도니아의 왕. 펠로폰네소스 전쟁 이후 내분에 빠진 그리스 세계를 정복하였다(기원전 338).' },
+        { label: '알렉산드로스', def: '필리포스 2세의 뒤를 이어 즉위한 마케도니아의 왕. 동방 원정으로 세 대륙에 걸친 제국을 세웠다.' },
+        { label: '동방 원정', def: '알렉산드로스가 기원전 334년부터 아케메네스 왕조 페르시아와 이집트를 정복하고 인더스강 유역까지 진출한 원정.' },
+        { label: '헬레니즘 시대', def: '알렉산드로스의 제국 형성 이후 그리스 문화와 동방 문화가 융합된 시대.' }
+      ],
+      timeline: [
+        { yl: '7세기 BCE 무렵', label: '◆ 마케도니아 왕국 성립' },
+        { y: -359, label: '필리포스 2세 즉위' },
+        { y: -338, label: '필리포스 2세, 그리스 세계 정복' },
+        { y: -336, label: '알렉산드로스 즉위' },
+        { y: -334, label: '동방 원정 시작' },
+        { y: -333, label: '이소스 전투 — 다리우스 3세 격파' },
+        { y: -323, label: '알렉산드로스 사망 → 마케도니아·시리아·이집트로 분열' },
+        { y: -168, label: '로마에 정복됨' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['w-polis', 'w-peloponnesian', 'w-alexander-empire', 'w-greek-culture']
+  },
   'w-alexander-empire': {
     syncRatio: 0.90,
     fileRef: 'WN · 세계사 연표(정리 탭) / W1 · 미래엔 세계사 1',
@@ -12919,7 +12976,7 @@ window.TIMELINE_DB = {
         caption: '라오콘 군상',
         ref: '고통에 몸부림치는 인간의 감정을 사실적으로 표현한 헬레니즘 조각.' }
     ],
-    linked: ['w-peloponnesian', 's-persia', 's-magadha']
+    linked: ['w-peloponnesian', 's-persia', 's-magadha', 'w-macedonia']
   },
 
   // ============================================================
@@ -13464,7 +13521,7 @@ window.TIMELINE_DB = {
         caption: '5호의 이동과 동진',
         ref: '선비·흉노·갈·저·강 5호의 근거지와 이동 · 한족의 남쪽 이동 · 동진의 수도 건강(난징)' }
     ],
-    linked: ['e-jin', 'e-beiwei']
+    linked: ['e-jin', 'e-beiwei', 'e-xiongnu']
   },
 
   // ============================================================
@@ -23696,6 +23753,9 @@ const _yearLookup = (() => {
       if (last && last.py === py) last.w += estW(e) + 8;
       else blocks.push({ py, w: estW(e) });
     });
+    // 트랙의 첫 덩어리는 왼쪽 이웃이 없다 — 바로 앞 100년 안에 덩어리 폭의 절반만큼 자리를 둔다
+    //   (3000 BCE 서양의 청동기·에게·아메리카처럼 같은 해에 몰린 라벨이 왼쪽으로 비킬 자리)
+    if (blocks.length && blocks[0].py - 100 >= YEAR_START) blocks.unshift({ py: blocks[0].py - 100, w: 0 });
     for (let k = 1; k < blocks.length; k++) {
       const a = (blocks[k - 1].py - YEAR_START) / STEP, b = (blocks[k].py - YEAR_START) / STEP;
       const need = SPACING_ANC * (blocks[k - 1].w + blocks[k].w) / 2;
@@ -23886,13 +23946,6 @@ const NODE_GROUPS = {
     }
   ],
   west: [
-    {
-      key: 'greek-culture',
-      label: '그리스 문화',
-      // 스파르타(-820)·폴리스 성립(-800)·아테네(-780)를 묶음
-      startYear: -820, endYear: -780,
-      targetId: 'w-greek-culture'
-    }
   ],
   westasia: [
     {
