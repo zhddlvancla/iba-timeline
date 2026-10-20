@@ -1121,6 +1121,63 @@ window.TIMELINE_DATA = {
     { id: 'e-tang-fall', track: 'eastasia', year: 907, label: '당 멸망', en: 'Fall of Tang',
       state: '당', theme: '정치', kind: 'event', noSync: true,
       body: '당은 안사의 난 이후 권위가 크게 떨어지고 황소의 난(875) 이후 급격히 쇠퇴하였으며, 결국 절도사 주전충에게 멸망하였다(907). 이후 5대 10국의 분열기가 이어졌다.' },
+    { id: 'e-talas', track: 'eastasia', year: 751, label: '탈라스 전투', en: 'Battle of Talas',
+      state: '당', theme: '군사', kind: 'event', noSync: true,
+      body: '고구려 출신 고선지가 이끈 당의 군대가 탈라스 평원에서 아바스 왕조의 군대에 패한 전투(751). 이 전투를 계기로 당의 제지 기술이 이슬람 세계로 전파되었다.' },
+    { id: 'e-goryeo-khitan', track: 'eastasia', year: 993, yearLabel: '993~1019', label: '고려-거란 전쟁', en: 'Goryeo–Khitan Wars',
+      state: '고려·거란', theme: '군사', kind: 'event', noSync: true,
+      body: '거란(요)이 세 차례에 걸쳐 고려를 침입한 전쟁(993~1019). 고려는 서희의 외교 담판으로 강동 6주를 확보하였고, 강감찬이 귀주 대첩에서 거란군을 크게 물리쳤다.' },
+    { id: 'e-chanyuan', track: 'eastasia', year: 1004, label: '전연의 맹약', en: 'Treaty of Chanyuan',
+      state: '송·거란', theme: '외교', kind: 'event', noSync: true,
+      body: '송과 전쟁을 벌인 거란(요)이 송으로부터 매년 막대한 양의 비단과 은을 받는 조건으로 화친한 맹약(1004). 군사력이 약했던 송은 북방 민족 국가들에 물자를 제공하여 평화를 유지하려 하였다.' },
+    { id: 'e-jingkang', track: 'eastasia', year: 1126, yearLabel: '1126~1127', label: '정강의 변', en: 'Jingkang Incident',
+      state: '송·금', theme: '정치', kind: 'event', noSync: true,
+      body: '요를 정복한 금이 송을 공격하여 수도 카이펑을 함락하고 황제를 포로로 끌고 간 사건(1126~1127). 송은 수도를 임안(항저우)으로 옮겨 재기를 도모하였다(남송).' },
+    { id: 'e-m-ogedei', track: 'eastasia', year: 1229, label: '오고타이 칸', en: 'Ögedei Khan',
+      state: '몽골 제국', theme: '정치', kind: 'event', noSync: true,
+      body: '칭기즈 칸의 뒤를 이은 몽골 제국의 제2대 칸(1229 즉위). 금을 멸망시켜 화북을 차지하였으며(1234), 수도를 몽골고원의 중심부인 카라코룸으로 옮겼다.' },
+    { id: 'e-goryeo-mongol', track: 'eastasia', year: 1231, yearLabel: '1231~1270', label: '고려-몽골 전쟁', en: 'Mongol Invasions of Goryeo',
+      state: '고려·몽골', theme: '군사', kind: 'event', noSync: true,
+      body: '몽골이 여러 차례 고려를 침입한 전쟁(1231~1270). 고려는 강화도로 도읍을 옮겨 오랫동안 항전하였으나 결국 몽골과 강화를 맺었고, 이후 원의 간섭을 받게 되었다.' },
+    { id: 'e-mongol-japan', track: 'eastasia', year: 1274, yearLabel: '1274·1281', label: '몽골의 일본 원정', en: 'Mongol Invasions of Japan',
+      state: '원·일본', theme: '군사', kind: 'event', noSync: true, sub: 1,
+      body: '고려를 복속시킨 쿠빌라이 칸이 일본에 조공을 요구하였다가 거절당하자, 고려·몽골 연합군을 편성하여 두 차례에 걸쳐 일본 원정에 나섰다(1274, 1281). 그러나 가마쿠라 막부의 저항과 폭풍우 등의 영향으로 실패하였다.' },
+    { id: 'e-red-turban', track: 'eastasia', year: 1351, label: '홍건적의 난', en: 'Red Turban Rebellion',
+      state: '원', theme: '사회', kind: 'event', noSync: true,
+      body: '원 말기 황위 계승 분쟁과 재정 악화, 교초 남발에 따른 물가 폭등, 전염병 등으로 혼란한 가운데 백련교도가 중심이 되어 일으킨 반란(1351). 홍건적의 난에 가담하였던 주원장이 명을 세우고 원을 만리장성 이북으로 몰아냈다.' },
+    { id: 'e-liao-fall', track: 'eastasia', year: 1125, label: '요 멸망', en: 'Fall of Liao',
+      state: '거란(요)', theme: '정치', kind: 'event', noSync: true,
+      body: '12세기 초 여진족이 세운 금은 송과 연합하여 요를 공격한 후 정복하였다(1125).' },
+    { id: 'e-beisong-fall', track: 'eastasia', year: 1127, label: '북송 멸망', en: 'Fall of Northern Song',
+      state: '송', theme: '정치', kind: 'event', noSync: true,
+      body: '금이 송의 수도 카이펑을 함락하고 황제를 포로로 끌고 가면서(정강의 변, 1126~1127) 송은 화북 지역을 잃었다. 송은 수도를 임안(항저우)으로 옮겨 왕조를 다시 세웠다(남송).' },
+    { id: 'e-xixia-fall', track: 'eastasia', year: 1227, label: '서하 멸망', en: 'Fall of Western Xia',
+      state: '서하', theme: '정치', kind: 'event', noSync: true,
+      body: '정복 활동에 나선 칭기즈 칸의 몽골에 공격을 받아 멸망하였다(1227).' },
+    { id: 'e-jin-fall', track: 'eastasia', year: 1234, label: '금 멸망', en: 'Fall of Jin',
+      state: '금', theme: '정치', kind: 'event', noSync: true,
+      body: '칭기즈 칸 사후 제2대 오고타이 칸이 남송과 손잡고 금을 공격하여 멸망시키고 화북을 차지하였다(1234).' },
+    { id: 'e-nansong-fall', track: 'eastasia', year: 1279, label: '남송 멸망', en: 'Fall of Southern Song',
+      state: '남송', theme: '정치', kind: 'event', noSync: true,
+      body: '강남 개발에 힘써 경제적으로 번영하였던 남송은 몽골의 침략으로 멸망하였다(1279). 쿠빌라이 칸은 남송을 멸망시키고 중국 전역을 장악하였다.' },
+    { id: 'e-kamakura-fall', track: 'eastasia', year: 1333, label: '가마쿠라 막부 멸망', en: 'Fall of the Kamakura Shogunate',
+      state: '일본', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '13세기 후반 몽골의 침입 등으로 쇠퇴한 가마쿠라 막부는 막부 타도를 내건 천황과 유력 무사들의 봉기로 붕괴되었다(1333).' },
+    { id: 'e-yuan-fall', track: 'eastasia', year: 1368, label: '원 멸망', en: 'Fall of Yuan',
+      state: '원', theme: '정치', kind: 'event', noSync: true,
+      body: '14세기 들어 황위 계승 분쟁과 재정 악화, 홍건적의 난 등으로 혼란에 빠진 원은 명을 세운 주원장에 의해 만리장성 이북으로 밀려났다(1368).' },
+    { id: 'e-muromachi-fall', track: 'eastasia', year: 1573, label: '무로마치 막부 멸망', en: 'Fall of the Muromachi Shogunate',
+      state: '일본', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '센고쿠 시대의 혼란 속에서 오다 노부나가가 마지막 쇼군을 교토에서 몰아내면서 무로마치 막부는 멸망하였다(1573).' },
+    { id: 'e-edo-fall', track: 'eastasia', year: 1867, label: '에도 막부 멸망', en: 'Fall of the Tokugawa Shogunate',
+      state: '일본', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '개항 이후 막부 타도 운동이 거세지자 쇼군이 천황에게 통치권을 돌려주면서(대정봉환, 1867) 에도 막부는 막을 내렸고, 천황 중심의 메이지 정부가 수립되었다.' },
+    { id: 'e-qing-fall', track: 'eastasia', year: 1912, label: '청 멸망', en: 'Fall of Qing',
+      state: '청', theme: '정치', kind: 'event', noSync: true,
+      body: '신해혁명으로 중화민국이 수립되고 마지막 황제 선통제(푸이)가 퇴위하면서 청은 멸망하였다(1912).' },
+    { id: 'e-nguyen-fall', track: 'eastasia', year: 1945, label: '응우옌 왕조 멸망', en: 'End of the Nguyen Dynasty',
+      state: '베트남', theme: '정치', kind: 'event', noSync: true,
+      body: '1802년부터 베트남을 통치한 응우옌 왕조는 1945년 베트남 민주 공화국이 수립되면서 막을 내렸다.' },
     { id: 's-assyria-fall', track: 'westasia', year: -612, label: '아시리아 멸망', en: 'Fall of Assyria',
       state: '아시리아', theme: '정치', kind: 'event', noSync: true,
       body: '오리엔트를 처음 통일한 아시리아는 정복지 주민을 가혹하게 다스려 반란이 잇따랐다. 수도 니네베가 함락되면서 멸망하였고(기원전 612), 오리엔트는 신바빌로니아·메디아·리디아·이집트로 나뉘었다.' },
@@ -1142,6 +1199,66 @@ window.TIMELINE_DATA = {
     { id: 's-sasan-fall', track: 'westasia', year: 651, label: '사산 왕조 멸망', en: 'Fall of the Sasanian Empire',
       state: '페르시아', theme: '정치', kind: 'event', noSync: true,
       body: '비잔티움 제국과 오랫동안 대립하여 국력이 약해진 사산 왕조 페르시아는 정통 칼리프 시대 이슬람 세력의 공격을 받아 651년 멸망하였다.' },
+    { id: 's-islam-india', track: 'westasia', year: 711, yearLabel: '8세기', label: '이슬람 세력의 인도 진출', en: 'Islamic Expansion into India',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '6세기 중엽 굽타 왕조가 멸망한 뒤 분열과 통일을 반복하던 인도 북부의 혼란을 틈타, 8세기부터 서아시아의 이슬람 세력이 인도 서북부로 진출하였다. 11세기 초부터는 이슬람 계통의 가즈니 왕조와 구르 왕조가 북인도에 등장하였다.' },
+    { id: 's-talas', track: 'westasia', year: 751, label: '탈라스 전투', en: 'Battle of Talas',
+      state: '아바스 왕조', theme: '군사', kind: 'event', noSync: true,
+      body: '아바스 왕조의 군대가 탈라스 평원에서 고구려 출신 고선지가 이끈 당의 군대를 격파한 전투(751). 승리한 아바스 왕조는 동서 무역의 주도권을 장악하였고, 당의 제지 기술이 이슬람 세계로 전파되었다.' },
+    { id: 's-ankara', track: 'westasia', year: 1402, label: '앙카라 전투', en: 'Battle of Ankara',
+      state: '티무르 왕조', theme: '군사', kind: 'event', noSync: true,
+      body: '티무르가 오스만 제국과 벌인 전투(1402). 티무르는 이 전투에서 오스만 제국의 술탄을 생포하는 등 대승을 거두고 중앙아시아에서 서아시아에 이르는 대제국을 건설하였다.' },
+    { id: 's-m-selim1', track: 'westasia', year: 1512, label: '셀림 1세', en: 'Selim I',
+      state: '오스만 제국', theme: '정치', kind: 'event', noSync: true,
+      body: '오스만 제국의 술탄(1512 즉위). 사파비 왕조의 이스마일 1세를 제압하고 이집트로 진출하여 맘루크 왕조를 정복하였으며, 메카와 메디나의 보호권을 차지하여 오스만 제국을 수니파 이슬람 세계의 지배자로 만들었다.' },
+    { id: 's-hittite-fall', track: 'westasia', year: -1200, yearLabel: '1200 BCE경', label: '히타이트 멸망', en: 'Fall of the Hittites',
+      state: '히타이트', theme: '정치', kind: 'event', noSync: true,
+      body: '철제 무기와 전차를 앞세워 아나톨리아 일대를 지배한 히타이트는 기원전 1200년경 멸망하였다.' },
+    { id: 's-israel-fall', track: 'westasia', year: -722, label: '이스라엘 왕국 멸망', en: 'Fall of the Kingdom of Israel',
+      state: '헤브라이', theme: '정치', kind: 'event', noSync: true,
+      body: '솔로몬 사후 헤브라이 왕국은 북쪽의 이스라엘 왕국과 남쪽의 유다 왕국으로 분열되었다. 이스라엘 왕국은 아시리아의 사르곤 2세에게 멸망하였다(기원전 722).' },
+    { id: 's-judah-fall', track: 'westasia', year: -586, label: '유다 왕국 멸망', en: 'Fall of the Kingdom of Judah',
+      state: '헤브라이', theme: '정치', kind: 'event', noSync: true,
+      body: '유다 왕국은 신바빌로니아에 멸망하였고, 많은 헤브라이인이 바빌론으로 끌려갔다(바빌론 유수, 기원전 586).' },
+    { id: 's-umayyad-fall', track: 'westasia', year: 750, label: '우마이야 왕조 멸망', en: 'Fall of the Umayyad Caliphate',
+      state: '우마이야 왕조', theme: '정치', kind: 'event', noSync: true,
+      body: '시리아 지역 아랍인의 우대로 비아랍인의 불만이 높아진 가운데, 아바스 가문이 비아랍인과 시아파의 도움을 받아 우마이야 왕조를 무너뜨리고 아바스 왕조를 세웠다(750).' },
+    { id: 's-cordoba-fall', track: 'westasia', year: 1031, label: '후우마이야 왕조 멸망', en: 'Fall of the Caliphate of Córdoba',
+      state: '후우마이야 왕조', theme: '정치', kind: 'event', noSync: true,
+      body: '11세기에 이르러 국력이 쇠퇴하고 각지에서 반란이 일어나 여러 이슬람 국가들로 나뉘었다(1031).' },
+    { id: 's-fatimid-fall', track: 'westasia', year: 1171, label: '파티마 왕조 멸망', en: 'Fall of the Fatimid Caliphate',
+      state: '파티마 왕조', theme: '정치', kind: 'event', noSync: true,
+      body: '이집트를 차지한 살라딘이 아이유브 왕조를 세우면서 파티마 왕조는 멸망하였다(1171).' },
+    { id: 's-ghazni-fall', track: 'westasia', year: 1186, label: '가즈니 왕조 멸망', en: 'Fall of the Ghaznavids',
+      state: '가즈니 왕조', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '가즈니 왕조가 약화되자 구르(고르) 왕조가 북인도로 진출하였고, 가즈니 왕조는 구르 왕조에 멸망하였다(1186).' },
+    { id: 's-seljuk-fall', track: 'westasia', year: 1194, label: '셀주크 튀르크 멸망', en: 'Fall of the Seljuks',
+      state: '셀주크 튀르크', theme: '정치', kind: 'event', noSync: true,
+      body: '셀주크 튀르크는 내분으로 여러 세력으로 나뉘어 쇠퇴하였고, 호라즘 왕국의 공격을 받아 멸망하였다(1194).' },
+    { id: 's-ghur-fall', track: 'westasia', year: 1215, label: '구르 왕조 멸망', en: 'Fall of the Ghurids',
+      state: '구르 왕조', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '구르 왕조의 맘루크 출신 아이바크가 델리에 이슬람 왕조를 세운 뒤(1206), 구르 왕조는 호라즘 왕국의 공격으로 멸망하였다(1215).' },
+    { id: 's-abbasid-fall', track: 'westasia', year: 1258, label: '아바스 왕조 멸망', en: 'Fall of the Abbasid Caliphate',
+      state: '아바스 왕조', theme: '정치', kind: 'event', noSync: true,
+      body: '11세기 셀주크 튀르크가 바그다드에 입성하면서 정치적 실권을 잃은 아바스 왕조는 13세기 몽골의 침략으로 멸망하였다(1258).' },
+    { id: 's-chola-fall', track: 'westasia', year: 1279, label: '촐라 왕국 멸망', en: 'Fall of the Chola Dynasty',
+      state: '촐라 왕국', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '13세기 들어 주변 세력의 공격으로 쇠퇴한 촐라 왕국은 멸망하였다(1279).' },
+    { id: 's-timurid-fall', track: 'westasia', year: 1507, label: '티무르 왕조 멸망', en: 'Fall of the Timurid Empire',
+      state: '티무르 왕조', theme: '정치', kind: 'event', noSync: true,
+      body: '티무르가 명을 정복하러 가던 도중에 병사한 뒤 세력이 약화되다가 튀르크계 우즈베크인에게 멸망하였다(1507).' },
+    { id: 's-delhi-fall', track: 'westasia', year: 1526, label: '델리 술탄 왕조 멸망', en: 'Fall of the Delhi Sultanate',
+      state: '델리 술탄 왕조', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '티무르의 후손 바부르가 파니파트 전투에서 델리 술탄 왕조의 마지막 왕조인 로디 왕조를 무너뜨리고 무굴 제국을 세웠다(1526).' },
+    { id: 's-safavid-fall', track: 'westasia', year: 1736, label: '사파비 왕조 멸망', en: 'Fall of the Safavid Dynasty',
+      state: '사파비 왕조', theme: '정치', kind: 'event', noSync: true,
+      body: '17세기 말부터 왕실 내부의 갈등으로 혼란에 빠져 쇠퇴하던 사파비 왕조는 멸망하였다(1736).' },
+    { id: 's-mughal-fall', track: 'westasia', year: 1858, label: '무굴 제국 멸망', en: 'Fall of the Mughal Empire',
+      state: '무굴 제국', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '아우랑제브 이후 마라타 동맹 등의 반란과 영국·프랑스 등 서양 세력의 진출로 쇠퇴한 무굴 제국은 세포이의 항쟁(1857) 이후 영국이 마지막 황제를 폐위하면서 멸망하였다(1858).' },
+    { id: 's-ottoman-fall', track: 'westasia', year: 1922, label: '오스만 제국 멸망', en: 'Fall of the Ottoman Empire',
+      state: '오스만 제국', theme: '정치', kind: 'event', noSync: true,
+      body: '제1차 세계 대전에서 패한 오스만 제국은 무스타파 케말이 이끈 튀르키예인의 저항 속에서 술탄제가 폐지되면서 멸망하였다(1922). 이듬해 튀르키예 공화국이 수립되었다.' },
     { id: 'k-m-dangun', track: 'korea', year: -2333, label: '단군왕검', en: 'Dangun Wanggeom',
       state: '고조선', theme: '정치', kind: 'event', noSync: true, noMarker: true,
       body: '『삼국유사』에 실린 건국 이야기에 따르면 단군왕검이 고조선을 세웠다(『동국통감』 기준 기원전 2333). 단군은 제사장, 왕검은 정치적 지배자를 뜻하여 제정일치 사회의 모습을 보여 준다.' },
@@ -1472,6 +1589,18 @@ window.TIMELINE_DATA = {
     { id: 'w-m-henry8', track: 'west', year: 1509, label: '헨리 8세', en: 'Henry VIII',
       state: '영국', theme: '정치', kind: 'event', noSync: true,
       body: '이혼 문제를 계기로 수장법을 공포하여(1534) 국왕이 영국 교회의 수장임을 선포하였다.' },
+    { id: 'w-tours', track: 'west', year: 732, label: '투르·푸아티에 전투', en: 'Battle of Tours',
+      state: '프랑크 왕국', theme: '군사', kind: 'event', noSync: true,
+      body: '궁재 카롤루스 마르텔이 이끈 프랑크 왕국의 군대가 이베리아반도를 거쳐 침입한 우마이야 왕조의 이슬람 세력을 격퇴한 전투(732). 이 패배는 우마이야 왕조가 쇠퇴하는 계기 가운데 하나가 되었다.' },
+    { id: 'w-latin-empire', track: 'west', year: 1204, label: '라틴 제국', en: 'Latin Empire',
+      state: '라틴 제국', theme: '정치', kind: 'event', noSync: true,
+      body: '제4차 십자군이 비잔티움 제국의 수도 콘스탄티노폴리스를 점령하고 세운 나라(1204). 비잔티움 제국은 이후 콘스탄티노폴리스를 되찾았으나(1261) 세력이 크게 약화되었다.' },
+    { id: 'w-tsardom', track: 'west', year: 1547, label: '러시아 차르국', en: 'Tsardom of Russia',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true,
+      body: '모스크바 대공국의 이반 4세가 차르(황제)의 칭호를 공식적으로 사용하면서 성립한 나라(1547). 몽골의 지배에서 벗어난 모스크바 대공국을 이어 중앙 집권을 강화하고 시베리아로 영토를 넓혀 나갔다.' },
+    { id: 'w-russian-empire', track: 'west', year: 1721, label: '러시아 제국', en: 'Russian Empire',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true,
+      body: '서유럽의 제도와 정책을 받아들여 개혁을 추진하고 발트해로 진출한 표트르 대제가 황제(임페라토르)의 칭호를 사용하면서 성립하였다(1721). 상트페테르부르크를 수도로 삼았으며, 예카테리나 2세 때 폴란드 분할에 참여하는 등 영토를 넓혔다.' },
     { id: 'w-m-justinian', track: 'west', year: 527, label: '유스티니아누스 황제', en: 'Justinian I',
       state: '비잔티움 제국', theme: '정치', kind: 'event', noSync: true,
       body: '6세기 비잔티움 제국의 전성기를 이끈 황제(527 즉위). 북아프리카, 이탈리아 본토, 시칠리아 등 옛 로마 제국 영토의 상당 부분을 회복하고 『유스티니아누스 법전』을 편찬하였으며, 콘스탄티노폴리스에 성 소피아 성당을 건립하였다.' },
@@ -1679,6 +1808,9 @@ window.TIMELINE_DATA = {
     { id: 'e-tang', track: 'eastasia', year: 618, label: '당(唐)', en: 'Tang',
       state: '당(唐)', theme: '정치', kind: 'turning',
       body: '수 말의 혼란 속에서 이연(고조)이 618년 당을 세웠다. 태종(이세민)은 정관의 치로 불리는 안정된 정치를 펼치고, 동돌궐을 복속시켜 북방 유목민의 왕을 뜻하는 ‘천가한’의 칭호를 받았다. 당은 율령 체제를 완성하고 3성 6부의 중앙 관제와 균전제·조용조·부병제를 운영하였으며, 고종은 신라와 연합하여 백제와 고구려를 멸망시켰다. 정복지는 그곳의 우두머리를 도독에 임명하여 자치를 맡기는 기미 정책으로 다스렸다. 수도 장안은 외국 사신·상인·유학생이 모여드는 국제도시로 번영하였으나, 안사의 난 이후 쇠퇴하여 907년 멸망하였다.' },
+    { id: 'e-5dai', track: 'eastasia', year: 943, yearLabel: '907~979 CE', label: '5대 10국 시대', en: 'Five Dynasties and Ten Kingdoms',
+      state: '중국', theme: '정치', kind: 'event', hidden: true,
+      body: '당이 멸망한 뒤 화북의 다섯 왕조와 각지의 여러 나라가 이어진 분열기(907~979). 송이 건국되어 태종 때 중국을 다시 통일하면서 끝났다.' },
     { id: 'e-ansa', track: 'eastasia', year: 755, label: '안사의 난', en: 'An Lushan Rebellion',
       state: '당', theme: '사회', kind: 'event', noSync: true,
       body: '현종 말년 정치가 문란해진 가운데, 절도사 안녹산과 사사명이 반란을 일으켜 수도 장안을 함락하였다(755~763). 당은 위구르의 도움을 받아 겨우 난을 진압하였으나, 이후 각지의 절도사가 군사·행정·재정권을 장악하고 독자적인 세력으로 자리 잡았다. 균전제와 부병제가 무너지자 당은 양세법을 시행하고 모병제로 전환하였다. 안사의 난은 당이 쇠퇴하는 결정적 계기가 되었다.' },
@@ -1700,6 +1832,9 @@ window.TIMELINE_DATA = {
     { id: 'e-song', track: 'eastasia', year: 960, label: '송(宋)', en: 'Song',
       state: '송', theme: '정치', kind: 'turning',
       body: '당 멸망(907) 후 5대 10국의 혼란 속에서 절도사 조광윤(태조)이 960년 건국하고 카이펑을 도읍으로 삼았다. 제2대 태종 때 5대 10국 시대를 끝냈다. 절도사의 권한을 줄이고 과거제를 정비하여 문치주의를 펼쳤다. 1127년 금에게 화북을 빼앗긴 뒤 남송으로 이어졌다.' },
+    { id: 'e-xixia', track: 'eastasia', year: 1038, label: '서하(西夏)', en: 'Western Xia',
+      state: '서하', theme: '정치', kind: 'turning',
+      body: '11세기 초 탕구트족이 세운 나라(1038). 동서 교역로를 장악하여 교역을 중계하며 번영하였고, 서하 문자를 제정하여 고유문화를 유지하였다. 송을 압박하여 매년 은과 비단 등의 세폐를 받았으며, 몽골의 공격으로 멸망하였다(1227).' },
     { id: 'e-jin-jurchen', track: 'eastasia', year: 1115, label: '금(金)', en: 'Jin',
       state: '금', theme: '정치', kind: 'turning',
       body: '여진의 아구다가 1115년 건국하였다. 맹안·모극제로 여진족을 조직하였다. 1125년 거란(요)을 정복하고 곧이어 송을 공격하여 화북 지역을 차지하였다. 이후 몽골 제국의 침입으로 멸망하였다.' },
@@ -2195,6 +2330,9 @@ window.TIMELINE_DATA = {
     { id: 's-ghazni', track: 'westasia', year: 977, yearLabel: '10세기 후반', label: '가즈니 왕조', en: 'Ghaznavid Dynasty',
       state: '인도', theme: '정치', kind: 'turning', sub: 1,
       body: '10세기 후반 아프가니스탄 지역의 튀르크족이 세운 이슬람 왕조. 펀자브 지방으로 세력을 넓혀 이슬람 세력이 북인도로 진출하는 발판이 되었다.' },
+    { id: 's-chola', track: 'westasia', year: 870, yearLabel: '9세기 후반', label: '촐라 왕국', en: 'Chola Dynasty',
+      state: '촐라 왕국', theme: '정치', kind: 'turning', sub: 1,
+      body: '9세기 후반부터 인도 남부에서 발전한 왕국. 한때 남인도 일대를 차지할 정도로 강성하였고, 강력한 해군력을 바탕으로 동남아시아 및 서아시아 등과 교역하며 번영하였다. 인도 남부의 힌두 문화가 동남아시아로 전파되었다.' },
     { id: 's-ghur', track: 'westasia', year: 1150, yearLabel: '12세기', label: '구르 왕조', en: 'Ghurid Dynasty',
       state: '인도', theme: '정치', kind: 'turning', sub: 1,
       body: '가즈니 왕조가 약해진 뒤 12세기에 북인도 지역의 대부분을 지배하며 인도 내륙으로 진출한 이슬람 왕조(고르 왕조). 구르 왕조의 맘루크(용병) 출신 아이바크가 델리 술탄 왕조를 열었다.' },
@@ -5376,7 +5514,7 @@ window.TIMELINE_DB = {
         caption: '춤추는 시바 신상(나타라자)',
         ref: '힌두교의 주요 신 시바를 표현한 청동상.' }
     ],
-    linked: ['s-kushan', 's-magadha', 's-buddhism']
+    linked: ['s-kushan', 's-magadha', 's-buddhism', 's-chola']
   },
 
   // ============================================================
@@ -5517,6 +5655,74 @@ window.TIMELINE_DB = {
     sources: [],
     artifacts: [],
     linked: ['e-qin', 'e-han-founded', 'e-wuhu']
+  },
+  'e-xixia': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사 / 동아시아사',
+    overview: {
+      summary: '서하(西夏) — 10세기 초 중국에서는 당이 멸망하고 5대 10국의 혼란이 이어졌다. 이러한 틈을 타 북방 민족이 세력을 강화하였고, 5대 10국 시대의 분열을 수습하고 중국을 통일한 송은 지나친 문치주의 정책을 펼쳐 군사력이 약화되었다. 11세기 초에는 탕구트족이 서하를 건국하였다. 서하는 비단길 동부를 장악하고 동서 교역을 중계하며 번영하였다. 또한 서하 문자를 제정하여 고유문화를 유지하고자 하였고, 과거제를 시행하였다. 서하 문자는 한자와 비슷하게 생겼지만 한자를 변형하여 만든 서하의 고유 문자로, 당시 서하뿐만 아니라 거란, 여진 등 북방 민족이 세운 나라들도 자신들만의 문자를 만들어 사용하였다. 서하는 송을 압박하여 맹약을 체결하고 송으로부터 매년 은과 비단 등 세폐를 제공받았다. 송은 요와 서하에 물자를 제공하였고, 막대한 군사비 지출로 재정이 악화되었다. 이후 칭기즈 칸은 정복 활동에 나서면서 서하를 공격하였고, 서하는 몽골에 멸망하였다(1227).',
+      terms: [
+        { label: '탕구트족', def: '11세기 초 서하를 세운 민족.' },
+        { label: '서하 문자', def: '한자를 변형하여 만든 서하의 고유 문자.' },
+        { label: '세폐', def: '맹약에 따라 송이 해마다 북방 민족 국가에 제공한 은과 비단 등의 물자.' },
+        { label: '흥경', def: '서하의 수도.' }
+      ],
+      timeline: [
+        { y: 1004, label: '전연의 맹약 — 송과 거란의 화친' },
+        { y: 1038, label: '◆ 탕구트족, 서하 건국' },
+        { yl: '11세기', label: '송을 압박하여 맹약 — 세폐 수취' },
+        { y: 1206, label: '칭기즈 칸, 몽골 통일' },
+        { y: 1227, label: '몽골에 멸망' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['e-song', 'e-liao', 'e-mongol', 'e-5dai']
+  },
+  's-chola': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사 / 동아시아사',
+    overview: {
+      summary: '촐라 왕국 — 6세기 중엽 굽타 왕조가 멸망한 후 인도 북부는 분열과 통일을 반복하였고, 이러한 혼란을 틈타 8세기부터 인도 서북부에 이슬람 세력이 침입하였다. 한편 인도 남부에서는 9세기 후반부터 촐라 왕국이 발전하였다. 촐라 왕국은 한때 남인도 일대를 차지할 정도로 강성하였고, 강력한 해군력을 바탕으로 동남아시아 및 서아시아 등과 교역하며 번영을 누렸다. 촐라 왕국은 라젠드라 1세 때 스리위자야 왕국과의 전쟁에서 승리한 후 경제적으로 번영을 누렸다. 이 시기에 남인도의 고전 문화가 확립되었고, 인도 남부 지역의 힌두 문화가 동남아시아로 전파되었다.',
+      terms: [
+        { label: '촐라 왕국', def: '9세기 후반부터 인도 남부에서 발전한 왕국. 강력한 해군력으로 해상 교역을 주도하였다.' },
+        { label: '라젠드라 1세', def: '스리위자야 왕국과의 전쟁에서 승리하여 촐라 왕국의 번영을 이끈 왕.' },
+        { label: '스리위자야 왕국', def: '동남아시아 해상 교역의 중심지였던 수마트라섬의 왕국.' }
+      ],
+      timeline: [
+        { yl: '9세기 후반', label: '◆ 촐라 왕국, 인도 남부에서 발전' },
+        { yl: '11세기', label: '라젠드라 1세 — 스리위자야 왕국과의 전쟁에서 승리' },
+        { yl: '12세기', label: '촐라 왕국의 최대 영역' },
+        { y: 1279, label: '촐라 왕국 멸망' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['s-gupta', 's-ghazni', 's-delhi']
+  },
+  'e-5dai': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사 / 동아시아사',
+    overview: {
+      summary: '5대 10국 시대 — 당 말기에는 지방의 절도사들이 세력을 키웠고, 황소의 난으로 급격히 쇠퇴한 당은 멸망하였다(907). 당이 멸망한 후 중국은 절도사들이 세운 여러 나라로 분열하였다. 화북을 지배한 후량, 후당, 후진, 후한, 후주의 다섯 왕조와 각지에서 여러 세력이 세운 나라들이 이어진 이 시기를 5대 10국 시대라 부른다. 이러한 혼란 속에서 후주의 절도사였던 조광윤(태조)이 송을 건국하였으며(960), 제2대 태종에 이르러 5대 10국 시대를 종식시키며 중국을 다시 통일하였다. 한편 이 혼란한 틈을 타 북방 민족이 세력을 강화하여, 랴오허강 상류에서 국가를 세운 거란은 발해를 멸망시키고 만리장성 이남의 연운 16주를 차지하였다.',
+      terms: [
+        { label: '5대', def: '당 멸망 이후 화북을 지배한 후량, 후당, 후진, 후한, 후주의 다섯 왕조.' },
+        { label: '10국', def: '5대 10국 시대에 화북 이외의 각지에서 세워진 여러 나라.' },
+        { label: '절도사', def: '당 말기 지방의 군사·행정을 장악하여 세력을 키운 지방관.' },
+        { label: '조광윤', def: '후주의 절도사로 송을 건국한 인물(태조).' },
+        { label: '연운 16주', def: '거란이 차지한 만리장성 이남 지역. 현재의 베이징 일대가 포함된다.' }
+      ],
+      timeline: [
+        { y: 907, label: '◆ 당 멸망 — 5대 10국 시대 시작' },
+        { y: 916, label: '야율아보기, 거란 건국' },
+        { y: 936, label: '거란, 연운 16주 차지' },
+        { y: 960, label: '조광윤, 송 건국' },
+        { y: 979, label: '송 태종, 중국 재통일' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['e-tang', 'e-song', 'e-liao']
   },
   'e-qin': {
     syncRatio: 0.94,
@@ -7827,7 +8033,7 @@ window.TIMELINE_DB = {
         caption: '송·요·서하의 형세',
         ref: '송(수도 카이펑)·요(상경 임황)·서하(흥경) · 요가 차지한 연운 16주 · 고려·일본·여진·토번·대리·대월' }
     ],
-    linked: ['e-tang', 'e-song', 'e-jin-jurchen', 'k-goryeo']
+    linked: ['e-tang', 'e-song', 'e-jin-jurchen', 'k-goryeo', 'e-xixia']
   },
   'e-wang': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -7937,7 +8143,7 @@ window.TIMELINE_DB = {
         caption: '헤이조쿄',
         ref: '나라 시대의 수도로, 당의 장안성을 모방하여 건설된 계획도시 · 궁성·주작대로·좌경·우경·동시·서시' }
     ],
-    linked: ['e-sui', 'e-ansa', 'e-song', 's-abbasid', 'k-unify']
+    linked: ['e-sui', 'e-ansa', 'e-song', 's-abbasid', 'k-unify', 'e-5dai']
   },
   'e-nara': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -8034,7 +8240,7 @@ window.TIMELINE_DB = {
         caption: '송·요·서하의 형세',
         ref: '송(수도 카이펑)·요(상경 임황)·서하(흥경) · 요가 차지한 연운 16주 · 고려·일본·여진·토번·대리·대월' }
     ],
-    linked: ['e-tang', 'e-liao', 'e-jin-jurchen', 'e-nansong', 'k-goryeo']
+    linked: ['e-tang', 'e-liao', 'e-jin-jurchen', 'e-nansong', 'k-goryeo', 'e-xixia', 'e-5dai']
   },
   'e-jin-jurchen': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -8163,7 +8369,7 @@ window.TIMELINE_DB = {
         caption: '원과 4 울루스',
         ref: '원과 주치·차가타이·오고타이·훌라구 울루스(1306년 오고타이 울루스는 차가타이 울루스에 병합) · 몽골족의 근거지 카라코룸 · 대도(베이징)' }
     ],
-    linked: ['e-yuan', 'e-jin-jurchen', 'e-nansong', 's-abbasid', 'k-goryeo']
+    linked: ['e-yuan', 'e-jin-jurchen', 'e-nansong', 's-abbasid', 'k-goryeo', 'e-xixia']
   },
   'e-yuan': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -11485,7 +11691,7 @@ window.TIMELINE_DB = {
         caption: '쿠트브 미나르',
         ref: '델리 술탄 왕조 초기에 세운 이슬람 첨탑(인도 델리). 인도에 이슬람 건축이 들어온 모습을 보여 준다.' }
     ],
-    linked: ['s-ghazni', 's-ghur', 's-gupta', 's-mughal', 's-abbasid']
+    linked: ['s-ghazni', 's-ghur', 's-gupta', 's-mughal', 's-abbasid', 's-chola']
   },
   's-ottoman': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
