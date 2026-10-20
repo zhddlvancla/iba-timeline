@@ -28,9 +28,10 @@
  *
  *       // 선택 필드 — 노드 종류를 결정
  *       noSync,    true = 서브 노드 (기록 열람 없음, 세로 틱 마커)
- *       hidden,    true = 주제 노드 (트랙에 마커 없음, 묶음 브래킷으로만 노출)
+ *       hidden,    true = 기간 노드 (트랙에 마커 없음, 묶음 브래킷으로만 노출)
  *       linkTo,    다른 노드 id (원줄기 연결 버튼)
  *       sub,       서브 레인 번호 (트랙 내 갈래 표시용)
+ *       lane,      유럽 줄기 나라별 갈래 'en'|'fr'|'de'|'it' (843~1500, 유럽 줄기 포커스 시 영국·프랑스·독일·이탈리아 갈래에 놓임)
  *       branch,    true = 갈래 시작점
  *   }]
  *
@@ -1454,23 +1455,35 @@ window.TIMELINE_DATA = {
       state: '프랑크', theme: '정치', kind: 'event', noSync: true,
       body: '카롤루스 마르텔의 아들. 카롤루스 왕조를 열고, 롬바르드족에게서 빼앗은 이탈리아 중부를 교황에게 기증하였다.' },
     { id: 'w-m-henry4', track: 'west', year: 1056, label: '하인리히 4세', en: 'Henry IV (HRE)',
-      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true,
+      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '성직자 서임권을 두고 교황 그레고리우스 7세와 대립하다 파문당하자, 1077년 카노사에서 용서를 구하였다(카노사의 굴욕).' },
     { id: 'w-m-henry5', track: 'west', year: 1106, label: '하인리히 5세', en: 'Henry V (HRE)',
-      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true,
+      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '교황 칼릭스투스 2세와 보름스 협약(1122)을 맺어 성직자 서임권을 교황에게 넘겼다.' },
     { id: 'w-m-philip4', track: 'west', year: 1285, label: '필리프 4세', en: 'Philip IV of France',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '교회 과세 문제로 교황 보니파키우스 8세와 대립하였고, 삼부회의 지지를 얻어 교황을 굴복시켰다. 이후 교황청이 아비뇽으로 옮겨졌다(1309).' },
     { id: 'w-m-isabella', track: 'west', year: 1474, label: '이사벨 여왕', en: 'Isabella I of Castile',
       state: '에스파냐', theme: '정치', kind: 'event', noSync: true,
       body: '에스파냐의 여왕. 콜럼버스의 대서양 항해를 후원하였다(1492).' },
     { id: 'w-m-henry7', track: 'west', year: 1485, label: '헨리 7세', en: 'Henry VII',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '장미 전쟁의 혼란을 수습하고 튜더 왕조를 열었다(1485).' },
     { id: 'w-m-henry8', track: 'west', year: 1509, label: '헨리 8세', en: 'Henry VIII',
       state: '영국', theme: '정치', kind: 'event', noSync: true,
       body: '이혼 문제를 계기로 수장법을 공포하여(1534) 국왕이 영국 교회의 수장임을 선포하였다.' },
+    { id: 'w-m-justinian', track: 'west', year: 527, label: '유스티니아누스 황제', en: 'Justinian I',
+      state: '비잔티움 제국', theme: '정치', kind: 'event', noSync: true,
+      body: '6세기 비잔티움 제국의 전성기를 이끈 황제(527 즉위). 북아프리카, 이탈리아 본토, 시칠리아 등 옛 로마 제국 영토의 상당 부분을 회복하고 『유스티니아누스 법전』을 편찬하였으며, 콘스탄티노폴리스에 성 소피아 성당을 건립하였다.' },
+    { id: 'w-m-martel', track: 'west', year: 718, label: '카롤루스 마르텔', en: 'Charles Martel',
+      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true,
+      body: '프랑크 왕국 메로베우스 왕조의 궁재로서 실권을 장악하였다. 투르·푸아티에 전투(732)에서 이슬람 세력의 침략을 격퇴하였으며, 그의 아들 피핀이 카롤루스 왕조를 열었다.' },
+    { id: 'w-m-charlemagne', track: 'west', year: 768, label: '카롤루스 대제', en: 'Charlemagne',
+      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true,
+      body: '피핀의 아들로 프랑크 왕국의 전성기를 이룬 왕(768 즉위). 옛 서로마 제국의 영토를 상당 부분 회복하고 정복지에 교회를 세워 크리스트교 확산에 힘썼으며, 궁정 학교를 세워 카롤루스 르네상스를 일으켰다. 800년 교황 레오 3세에게서 서로마 황제의 관을 받았다.' },
+    { id: 'w-byzantine-fall', track: 'west', year: 1453, label: '동로마 제국 멸망', en: 'Fall of Constantinople',
+      state: '비잔티움 제국', theme: '정치', kind: 'event', noSync: true,
+      body: '셀주크 튀르크의 침입과 제4차 십자군의 약탈 등으로 쇠퇴한 비잔티움 제국은 오스만 제국의 공격으로 수도 콘스탄티노폴리스가 함락되면서 멸망하였다(1453).' },
     { id: 'w-triumvirate', track: 'west', year: -60, label: '삼두 정치', en: 'Triumvirate',
       state: '로마', theme: '정치', kind: 'event', noSync: true,
       body: '공화정 말기의 정치적 혼란 속에서 농민층을 사병으로 거느린 군인 정치가들이 정치를 주도한 체제. 카이사르·크라수스·폼페이우스의 제1차 삼두 정치(기원전 60)로 정권을 장악한 카이사르는 각종 개혁을 단행하였으나 암살되었고, 이후 옥타비아누스·안토니우스·레피두스의 제2차 삼두 정치가 이어졌다.' },
@@ -1487,28 +1500,28 @@ window.TIMELINE_DATA = {
       state: '이베리아반도', theme: '정치', kind: 'event', noSync: true,
       body: '이슬람 세력이 지배하던 이베리아반도에서 크리스트교 세력이 국토를 되찾고자 벌인 국토 회복 운동. 8세기 초 코바동가 전투(722)를 시작으로 이어졌으며, 1492년 그라나다를 함락하면서 완료되었다.' },
     { id: 'w-west-frank', track: 'west', year: 843, label: '서프랑크 왕국', en: 'West Francia',
-      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '카롤루스 대제 사후 내분에 빠진 프랑크 왕국이 베르됭 조약(843)으로 나뉘면서 성립한 서쪽의 왕국. 오늘날 프랑스의 기원이 되었다.' },
     { id: 'w-middle-frank', track: 'west', year: 843, label: '중프랑크 왕국', en: 'Middle Francia',
-      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true, lane: 'it',
       body: '베르됭 조약(843)으로 성립한 가운데 왕국. 메르센 조약(870)으로 북부 지역을 동·서 프랑크에 넘겨주고 이탈리아 지역만 남아 오늘날 이탈리아의 기원이 되었다.' },
     { id: 'w-east-frank', track: 'west', year: 843, label: '동프랑크 왕국', en: 'East Francia',
-      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '베르됭 조약(843)으로 성립한 동쪽의 왕국. 오늘날 독일의 기원이 되었다.' },
     { id: 'w-mersen', track: 'west', year: 870, label: '메르센 조약', en: 'Treaty of Meerssen',
       state: '프랑크 왕국', theme: '정치', kind: 'event', noSync: true,
       body: '동프랑크와 서프랑크가 중프랑크 왕국의 북부 지역을 나누어 가진 조약(870). 이로써 서프랑크, 동프랑크, 이탈리아의 경계가 정해져 각각 오늘날 프랑스, 독일, 이탈리아의 기원이 되었다.' },
     { id: 'w-italy-kingdom', track: 'west', year: 870, label: '이탈리아 왕국', en: 'Kingdom of Italy (Carolingian)',
-      state: '이탈리아', theme: '정치', kind: 'event', noSync: true,
+      state: '이탈리아', theme: '정치', kind: 'event', noSync: true, lane: 'it',
       body: '메르센 조약(870) 이후 중프랑크 왕국에서 이탈리아 지역만 남아 이루어진 왕국. 오늘날 이탈리아의 기원이 되었다.' },
     { id: 'w-germany-kingdom', track: 'west', year: 919, label: '독일 왕국', en: 'Kingdom of Germany',
-      state: '독일', theme: '정치', kind: 'event', noSync: true,
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '동프랑크 왕국에서 카롤루스 왕조의 대가 끊긴 뒤 제후들이 작센 공 하인리히 1세를 왕으로 선출하면서 성립한 왕국(919). 그의 아들 오토 1세가 마자르족을 물리치고 교황으로부터 황제의 관을 받아 신성 로마 제국으로 이어졌다.' },
     { id: 'w-hre', track: 'west', year: 962, label: '신성 로마 제국', en: 'Holy Roman Empire',
-      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true,
+      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '독일 왕 오토 1세가 마자르족을 격퇴하고 교황으로부터 황제의 관을 받으면서 성립한 제국(962). 이후 황제는 성직자 서임권을 둘러싸고 교황과 대립하였다.' },
     { id: 'w-france-kingdom', track: 'west', year: 987, label: '프랑스 왕국', en: 'Kingdom of France',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '서프랑크 왕국에서 카롤루스 왕조의 대가 끊긴 뒤 위그 카페가 왕으로 선출되어 카페 왕조를 열면서 이어진 왕국(987). 왕권은 처음에 약하였으나 필리프 2세, 필리프 4세 등을 거치며 강화되었다.' },
     { id: 'w-clermont', track: 'west', year: 1095, label: '클레르몽 공의회', en: 'Council of Clermont',
       state: '크리스트교', theme: '종교', kind: 'event', noSync: true,
@@ -1517,19 +1530,19 @@ window.TIMELINE_DATA = {
       state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true,
       body: '신성 로마 제국 황제 하인리히 5세와 교황 칼릭스투스 2세가 체결한 협약(1122). 황제가 가진 성직자 서임권을 교황이 차지하였고, 이후 교황권은 13세기 인노켄티우스 3세 때 절정에 이르렀다.' },
     { id: 'w-m-philip2-fr', track: 'west', year: 1180, label: '필리프 2세', en: 'Philip II of France',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '프랑스 카페 왕조의 왕. 영국 왕 존과 싸워 프랑스 안의 영국 영토 상당 부분을 빼앗아 왕권을 강화하였고, 제3차 십자군에도 참여하였다.' },
     { id: 'w-magna-carta', track: 'west', year: 1215, label: '마그나카르타', en: 'Magna Carta',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '영국 왕 존이 프랑스와의 전쟁에서 패하고 무리하게 세금을 거두려 하자, 귀족들이 들고일어나 왕에게 승인하게 한 문서(대헌장, 1215). 왕도 법을 따라야 하며 귀족과 성직자의 동의 없이 세금을 거둘 수 없다는 원칙을 담아 의회 정치 발전의 토대가 되었다.' },
     { id: 'w-jacquerie', track: 'west', year: 1358, label: '자크리의 난', en: 'Jacquerie',
-      state: '프랑스', theme: '사회', kind: 'event', noSync: true,
+      state: '프랑스', theme: '사회', kind: 'event', noSync: true, lane: 'fr',
       body: '백년 전쟁과 흑사병으로 혼란한 가운데 일부 영주들이 직영지를 확대하는 등 농민에 대한 속박을 강화하자 프랑스에서 일어난 농민 봉기(1358).' },
-    { id: 'w-great-schism', track: 'west', year: 1378, label: '교회 대분열', en: 'Western Schism',
-      state: '크리스트교', theme: '종교', kind: 'event', noSync: true,
-      body: '아비뇽 유수 이후 로마와 아비뇽에서 각각 교황이 선출되어 여러 명의 교황이 정통성을 내세우며 대립한 시기(1378~1417). 교회의 권위가 크게 실추되었다.' },
+    { id: 'w-great-schism', track: 'west', year: 1397, yearLabel: '1378~1417', label: '교회 대분열 시대', en: 'Western Schism',
+      state: '크리스트교', theme: '종교', kind: 'event', hidden: true,
+      body: '로마와 아비뇽에서 각각 교황이 선출되어 여러 명의 교황이 정통성을 내세우며 대립한 시기(1378~1417). 교회의 권위가 크게 실추되었으며, 콘스탄츠 공의회에서 새로운 단일 교황을 선출하면서 수습되었다.' },
     { id: 'w-wat-tyler', track: 'west', year: 1381, label: '와트 타일러의 난', en: 'Peasants’ Revolt',
-      state: '영국', theme: '사회', kind: 'event', noSync: true,
+      state: '영국', theme: '사회', kind: 'event', noSync: true, lane: 'en',
       body: '흑사병 이후 영주들이 농민에 대한 속박을 강화하자 영국에서 와트 타일러가 이끈 농민 봉기(1381).' },
     { id: 'w-constance', track: 'west', year: 1414, label: '콘스탄츠 공의회', en: 'Council of Constance',
       state: '크리스트교', theme: '종교', kind: 'event', noSync: true,
@@ -1922,6 +1935,18 @@ window.TIMELINE_DATA = {
     { id: 'w-medieval-culture', track: 'west', year: 1100, yearLabel: '11~13세기', label: '중세 서유럽의 문화', en: 'Medieval Western European Culture',
       state: '서유럽', theme: '문화', kind: 'turning',
       body: '크리스트교를 중심으로 발전한 중세 서유럽의 문화. 스콜라 철학이 유행하여 토마스 아퀴나스가 『신학 대전』으로 집대성하였고, 12세기 이후 대학이 세워졌으며, 로마네스크 양식과 고딕 양식의 성당이 지어졌다.' },
+    { id: 'w-towns', track: 'west', year: 1050, yearLabel: '11~14세기', label: '도시의 성장과 장원의 해체', en: 'Rise of Towns and Decline of the Manor',
+      state: '서유럽', theme: '경제', kind: 'turning',
+      body: '11세기경부터 교통의 요지에 시장이 생기고 상인과 수공업자가 모여들면서 도시가 성장하였다. 화폐 경제가 발전하고 14세기 중엽 흑사병으로 인구가 급감하면서 농노 신분에서 해방되는 사람이 늘어나 장원이 해체되어 갔다.' },
+    { id: 'w-papal-rise', track: 'west', year: 1075, yearLabel: '11~13세기', label: '교황권의 성장', en: 'Rise of Papal Power',
+      state: '크리스트교', theme: '종교', kind: 'turning',
+      body: '11세기 교황 그레고리우스 7세가 세속 군주의 성직자 서임을 금지하면서 교황과 황제가 대립하였다. 카노사의 굴욕(1077)과 보름스 협약(1122)을 거쳐 교황이 성직자 서임권을 차지하였고, 13세기 인노켄티우스 3세 때 교황권이 절정에 이르렀다.' },
+    { id: 'w-monarchy', track: 'west', year: 1250, yearLabel: '13~15세기', label: '왕권 강화의 전개', en: 'Rise of Royal Power',
+      state: '서유럽', theme: '정치', kind: 'turning',
+      body: '십자군 전쟁을 거치면서 제후와 기사들이 몰락하여 왕권이 강화되었다. 백년 전쟁과 장미 전쟁을 거치며 프랑스와 영국은 중앙 집권 국가의 토대를 마련하였고, 상비군과 재정 기구, 신분제 의회, 관료제 등을 갖춘 재정·군사 국가가 태동하였다.' },
+    { id: 'w-papal-decline', track: 'west', year: 1300, yearLabel: '14~15세기', label: '교황권의 쇠퇴', en: 'Decline of Papal Power',
+      state: '크리스트교', theme: '종교', kind: 'turning',
+      body: '십자군 전쟁 실패 이후 교황의 권위가 약해졌다. 프랑스 왕 필리프 4세와의 대립 끝에 교황청이 아비뇽으로 옮겨졌고(1309~1377), 이어 교회의 대분열(1378~1417)이 일어나 교황권은 더욱 추락하였다.' },
     { id: 'w-avignon', track: 'west', year: 1309, label: '아비뇽 유수', en: 'Avignon Papacy',
       state: '크리스트교', theme: '종교', kind: 'event', noSync: true,
       body: '프랑스 왕 필리프 4세와 교황 보니파키우스 8세가 대립한 끝에 교황청이 1309년부터 1377년까지 프랑스 아비뇽으로 옮겨져 프랑스 왕의 영향력 아래 놓였다.' },
@@ -1929,7 +1954,7 @@ window.TIMELINE_DATA = {
       state: '영국·프랑스', theme: '군사', kind: 'turning',
       body: '프랑스 왕위 계승권 등을 두고 영국과 프랑스가 벌인 전쟁(1337~1453). 잔 다르크 등의 활약으로 프랑스가 승리하였고, 두 나라는 중앙 집권 국가로 나아갔다.' },
     { id: 'w-roses', track: 'west', year: 1455, label: '장미 전쟁', en: 'Wars of the Roses',
-      state: '영국', theme: '군사', kind: 'turning',
+      state: '영국', theme: '군사', kind: 'turning', lane: 'en',
       body: '백년 전쟁 이후 영국에서 왕위 계승 문제로 랭커스터 가문과 요크 가문이 벌인 귀족 간의 내전(1455~1485). 봉건 제후들이 몰락하고 왕권이 강화되었으며, 헨리 7세가 혼란을 수습하고 튜더 왕조를 열었다.' },
     { id: 'w-renaissance', track: 'west', year: 1420, yearLabel: '14~16세기 CE', label: '르네상스', en: 'Renaissance',
       state: '이탈리아', theme: '문화', kind: 'turning',
@@ -6347,7 +6372,7 @@ window.TIMELINE_DB = {
   },
 
   // ============================================================
-  // 페르시아 문화 (주제 노드) — 아케메네스~사산의 문화와 종교
+  // 페르시아 문화 (기간 노드) — 아케메네스~사산의 문화와 종교
   // ============================================================
   's-persia-culture': {
     syncRatio: 0.90,
@@ -9212,7 +9237,7 @@ window.TIMELINE_DB = {
         citation: '· 기사 상호 간의 주종제와 영주·농노 간의 장원제로 이루어진 봉건제의 이중 구조 · 메로베우스 왕조와 카롤루스 왕조 시대의 계약서(725~750)' }
     ],
     artifacts: [],
-    linked: ['w-frank', 'w-norman', 'w-crusade', 'w-hundred']
+    linked: ['w-frank', 'w-norman', 'w-crusade', 'w-hundred', 'w-towns']
   },
   'w-frank': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -9313,7 +9338,7 @@ window.TIMELINE_DB = {
         citation: '— 그레고리우스 7세, 『서한집』 · 교황에게 파문당한 황제 하인리히 4세가 카노사성 앞 눈밭에서 사흘간 참회한 끝에 용서를 받았다(1077)' }
     ],
     artifacts: [],
-    linked: ['w-schism', 'w-crusade', 'w-feudal', 'w-medieval-culture']
+    linked: ['w-schism', 'w-crusade', 'w-feudal', 'w-medieval-culture', 'w-papal-rise']
   },
   'w-medieval-culture': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -9370,7 +9395,158 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['w-hundred', 'w-feudal']
+    linked: ['w-hundred', 'w-feudal', 'w-monarchy']
+  },
+  'w-towns': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '도시의 성장과 장원의 해체 — 11세기에 이르러 서유럽 세계는 이민족 침입이 줄고 안정을 찾으면서 삼포제 확산 등으로 농업 생산력이 증대되고 인구가 증가하였다. 11세기경부터 교통의 요지에 시장이 생기고 상인과 수공업자가 모여들면서 도시가 성장하였으며, 십자군 전쟁 이후 원거리 무역이 발달하자 도시는 더욱 발전하였다. 베네치아, 제노바 등 지중해 연안 도시는 동방 무역으로 번성하였고, 피렌체 등은 금융업으로 성장하였다. 함부르크, 뤼베크 등 북독일 도시는 한자 동맹을 맺고 북해와 발트해 연안의 무역을 독점하였으며, 샹파뉴 지방에서는 지중해 교역권과 북유럽 교역권을 연결하는 정기시가 형성되었다. 영주의 지배를 받던 도시가 경제적으로 성장하자 도시민은 특허장을 얻거나 무력을 사용하여 영주로부터 자치권을 얻었다. 도시민은 시 의회를 통해 도시를 운영하면서 신분상의 자유를 누리게 되었고, 공동의 이익과 안전을 도모하고자 길드를 만들어 생산과 교역을 통제하였다. 상공업 발달과 도시 성장으로 화폐 경제가 발전하면서 영주는 농노에게 부역 대신 현물이나 화폐로 지대를 받았으며, 돈을 받고 농노를 해방하기도 하였다. 14세기 중엽 흑사병의 유행으로 유럽 인구가 크게 줄어들자 노동력이 부족해진 영주들은 농민의 처우를 개선해 주었고, 농노 신분에서 해방되는 사람이 늘고 자영농도 증가하면서 장원은 점차 해체되어 갔다. 그러나 일부 지역에서는 영주들이 직영지를 확대하는 등 농민에 대한 속박을 강화하여 프랑스의 자크리의 난(1358), 영국의 와트 타일러의 난(1381) 등 농민 봉기가 일어났다.',
+      terms: [
+        { label: '삼포제', def: '경작지를 춘경지, 추경지, 휴경지로 나누어 돌려 가며 농사를 짓는 방식. 농업 생산력 증대에 기여하였다.' },
+        { label: '길드', def: '중세 도시의 상인과 수공업자들이 공동의 이익과 안전을 도모하고자 조직한 동업 조합.' },
+        { label: '한자 동맹', def: '함부르크, 뤼베크 등 북독일 도시들이 맺은 동맹. 북해와 발트해 연안의 무역을 독점하였다.' },
+        { label: '샹파뉴 정기시', def: '지중해 교역권과 북유럽 교역권을 연결한 프랑스 샹파뉴 지방의 정기 시장.' },
+        { label: '특허장', def: '영주에게 일정 금액을 지불하고 도시의 자치권을 인정받은 문서.' },
+        { label: '흑사병', def: '14세기 중엽 유럽을 휩쓴 전염병. 유럽 인구가 3분의 1 정도 감소하였다.' }
+      ],
+      timeline: [
+        { yl: '11세기경', label: '◆ 교통의 요지에 시장 형성 — 도시 성장' },
+        { y: 1096, label: '십자군 전쟁 — 원거리 무역 발달' },
+        { yl: '14세기 중엽', label: '흑사병 유행 — 장원 해체 가속' },
+        { y: 1358, label: '자크리의 난' },
+        { y: 1381, label: '와트 타일러의 난' }
+      ]
+    },
+    sources: [
+      { kind: '탐구 자료', title: '흑사병과 「죽음의 무도」', span: true,
+        src: 'assets/w1/중세/유럽·미주/흑사병/danse-macabre-inquiry.webp',
+        citation: '— 존 캐리, 『역사의 원전』 · 14세기 중엽 흑사병으로 인구가 크게 줄자 일꾼들의 품삯이 올랐다 · 신분과 관계없이 찾아오는 죽음을 그린 「죽음의 무도」' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/중세 도시/medieval-trade-zones-map.webp', span: true,
+        caption: '중세 유럽의 교역권',
+        ref: '북유럽 교역권(한자 동맹)과 지중해 교역권(이탈리아 도시)을 잇는 샹파뉴 정기 시장 · 플랑드르 지방의 모직물 공업 · 롬바르드 동맹' }
+    ],
+    linked: ['w-crusade', 'w-feudal', 'w-hundred', 'w-renaissance']
+  },
+  'w-papal-rise': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '교황권의 성장 — 로마 가톨릭교회는 교황을 정점으로 대주교, 주교, 사제에 이르는 계서제를 갖추고 정신세계뿐만 아니라 일상생활에서도 유럽 사회를 이끌었다. 교황은 대관식을 통해 군주의 통치권에 신적인 권위를 부여하였고, 성직자들은 봉토와 신도들이 기증한 토지를 기반으로 강력한 봉건 세력으로 성장하였다. 교회의 세속화에 맞서 10세기 초 클뤼니 수도원을 중심으로 개혁 운동이 일어났고, 11세기에는 교황의 주도로 교회에 대한 세속 군주의 개입을 배제하려는 움직임이 나타났다. 교황 그레고리우스 7세는 성직 매매와 성직자의 결혼을 금지하고 세속 군주의 성직자 서임을 금지하였는데, 신성 로마 제국 황제 하인리히 4세가 이를 무시하자 황제를 파문하였다. 결국 하인리히 4세는 카노사성에서 교황에게 용서를 빌며 굴복하였다(카노사의 굴욕, 1077). 그 후에도 교황과 황제의 서임권 투쟁은 계속되었으나, 1122년 보름스 협약으로 교황이 성직자 서임권을 차지하였다. 교황권의 확대를 꾀한 교황 우르바누스 2세는 클레르몽 공의회에서 성지 회복을 위한 전쟁을 호소하였다(1095). 이후 교황의 영향력은 점차 강화되어 13세기 인노켄티우스 3세 때 절정에 이르렀는데, 당시 이러한 상황을 교황은 해, 황제는 달에 비유하기도 하였다.',
+      terms: [
+        { label: '계서제', def: '교황을 정점으로 대주교, 주교, 사제에 이르는 로마 가톨릭교회의 위계 조직.' },
+        { label: '성직자 서임권', def: '성직자를 임명하는 권한.' },
+        { label: '그레고리우스 7세', def: '성직 매매와 성직자의 결혼을 금지하고 세속 군주의 성직자 서임을 금지한 교황.' },
+        { label: '카노사의 굴욕', def: '교황에게 파문당한 하인리히 4세가 카노사성에서 용서를 빈 사건(1077).' },
+        { label: '보름스 협약', def: '황제가 가진 성직자 서임권을 교황이 차지한 협약(1122).' },
+        { label: '인노켄티우스 3세', def: '교황권이 절정에 이른 13세기의 교황. 교황은 해, 황제는 달에 비유되었다.' }
+      ],
+      timeline: [
+        { yl: '10세기 초', label: '클뤼니 수도원의 개혁 운동' },
+        { y: 1077, label: '◆ 카노사의 굴욕' },
+        { y: 1095, label: '클레르몽 공의회' },
+        { y: 1122, label: '보름스 협약' },
+        { yl: '13세기', label: '인노켄티우스 3세 — 교황권 절정' }
+      ]
+    },
+    sources: [
+      { kind: '탐구 자료', title: '카노사의 굴욕', span: true,
+        src: 'assets/w1/중세/유럽·미주/교황권/canossa-inquiry.webp',
+        citation: '— 그레고리우스 7세, 『서한집』 · 교황에게 파문당한 황제 하인리히 4세가 카노사성 앞 눈밭에서 사흘간 참회한 끝에 용서를 받았다(1077)' }
+    ],
+    artifacts: [],
+    linked: ['w-cluny', 'w-crusade', 'w-papal-decline', 'w-schism']
+  },
+  'w-monarchy': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '왕권 강화의 전개 — 십자군 전쟁을 거치면서 장기간 참전한 제후와 기사들이 몰락하여 왕권은 강화된 반면, 교황권은 약화되었다. 프랑스에서는 필리프 4세가 교회와 성직자에 대한 과세 문제로 교황 보니파키우스 8세와 충돌하였고, 의회(삼부회)의 지지를 얻어 교황을 굴복시켰다. 강화된 왕권을 바탕으로 세력 확대를 꾀하던 영국과 프랑스는 모직물 산업의 중심지인 플랑드르 지방과 프랑스 내 영국령에 대한 지배권을 놓고 대립하였고, 영국 왕이 프랑스의 왕위 계승권을 주장하면서 백년 전쟁(1337~1453)이 일어났다. 잔 다르크의 활약으로 승리한 프랑스는 프랑스 내 영국령 대부분을 탈환하면서 중앙 집권 국가로 발전하는 기반을 마련하였다. 영국에서는 왕위 계승 문제로 귀족들 사이의 내전인 장미 전쟁(1455~1485)이 일어났는데, 이 과정에서 봉건 제후들이 몰락하고 왕권이 강화되었으며, 헨리 7세가 튜더 왕조를 개창하여 중앙 집권 국가의 토대를 마련하였다. 백년 전쟁 동안 프랑스와 영국의 왕은 늘어나는 전쟁 비용을 감당하기 위해 많은 세금을 거두고 군사 조직을 체계적으로 관리해야 했다. 이후 다른 유럽 국가들도 국가 차원의 전쟁 수행을 위한 상비군과 재정 기구, 신분제 의회, 관료제 등을 갖추어 나가면서 재정·군사 국가가 태동하였다.',
+      terms: [
+        { label: '삼부회', def: '성직자·귀족·평민 대표로 구성된 프랑스의 신분제 의회.' },
+        { label: '백년 전쟁', def: '플랑드르 지방과 프랑스 왕위 계승 문제를 둘러싸고 영국과 프랑스가 벌인 전쟁(1337~1453).' },
+        { label: '잔 다르크', def: '오를레앙을 영국군의 포위에서 해방시켜 프랑스가 백년 전쟁의 승기를 잡게 한 인물.' },
+        { label: '장미 전쟁', def: '백년 전쟁 이후 영국에서 왕위 계승 문제로 일어난 귀족 간의 내전(1455~1485).' },
+        { label: '튜더 왕조', def: '헨리 7세가 장미 전쟁의 혼란을 수습하고 연 영국의 왕조.' },
+        { label: '재정·군사 국가', def: '상비군과 재정 기구, 신분제 의회, 관료제 등을 갖춘 국가.' }
+      ],
+      timeline: [
+        { yl: '13세기', label: '◆ 십자군 전쟁 이후 왕권 강화' },
+        { yl: '14세기 초', label: '필리프 4세, 삼부회의 지지로 교황 굴복' },
+        { y: 1337, label: '백년 전쟁 시작 (~1453)' },
+        { y: 1455, label: '장미 전쟁 시작 (~1485)' },
+        { y: 1479, label: '에스파냐 왕국 성립' },
+        { y: 1485, label: '헨리 7세, 튜더 왕조 개창' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['w-hundred', 'w-roses', 'w-papal-decline', 'w-towns']
+  },
+  'w-papal-decline': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '교황권의 쇠퇴 — 십자군 전쟁을 거치면서 장기간 참전한 제후와 기사들이 몰락하여 왕권은 강화된 반면, 성지를 회복하지 못한 교황의 권위는 약해졌다. 14세기 초 프랑스 왕 필리프 4세와 교황 보니파키우스 8세는 교회와 성직자에 대한 과세 문제로 충돌하였고, 필리프 4세는 의회(삼부회)의 지지를 얻어 교황을 굴복시켰다. 이후 필리프 4세의 후원으로 교황이 된 클레멘스 5세가 교황청을 아비뇽으로 옮겼으며, 1377년까지 교황 7명이 이곳에 머물렀다(아비뇽 유수). 교황이 사실상 프랑스 왕권의 지배 아래 들어간 이 사건은 ‘교황의 바빌론 유수’라고도 불린다. 이어 로마와 아비뇽에서 각각 교황이 선출되어 여러 명의 교황이 정통성을 내세우며 대립하자 교황권은 더욱 추락하였다(교회의 대분열, 1378~1417). 영국의 위클리프와 보헤미아의 후스는 교회의 세속화와 성직자의 타락을 비판하며 『성서』에 기반을 둔 신앙을 강조하였다. 로마 가톨릭교회는 이러한 상황을 해결하기 위해 콘스탄츠 공의회(1414~1418)를 열어 위클리프를 이단으로 규정하고 후스를 화형에 처하는 한편, 여러 교황을 폐위하고 새로운 단일 교황을 선출하였다. 그러나 교회를 개혁하자는 주장은 계속 제기되어 16세기 종교 개혁의 배경이 되었다.',
+      terms: [
+        { label: '아비뇽 유수', def: '교황청이 1309년부터 1377년까지 프랑스 아비뇽으로 옮겨져 프랑스 왕의 영향력 아래 놓인 사건.' },
+        { label: '삼부회', def: '성직자·귀족·평민 대표로 구성된 프랑스의 신분제 의회.' },
+        { label: '교회의 대분열', def: '로마와 아비뇽에서 각각 교황이 선출되어 대립한 시기(1378~1417).' },
+        { label: '위클리프·후스', def: '교회의 세속화와 성직자의 타락을 비판하고 『성서』에 기반을 둔 신앙을 강조한 개혁가.' },
+        { label: '콘스탄츠 공의회', def: '교회의 대분열을 수습하고자 1414~1418년에 열린 공의회. 단일 교황을 선출하였다.' }
+      ],
+      timeline: [
+        { yl: '14세기 초', label: '◆ 필리프 4세와 보니파키우스 8세의 대립' },
+        { y: 1309, label: '아비뇽 유수 (~1377)' },
+        { y: 1378, label: '교회의 대분열 (~1417)' },
+        { y: 1414, label: '콘스탄츠 공의회 (~1418)' },
+        { y: 1415, label: '후스 화형' }
+      ]
+    },
+    sources: [
+      { kind: '탐구 자료', title: '아비뇽 교황청과 콘스탄츠 공의회',
+        src: 'assets/w1/중세/유럽·미주/교황권/avignon-constance-inquiry.webp',
+        citation: '— 헨리 베텐슨, 『크리스트 교회 문헌』 · 교황청이 옮겨 갔던 아비뇽 교황청 · 교회 대분열을 수습한 콘스탄츠 공의회의 선언' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/교황권/hus-burning.webp',
+        caption: '후스의 화형',
+        ref: '교회를 비판한 보헤미아의 후스가 콘스탄츠 공의회의 결정으로 화형당하는 모습(1415).' }
+    ],
+    linked: ['w-papal-rise', 'w-crusade', 'w-monarchy', 'w-great-schism', 'w-luther']
+  },
+  'w-great-schism': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '교회 대분열 시대 — 십자군 전쟁 실패 이후 교황의 권위가 약해진 가운데, 프랑스 왕 필리프 4세의 후원으로 교황이 된 클레멘스 5세가 교황청을 아비뇽으로 옮겼다(아비뇽 유수, 1309~1377). 이후 로마 교황청에서 교황이 다시 선출되었지만 아비뇽에서도 교황이 계속 선출되면서 교회의 대분열 시대(1378~1417)가 전개되었다. 여러 명의 교황이 정통성을 내세우며 서로 충돌하고 대립하자 교회의 권위는 크게 실추되었다. 영국의 위클리프와 보헤미아의 후스는 교회의 세속화와 성직자의 타락을 비판하며 『성서』에 기반을 둔 신앙을 강조하였다. 로마 가톨릭교회는 이러한 상황을 해결하기 위해 콘스탄츠 공의회(1414~1418)를 개최하여 여러 교황을 폐위하고 새로운 단일 교황을 선출하였으며, 위클리프를 이단으로 규정하고 후스를 화형에 처하였다.',
+      terms: [
+        { label: '교회의 대분열', def: '로마와 아비뇽에서 각각 교황이 선출되어 여러 명의 교황이 대립한 시기(1378~1417).' },
+        { label: '아비뇽 유수', def: '교황청이 1309년부터 1377년까지 프랑스 아비뇽으로 옮겨진 사건.' },
+        { label: '콘스탄츠 공의회', def: '교회의 대분열을 수습하고자 1414~1418년에 열린 공의회.' },
+        { label: '위클리프·후스', def: '교회의 세속화와 성직자의 타락을 비판한 개혁가. 콘스탄츠 공의회에서 이단으로 규정되었다.' }
+      ],
+      timeline: [
+        { y: 1309, label: '아비뇽 유수' },
+        { y: 1377, label: '교황청 로마 복귀' },
+        { y: 1378, label: '◆ 교회의 대분열 시작' },
+        { y: 1414, label: '콘스탄츠 공의회 (~1418)' },
+        { y: 1417, label: '단일 교황 선출 — 대분열 수습' }
+      ]
+    },
+    sources: [
+      { kind: '탐구 자료', title: '아비뇽 교황청과 콘스탄츠 공의회',
+        src: 'assets/w1/중세/유럽·미주/교황권/avignon-constance-inquiry.webp',
+        citation: '— 헨리 베텐슨, 『크리스트 교회 문헌』 · 교황청이 옮겨 갔던 아비뇽 교황청 · 교회 대분열을 수습한 콘스탄츠 공의회의 선언' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/중세/유럽·미주/교황권/hus-burning.webp',
+        caption: '후스의 화형',
+        ref: '교회를 비판한 보헤미아의 후스가 콘스탄츠 공의회의 결정으로 화형당하는 모습(1415).' }
+    ],
+    linked: ['w-papal-decline', 'w-crusade', 'w-luther']
   },
   'w-charlemagne': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -9474,7 +9650,7 @@ window.TIMELINE_DB = {
         caption: '후스의 화형',
         ref: '교회를 비판한 보헤미아의 후스가 콘스탄츠 공의회의 결정으로 화형당하는 모습(1415).' }
     ],
-    linked: ['s-seljuk', 'w-schism', 's-fatimid', 'w-byzantine', 'w-luther']
+    linked: ['s-seljuk', 'w-schism', 's-fatimid', 'w-byzantine', 'w-luther', 'w-papal-rise', 'w-papal-decline', 'w-towns']
   },
   'w-hundred': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -9503,7 +9679,7 @@ window.TIMELINE_DB = {
         citation: '— 존 캐리, 『역사의 원전』 · 14세기 중엽 흑사병으로 인구가 크게 줄자 일꾼들의 품삯이 올랐다 · 신분과 관계없이 찾아오는 죽음을 그린 「죽음의 무도」' }
     ],
     artifacts: [],
-    linked: ['w-crusade', 'w-columbus', 'w-roses']
+    linked: ['w-crusade', 'w-columbus', 'w-roses', 'w-monarchy']
   },
   'w-columbus': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
