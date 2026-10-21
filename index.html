@@ -4210,9 +4210,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20261020e"></script>
+<script src="iba-emblem.js?v=20261021a"></script>
 <!-- 연관 기록 대조 — 브라우저 안 의미 검색 (semantic-worker.js · search-index.js) -->
-<script src="semantic-search.js?v=20261020e"></script>
+<script src="semantic-search.js?v=20261021a"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -7525,8 +7525,35 @@ window.TIMELINE_DATA = {
       state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '장미 전쟁의 혼란을 수습하고 튜더 왕조를 열었다(1485).' },
     { id: 'w-m-henry8', track: 'west', year: 1509, label: '헨리 8세', en: 'Henry VIII',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '이혼 문제를 계기로 수장법을 공포하여(1534) 국왕이 영국 교회의 수장임을 선포하였다.' },
+    { id: 'w-crecy', track: 'west', year: 1346, label: '크레시 전투', en: 'Battle of Crécy',
+      state: '영국·프랑스', theme: '군사', kind: 'event', noSync: true,
+      body: '백년 전쟁 초기에 영국군이 프랑스군을 크게 물리친 전투(1346). 평민 출신의 장궁 부대와 보병 부대를 중심으로 한 영국군이 기사들이 주축을 이룬 프랑스군의 중무장 기병대를 격파하여, 봉건 기사들의 전통적인 전쟁 방식이 더 이상 효과가 없음을 보여 주었다.' },
+    { id: 'w-supremacy', track: 'west', year: 1534, label: '수장법 공포', en: 'Act of Supremacy',
+      state: '영국', theme: '종교', kind: 'event', noSync: true, lane: 'en',
+      body: '헨리 8세가 왕비와의 이혼 문제로 교황과 갈등을 빚자, 영국 국왕이 영국 교회의 수장임을 선포한 법(1534). 이로써 영국 교회는 로마 교황의 지배에서 벗어났다.' },
+    { id: 'w-trent', track: 'west', year: 1545, yearLabel: '1545~1563', label: '트리엔트 공의회', en: 'Council of Trent',
+      state: '크리스트교', theme: '종교', kind: 'event', noSync: true,
+      body: '종교 개혁 운동이 확산되자 위기의식을 느낀 로마 가톨릭교회가 연 공의회(1545~1563). 교황의 권위와 교리를 재확인하고 성직 매매와 겸직을 금지하였으며, 종교 재판소를 설치하고 금서 목록을 작성하였다.' },
+    { id: 'w-schmalkaldic', track: 'west', year: 1546, yearLabel: '1546~1547', label: '슈말칼덴 전쟁', en: 'Schmalkaldic War',
+      state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true, lane: 'de',
+      body: '루터를 지지하는 제후들이 결성한 슈말칼덴 동맹이 교황과 긴밀한 관계를 맺고 있던 신성 로마 제국 황제에 대항하여 벌인 전쟁(1546~1547). 대립은 아우크스부르크 화의로 마무리되었다.' },
+    { id: 'w-augsburg', track: 'west', year: 1555, label: '아우크스부르크 화의', en: 'Peace of Augsburg',
+      state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true, lane: 'de',
+      body: '루터파 제후들과 신성 로마 제국 황제의 대립 끝에 맺어진 화의(1555). 독일의 제후들은 ‘지역을 통치하는 자가 종교를 결정한다.’라는 원칙에 따라 로마 가톨릭교회나 루터파 중에서 종교를 선택할 수 있게 되어 루터파가 공식적으로 인정받았다. 칼뱅파는 인정되지 않았다.' },
+    { id: 'w-uniformity', track: 'west', year: 1559, label: '통일법 선포', en: 'Act of Uniformity',
+      state: '영국', theme: '종교', kind: 'event', noSync: true, lane: 'en',
+      body: '엘리자베스 1세가 영국 국교회의 예배와 기도 방식을 통일하도록 선포한 법(1559). 이를 통해 영국 국교회가 확립되었다.' },
+    { id: 'w-anglican', track: 'west', year: 1559, label: '영국 국교회 확립', en: 'Establishment of the Church of England',
+      state: '영국', theme: '종교', kind: 'event', noSync: true, lane: 'en',
+      body: '헨리 8세의 수장법으로 로마 교황의 지배에서 벗어난 영국 교회는 엘리자베스 1세가 통일법을 선포하면서 영국 국교회로 확립되었다(1559). 영국 국교회는 교리 면에서 신교의 입장을 취하면서도 의식 면에서는 로마 가톨릭교회의 전통을 많이 유지하였다.' },
+    { id: 'w-huguenot', track: 'west', year: 1562, yearLabel: '1562~1598', label: '위그노 전쟁', en: 'French Wars of Religion',
+      state: '프랑스', theme: '종교', kind: 'event', noSync: true, lane: 'fr',
+      body: '프랑스에서 칼뱅파 신교도(위그노)와 로마 가톨릭교도 사이에 일어난 종교 전쟁(1562~1598). 앙리 4세가 낭트 칙령(1598)을 발표하여 위그노에게 신앙의 자유를 부분적으로 허용하면서 끝났다.' },
+    { id: 'w-thirty-years', track: 'west', year: 1618, yearLabel: '1618~1648', label: '30년 전쟁', en: 'Thirty Years’ War',
+      state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true, lane: 'de',
+      body: '보헤미아에서 종교적인 이유로 일어난 전쟁이 신성 로마 제국 전역으로 퍼지고 유럽 주요 왕가들이 가담하면서 국제 전쟁으로 확대되었다(1618~1648). 전쟁은 베스트팔렌 조약으로 종결되었다.' },
     { id: 'w-tours', track: 'west', year: 732, label: '투르·푸아티에 전투', en: 'Battle of Tours',
       state: '프랑크 왕국', theme: '군사', kind: 'event', noSync: true,
       body: '궁재 카롤루스 마르텔이 이끈 프랑크 왕국의 군대가 이베리아반도를 거쳐 침입한 우마이야 왕조의 이슬람 세력을 격퇴한 전투(732). 이 패배는 우마이야 왕조가 쇠퇴하는 계기 가운데 하나가 되었다.' },
@@ -7645,52 +7672,52 @@ window.TIMELINE_DATA = {
       state: '에스파냐', theme: '정치', kind: 'event', noSync: true,
       body: '레판토 해전(1571)에서 오스만 제국의 함대를 격파하고 포르투갈을 병합하였다. 신교도를 탄압하여 네덜란드 독립 전쟁을 불렀고, 무적함대가 영국에 패하였다(1588).' },
     { id: 'w-m-elizabeth1', track: 'west', year: 1558, label: '엘리자베스 1세', en: 'Elizabeth I',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '영국 국교회를 확립하고(1559) 중상주의 정책을 펼쳤으며, 에스파냐의 무적함대를 격파하였다(1588).' },
     { id: 'w-m-henri4', track: 'west', year: 1589, label: '앙리 4세', en: 'Henry IV of France',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '낭트 칙령(1598)으로 신교의 자유를 허용하여 위그노 전쟁을 끝냈다.' },
     { id: 'w-m-ferdinand2', track: 'west', year: 1619, label: '페르디난트 2세', en: 'Ferdinand II',
-      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true,
+      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '신성 로마 제국의 황제. 그의 신교 탄압에 맞서 보헤미아에서 시작된 30년 전쟁(1618~1648)이 국제 전쟁으로 확대되었다.' },
     { id: 'w-m-charles1', track: 'west', year: 1625, label: '찰스 1세', en: 'Charles I',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '의회의 동의 없이 과세하며 전제 정치를 계속하여 권리 청원(1628)과 청교도 혁명을 불렀고, 크롬웰의 의회파에 의해 처형되었다(1649).' },
     { id: 'w-m-charles2', track: 'west', year: 1660, label: '찰스 2세', en: 'Charles II',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '크롬웰이 죽은 뒤 즉위하여 왕정이 복고되었다. 가톨릭교도를 우대하자 의회는 심사법과 인신 보호법을 제정하였다.' },
     { id: 'w-m-james2', track: 'west', year: 1685, label: '제임스 2세', en: 'James II',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '전제 정치를 펴다 명예혁명(1688)으로 쫓겨났다.' },
     { id: 'w-m-williammary', track: 'west', year: 1689, label: '메리와 윌리엄', en: 'Mary II and William III',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '명예혁명으로 의회가 제임스 2세를 폐위하고 그의 딸 메리와 남편 윌리엄을 공동 왕으로 추대하였다. 이듬해 권리 장전을 승인하였다(1689).' },
     { id: 'w-m-george1', track: 'west', year: 1714, label: '조지 1세', en: 'George I',
-      state: '영국', theme: '정치', kind: 'event', noSync: true,
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '하노버 왕조의 왕. 그 때부터 ‘왕은 군림하나 통치하지 않는다.’는 내각 책임제가 시행되었다.' },
     { id: 'w-m-louis16', track: 'west', year: 1774, label: '루이 16세', en: 'Louis XVI',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '재정 위기 속에 삼부회를 소집하여(1789) 프랑스 혁명이 일어났고, 국민 공회에 의해 처형되었다(1793).' },
     { id: 'w-m-louis18', track: 'west', year: 1814, label: '루이 18세', en: 'Louis XVIII',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '나폴레옹이 몰락한 뒤 빈 체제 아래 부활한 부르봉 왕조의 왕.' },
     { id: 'w-m-charles10', track: 'west', year: 1824, label: '샤를 10세', en: 'Charles X',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '7월 칙령으로 언론의 자유를 정지하고 의회를 해산하는 등 전제 정치를 펼치다 7월 혁명(1830)으로 쫓겨났다.' },
     { id: 'w-m-louisphilippe', track: 'west', year: 1830, label: '루이 필리프', en: 'Louis Philippe I',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '7월 혁명으로 왕에 추대되어 7월 왕정을 세웠다(‘시민 왕’). 선거권을 하층으로 넓히지 않아 2월 혁명(1848)으로 퇴위하였다.' },
     { id: 'w-m-napoleon3', track: 'west', year: 1852, label: '나폴레옹 3세', en: 'Napoleon III',
-      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
       body: '나폴레옹의 조카 루이 나폴레옹. 2월 혁명 뒤 대통령에 당선되었다가 황제에 올랐으나(제2제정), 프로이센과의 전쟁에서 패하여 몰락하였다.' },
     { id: 'w-m-vittorio', track: 'west', year: 1861, label: '비토리오 에마누엘레 2세', en: 'Victor Emmanuel II',
-      state: '이탈리아', theme: '정치', kind: 'event', noSync: true, noMarker: true,
+      state: '이탈리아', theme: '정치', kind: 'event', noSync: true, lane: 'it', noMarker: true,
       body: '사르데냐 왕국의 국왕. 가리발디가 점령한 남부를 넘겨받아 이탈리아 왕국을 세웠다(1861).' },
     { id: 'w-m-wilhelm1', track: 'west', year: 1871, label: '빌헬름 1세', en: 'Wilhelm I',
-      state: '독일', theme: '정치', kind: 'event', noSync: true, noMarker: true,
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de', noMarker: true,
       body: '프로이센 국왕. 비스마르크를 등용하여 통일을 이루고, 베르사유 궁전 거울의 방에서 독일 황제로 즉위하였다(1871).' },
     { id: 'w-m-wilhelm2', track: 'west', year: 1888, label: '빌헬름 2세', en: 'Wilhelm II',
-      state: '독일', theme: '정치', kind: 'event', noSync: true,
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '비스마르크를 해임하고 베를린·비잔티움·바그다드를 잇는 팽창 정책을 펼쳐 영국과 대립하였다.' },
     { id: 'w-m-nicholas2', track: 'west', year: 1894, label: '니콜라이 2세', en: 'Nicholas II',
       state: '러시아', theme: '정치', kind: 'event', noSync: true,
@@ -8030,7 +8057,7 @@ window.TIMELINE_DATA = {
       state: '영국', theme: '군사', kind: 'turning', lane: 'en',
       body: '백년 전쟁 이후 영국에서 왕위 계승 문제로 랭커스터 가문과 요크 가문이 벌인 귀족 간의 내전(1455~1485). 봉건 제후들이 몰락하고 왕권이 강화되었으며, 헨리 7세가 혼란을 수습하고 튜더 왕조를 열었다.' },
     { id: 'w-renaissance', track: 'west', year: 1420, yearLabel: '14~16세기 CE', label: '르네상스', en: 'Renaissance',
-      state: '이탈리아', theme: '문화', kind: 'turning',
+      state: '이탈리아', theme: '문화', kind: 'turning', lane: 'it',
       body: '14~16세기 서유럽에서 그리스·로마 고전 문화의 부흥을 통해 인간 중심의 문화를 창출하려는 르네상스가 일어났다. 이탈리아에서 시작되어 16세기 이후 알프스 이북으로 확산되었다.' },
     { id: 'w-columbus', track: 'west', year: 1492, label: '신항로 개척', en: 'Age of Exploration',
       state: '에스파냐', theme: '경제', kind: 'turning',
@@ -8051,28 +8078,28 @@ window.TIMELINE_DATA = {
       state: '아메리카', theme: '정치', kind: 'turning',
       body: '에스파냐의 피사로가 잉카 제국을 정복하였다. 이후 아메리카 문명은 철저히 파괴되었다.' },
     { id: 'w-armada', track: 'west', year: 1588, label: '무적함대 격파', en: 'Defeat of the Armada',
-      state: '영국', theme: '군사', kind: 'turning',
+      state: '영국', theme: '군사', kind: 'turning', lane: 'en',
       body: '엘리자베스 1세 시기 영국이 에스파냐의 무적함대를 격파하였다. 영국은 해외 시장을 개척하며 해상 강국으로 성장하였다.' },
     { id: 'w-louis14', track: 'west', year: 1643, label: '루이 14세 즉위', en: 'Accession of Louis XIV',
-      state: '프랑스', theme: '정치', kind: 'turning',
+      state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
       body: '루이 14세가 즉위하여 프랑스 절대 왕정의 전성기를 이루었다. 베르사유 궁전을 지어 강력한 왕권을 과시하였다.' },
     { id: 'w-westphalia', track: 'west', year: 1648, label: '베스트팔렌 조약', en: 'Peace of Westphalia',
-      state: '신성 로마 제국', theme: '외교', kind: 'turning',
+      state: '신성 로마 제국', theme: '외교', kind: 'turning', lane: 'de',
       body: '종교 문제로 1618년 시작된 30년 전쟁을 끝낸 조약. 네덜란드의 독립이 승인되고 칼뱅파가 인정되었다.' },
     { id: 'w-glorious', track: 'west', year: 1688, label: '명예혁명', en: 'Glorious Revolution',
-      state: '영국', theme: '정치', kind: 'turning',
+      state: '영국', theme: '정치', kind: 'turning', lane: 'en',
       body: '의회가 제임스 2세의 전제 정치에 맞서 그의 딸 메리와 남편 윌리엄을 공동 왕으로 추대하였다. 유혈 사태 없이 이루어져 명예혁명이라 한다. 이듬해 의회가 제출한 권리 장전을 왕이 승인하였다.' },
     { id: 'w-industrial', track: 'west', year: 1770, yearLabel: '18세기 후반', label: '산업 혁명', en: 'Industrial Revolution',
-      state: '영국', theme: '경제', kind: 'turning',
+      state: '영국', theme: '경제', kind: 'turning', lane: 'en',
       body: '18세기 후반 영국에서 기계 발명과 동력 혁명으로 생산 방식이 크게 바뀌었다. 공장제 기계 공업이 발달하고 증기 기관차 등 교통이 혁신되었으며, 도시와 노동자 계층이 성장하였다.' },
     { id: 'w-us-indep', track: 'west', year: 1776, label: '미국 독립 선언', en: 'Declaration of Independence',
       state: '미국', theme: '정치', kind: 'turning',
       body: '영국의 과세에 반발한 13개 식민지는 보스턴 차 사건(1773)과 대륙 회의(1774)를 거쳐 1776년 독립 선언문을 발표하였다. 독립 전쟁에서 승리하여 파리 조약(1783)으로 독립을 인정받았다.' },
     { id: 'w-french-rev', track: 'west', year: 1789, label: '프랑스 혁명', en: 'French Revolution',
-      state: '프랑스', theme: '정치', kind: 'turning',
+      state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
       body: '1789년 제3 신분 대표들이 국민 의회를 세우면서 혁명이 시작되었다. 이후 입법 의회(1791), 국민 공회(1792), 총재 정부(1795)를 거쳐 1799년 나폴레옹의 통령 정부가 수립되었다.' },
     { id: 'w-napoleon', track: 'west', year: 1804, label: '나폴레옹 황제 즉위', en: 'Napoleon Crowned Emperor',
-      state: '프랑스', theme: '정치', kind: 'turning',
+      state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
       body: '국민의 지지를 얻은 나폴레옹이 국민 투표로 황제에 즉위하였다(제1 제정). 유럽 대부분을 장악하고 대륙 봉쇄령을 내렸으나 러시아 원정에 실패한 뒤 몰락하였다.' },
     { id: 'w-haiti', track: 'west', year: 1804, label: '아이티 독립', en: 'Haitian Independence',
       state: '라틴 아메리카', theme: '정치', kind: 'turning',
@@ -8081,19 +8108,19 @@ window.TIMELINE_DATA = {
       state: '유럽', theme: '외교', kind: 'turning',
       body: '나폴레옹 몰락 후 유럽 각국의 대표가 모여 전후 처리를 협의한 회의(1814~1815). 혁명 이전의 질서로 되돌리려는 빈 체제가 성립하였다.' },
     { id: 'w-july', track: 'west', year: 1830, label: '7월 혁명', en: 'July Revolution',
-      state: '프랑스', theme: '정치', kind: 'turning',
+      state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
       body: '샤를 10세가 의회를 해산하고 선거권을 제한하는 등 전제 정치를 펼치자 파리 시민이 봉기하였다. 루이 필리프를 왕으로 추대하여 7월 왕정을 수립하였다.' },
     { id: 'w-feb', track: 'west', year: 1848, label: '2월 혁명', en: 'February Revolution',
-      state: '프랑스', theme: '정치', kind: 'turning',
+      state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
       body: '선거권 확대를 요구하는 시민들이 7월 왕정을 무너뜨리고 제2공화정을 수립하였다. 그 영향으로 유럽 각지에서 혁명이 일어나 빈 체제가 무너졌다.' },
     { id: 'w-italy', track: 'west', year: 1861, label: '이탈리아 왕국', en: 'Kingdom of Italy',
-      state: '이탈리아', theme: '정치', kind: 'turning',
+      state: '이탈리아', theme: '정치', kind: 'turning', lane: 'it',
       body: '사르데냐 왕국을 중심으로 통일 운동이 전개되었다. 가리발디가 남부의 시칠리아와 나폴리를 점령하여 사르데냐 왕국에 바치면서 1861년 이탈리아 왕국이 수립되었다. 이후 베네치아를 병합하고 교황령을 점령하여 통일을 완성하였다.' },
     { id: 'w-civilwar', track: 'west', year: 1861, label: '남북 전쟁', en: 'American Civil War',
       state: '미국', theme: '정치', kind: 'turning',
       body: '노예제를 둘러싸고 남부와 북부가 대립하다 일어난 전쟁. 링컨이 노예 해방 선언(1863)을 발표하였고 북부가 승리하였다.' },
     { id: 'w-germany', track: 'west', year: 1871, label: '독일 제국', en: 'German Empire',
-      state: '독일', theme: '정치', kind: 'turning',
+      state: '독일', theme: '정치', kind: 'turning', lane: 'de',
       body: '프로이센이 통일을 주도하여 1871년 빌헬름 1세가 황제로 즉위하고 독일 제국의 성립을 선포하였다.' },
     { id: 'w-ww1', track: 'west', year: 1914, label: '제1차 세계 대전', en: 'World War I',
       state: '유럽', theme: '군사', kind: 'turning',
@@ -8146,10 +8173,10 @@ window.TIMELINE_DATA = {
       state: '국제', theme: '군사', kind: 'turning',
       body: '소련이 쿠바에 미사일 기지를 건설하려 하자 미국과 소련이 핵전쟁 직전까지 대립한 사건.' },
     { id: 'w-berlin', track: 'west', year: 1989, label: '베를린 장벽 붕괴', en: 'Fall of the Berlin Wall',
-      state: '독일', theme: '정치', kind: 'turning',
+      state: '독일', theme: '정치', kind: 'turning', lane: 'de',
       body: '동유럽의 공산 정권이 잇달아 무너지는 가운데 1989년 동서 베를린을 가르던 장벽이 무너졌다.' },
     { id: 'w-unify', track: 'west', year: 1990, label: '독일 통일', en: 'German Reunification',
-      state: '독일', theme: '정치', kind: 'turning',
+      state: '독일', theme: '정치', kind: 'turning', lane: 'de',
       body: '베를린 장벽 붕괴 이듬해 동독과 서독이 통일하였다.' },
     { id: 'w-ussr', track: 'west', year: 1991, label: '소련 해체', en: 'Dissolution of the Soviet Union',
       state: '러시아', theme: '정치', kind: 'turning',
@@ -24548,16 +24575,17 @@ function generateTicks() {
 /* 트랙 갈래(sub-lane) 상수 — 라벨 배치(positioned)와 세로 위치(eventY) 양쪽에서 쓰므로
    컴포넌트 밖에 둔다. 두 곳이 같은 기준으로 레인을 판정해야 겹침 계산이 맞는다. */
 const SUB_OFFSET = { 0: -64, 1: -28, 3: 60 };   // applySubScale(vpH)가 박스 높이에 맞춰 고쳐 쓴다
-/* 유럽 줄기 나라별 갈래 — 베르됭 조약(843)에서 갈라져 1500년에 원줄기로 다시 합친다(2026-10-20 사용자 요청).
+/* 유럽 줄기 나라별 갈래 — 베르됭 조약(843)에서 갈라져 현재까지 따로 이어진다(2026-10-20 사용자 요청,
+   10-21 「각 나라의 역사는 계속 가야 한다」 — 1500년 합류를 없앰. mergeYear가 null이면 합치지 않는다).
    위에서부터 영국 · 프랑스(서프랑크) · [원줄기] · 독일(동프랑크) · 이탈리아(중프랑크). 노드는 lane 필드로 갈래를 고른다.
    유럽 줄기를 포커스했을 때만 펼친다(다른 갈래와 같은 방식). 간격은 applySubScale이 박스 높이에 맞춘다 */
 const WEST_LANES = {
-  branchYear: 843, mergeYear: 1500,
+  branchYear: 843, mergeYear: null,
   off: { en: -120, fr: -60, de: 60, it: 120 },
   label: { en: '영국 ENGLAND', fr: '프랑스 FRANCE', de: '독일 GERMANY', it: '이탈리아 ITALY' }
 };
 const westLaneOf = (e) => (e.track === 'west' && e.lane && WEST_LANES.off[e.lane] != null
-  && e.year >= WEST_LANES.branchYear && e.year < WEST_LANES.mergeYear) ? e.lane : null;
+  && e.year >= WEST_LANES.branchYear && (WEST_LANES.mergeYear == null || e.year < WEST_LANES.mergeYear)) ? e.lane : null;
 // 갈래 이름표(▸ 영국 ENGLAND …) — 갈래가 다 펼쳐지는 843 지점 바로 오른쪽, 갈래선 아래. 렌더와 라벨 배치(장애물)가 같은 값을 쓴다
 const westLaneTagRect = (lane, scale) => {
   const x = yearToX(WEST_LANES.branchYear, scale) + 10;
@@ -24640,7 +24668,7 @@ const groupYOf = (track, g, focusedTrack) =>
   (track === 'korea' && focusedTrack === 'korea' && g.startYear < MERGE_YEAR && g.endYear >= BRANCH_YEAR)
     ? GROUP_Y + SUB_OFFSET[3]
   // 유럽 포커스 — 나라별 갈래 구간(843~1500)에 걸친 묶음은 맨 아래 이탈리아 갈래 아래로
-  : (track === 'west' && focusedTrack === 'west' && g.startYear < WEST_LANES.mergeYear && g.endYear >= WEST_LANES.branchYear)
+  : (track === 'west' && focusedTrack === 'west' && (WEST_LANES.mergeYear == null || g.startYear < WEST_LANES.mergeYear) && g.endYear >= WEST_LANES.branchYear)
     ? GROUP_Y + WEST_LANES.off.it : GROUP_Y;
 const NODE_GROUPS = {
   korea: [
@@ -25497,15 +25525,15 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                 {/* 갈래점 = 신라 노드 자리. 노드 마커가 그 위에 그려지므로 따로 표시하지 않는다 */}
                 {/* 고구려 가지 (sub 0 = 최상) → 고구려 멸망(668) */}
                 <path d={branchPath(SUB_OFFSET[0], goguryeoEndX)}
-                  stroke="url(#korea-sub-grad)" strokeWidth="2.5" fill="none" strokeLinecap="round"
+                  stroke="url(#korea-sub-grad)" strokeWidth="1.5" fill="none" strokeLinecap="round"
                   filter="url(#tva-glow)" />
                 {/* 백제 가지 (sub 1) → 백제 멸망(660) */}
                 <path d={branchPath(SUB_OFFSET[1], baekjeEndX)}
-                  stroke="url(#korea-sub-grad)" strokeWidth="2.5" fill="none" strokeLinecap="round"
+                  stroke="url(#korea-sub-grad)" strokeWidth="1.5" fill="none" strokeLinecap="round"
                   filter="url(#tva-glow)" />
                 {/* 가야 가지 (sub 3 = 최하) → 가야 멸망(562) */}
                 <path d={branchPath(SUB_OFFSET[3], gayaEndX)}
-                  stroke="url(#korea-sub-grad)" strokeWidth="2.5" fill="none" strokeLinecap="round"
+                  stroke="url(#korea-sub-grad)" strokeWidth="1.5" fill="none" strokeLinecap="round"
                   filter="url(#tva-glow)" />
                 {/* 신라는 갈래 없이 원줄기로 계속 이어짐 (별도 가지 없음) */}
                 {/* 갈래 이름표는 두지 않는다 — 각 갈래가 고구려·백제·가야 노드로 시작하고, 이름표가 그 노드 라벨과 겹친다 */}
@@ -25522,15 +25550,18 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
             );
           })()}
 
-          {/* 유럽 나라별 갈래 SVG — 베르됭 조약(843)에서 영국·프랑스·독일·이탈리아로 갈라져 1500년에 원줄기로 합류 */}
+          {/* 유럽 나라별 갈래 SVG — 베르됭 조약(843)에서 영국·프랑스·독일·이탈리아로 갈라져 끝까지 이어진다 */}
           {focusedTrack === 'west' && (() => {
             const baseY = trackY['west'];
             if (baseY == null) return null;
             const c = 28;
             const sx = yearToX(WEST_LANES.branchYear, scale) - c * 2;   // 843 지점에서 갈래가 다 펼쳐지도록 조금 앞에서 갈라진다
-            const mx = yearToX(WEST_LANES.mergeYear, scale);
+            const merge = WEST_LANES.mergeYear;
+            const mx = merge == null ? trackWidth(scale) - 20 : yearToX(merge, scale);
             const lanePath = (off) =>
-              `M ${sx} ${baseY} C ${sx+c} ${baseY}, ${sx+c} ${baseY+off}, ${sx+c*2} ${baseY+off} L ${mx-c*2} ${baseY+off} C ${mx-c} ${baseY+off}, ${mx-c} ${baseY}, ${mx} ${baseY}`;
+              `M ${sx} ${baseY} C ${sx+c} ${baseY}, ${sx+c} ${baseY+off}, ${sx+c*2} ${baseY+off} ` +
+              (merge == null ? `L ${mx} ${baseY+off}`
+                : `L ${mx-c*2} ${baseY+off} C ${mx-c} ${baseY+off}, ${mx-c} ${baseY}, ${mx} ${baseY}`);
             return (
               <svg
                 style={{position:'absolute', left:0, top:0, width:trackWidth(scale), height:totalLanesH, pointerEvents:'none', zIndex:1, overflow:'visible'}}
@@ -25545,7 +25576,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                 </defs>
                 {Object.keys(WEST_LANES.off).map(ln => (
                   <path key={ln} d={lanePath(WEST_LANES.off[ln])}
-                    stroke="url(#west-sub-grad)" strokeWidth="2.5" fill="none" strokeLinecap="round"
+                    stroke="url(#west-sub-grad)" strokeWidth="1.5" fill="none" strokeLinecap="round"
                     filter="url(#tva-glow)" />
                 ))}
                 <g fontFamily="IBM Plex Mono, monospace" fontSize="12" letterSpacing="2" fill="#2fae5e" opacity="0.9">
@@ -25595,7 +25626,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                 {/* 갈래 라인 — 원줄기 lane에서 sub-lane으로 부드럽게 갈라짐 */}
                 <path
                   d={`M ${sx} ${baseY} C ${sx+curveLen} ${baseY}, ${sx+curveLen} ${baseY+offY}, ${sx+curveLen*2} ${baseY+offY} L ${endX-20} ${baseY+offY}`}
-                  stroke={`url(#${gradId})`} strokeWidth="2.5" fill="none" strokeLinecap="round"
+                  stroke={`url(#${gradId})`} strokeWidth="1.5" fill="none" strokeLinecap="round"
                   filter="url(#tva-glow)"
                 />
                 {/* sub-lane 라벨 (갈래점 옆) */}
