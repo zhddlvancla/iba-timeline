@@ -4210,9 +4210,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20261021a"></script>
+<script src="iba-emblem.js?v=20261021b"></script>
 <!-- 연관 기록 대조 — 브라우저 안 의미 검색 (semantic-worker.js · search-index.js) -->
-<script src="semantic-search.js?v=20261021a"></script>
+<script src="semantic-search.js?v=20261021b"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -7527,6 +7527,117 @@ window.TIMELINE_DATA = {
     { id: 'w-m-henry8', track: 'west', year: 1509, label: '헨리 8세', en: 'Henry VIII',
       state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '이혼 문제를 계기로 수장법을 공포하여(1534) 국왕이 영국 교회의 수장임을 선포하였다.' },
+    { id: 'w-dias', track: 'west', year: 1488, label: '바르톨로메우 디아스 희망봉 도착', en: 'Dias Reaches the Cape of Good Hope',
+      state: '포르투갈', theme: '경제', kind: 'event', noSync: true,
+      body: '포르투갈 왕실의 후원을 받은 바르톨로메우 디아스가 아프리카 남단의 희망봉에 도착하여 인도양 입구에 이르렀다(1488). 이로써 아프리카를 돌아 인도로 가는 항로 개척의 길이 열렸다.' },
+    { id: 'w-columbus-wi', track: 'west', year: 1492, label: '콜럼버스 서인도 제도 도착', en: 'Columbus Reaches the West Indies',
+      state: '에스파냐', theme: '경제', kind: 'event', noSync: true,
+      body: '에스파냐 이사벨 여왕의 후원을 받은 콜럼버스가 대서양을 횡단하여 서인도 제도에 도착하였다(1492). 콜럼버스는 이곳을 구세주라는 뜻의 ‘산살바도르’라고 불렀으며, 죽을 때까지 인도로 알았다.' },
+    { id: 'w-england', track: 'west', year: 927, label: '잉글랜드 왕국', en: 'Kingdom of England',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '앵글로·색슨족이 세운 여러 왕국 가운데 웨식스의 애설스탠이 잉글랜드 전역을 통합하면서 성립한 왕국(927). 이후 노르망디 공 윌리엄이 잉글랜드를 정복하고 노르만 왕조를 열었다(1066).' },
+    { id: 'w-m-james1', track: 'west', year: 1603, label: '제임스 1세', en: 'James I',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '엘리자베스 1세의 뒤를 이은 스튜어트 왕조의 왕(1603 즉위). 왕권신수설을 주장하며 의회를 무시하는 등 전제 정치를 강화하였다.' },
+    { id: 'w-petition', track: 'west', year: 1628, label: '권리 청원 제출', en: 'Petition of Right',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '찰스 1세가 의회의 동의 없이 과세하고 청교도를 탄압하자, 의회는 국왕이 세금을 부과하려면 의회의 승인을 받도록 요구하는 권리 청원을 제출하였다(1628).' },
+    { id: 'w-puritan', track: 'west', year: 1642, yearLabel: '1642~1649', label: '청교도 혁명', en: 'English Civil War',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '스코틀랜드와의 전쟁 비용을 마련하려고 소집된 의회가 국왕의 자의적인 세금 징수를 반대하면서 왕당파와 의회파 사이에 내전이 일어났다(1642). 의회파를 이끈 크롬웰이 왕당파 군대를 격파한 뒤 찰스 1세가 처형되고 공화정이 수립되었다(1649).' },
+    { id: 'w-cromwell', track: 'west', year: 1649, label: '크롬웰의 공화정', en: 'Commonwealth under Cromwell',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '찰스 1세를 처형하고 수립된 공화정(1649). 크롬웰은 아일랜드를 원정하고 항해법(1651)을 제정하였으나, 의회를 해산하고 호국경에 올라 청교도 윤리를 앞세운 독재 정치를 펼쳐 지지를 잃었다.' },
+    { id: 'w-bill-of-rights', track: 'west', year: 1689, label: '권리장전 승인', en: 'Bill of Rights',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '명예혁명으로 공동 왕이 된 메리와 윌리엄이 의회가 제정한 권리 장전을 승인하였다(1689). 국왕이 의회의 동의 없이 법의 효력을 정지하거나 세금을 거둘 수 없게 되어, 의회를 중심으로 한 입헌 군주제의 토대가 마련되었다.' },
+    { id: 'w-m-anne', track: 'west', year: 1702, label: '앤 여왕', en: 'Queen Anne',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '메리와 윌리엄의 뒤를 이은 스튜어트 왕조의 마지막 군주(1702 즉위). 앤 여왕 때 잉글랜드가 스코틀랜드를 병합하여 그레이트 브리튼 왕국이 성립하였다.' },
+    { id: 'w-great-britain', track: 'west', year: 1707, label: '그레이트 브리튼 왕국', en: 'Kingdom of Great Britain',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '앤 여왕 때 잉글랜드와 스코틀랜드가 합쳐져 성립한 왕국(1707). 이후 하노버 가의 조지 1세가 즉위하여 하노버 왕조가 열리고 내각 책임제가 시행되었다.' },
+    { id: 'w-nantes-revoked', track: 'west', year: 1685, label: '낭트 칙령 폐지', en: 'Revocation of the Edict of Nantes',
+      state: '프랑스', theme: '종교', kind: 'event', noSync: true, lane: 'fr',
+      body: '루이 14세가 위그노에게 신앙의 자유를 부분적으로 허용한 낭트 칙령을 폐지하였다(1685). 이에 상공업에 종사하던 위그노가 프랑스를 대거 떠나 국내 산업이 침체되었다.' },
+    { id: 'w-estates', track: 'west', year: 1789, month: 5, label: '삼부회 소집', en: 'Estates-General',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '계속된 전쟁과 미국 혁명 지원, 왕실의 사치 등으로 재정이 어려워지자 루이 16세는 오랫동안 열리지 않았던 삼부회를 소집하였다(1789. 5.). 제3 신분은 신분별 표결이 아닌 머릿수 표결을 주장하였다.' },
+    { id: 'w-assembly', track: 'west', year: 1789, month: 6, label: '국민 의회', en: 'National Assembly',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '머릿수 표결 요구가 받아들여지지 않자 제3 신분은 국민 의회를 구성하고, 헌법을 제정하기 전에는 해산하지 않겠다고 서약하였다(테니스코트의 서약, 1789. 6.).' },
+    { id: 'w-bastille', track: 'west', year: 1789, month: 7, label: '바스티유 함락', en: 'Storming of the Bastille',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '국왕이 국민 의회를 탄압하려 하자 파리 시민들이 절대주의의 상징이었던 바스티유 감옥을 습격하였다(1789. 7.). 이어 국민 의회는 봉건제 폐지를 선언하고 인권 선언을 발표하였다.' },
+    { id: 'w-legislative', track: 'west', year: 1791, month: 10, label: '입법 의회', en: 'Legislative Assembly',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '입헌 군주제와 재산에 따른 제한 선거제를 규정한 헌법이 제정된 뒤 국민 의회가 해산되고 입법 의회가 소집되었다(1791).' },
+    { id: 'w-rev-wars', track: 'west', year: 1792, month: 4, label: '혁명 전쟁', en: 'French Revolutionary Wars',
+      state: '프랑스', theme: '군사', kind: 'event', noSync: true, lane: 'fr',
+      body: '프랑스 혁명이 자국에 전파될 것을 우려한 오스트리아와 프로이센 등이 프랑스를 위협하자, 입법 의회는 오스트리아에 선전 포고를 하고 혁명 전쟁을 일으켰다(1792).' },
+    { id: 'w-convention', track: 'west', year: 1792, month: 9, label: '국민 공회', en: 'National Convention',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '혁명과 전쟁으로 물가가 오르고 식량이 부족해지자 파리 민중이 왕궁을 습격하여 왕권이 정지되었고, 입법 의회 대신 국민 공회가 들어섰다(1792). 국민 공회는 공화정을 선포하고 루이 16세를 처형하였다.' },
+    { id: 'w-republic1', track: 'west', year: 1792, month: 9, label: '프랑스 제1공화정', en: 'French First Republic',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '국민 공회가 왕정을 폐지하고 공화정을 선포하면서 성립하였다(1792). 이후 자코뱅파의 로베스피에르가 공포 정치를 주도하였다.' },
+    { id: 'w-thermidor', track: 'west', year: 1794, month: 7, label: '테르미도르 반동', en: 'Thermidorian Reaction',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '로베스피에르의 공포 정치에 대한 반발이 커지면서 온건파가 일으킨 쿠데타(1794). 로베스피에르 등이 실각하였다.' },
+    { id: 'w-directory', track: 'west', year: 1795, month: 10, label: '총재 정부', en: 'Directory',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '테르미도르 반동 이후 5명의 총재가 이끄는 총재 정부가 수립되었다(1795). 그러나 사회 혼란은 계속되었다.' },
+    { id: 'w-brumaire', track: 'west', year: 1799, month: 11, label: '나폴레옹의 쿠데타', en: 'Coup of 18 Brumaire',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '총재 정부 아래 혼란이 계속되자 나폴레옹이 쿠데타를 일으켜 총재 정부를 무너뜨렸다(1799. 11.).' },
+    { id: 'w-consulate', track: 'west', year: 1799, month: 12, label: '통령 정부', en: 'Consulate',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '나폴레옹의 쿠데타로 수립된 정부(1799). 제1 통령이 된 나폴레옹은 대프랑스 동맹을 격파하고 프랑스 은행 설립, 국민 교육 제도 정비, 『나폴레옹 법전』 편찬 등의 개혁을 추진하였다.' },
+    { id: 'w-trafalgar', track: 'west', year: 1805, month: 10, label: '트라팔가르 해전', en: 'Battle of Trafalgar',
+      state: '프랑스', theme: '군사', kind: 'event', noSync: true, lane: 'fr',
+      body: '제3차 대프랑스 동맹이 결성되자 나폴레옹은 영국 침공을 꾀하였으나, 트라팔가르 해전에서 넬슨이 이끄는 영국 해군에 패하였다(1805). 이는 나폴레옹이 영국 침입을 포기하는 결정적인 계기가 되었다.' },
+    { id: 'w-continental', track: 'west', year: 1806, month: 11, label: '대륙 봉쇄령', en: 'Continental System',
+      state: '프랑스', theme: '경제', kind: 'event', noSync: true, lane: 'fr',
+      body: '나폴레옹이 영국을 경제적으로 고립시키기 위해 유럽 대륙과 영국의 교역을 금지한 명령(1806).' },
+    { id: 'w-russia-campaign', track: 'west', year: 1812, month: 6, label: '러시아 원정', en: 'French Invasion of Russia',
+      state: '프랑스', theme: '군사', kind: 'event', noSync: true, lane: 'fr',
+      body: '러시아가 대륙 봉쇄령을 어기고 영국과 교역을 계속하자 나폴레옹은 대군을 이끌고 러시아 원정에 나섰으나, 러시아의 후퇴 전술과 혹독한 추위, 굶주림으로 패배하였다(1812).' },
+    { id: 'w-waterloo', track: 'west', year: 1815, month: 6, label: '워털루 전투', en: 'Battle of Waterloo',
+      state: '프랑스', theme: '군사', kind: 'event', noSync: true, lane: 'fr',
+      body: '엘바섬에 유배되었다가 탈출하여 재기를 노린 나폴레옹이 영국, 프로이센 등의 연합군에 패한 전투(1815). 나폴레옹은 세인트헬레나섬에 유배되어 몰락하였다.' },
+    { id: 'w-prussia', track: 'west', year: 1701, label: '프로이센 왕국', en: 'Kingdom of Prussia',
+      state: '프로이센', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '브란덴부르크 선제후가 왕의 칭호를 얻으면서 성립한 왕국(1701). 이후 프리드리히 2세 때 관료제와 상비군을 갖춘 재정·군사 국가로 성장하였다.' },
+    { id: 'w-m-frederick2', track: 'west', year: 1740, label: '프리드리히 2세', en: 'Frederick the Great',
+      state: '프로이센', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '프로이센의 왕(1740 즉위). 귀족을 끌어들여 관료제와 상비군을 마련하고 재정·군사 국가를 확립하였으며, 오스트리아 왕위 계승 전쟁에 개입하여 슐레지엔을 확보하고 폴란드 분할에 참여하였다. 계몽사상의 영향을 받아 개혁을 추진한 계몽 전제 군주였다.' },
+    { id: 'w-hre-end', track: 'west', year: 1806, month: 8, label: '신성 로마 제국 해체', en: 'Dissolution of the Holy Roman Empire',
+      state: '신성 로마 제국', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '오스트리아와 러시아 등을 격파한 나폴레옹에 의해 신성 로마 제국이 해체되었다(1806).' },
+    { id: 'w-m-peter1', track: 'west', year: 1682, label: '표트르 대제', en: 'Peter the Great',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '러시아의 황제(1682 즉위). 프로이센, 네덜란드, 영국, 오스트리아 등지를 직접 돌아보고 그 제도와 정책을 받아들여 내정 개혁과 군비 확장을 추진하였다. 스웨덴과의 북방 전쟁으로 발트해로 진출하고 상트페테르부르크를 건설하여 수도로 삼았다.' },
+    { id: 'w-m-catherine2', track: 'west', year: 1762, label: '예카테리나 2세', en: 'Catherine the Great',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '18세기 후반 러시아의 황제(1762 즉위). 내정 개혁을 단행하고 유럽과 흑해 방면으로 진출하였으며, 프로이센, 오스트리아와 함께 폴란드 분할에 참여하여 영토를 확장하였다.' },
+    { id: 'w-boston', track: 'west', year: 1773, month: 12, label: '보스턴 차 사건', en: 'Boston Tea Party',
+      state: '미국', theme: '정치', kind: 'event', noSync: true, lane: 'am',
+      body: '영국이 동인도 회사에 차 독점 판매권을 주자, 식민지인들이 보스턴 항구에 정박한 배의 차 상자를 바다에 던져 버린 사건(1773). 영국은 보스턴 항구를 폐쇄하고 자치 선거를 중단시켰다.' },
+    { id: 'w-congress1', track: 'west', year: 1774, month: 9, label: '제1차 대륙 회의', en: 'First Continental Congress',
+      state: '미국', theme: '정치', kind: 'event', noSync: true, lane: 'am',
+      body: '식민지 대표들이 필라델피아에서 대륙 회의를 열어 영국에 대한 대응을 논의하고 영국 상품 불매 운동을 벌였다(1774).' },
+    { id: 'w-congress2', track: 'west', year: 1775, month: 5, label: '제2차 대륙 회의', en: 'Second Continental Congress',
+      state: '미국', theme: '정치', kind: 'event', noSync: true, lane: 'am',
+      body: '렉싱턴과 콩코드에서 무력 충돌이 일어나 독립 전쟁이 시작되자 열린 회의(1775). 조지 워싱턴을 총사령관으로 임명하고 이듬해 독립 선언문을 발표하였다.' },
+    { id: 'w-yorktown', track: 'west', year: 1781, month: 10, label: '요크타운 전투', en: 'Siege of Yorktown',
+      state: '미국', theme: '군사', kind: 'event', noSync: true, lane: 'am',
+      body: '영국에 적대적이던 프랑스, 에스파냐 등의 도움을 받은 식민지군이 영국군을 물리쳐 독립 전쟁의 승기를 굳힌 전투(1781).' },
+    { id: 'w-paris-1783', track: 'west', year: 1783, month: 9, label: '파리 조약', en: 'Treaty of Paris',
+      state: '미국', theme: '외교', kind: 'event', noSync: true, lane: 'am',
+      body: '독립 전쟁을 끝낸 조약(1783). 이 조약으로 영국은 미국의 독립을 인정하였다.' },
+    { id: 'w-usa', track: 'west', year: 1789, month: 4, label: '미합중국 탄생', en: 'Birth of the United States',
+      state: '미국', theme: '정치', kind: 'event', noSync: true, lane: 'am',
+      body: '독립 이후 대외 교역 침체와 물가 폭등 등의 어려움을 겪던 13개 주는 헌법을 제정하고(1787) 연방 정부를 수립하여 조지 워싱턴을 초대 대통령으로 선출하였다(1789). 그 결과 연방주의와 삼권 분립에 바탕을 둔 아메리카 합중국이 탄생하였다.' },
     { id: 'w-crecy', track: 'west', year: 1346, label: '크레시 전투', en: 'Battle of Crécy',
       state: '영국·프랑스', theme: '군사', kind: 'event', noSync: true,
       body: '백년 전쟁 초기에 영국군이 프랑스군을 크게 물리친 전투(1346). 평민 출신의 장궁 부대와 보병 부대를 중심으로 한 영국군이 기사들이 주축을 이룬 프랑스군의 중무장 기병대를 격파하여, 봉건 기사들의 전통적인 전쟁 방식이 더 이상 효과가 없음을 보여 주었다.' },
@@ -7561,10 +7672,10 @@ window.TIMELINE_DATA = {
       state: '라틴 제국', theme: '정치', kind: 'event', noSync: true,
       body: '제4차 십자군이 비잔티움 제국의 수도 콘스탄티노폴리스를 점령하고 세운 나라(1204). 비잔티움 제국은 이후 콘스탄티노폴리스를 되찾았으나(1261) 세력이 크게 약화되었다.' },
     { id: 'w-tsardom', track: 'west', year: 1547, label: '러시아 차르국', en: 'Tsardom of Russia',
-      state: '러시아', theme: '정치', kind: 'event', noSync: true,
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
       body: '모스크바 대공국의 이반 4세가 차르(황제)의 칭호를 공식적으로 사용하면서 성립한 나라(1547). 몽골의 지배에서 벗어난 모스크바 대공국을 이어 중앙 집권을 강화하고 시베리아로 영토를 넓혀 나갔다.' },
     { id: 'w-russian-empire', track: 'west', year: 1721, label: '러시아 제국', en: 'Russian Empire',
-      state: '러시아', theme: '정치', kind: 'event', noSync: true,
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
       body: '서유럽의 제도와 정책을 받아들여 개혁을 추진하고 발트해로 진출한 표트르 대제가 황제(임페라토르)의 칭호를 사용하면서 성립하였다(1721). 상트페테르부르크를 수도로 삼았으며, 예카테리나 2세 때 폴란드 분할에 참여하는 등 영토를 넓혔다.' },
     { id: 'w-m-justinian', track: 'west', year: 527, label: '유스티니아누스 황제', en: 'Justinian I',
       state: '비잔티움 제국', theme: '정치', kind: 'event', noSync: true,
@@ -7621,7 +7732,7 @@ window.TIMELINE_DATA = {
       state: '크리스트교', theme: '종교', kind: 'event', noSync: true,
       body: '셀주크 튀르크의 위협을 받은 비잔티움 황제가 지원을 요청하자, 교황 우르바누스 2세가 프랑스의 클레르몽에서 공의회를 열어 성지 회복을 위한 전쟁을 호소하였다(1095). 이를 계기로 십자군 전쟁이 시작되었다.' },
     { id: 'w-worms', track: 'west', year: 1122, label: '보름스 협약', en: 'Concordat of Worms',
-      state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true,
+      state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true, lane: 'de',
       body: '신성 로마 제국 황제 하인리히 5세와 교황 칼릭스투스 2세가 체결한 협약(1122). 황제가 가진 성직자 서임권을 교황이 차지하였고, 이후 교황권은 13세기 인노켄티우스 3세 때 절정에 이르렀다.' },
     { id: 'w-m-philip2-fr', track: 'west', year: 1180, label: '필리프 2세', en: 'Philip II of France',
       state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
@@ -7720,7 +7831,7 @@ window.TIMELINE_DATA = {
       state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '비스마르크를 해임하고 베를린·비잔티움·바그다드를 잇는 팽창 정책을 펼쳐 영국과 대립하였다.' },
     { id: 'w-m-nicholas2', track: 'west', year: 1894, label: '니콜라이 2세', en: 'Nicholas II',
-      state: '러시아', theme: '정치', kind: 'event', noSync: true,
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
       body: '러시아의 마지막 황제(차르). 피의 일요일 사건(1905) 이후 개혁을 약속하였으나 대부분 지키지 않았고, 1917년 3월 혁명으로 물러났다.' },
     { id: 'e-han-gaozu', track: 'eastasia', year: -202, label: '고조', en: 'Emperor Gaozu',
       state: '한', theme: '정치', kind: 'event', noSync: true, noMarker: true,
@@ -7936,7 +8047,7 @@ window.TIMELINE_DATA = {
       state: '에게 문명', theme: '문화', kind: 'turning',
       body: '에게해 일대의 청동기 문명 — 크레타의 미노아 문명(크노소스 궁전·선형 문자 A)과 그리스 본토의 미케네 문명(사자문·선형 문자 B)을 통칭. 해상 무역으로 번성했으며, 후일 그리스 폴리스 문명의 기반이 되었다.' },
     { id: 'w-america', track: 'west', year: -3000, yearLabel: '3000~2000 BCE 무렵', label: '아메리카 문명', en: 'Mesoamerican Civilizations',
-      state: '아메리카 문명', theme: '문화', kind: 'turning',
+      state: '아메리카 문명', theme: '문화', kind: 'turning', lane: 'am',
       body: '아메리카 대륙의 독자적 고대 문명 — 마야(BCE 3000~2000년 무렵 형성 추정, 0의 개념·20진법·천문학), 멕시코만 일대의 올멕(BCE 1500년 무렵 형성 추정), 후일 아스테카·잉카까지 이어진다. 옥수수 농경 기반 도시 문명.' },
     { id: 'w-greek-culture', track: 'west', year: -1000, yearLabel: '10세기 BCE 무렵', label: '그리스 문화', en: 'Greek Culture',
       state: '그리스', theme: '문화', kind: 'turning', hideYear: true,
@@ -8027,7 +8138,7 @@ window.TIMELINE_DATA = {
       state: '크리스트교', theme: '종교', kind: 'turning',
       body: '성상 숭배 논쟁 등으로 대립하던 크리스트교가 1054년 로마 교황을 중심으로 한 로마 가톨릭교회와 비잔티움 황제가 통제하는 그리스 정교회로 분열되었다.' },
     { id: 'w-canossa', track: 'west', year: 1077, label: '카노사의 굴욕', en: 'Walk to Canossa',
-      state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true,
+      state: '신성 로마 제국', theme: '종교', kind: 'event', noSync: true, lane: 'de',
       body: '교황 그레고리우스 7세가 성직자 서임권을 둘러싸고 신성 로마 제국 황제 하인리히 4세와 대립하였다. 파문당한 황제는 카노사에서 교황에게 용서를 구하였다. 이후 보름스 협약(1122)으로 교황이 서임권을 차지하였다.' },
     { id: 'w-crusade', track: 'west', year: 1096, label: '십자군 전쟁', en: 'Crusades',
       state: '크리스트교', theme: '군사', kind: 'turning',
@@ -8048,7 +8159,7 @@ window.TIMELINE_DATA = {
       state: '크리스트교', theme: '종교', kind: 'turning',
       body: '십자군 전쟁 실패 이후 교황의 권위가 약해졌다. 프랑스 왕 필리프 4세와의 대립 끝에 교황청이 아비뇽으로 옮겨졌고(1309~1377), 이어 교회의 대분열(1378~1417)이 일어나 교황권은 더욱 추락하였다.' },
     { id: 'w-avignon', track: 'west', year: 1309, label: '아비뇽 유수', en: 'Avignon Papacy',
-      state: '크리스트교', theme: '종교', kind: 'event', noSync: true,
+      state: '크리스트교', theme: '종교', kind: 'event', noSync: true, lane: 'fr',
       body: '프랑스 왕 필리프 4세와 교황 보니파키우스 8세가 대립한 끝에 교황청이 1309년부터 1377년까지 프랑스 아비뇽으로 옮겨져 프랑스 왕의 영향력 아래 놓였다.' },
     { id: 'w-hundred', track: 'west', year: 1337, label: '백년 전쟁', en: 'Hundred Years\' War',
       state: '영국·프랑스', theme: '군사', kind: 'turning',
@@ -8062,20 +8173,35 @@ window.TIMELINE_DATA = {
     { id: 'w-columbus', track: 'west', year: 1492, label: '신항로 개척', en: 'Age of Exploration',
       state: '에스파냐', theme: '경제', kind: 'turning',
       body: '에스파냐의 후원을 받은 콜럼버스가 1492년 아메리카 대륙의 서인도 제도에 도착하였다. 이후 유럽인들이 아메리카와 아시아로 가는 새로운 바닷길을 열면서 세계적인 교역망이 형성되었다.' },
-    { id: 'w-gama', track: 'west', year: 1498, label: '바스쿠 다 가마 인도 도착', en: 'Vasco da Gama',
-      state: '포르투갈', theme: '경제', kind: 'turning',
+    { id: 'w-aztec-civ', track: 'west', year: 1325, yearLabel: '14세기', label: '아스테카 문명', en: 'Aztec Civilization',
+      state: '아메리카', theme: '문화', kind: 'turning', lane: 'am',
+      body: '멕시코고원에서 발달한 문명. 수도 테노치티틀란은 인구 30만 명이 넘는 계획도시였으며, 신권 정치를 행하고 피라미드 신전을 만들어 태양신에게 제사를 올렸다. 에스파냐의 코르테스에게 정복되었다(1521).' },
+    { id: 'w-inca-civ', track: 'west', year: 1438, yearLabel: '15세기', label: '잉카 문명', en: 'Inca Civilization',
+      state: '아메리카', theme: '문화', kind: 'turning', lane: 'am',
+      body: '안데스고원에서 발달한 문명. 계단식 밭과 관개 수로로 농업을 발전시키고, 뛰어난 건축 기술로 도로망을 건설하였으며 키푸(매듭 문자)를 사용하였다. 에스파냐의 피사로에게 정복되었다(1533).' },
+    { id: 'w-english-rev', track: 'west', year: 1642, yearLabel: '1642~1689', label: '영국 혁명', en: 'English Revolution',
+      state: '영국', theme: '정치', kind: 'turning', lane: 'en',
+      body: '17세기 영국에서 국왕의 전제 정치에 맞서 의회가 일으킨 청교도 혁명(1642~1649)과 명예혁명(1688)을 아우른다. 권리 장전(1689)의 승인으로 의회를 중심으로 한 입헌 군주제의 토대가 마련되었다.' },
+    { id: 'w-american-rev', track: 'west', year: 1775, month: 4, yearLabel: '1775~1783', label: '미국 혁명', en: 'American Revolution',
+      state: '미국', theme: '정치', kind: 'turning', lane: 'am',
+      body: '영국의 과세에 반발한 북아메리카 13개 식민지가 독립 전쟁을 거쳐 독립을 이루고 연방 국가를 세운 혁명(1775~1783). 주권이 국민에게 있음을 보여 준 국민 국가 건설 운동이었다.' },
+    { id: 'w-napoleonic', track: 'west', year: 1799, yearLabel: '1799~1815', label: '나폴레옹 시대', en: 'Napoleonic Era',
+      state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
+      body: '쿠데타로 권력을 잡은 나폴레옹이 통령 정부와 제1제정을 거쳐 유럽 대부분을 장악하였다가 러시아 원정 실패와 워털루 전투 패배로 몰락하기까지의 시기(1799~1815). 나폴레옹 전쟁은 유럽 각지에 자유주의와 민족주의를 퍼뜨렸다.' },
+    { id: 'w-gama', track: 'west', year: 1498, label: '바스쿠 다가마 인도 항로 개척', en: 'Vasco da Gama',
+      state: '포르투갈', theme: '경제', kind: 'event', noSync: true,
       body: '포르투갈의 바스쿠 다 가마가 아프리카 남쪽 끝을 돌아 인도 캘리컷에 도착하여 인도 항로를 열었다.' },
     { id: 'w-luther', track: 'west', year: 1517, label: '종교 개혁', en: 'Reformation',
       state: '크리스트교', theme: '종교', kind: 'turning',
       body: '교황이 면벌부를 판매하자 루터가 1517년 「95개조 반박문」을 발표하였다. 아우크스부르크 화의(1555)로 루터파가 공인되었고, 칼뱅의 개혁과 영국 헨리 8세의 수장법(1534) 등으로 확산되었다.' },
-    { id: 'w-magellan', track: 'west', year: 1519, label: '마젤란 세계 일주', en: 'Magellan Expedition',
-      state: '에스파냐', theme: '경제', kind: 'turning',
-      body: '마젤란 일행이 1519년부터 1522년까지 처음으로 세계 일주 항해를 하였다.' },
+    { id: 'w-magellan', track: 'west', year: 1522, label: '마젤란 함대 세계 일주 성공', en: 'Magellan Expedition',
+      state: '에스파냐', theme: '경제', kind: 'event', noSync: true,
+      body: '에스파냐 국왕의 지원을 받은 마젤란 일행은 1519년 출발하여 남아메리카 남단의 해협을 지나 태평양을 건넜다. 마젤란은 필리핀에서 죽었으나 일행은 1522년 에스파냐로 돌아와 최초의 세계 일주에 성공하였다.' },
     { id: 'w-aztec', track: 'west', year: 1521, label: '아스테카 제국 멸망', en: 'Fall of the Aztec Empire',
-      state: '아메리카', theme: '정치', kind: 'turning',
+      state: '아메리카', theme: '정치', kind: 'turning', lane: 'am',
       body: '에스파냐의 코르테스가 화포로 무장한 병력을 이끌고 아스테카 제국을 정복하였다.' },
     { id: 'w-inca', track: 'west', year: 1533, label: '잉카 제국 멸망', en: 'Fall of the Inca Empire',
-      state: '아메리카', theme: '정치', kind: 'turning',
+      state: '아메리카', theme: '정치', kind: 'turning', lane: 'am',
       body: '에스파냐의 피사로가 잉카 제국을 정복하였다. 이후 아메리카 문명은 철저히 파괴되었다.' },
     { id: 'w-armada', track: 'west', year: 1588, label: '무적함대 격파', en: 'Defeat of the Armada',
       state: '영국', theme: '군사', kind: 'turning', lane: 'en',
@@ -8087,22 +8213,22 @@ window.TIMELINE_DATA = {
       state: '신성 로마 제국', theme: '외교', kind: 'turning', lane: 'de',
       body: '종교 문제로 1618년 시작된 30년 전쟁을 끝낸 조약. 네덜란드의 독립이 승인되고 칼뱅파가 인정되었다.' },
     { id: 'w-glorious', track: 'west', year: 1688, label: '명예혁명', en: 'Glorious Revolution',
-      state: '영국', theme: '정치', kind: 'turning', lane: 'en',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '의회가 제임스 2세의 전제 정치에 맞서 그의 딸 메리와 남편 윌리엄을 공동 왕으로 추대하였다. 유혈 사태 없이 이루어져 명예혁명이라 한다. 이듬해 의회가 제출한 권리 장전을 왕이 승인하였다.' },
     { id: 'w-industrial', track: 'west', year: 1770, yearLabel: '18세기 후반', label: '산업 혁명', en: 'Industrial Revolution',
       state: '영국', theme: '경제', kind: 'turning', lane: 'en',
       body: '18세기 후반 영국에서 기계 발명과 동력 혁명으로 생산 방식이 크게 바뀌었다. 공장제 기계 공업이 발달하고 증기 기관차 등 교통이 혁신되었으며, 도시와 노동자 계층이 성장하였다.' },
-    { id: 'w-us-indep', track: 'west', year: 1776, label: '미국 독립 선언', en: 'Declaration of Independence',
-      state: '미국', theme: '정치', kind: 'turning',
+    { id: 'w-us-indep', track: 'west', year: 1776, month: 7, label: '독립 선언문 발표', en: 'Declaration of Independence',
+      state: '미국', theme: '정치', kind: 'event', noSync: true, lane: 'am',
       body: '영국의 과세에 반발한 13개 식민지는 보스턴 차 사건(1773)과 대륙 회의(1774)를 거쳐 1776년 독립 선언문을 발표하였다. 독립 전쟁에서 승리하여 파리 조약(1783)으로 독립을 인정받았다.' },
     { id: 'w-french-rev', track: 'west', year: 1789, label: '프랑스 혁명', en: 'French Revolution',
       state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
       body: '1789년 제3 신분 대표들이 국민 의회를 세우면서 혁명이 시작되었다. 이후 입법 의회(1791), 국민 공회(1792), 총재 정부(1795)를 거쳐 1799년 나폴레옹의 통령 정부가 수립되었다.' },
-    { id: 'w-napoleon', track: 'west', year: 1804, label: '나폴레옹 황제 즉위', en: 'Napoleon Crowned Emperor',
-      state: '프랑스', theme: '정치', kind: 'turning', lane: 'fr',
-      body: '국민의 지지를 얻은 나폴레옹이 국민 투표로 황제에 즉위하였다(제1 제정). 유럽 대부분을 장악하고 대륙 봉쇄령을 내렸으나 러시아 원정에 실패한 뒤 몰락하였다.' },
+    { id: 'w-napoleon', track: 'west', year: 1804, month: 12, label: '제1제정', en: 'Napoleon Crowned Emperor',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '국민의 지지를 얻은 나폴레옹이 국민 투표로 황제에 즉위하였다(제1제정, 1804). 유럽 대부분을 장악하고 대륙 봉쇄령을 내렸으나 러시아 원정에 실패한 뒤 몰락하였다.' },
     { id: 'w-haiti', track: 'west', year: 1804, label: '아이티 독립', en: 'Haitian Independence',
-      state: '라틴 아메리카', theme: '정치', kind: 'turning',
+      state: '라틴 아메리카', theme: '정치', kind: 'turning', lane: 'am',
       body: '생도맹그라고 불리던 섬의 주민들이 독립하여 라틴 아메리카 최초의 독립 국가 아이티를 세웠다. 이후 볼리바르와 산마르틴 등의 활약으로 라틴 아메리카 각국이 독립하였다.' },
     { id: 'w-vienna', track: 'west', year: 1814, label: '빈 회의', en: 'Congress of Vienna',
       state: '유럽', theme: '외교', kind: 'turning',
@@ -8117,7 +8243,7 @@ window.TIMELINE_DATA = {
       state: '이탈리아', theme: '정치', kind: 'turning', lane: 'it',
       body: '사르데냐 왕국을 중심으로 통일 운동이 전개되었다. 가리발디가 남부의 시칠리아와 나폴리를 점령하여 사르데냐 왕국에 바치면서 1861년 이탈리아 왕국이 수립되었다. 이후 베네치아를 병합하고 교황령을 점령하여 통일을 완성하였다.' },
     { id: 'w-civilwar', track: 'west', year: 1861, label: '남북 전쟁', en: 'American Civil War',
-      state: '미국', theme: '정치', kind: 'turning',
+      state: '미국', theme: '정치', kind: 'turning', lane: 'am',
       body: '노예제를 둘러싸고 남부와 북부가 대립하다 일어난 전쟁. 링컨이 노예 해방 선언(1863)을 발표하였고 북부가 승리하였다.' },
     { id: 'w-germany', track: 'west', year: 1871, label: '독일 제국', en: 'German Empire',
       state: '독일', theme: '정치', kind: 'turning', lane: 'de',
@@ -8126,13 +8252,13 @@ window.TIMELINE_DATA = {
       state: '유럽', theme: '군사', kind: 'turning',
       body: '사라예보 사건을 계기로 1914년 시작된 전쟁. 동맹국과 협상국이 총력전을 벌였으며, 1918년 독일이 항복하였다.' },
     { id: 'w-russia', track: 'west', year: 1917, label: '러시아 혁명', en: 'Russian Revolution',
-      state: '러시아', theme: '정치', kind: 'turning',
+      state: '러시아', theme: '정치', kind: 'turning', lane: 'ru',
       body: '전쟁으로 고통받던 러시아에서 혁명이 일어나 황제가 물러났다. 이어 레닌이 이끄는 볼셰비키가 정권을 잡고 사회주의 정부를 세웠다. 레닌은 민족 자결의 원칙을 내세워 식민지 민족 해방 운동을 지원하겠다고 약속하였다.' },
     { id: 'w-paris', track: 'west', year: 1919, label: '파리 강화 회의', en: 'Paris Peace Conference',
       state: '유럽', theme: '외교', kind: 'turning',
       body: '제1차 세계 대전의 전후 처리를 위해 열린 회의(1919~1920). 미국 대통령 윌슨이 민족 자결주의를 담은 14개조 평화 원칙을 제시하였다. 1920년 국제 연맹이 창설되었다.' },
     { id: 'w-depression', track: 'west', year: 1929, label: '대공황', en: 'Great Depression',
-      state: '미국', theme: '경제', kind: 'turning',
+      state: '미국', theme: '경제', kind: 'turning', lane: 'am',
       body: '1929년 미국에서 시작된 경제 대공황이 전 세계로 확산되었다. 미국은 뉴딜 정책을 펼쳤고, 영국과 프랑스는 블록 경제를 형성하였다. 독일·이탈리아·일본에서는 전체주의가 대두하였다.' },
     { id: 'w-ww2', track: 'west', year: 1939, label: '제2차 세계 대전', en: 'World War II',
       state: '유럽', theme: '군사', kind: 'turning',
@@ -8179,16 +8305,16 @@ window.TIMELINE_DATA = {
       state: '독일', theme: '정치', kind: 'turning', lane: 'de',
       body: '베를린 장벽 붕괴 이듬해 동독과 서독이 통일하였다.' },
     { id: 'w-ussr', track: 'west', year: 1991, label: '소련 해체', en: 'Dissolution of the Soviet Union',
-      state: '러시아', theme: '정치', kind: 'turning',
+      state: '러시아', theme: '정치', kind: 'turning', lane: 'ru',
       body: '고르바초프의 개혁·개방 이후 소련이 해체되고 독립 국가 연합(CIS)이 출범하였다.' },
     { id: 'w-eu', track: 'west', year: 1993, label: '유럽 연합', en: 'European Union',
       state: '유럽', theme: '경제', kind: 'turning',
       body: '마스트리흐트 조약으로 1993년 12개국이 참여한 유럽 연합(EU)이 창설되었다.' },
     { id: 'w-911', track: 'west', year: 2001, label: '9·11 테러', en: 'September 11 Attacks',
-      state: '미국', theme: '사회', kind: 'turning',
+      state: '미국', theme: '사회', kind: 'turning', lane: 'am',
       body: '2001년 미국에서 9·11 테러가 일어났다.' },
     { id: 'w-ukraine', track: 'west', year: 2022, label: '러시아의 우크라이나 공격', en: 'Russian Invasion of Ukraine',
-      state: '러시아', theme: '군사', kind: 'turning',
+      state: '러시아', theme: '군사', kind: 'turning', lane: 'ru',
       body: '2022년 러시아가 우크라이나를 공격하였다.' },
 
     // ============================================================
@@ -15867,22 +15993,76 @@ window.TIMELINE_DB = {
     artifacts: [],
     linked: ['w-crusade', 'w-columbus', 'w-roses', 'w-monarchy']
   },
+  'w-aztec-civ': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '아스테카 문명 — 유럽인이 들어오기 전 아메리카 대륙에서는 아스테카 문명과 잉카 문명이 번영하였다. 멕시코고원에서는 아스테카 문명이 발달하였다. 수도 테노치티틀란(오늘날 멕시코시티)은 인구 30만 명이 넘는 계획도시였다. 아스테카인들은 신권 정치를 행하였으며, 피라미드 신전을 만들어 태양신에게 제사를 올렸다. 또한 그림 문자를 제작하였고 태양석과 같은 달력을 사용하였는데, 태양석 가운데에 태양신이 새겨져 있어 아스테카인들이 태양신을 숭배하였음을 알 수 있다. 그러나 신항로 개척 이후 에스파냐의 코르테스가 총포와 말로 무장한 소규모 부대를 이끌고 아스테카 문명을 무너뜨렸다(1521). 이후 아메리카 원주민은 노동력 착취와 유럽에서 전파된 천연두, 홍역 등의 전염병으로 그 수가 크게 감소하였다.',
+      terms: [
+        { label: '테노치티틀란', def: '아스테카 문명의 수도. 오늘날의 멕시코시티로, 인구 30만 명이 넘는 계획도시였다.' },
+        { label: '신권 정치', def: '신의 뜻을 대신한다는 지배자가 종교적 권위를 바탕으로 다스리는 정치.' },
+        { label: '태양석', def: '아스테카인들이 사용한 달력. 가운데에 태양신이 새겨져 있다.' },
+        { label: '코르테스', def: '아스테카 문명을 무너뜨린 에스파냐의 정복자.' }
+      ],
+      timeline: [
+        { yl: '14세기', label: '◆ 멕시코고원에서 아스테카 문명 번영 — 수도 테노치티틀란' },
+        { y: 1492, label: '콜럼버스, 서인도 제도 도착' },
+        { y: 1521, label: '코르테스, 아스테카 정복' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/아메리카/spanish-conquest-americas-map.webp',
+        caption: '아메리카 여러 문명의 중심지와 에스파냐의 침입로',
+        ref: '아스테카(테노치티틀란)·마야(치첸이트사)·잉카(쿠스코·마추픽추) · 16세기 에스파냐인의 침입로와 식민지 경계 · 포토시 은광' }
+    ],
+    linked: ['w-america', 'w-aztec', 'w-columbus', 'w-inca-civ']
+  },
+  'w-inca-civ': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '잉카 문명 — 안데스고원에서는 잉카 문명이 발달하였다. 잉카인들은 안데스산맥 비탈에 계단식 밭을 만들고 관개 수로를 이용하여 농업을 발전시켰다. 뛰어난 건축 기술을 바탕으로 도로망을 건설하고 수도인 쿠스코에는 태양신을 섬기는 신전을 세웠으며, 거대한 돌을 정교하게 쌓아 만든 성벽과 계단식 밭은 잉카인들의 뛰어난 석조 기술을 보여 준다. 또한 정보를 전달하는 수단으로 매듭의 수나 모양으로 숫자와 문자를 나타낸 키푸를 사용하였는데, 키푸는 숫자를 표기하는 것 외에도 시간, 역사, 달력, 종교, 천문학, 통계 등 다양한 분야에서 활용되었다. 그러나 신항로 개척 이후 에스파냐의 피사로는 내전으로 쇠퇴한 잉카 제국을 정복하였다(1533). 그는 음모를 꾸며 황제를 사로잡고 몸값으로 황금을 요구하였는데, 황금을 받은 후 황제를 처형하였다.',
+      terms: [
+        { label: '쿠스코', def: '잉카 문명의 수도. 태양신을 섬기는 신전이 세워졌다.' },
+        { label: '키푸', def: '잉카 제국에서 사용된 매듭 문자 체계. 끈의 색상, 길이, 매듭으로 정보를 기록하였다.' },
+        { label: '마추픽추', def: '안데스산맥에 남아 있는 잉카 문명의 유적.' },
+        { label: '피사로', def: '잉카 제국을 정복한 에스파냐의 정복자.' }
+      ],
+      timeline: [
+        { yl: '15세기', label: '◆ 안데스고원에서 잉카 문명 번영' },
+        { y: 1533, label: '피사로, 잉카 제국 정복' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/아메리카/spanish-conquest-americas-map.webp',
+        caption: '아메리카 여러 문명의 중심지와 에스파냐의 침입로',
+        ref: '아스테카(테노치티틀란)·마야(치첸이트사)·잉카(쿠스코·마추픽추) · 16세기 에스파냐인의 침입로와 식민지 경계 · 포토시 은광' }
+    ],
+    linked: ['w-america', 'w-inca', 'w-aztec-civ']
+  },
   'w-columbus': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
     overview: {
-      summary: '신항로 개척 — 『동방견문록』 등으로 동방에 대한 관심이 커지고 향신료 수요가 늘어났으나, 오스만 제국이 지중해 동부의 교역로를 장악하였다. 나침반과 항해술이 발달하면서 포르투갈과 에스파냐가 새 항로 개척에 나섰다. 에스파냐의 후원을 받은 콜럼버스가 1492년 서인도 제도에 도착하였고, 바스쿠 다 가마(1498)와 마젤란 일행(1519~1522)의 항해가 이어졌다. 이후 유럽·아메리카·아프리카·아시아를 잇는 세계적 교역망이 형성되었다. 십자군 전쟁 이후 유럽에서는 향신료, 비단 등 아시아 상품의 수요가 커졌다. 대표적인 향신료인 후추는 금, 은과 맞먹는 가치로 거래될 만큼 귀하였다. 마르코 폴로의 『동방견문록』 등으로 동양에 대한 호기심이 커지는 가운데 오스만 제국이 동서 교역의 주도권을 장악하자, 유럽인은 동양과 직접 교역하려 하였다. 조선술과 항해술, 항해 지도의 발전과 나침반·육분의의 사용을 토대로 지중해 교역에서 소외되어 있던 포르투갈과 에스파냐가 신항로 개척을 선도하였다. 포르투갈의 바르톨로메우 디아스는 아프리카 남단의 희망봉에 도착하였고(1488), 에스파냐 이사벨 여왕의 후원을 받은 콜럼버스는 대서양을 횡단하여 서인도 제도에 도착하였다. 콜럼버스는 이곳을 구세주라는 뜻의 ‘산살바도르’라고 불렀으며, 죽을 때까지 인도로 알았다. 이후 유럽의 경제 중심지가 지중해에서 대서양으로 옮겨 갔다.',
+      summary: '신항로 개척 — 『동방견문록』 등으로 동방에 대한 관심이 커지고 향신료 수요가 늘어났으나, 오스만 제국이 지중해 동부의 교역로를 장악하였다. 나침반과 항해술이 발달하면서 포르투갈과 에스파냐가 새 항로 개척에 나섰다. 에스파냐의 후원을 받은 콜럼버스가 1492년 서인도 제도에 도착하였고, 바스쿠 다 가마(1498)와 마젤란 일행(1519~1522)의 항해가 이어졌다. 이후 유럽·아메리카·아프리카·아시아를 잇는 세계적 교역망이 형성되었다. 십자군 전쟁 이후 유럽에서는 향신료, 비단 등 아시아 상품의 수요가 커졌다. 대표적인 향신료인 후추는 금, 은과 맞먹는 가치로 거래될 만큼 귀하였다. 마르코 폴로의 『동방견문록』 등으로 동양에 대한 호기심이 커지는 가운데 오스만 제국이 동서 교역의 주도권을 장악하자, 유럽인은 동양과 직접 교역하려 하였다. 조선술과 항해술, 항해 지도의 발전과 나침반·육분의의 사용을 토대로 지중해 교역에서 소외되어 있던 포르투갈과 에스파냐가 신항로 개척을 선도하였다. 포르투갈의 바르톨로메우 디아스는 아프리카 남단의 희망봉에 도착하였고(1488), 에스파냐 이사벨 여왕의 후원을 받은 콜럼버스는 대서양을 횡단하여 서인도 제도에 도착하였다. 콜럼버스는 이곳을 구세주라는 뜻의 ‘산살바도르’라고 불렀으며, 죽을 때까지 인도로 알았다. 포르투갈의 바스쿠 다 가마는 희망봉을 돌아 동아프리카 해안을 따라 항해한 끝에 인도 서해안의 캘리컷에 도착하여 인도 항로를 열었고(1498), 포르투갈은 이후 인도 고아와 믈라카(1511)를 점령하고 향신료 무역을 장악하였다. 에스파냐 국왕의 지원을 받은 마젤란 일행은 1519년 출발하여 남아메리카 남단의 해협(마젤란 해협)을 지나 태평양을 횡단하였고, 마젤란은 필리핀에서 원주민에게 살해되었으나 그의 일행은 1522년 에스파냐로 돌아와 최초의 세계 일주에 성공하였다. 이 항해로 지구가 둥글다는 지구 구형설이 입증되었다. 이후 유럽의 경제 중심지가 지중해에서 대서양으로 옮겨 갔다.',
       terms: [
         { label: '신항로 개척', def: '15~16세기 유럽인이 아메리카와 아시아로 가는 바닷길을 연 일.' },
         { label: '향신료', def: '후추 등 음식의 풍미를 높이는 동방의 물품.' },
         { label: '바르톨로메우 디아스', def: '포르투갈 국왕의 명으로 아프리카 남단의 희망봉에 도착한 탐험가(1488).' },
+        { label: '캘리컷', def: '인도 서남부의 항구. 바스쿠 다 가마가 도착한 곳.' },
+        { label: '믈라카', def: '동남아시아 해상 교역의 요충지. 1511년 포르투갈이 점령하였다.' },
+        { label: '지구 구형설', def: '지구가 둥글다는 학설. 마젤란 일행의 세계 일주로 입증되었다.' },
         { label: '카라벨선', def: '삼각 돛을 달아 바람을 거슬러 항해하기에 유리하였던 포르투갈의 작고 빠른 배.' }
       ],
       timeline: [
         { y: 1488, label: '바르톨로메우 디아스, 희망봉 도착' },
         { y: 1492, label: '◆ 콜럼버스, 서인도 제도 도착' },
         { y: 1498, label: '바스쿠 다 가마, 인도 도착' },
+        { y: 1511, label: '포르투갈, 믈라카 점령' },
         { y: 1519, label: '마젤란 일행 세계 일주 출발' },
+        { y: 1522, label: '마젤란 일행, 세계 일주 성공' },
         { y: 1521, label: '아스테카 제국 멸망' }
       ]
     },
@@ -15896,36 +16076,7 @@ window.TIMELINE_DB = {
         caption: '신항로 개척',
         ref: '디아스(1488, 희망봉) · 콜럼버스(1492, 서인도 제도) · 바스쿠 다 가마(1498, 인도 항로) · 아메리고 베스푸치(1502) · 마젤란 일행(1519~1522, 세계 일주) · 포르투갈과 에스파냐의 식민지' }
     ],
-    linked: ['w-gama', 'w-magellan', 'w-aztec', 'w-inca', 'e-ming']
-  },
-  'w-gama': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '바스쿠 다 가마 인도 도착 — 포르투갈은 아프리카 서해안을 따라 남쪽으로 항로를 개척하였다. 바스쿠 다 가마는 아프리카 남쪽 끝을 돌아 1498년 인도 캘리컷에 도착하여 인도 항로를 열었다. 포르투갈은 이후 인도 고아와 믈라카(1511)를 점령하고 향신료 무역을 장악하였다. 포르투갈은 지리적으로 아프리카와 대서양을 유럽과 연결하고 있었고, 이슬람 세계와의 교류로 해양 과학과 항해 기술이 축적되어 있었다. 이에 포르투갈 왕실은 서아프리카 해안을 돌아 인도에 도착하는 항로를 개척하고자 탐험을 적극 후원하였다. 바르톨로메우 디아스가 희망봉에 도착하여 인도양 입구에 이른 뒤, 바스쿠 다 가마는 포르투갈 국왕의 명령으로 4척의 배에 170여 명을 태우고 탐험에 나서 희망봉을 돌아 동아프리카 해안을 따라 항해한 끝에 인도 서해안의 캘리컷에 도착하였다. 계피, 정향, 육두구, 후추 등 향신료는 고기의 맛을 좋게 하고 부패를 막아 주어 유럽인에게 인기가 많았다.',
-      terms: [
-        { label: '캘리컷', def: '인도 서남부의 항구. 바스쿠 다 가마가 도착한 곳.' },
-        { label: '믈라카', def: '동남아시아 해상 교역의 요충지. 1511년 포르투갈이 점령하였다.' },
-        { label: '희망봉', def: '아프리카 남단의 곶. 바르톨로메우 디아스가 도착하고 바스쿠 다 가마가 돌아 인도로 향하였다.' }
-      ],
-      timeline: [
-        { y: 1488, label: '바르톨로메우 디아스, 희망봉 도착' },
-        { y: 1492, label: '콜럼버스, 서인도 제도 도착' },
-        { y: 1498, label: '◆ 바스쿠 다 가마, 캘리컷 도착' },
-        { y: 1511, label: '포르투갈, 믈라카 점령' }
-      ]
-    },
-    sources: [
-      { kind: '탐구 자료', title: '신항로 개척 전의 교역',
-        src: 'assets/w1/근세/유럽·미주/신항로 개척/pre-discovery-trade-chart.webp',
-        citation: '· 아시아의 향신료가 인도양과 지중해를 거쳐 오스만 제국을 통해 유럽으로 들어왔고, 유럽은 그 대가로 은을 지급하였다' }
-    ],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/신항로 개척/new-sea-routes-map.webp', span: true,
-        caption: '신항로 개척',
-        ref: '디아스(1488, 희망봉) · 콜럼버스(1492, 서인도 제도) · 바스쿠 다 가마(1498, 인도 항로) · 아메리고 베스푸치(1502) · 마젤란 일행(1519~1522, 세계 일주) · 포르투갈과 에스파냐의 식민지' }
-    ],
-    linked: ['w-columbus', 'w-magellan', 's-mughal']
+    linked: ['w-aztec', 'w-inca', 'e-ming']
   },
   'w-luther': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15968,30 +16119,6 @@ window.TIMELINE_DB = {
         ref: '르네상스 양식으로 다시 지은 바티칸의 성 베드로 대성당. 교황 레오 10세는 그 건축 비용을 마련하려 면벌부를 판매하였다.' }
     ],
     linked: ['w-crusade', 'w-westphalia', 'w-armada']
-  },
-  'w-magellan': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '마젤란 세계 일주 — 에스파냐의 지원을 받은 마젤란 일행은 1519년 출발하여 남아메리카 남단을 돌아 태평양을 건넜다. 마젤란은 필리핀에서 죽었으나 일행은 1522년 돌아와 처음으로 세계 일주를 달성하였다. 에스파냐는 이후 필리핀 마닐라를 점령하였고(1571), 아메리카의 은이 마닐라를 거쳐 아시아로 흘러들었다. 마젤란은 에스파냐 국왕의 지원으로 5척의 배를 이끌고 출발하여 대서양을 건너고, 남아메리카 남단의 해협(마젤란 해협)을 지나 태평양을 횡단하였다. 마젤란은 필리핀에서 원주민에게 살해되었으나, 그의 일행은 인도양을 거쳐 에스파냐로 돌아와 최초의 세계 일주에 성공하였다. 이 항해로 지구가 둥글다는 지구 구형설이 입증되었다.',
-      terms: [
-        { label: '갈레온 무역', def: '에스파냐가 대형 범선으로 아메리카와 아시아(마닐라)를 잇던 무역.' },
-        { label: '지구 구형설', def: '지구가 둥글다는 학설. 마젤란 일행의 세계 일주로 입증되었다.' },
-        { label: '마젤란 해협', def: '남아메리카 남단의 해협. 마젤란 일행이 이곳을 지나 태평양으로 나아갔다.' }
-      ],
-      timeline: [
-        { y: 1519, label: '◆ 마젤란 일행 출발' },
-        { y: 1522, label: '세계 일주 달성' },
-        { y: 1571, label: '에스파냐, 마닐라 점령' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근세/유럽·미주/신항로 개척/new-sea-routes-map.webp', span: true,
-        caption: '신항로 개척',
-        ref: '디아스(1488, 희망봉) · 콜럼버스(1492, 서인도 제도) · 바스쿠 다 가마(1498, 인도 항로) · 아메리고 베스푸치(1502) · 마젤란 일행(1519~1522, 세계 일주) · 포르투갈과 에스파냐의 식민지' }
-    ],
-    linked: ['w-columbus', 'w-gama', 'w-inca']
   },
   'w-aztec': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16079,7 +16206,7 @@ window.TIMELINE_DB = {
         caption: '절대 왕정의 구조',
         ref: '왕권신수설과 중상주의를 바탕으로 관료제·상비군을 갖춘 절대 군주 · 봉건 귀족과 대상인(시민)의 세력 균형 위에 선 체제' }
     ],
-    linked: ['s-ottoman', 'w-luther', 'w-glorious']
+    linked: ['s-ottoman', 'w-luther', 'w-english-rev']
   },
   'w-louis14': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16120,7 +16247,7 @@ window.TIMELINE_DB = {
         caption: '상수시 궁전',
         ref: '프로이센의 프리드리히 2세가 포츠담에 세운 로코코 양식의 궁전.' }
     ],
-    linked: ['w-westphalia', 'w-glorious', 'w-french-rev']
+    linked: ['w-westphalia', 'w-english-rev', 'w-french-rev']
   },
   'w-westphalia': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16144,14 +16271,15 @@ window.TIMELINE_DB = {
     artifacts: [],
     linked: ['w-luther', 'w-louis14']
   },
-  'w-glorious': {
+  'w-english-rev': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
     overview: {
-      summary: '명예혁명 — 17세기 영국에서 국왕이 의회를 무시하고 전제 정치를 펼치자 의회는 권리 청원(1628)을 제출하였다. 청교도 혁명(1642~1649)으로 공화정이 수립되었으나 크롬웰의 독재 이후 왕정이 복고되었다. 제임스 2세가 다시 전제 정치를 펴자 의회는 1688년 그의 딸 메리와 남편 윌리엄을 공동 왕으로 추대하였다. 유혈 사태 없이 혁명이 이루어져 명예혁명이라 한다. 이듬해 권리 장전이 승인되어 의회 중심의 입헌 군주제가 확립되었다. 찰스 1세가 의회의 동의 없이 과세하며 전제 정치를 계속하자 내전이 일어났고, 의회파를 이끈 크롬웰은 왕당파를 격파하고 찰스 1세를 처형한 뒤 공화정을 수립하였다(1649). 크롬웰은 왕당파의 거점이었던 아일랜드를 정복하고 네덜란드의 중계 무역에 타격을 준 항해법을 제정하였으나, 의회를 해산하고 호국경에 올라 청교도 윤리를 앞세운 독재 정치를 펼쳐 지지를 잃었다. 크롬웰이 죽은 후 즉위한 찰스 2세가 가톨릭교도를 우대하자 의회는 심사법과 인신 보호법을 제정하였고, 이 무렵 국왕을 지지하는 토리당과 의회를 지지하는 휘그당이 형성되었다. 권리 장전은 국왕이 의회의 동의 없이 법의 효력을 정지하거나 세금을 징수할 수 없고 의원 선거는 자유로워야 한다고 규정하였다. 이후 하노버 왕조의 조지 1세 때부터 ‘왕은 군림하나 통치하지 않는다.’는 의회 중심의 내각 책임제가 시행되었다.',
+      summary: '영국 혁명 — 17세기 영국에서 국왕이 의회를 무시하고 전제 정치를 펼치자 의회는 권리 청원(1628)을 제출하였다. 청교도 혁명(1642~1649)으로 공화정이 수립되었으나 크롬웰의 독재 이후 왕정이 복고되었다. 제임스 2세가 다시 전제 정치를 펴자 의회는 1688년 그의 딸 메리와 남편 윌리엄을 공동 왕으로 추대하였다. 유혈 사태 없이 혁명이 이루어져 명예혁명이라 한다. 이듬해 권리 장전이 승인되어 의회 중심의 입헌 군주제가 확립되었다. 찰스 1세가 의회의 동의 없이 과세하며 전제 정치를 계속하자 내전이 일어났고, 의회파를 이끈 크롬웰은 왕당파를 격파하고 찰스 1세를 처형한 뒤 공화정을 수립하였다(1649). 크롬웰은 왕당파의 거점이었던 아일랜드를 정복하고 네덜란드의 중계 무역에 타격을 준 항해법을 제정하였으나, 의회를 해산하고 호국경에 올라 청교도 윤리를 앞세운 독재 정치를 펼쳐 지지를 잃었다. 크롬웰이 죽은 후 즉위한 찰스 2세가 가톨릭교도를 우대하자 의회는 심사법과 인신 보호법을 제정하였고, 이 무렵 국왕을 지지하는 토리당과 의회를 지지하는 휘그당이 형성되었다. 권리 장전은 국왕이 의회의 동의 없이 법의 효력을 정지하거나 세금을 징수할 수 없고 의원 선거는 자유로워야 한다고 규정하였다. 이후 하노버 왕조의 조지 1세 때부터 ‘왕은 군림하나 통치하지 않는다.’는 의회 중심의 내각 책임제가 시행되었다.',
       terms: [
         { label: '권리 청원', def: '의회의 동의 없는 과세 등을 금지하도록 왕에게 요구한 문서(1628).' },
         { label: '청교도 혁명', def: '크롬웰이 이끈 의회파가 왕을 처형하고 공화정을 세운 혁명.' },
+        { label: '명예혁명', def: '의회가 제임스 2세를 축출하고 메리와 윌리엄을 공동 왕으로 추대한 혁명(1688). 유혈 사태 없이 이루어졌다.' },
         { label: '권리 장전', def: '의회의 권리를 법으로 확인한 문서(1689).' },
         { label: '항해법', def: '영국과 식민지로 들어오는 수입품을 영국·식민지 선박이나 수출국 선박으로만 운송하도록 한 법(1651).' },
         { label: '인신 보호법', def: '국왕에 의한 불법적인 체포나 구속을 금지한 법률.' },
@@ -16159,10 +16287,10 @@ window.TIMELINE_DB = {
       ],
       timeline: [
         { y: 1628, label: '권리 청원' },
-        { y: 1642, label: '청교도 혁명' },
+        { y: 1642, label: '◆ 청교도 혁명 — 영국 혁명 시작' },
         { y: 1649, label: '찰스 1세 처형, 공화정 수립' },
         { y: 1651, label: '크롬웰, 항해법 제정' },
-        { y: 1688, label: '◆ 명예혁명' },
+        { y: 1688, label: '명예혁명' },
         { y: 1689, label: '권리 장전 승인' }
       ]
     },
@@ -16172,7 +16300,7 @@ window.TIMELINE_DB = {
         caption: '권리 장전의 승인',
         ref: '명예혁명으로 즉위한 윌리엄 3세와 메리 2세가 의회가 제출한 권리 선언을 받아들이는 장면(1689). 이를 권리 장전으로 공포하여 입헌 군주제의 기틀을 마련하였다.' }
     ],
-    linked: ['w-armada', 'w-us-indep', 'w-industrial']
+    linked: ['w-armada', 'w-american-rev', 'w-industrial']
   },
   'w-industrial': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16208,13 +16336,13 @@ window.TIMELINE_DB = {
         caption: '모스 전신기',
         ref: '모스가 발명한 유선 전신기. 전기 신호로 먼 곳까지 빠르게 소식을 전할 수 있게 되었다.' }
     ],
-    linked: ['w-glorious', 'w-feb', 'w-germany']
+    linked: ['w-english-rev', 'w-feb', 'w-germany']
   },
-  'w-us-indep': {
+  'w-american-rev': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
     overview: {
-      summary: '미국 독립 선언 — 영국이 7년 전쟁 이후 재정을 메우려 북아메리카 13개 식민지에 세금을 부과하자 식민지인들이 반발하였다. 보스턴 차 사건(1773) 이후 대륙 회의를 열었고(1774), 1776년 독립 선언문을 발표하였다. 독립 전쟁에서 승리하여 파리 조약(1783)으로 독립을 인정받았다. 1787년 삼권 분립과 연방제를 바탕으로 한 헌법을 제정하고 워싱턴을 초대 대통령으로 선출하였다. 17세기부터 많은 영국인이 종교의 자유와 경제적 기회를 찾아 북아메리카로 이주하여 13개 식민지를 건설하였고, 식민지인들은 독자적인 의회를 설치하여 실질적인 자치를 누렸다. 영국이 7년 전쟁 이후 재정 부담이 커지자 설탕세, 인지세, 차세 등을 부과하였는데, 식민지인은 “대표 없는 곳에 과세할 수 없다.”라고 주장하며 납세 거부 운동을 벌였다. 영국이 동인도 회사에 차 독점 판매권을 주자 식민지인들이 차 상자를 바다에 던져 버렸고, 영국은 보스턴 항구를 폐쇄하고 자치 선거를 중단시켰다. 식민지 대표들은 필라델피아에서 대륙 회의를 열어 영국 상품 불매 운동을 벌였으며, 렉싱턴과 콩코드에서 무력 충돌이 일어나자 독립 전쟁이 시작되었다. 제2차 대륙 회의는 워싱턴을 총사령관으로 임명하고 독립 선언문을 발표하였다. 영국에 압력을 가할 기회로 여긴 프랑스, 네덜란드, 에스파냐가 미국을 지원하였고, 식민지 군대는 요크타운 전투(1781)에서 승리하였다.',
+      summary: '미국 혁명 — 영국이 7년 전쟁 이후 재정을 메우려 북아메리카 13개 식민지에 세금을 부과하자 식민지인들이 반발하였다. 보스턴 차 사건(1773) 이후 대륙 회의를 열었고(1774), 1776년 독립 선언문을 발표하였다. 독립 전쟁에서 승리하여 파리 조약(1783)으로 독립을 인정받았다. 1787년 삼권 분립과 연방제를 바탕으로 한 헌법을 제정하고 워싱턴을 초대 대통령으로 선출하였다. 17세기부터 많은 영국인이 종교의 자유와 경제적 기회를 찾아 북아메리카로 이주하여 13개 식민지를 건설하였고, 식민지인들은 독자적인 의회를 설치하여 실질적인 자치를 누렸다. 영국이 7년 전쟁 이후 재정 부담이 커지자 설탕세, 인지세, 차세 등을 부과하였는데, 식민지인은 “대표 없는 곳에 과세할 수 없다.”라고 주장하며 납세 거부 운동을 벌였다. 영국이 동인도 회사에 차 독점 판매권을 주자 식민지인들이 차 상자를 바다에 던져 버렸고, 영국은 보스턴 항구를 폐쇄하고 자치 선거를 중단시켰다. 식민지 대표들은 필라델피아에서 대륙 회의를 열어 영국 상품 불매 운동을 벌였으며, 렉싱턴과 콩코드에서 무력 충돌이 일어나자 독립 전쟁이 시작되었다. 제2차 대륙 회의는 워싱턴을 총사령관으로 임명하고 독립 선언문을 발표하였다. 영국에 압력을 가할 기회로 여긴 프랑스, 네덜란드, 에스파냐가 미국을 지원하였고, 식민지 군대는 요크타운 전투(1781)에서 승리하였다.',
       terms: [
         { label: '보스턴 차 사건', def: '영국의 차 독점에 반발해 보스턴 항구의 차를 바다에 버린 사건(1773).' },
         { label: '대륙 회의', def: '식민지 대표들이 모여 영국에 대한 대응을 논의한 회의.' },
@@ -16226,8 +16354,8 @@ window.TIMELINE_DB = {
       timeline: [
         { y: 1773, label: '보스턴 차 사건' },
         { y: 1774, label: '제1차 대륙 회의' },
-        { y: 1775, label: '렉싱턴·콩코드 전투 — 독립 전쟁 시작' },
-        { y: 1776, label: '◆ 독립 선언문 발표' },
+        { y: 1775, label: '◆ 렉싱턴·콩코드 전투 — 독립 전쟁 시작' },
+        { y: 1776, label: '독립 선언문 발표' },
         { y: 1781, label: '요크타운 전투 승리' },
         { y: 1783, label: '파리 조약' },
         { y: 1787, label: '미국 헌법 제정' },
@@ -16243,7 +16371,7 @@ window.TIMELINE_DB = {
         caption: '미국의 영토 확장과 대륙 횡단 철도',
         ref: '건국 13주(1776) · 루이지애나 매입(1803) · 텍사스 병합(1845) · 오리건 병합(1846) · 멕시코로부터 할양(1848) · 알래스카 매입(1867) · 유니언 중앙 태평양 철도(1869)' }
     ],
-    linked: ['w-glorious', 'w-french-rev', 'w-civilwar']
+    linked: ['w-english-rev', 'w-french-rev', 'w-civilwar']
   },
   'w-french-rev': {
     notes: { sections: [] },
@@ -16297,7 +16425,7 @@ window.TIMELINE_DB = {
         caption: '프랑스 혁명기 정치 구조의 변화',
         ref: '국민 의회(1789~1791, 테니스코트의 서약·인권 선언) → 입법 의회(1791~1792) → 국민 공회(1792~1795, 공화정 선포·루이 16세 처형·공포 정치) → 총재 정부(1795~1799) → 통령 정부(1799~1804, 나폴레옹의 독재)' }
     ],
-    linked: ['w-us-indep', 'w-napoleon', 'w-louis14', 'w-ww1', 'w-russia', 'e-meiji'],
+    linked: ['w-american-rev', 'w-napoleonic', 'w-louis14', 'w-ww1', 'w-russia', 'e-meiji'],
     map: {
       title: '프랑스 혁명의 무대 — 파리',
       bounds: { w: 360, h: 240 },
@@ -16315,11 +16443,11 @@ window.TIMELINE_DB = {
       ]
     }
   },
-  'w-napoleon': {
+  'w-napoleonic': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
     overview: {
-      summary: '나폴레옹 황제 즉위 — 통령 정부의 제1 통령이 된 나폴레옹은 『나폴레옹 법전』을 편찬하는 등 개혁을 추진하여 국민의 지지를 얻었고, 1804년 국민 투표로 황제에 즉위하였다(제1 제정). 유럽 대부분을 장악하고 영국을 견제하려 대륙 봉쇄령을 내렸으나, 러시아가 영국과 교역을 계속하자 러시아 원정에 나섰다가 실패하였다(1812). 이후 몰락하였다. 나폴레옹 전쟁은 유럽 각지에 자유주의와 민족주의를 퍼뜨렸다. 나폴레옹은 제1 통령이 되어 대프랑스 동맹을 격파하고, 프랑스 은행 설립과 국민 교육 제도 도입 등의 개혁을 추진하였다. 『나폴레옹 법전』은 법 앞의 평등, 개인의 자유와 사유 재산권의 보호 등 새로운 시민 사회의 규범을 담았으며, 정복 과정에서 각 지역으로 전파되어 각국의 근대 법전 성립에 큰 영향을 미쳤다. 영국을 중심으로 제3차 대프랑스 동맹이 결성되자 나폴레옹은 트라팔가르 해전(1805)에서 넬슨이 이끄는 영국 해군에 패하였으나, 육지에서는 오스트리아, 프로이센, 러시아를 격파하고 신성 로마 제국을 해체하였다. 1812년 60만 대군을 이끌고 러시아로 진격하였으나 러시아의 후퇴 전술과 혹독한 추위, 굶주림으로 퇴각하였고, 엘바섬에 유배되었다가 탈출하여 재기를 노렸으나 워털루 전투에서 영국, 프로이센 연합군에 패하여 세인트헬레나섬에 유배되었다. 나폴레옹 군대의 침략에 대항하면서 유럽 각국에서는 민족의 단결을 주장하는 민족주의 의식이 자라났다.',
+      summary: '나폴레옹 시대 — 통령 정부의 제1 통령이 된 나폴레옹은 『나폴레옹 법전』을 편찬하는 등 개혁을 추진하여 국민의 지지를 얻었고, 1804년 국민 투표로 황제에 즉위하였다(제1 제정). 유럽 대부분을 장악하고 영국을 견제하려 대륙 봉쇄령을 내렸으나, 러시아가 영국과 교역을 계속하자 러시아 원정에 나섰다가 실패하였다(1812). 이후 몰락하였다. 나폴레옹 전쟁은 유럽 각지에 자유주의와 민족주의를 퍼뜨렸다. 나폴레옹은 제1 통령이 되어 대프랑스 동맹을 격파하고, 프랑스 은행 설립과 국민 교육 제도 도입 등의 개혁을 추진하였다. 『나폴레옹 법전』은 법 앞의 평등, 개인의 자유와 사유 재산권의 보호 등 새로운 시민 사회의 규범을 담았으며, 정복 과정에서 각 지역으로 전파되어 각국의 근대 법전 성립에 큰 영향을 미쳤다. 영국을 중심으로 제3차 대프랑스 동맹이 결성되자 나폴레옹은 트라팔가르 해전(1805)에서 넬슨이 이끄는 영국 해군에 패하였으나, 육지에서는 오스트리아, 프로이센, 러시아를 격파하고 신성 로마 제국을 해체하였다. 1812년 60만 대군을 이끌고 러시아로 진격하였으나 러시아의 후퇴 전술과 혹독한 추위, 굶주림으로 퇴각하였고, 엘바섬에 유배되었다가 탈출하여 재기를 노렸으나 워털루 전투에서 영국, 프로이센 연합군에 패하여 세인트헬레나섬에 유배되었다. 나폴레옹 군대의 침략에 대항하면서 유럽 각국에서는 민족의 단결을 주장하는 민족주의 의식이 자라났다.',
       terms: [
         { label: '『나폴레옹 법전』', def: '법 앞의 평등, 사유 재산 보호 등을 담은 민법전.' },
         { label: '대륙 봉쇄령', def: '유럽 대륙과 영국의 교역을 금지한 명령.' },
@@ -16328,8 +16456,8 @@ window.TIMELINE_DB = {
         { label: '워털루 전투', def: '나폴레옹이 영국, 프로이센 연합군에 패하여 몰락한 전투(1815).' }
       ],
       timeline: [
-        { y: 1799, label: '통령 정부 수립' },
-        { y: 1804, label: '◆ 황제 즉위(제1 제정)' },
+        { y: 1799, label: '◆ 나폴레옹의 쿠데타 — 통령 정부 수립' },
+        { y: 1804, label: '황제 즉위(제1제정)' },
         { y: 1805, label: '트라팔가르 해전 패배' },
         { y: 1812, label: '러시아 원정' },
         { y: 1814, label: '빈 회의' },
@@ -16372,7 +16500,7 @@ window.TIMELINE_DB = {
         caption: '라틴 아메리카 여러 나라의 독립',
         ref: '아이티(1804)를 시작으로 아르헨티나(1816)·칠레(1818)·콜롬비아(1819)·멕시코(1821)·브라질(1822)·볼리비아(1825) 등이 독립' }
     ],
-    linked: ['w-napoleon', 'w-vienna', 'w-us-indep']
+    linked: ['w-napoleonic', 'w-vienna', 'w-american-rev']
   },
   'w-vienna': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16400,7 +16528,7 @@ window.TIMELINE_DB = {
         caption: '나폴레옹의 정복 활동',
         ref: '황제 즉위 전·후의 진로와 100일 천하 · 프랑스 제국령·위성국·동맹국 · 트라팔가르 해전(1805)·워털루 전투·이집트 원정(1798) · 세인트헬레나 유배(1815)' }
     ],
-    linked: ['w-napoleon', 'w-july', 'w-feb', 's-tanzimat']
+    linked: ['w-napoleonic', 'w-july', 'w-feb', 's-tanzimat']
   },
   'w-july': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16509,7 +16637,7 @@ window.TIMELINE_DB = {
         caption: '미국의 영토 확장과 대륙 횡단 철도',
         ref: '건국 13주(1776) · 루이지애나 매입(1803) · 텍사스 병합(1845) · 오리건 병합(1846) · 멕시코로부터 할양(1848) · 알래스카 매입(1867) · 유니언 중앙 태평양 철도(1869)' }
     ],
-    linked: ['w-us-indep', 'w-industrial']
+    linked: ['w-american-rev', 'w-industrial']
   },
   'w-germany': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -24577,18 +24705,28 @@ function generateTicks() {
 const SUB_OFFSET = { 0: -64, 1: -28, 3: 60 };   // applySubScale(vpH)가 박스 높이에 맞춰 고쳐 쓴다
 /* 유럽 줄기 나라별 갈래 — 베르됭 조약(843)에서 갈라져 현재까지 따로 이어진다(2026-10-20 사용자 요청,
    10-21 「각 나라의 역사는 계속 가야 한다」 — 1500년 합류를 없앰. mergeYear가 null이면 합치지 않는다).
-   위에서부터 영국 · 프랑스(서프랑크) · [원줄기] · 독일(동프랑크) · 이탈리아(중프랑크). 노드는 lane 필드로 갈래를 고른다.
-   유럽 줄기를 포커스했을 때만 펼친다(다른 갈래와 같은 방식). 간격은 applySubScale이 박스 높이에 맞춘다 */
+   위에서부터 아메리카 · 영국 · 프랑스(서프랑크) · [원줄기] · 독일(동프랑크) · 이탈리아(중프랑크) · 러시아 (10-21 아메리카·러시아 추가).
+   갈래마다 갈라지는 해가 다르다 — 기본은 베르됭 조약(843), 아메리카는 아메리카 문명(3000 BCE), 러시아는 러시아 차르국(1547).
+   노드는 lane 필드로 갈래를 고른다. 유럽 줄기를 포커스했을 때만 펼친다(다른 갈래와 같은 방식). 간격은 applySubScale이 박스 높이에 맞춘다 */
 const WEST_LANES = {
   branchYear: 843, mergeYear: null,
-  off: { en: -120, fr: -60, de: 60, it: 120 },
-  label: { en: '영국 ENGLAND', fr: '프랑스 FRANCE', de: '독일 GERMANY', it: '이탈리아 ITALY' }
+  from: { am: -3000, ru: 1547 },
+  off: { am: -150, en: -100, fr: -50, de: 50, it: 100, ru: 150 },
+  label: { am: '아메리카 AMERICAS', en: '영국 ENGLAND', fr: '프랑스 FRANCE', de: '독일 GERMANY', it: '이탈리아 ITALY', ru: '러시아 RUSSIA' }
 };
+const westLaneStart = (lane) => WEST_LANES.from[lane] ?? WEST_LANES.branchYear;
 const westLaneOf = (e) => (e.track === 'west' && e.lane && WEST_LANES.off[e.lane] != null
-  && e.year >= WEST_LANES.branchYear && (WEST_LANES.mergeYear == null || e.year < WEST_LANES.mergeYear)) ? e.lane : null;
-// 갈래 이름표(▸ 영국 ENGLAND …) — 갈래가 다 펼쳐지는 843 지점 바로 오른쪽, 갈래선 아래. 렌더와 라벨 배치(장애물)가 같은 값을 쓴다
+  && e.year >= westLaneStart(e.lane) && (WEST_LANES.mergeYear == null || e.year < WEST_LANES.mergeYear)) ? e.lane : null;
+/* 유럽 포커스의 기간 노드 브래킷 — 갈래가 있는 구간에 걸치면 그때 있던 맨 아래 갈래 아래로 내린다
+   (러시아 갈래가 생기기 전이면 이탈리아 아래). 렌더·라벨 배치·레인 배치가 같은 값을 쓴다 */
+const westGroupLaneOff = (g) => (g.endYear < WEST_LANES.branchYear) ? null
+  : (g.endYear >= westLaneStart('ru') ? WEST_LANES.off.ru : WEST_LANES.off.it);
+// 유럽 포커스에서 원줄기 아래로 필요한 몫 — 맨 아래 갈래와, 그 아래로 내린 브래킷(+34±13) 중 깊은 쪽
+const westDownExtent = () => Math.max(WEST_LANES.off.ru,
+  ...(NODE_GROUPS.west || []).map(g => { const o = westGroupLaneOff(g); return o == null ? 0 : o + GROUP_Y + 14; }));
+// 갈래 이름표(▸ 영국 ENGLAND …) — 갈래가 다 펼쳐지는 지점 바로 오른쪽, 갈래선 아래. 렌더와 라벨 배치(장애물)가 같은 값을 쓴다
 const westLaneTagRect = (lane, scale) => {
-  const x = yearToX(WEST_LANES.branchYear, scale) + 10;
+  const x = yearToX(westLaneStart(lane), scale) + 10;
   const w = [...WEST_LANES.label[lane]].reduce((s, ch) => s + (/[가-힣]/.test(ch) ? 14.5 : 9.6), 0) + 14;
   const y = WEST_LANES.off[lane];
   return { l: x - 2, r: x + w, t: y + 4, b: y + 21, x, y };
@@ -24619,7 +24757,8 @@ function layoutLanes(tracks, focusedTrack, vpH) {
       : [TRACK_BRANCH[focusedTrack] ? TRACK_BRANCH[focusedTrack].subOffset : 0];
     const subUp = Math.max(0, -Math.min(0, ...offs));
     // 아래로 뻗는 몫 — 갈래 레인, 한국은 가야 갈래 아래로 내린 삼국 시대 브래킷(+94±13)까지, 유럽은 이탈리아 갈래 아래 교회 대분열 시대 브래킷까지
-    const subDown = Math.max(0, ...offs) + ((focusedTrack === 'korea' || focusedTrack === 'west') ? GROUP_Y + 14 : 0);
+    const subDown = focusedTrack === 'west' ? westDownExtent()
+      : Math.max(0, ...offs) + (focusedTrack === 'korea' ? GROUP_Y + 14 : 0);
     const top = ERA_STRIP_H + LANE_LABEL_HEAD + subUp;
     const bottom = H - LANE_BOTTOM_PAD;
     trackY[focusedTrack] = top + Math.max(0, (bottom - top - subDown) / 2);
@@ -24655,9 +24794,13 @@ function applySubScale(vpH) {
   SUB_OFFSET[0] = -2 * u; SUB_OFFSET[1] = -u; SUB_OFFSET[3] = u;
   const sb = Math.round(Math.max(70, Math.min(150, (H - LANE_LABEL_HEAD - LANE_BOTTOM_PAD) / 2)));
   Object.values(TRACK_BRANCH).forEach(c => { c.subOffset = sb; });
-  // 유럽: 영국 −2w · 프랑스 −w · 원줄기 0 · 독일 +w · 이탈리아 +2w (아래로 교회 대분열 시대 브래킷 자리까지)
-  const w = Math.round(Math.max(40, Math.min(110, (H - LANE_LABEL_HEAD - (GROUP_Y + 14) - LANE_BOTTOM_PAD) / 4)));
-  WEST_LANES.off.en = -2 * w; WEST_LANES.off.fr = -w; WEST_LANES.off.de = w; WEST_LANES.off.it = 2 * w;
+  // 유럽: 아메리카 −3w · 영국 −2w · 프랑스 −w · 원줄기 0 · 독일 +w · 이탈리아 +2w · 러시아 +3w
+  //   위로 3w, 아래로 러시아 갈래(3w)와 이탈리아 아래 브래킷(2w+48) 중 깊은 쪽이 들어가도록. 1280 화면(394px)에서 w≈33
+  const avail = H - LANE_LABEL_HEAD - LANE_BOTTOM_PAD;
+  let w = avail / 6;
+  if (w < GROUP_Y + 14) w = (avail - (GROUP_Y + 14)) / 5;
+  w = Math.round(Math.max(28, Math.min(110, w)));
+  Object.assign(WEST_LANES.off, { am: -3 * w, en: -2 * w, fr: -w, de: w, it: 2 * w, ru: 3 * w });
 }
 // 노드 묶음 브래킷(기간 노드) — 트랙선 아래 GROUP_Y 에 놓인다
 const GROUP_PAD_X = 14;
@@ -24668,8 +24811,8 @@ const groupYOf = (track, g, focusedTrack) =>
   (track === 'korea' && focusedTrack === 'korea' && g.startYear < MERGE_YEAR && g.endYear >= BRANCH_YEAR)
     ? GROUP_Y + SUB_OFFSET[3]
   // 유럽 포커스 — 나라별 갈래 구간(843~1500)에 걸친 묶음은 맨 아래 이탈리아 갈래 아래로
-  : (track === 'west' && focusedTrack === 'west' && (WEST_LANES.mergeYear == null || g.startYear < WEST_LANES.mergeYear) && g.endYear >= WEST_LANES.branchYear)
-    ? GROUP_Y + WEST_LANES.off.it : GROUP_Y;
+  : (track === 'west' && focusedTrack === 'west' && westGroupLaneOff(g) != null)
+    ? GROUP_Y + westGroupLaneOff(g) : GROUP_Y;
 const NODE_GROUPS = {
   korea: [
     // 삼국 시대 — 신라 건국부터 통일 직전까지. 묶음 이름을 누르면 기록이 열린다
@@ -24892,7 +25035,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
         : (TRACK_BRANCH[t] ? TRACK_BRANCH[t].subOffset : 0);
       // 한국 포커스 — 가야 갈래 아래로 내린 삼국 시대 브래킷 라벨(+94±13)까지가 이 트랙 몫 (유럽은 이탈리아 갈래 아래 브래킷)
       const grp = t === 'korea' && (NODE_GROUPS.korea || []).some(g => groupYOf('korea', g, focusedTrack) !== GROUP_Y) ? GROUP_Y + SUB_OFFSET[3] + 14
-        : t === 'west' && (NODE_GROUPS.west || []).some(g => groupYOf('west', g, focusedTrack) !== GROUP_Y) ? GROUP_Y + WEST_LANES.off.it + 14 : 0;
+        : t === 'west' ? westDownExtent() : 0;
       return Math.max(TICK_LABEL_BOTTOM, sub + 8, grp);
     };
     const ceilOf = (t) => {
@@ -25550,18 +25693,19 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
             );
           })()}
 
-          {/* 유럽 나라별 갈래 SVG — 베르됭 조약(843)에서 영국·프랑스·독일·이탈리아로 갈라져 끝까지 이어진다 */}
+          {/* 유럽 나라별 갈래 SVG — 갈래마다 갈라지는 해(아메리카 3000 BCE · 영국~이탈리아 843 · 러시아 1547)부터 끝까지 이어진다 */}
           {focusedTrack === 'west' && (() => {
             const baseY = trackY['west'];
             if (baseY == null) return null;
             const c = 28;
-            const sx = yearToX(WEST_LANES.branchYear, scale) - c * 2;   // 843 지점에서 갈래가 다 펼쳐지도록 조금 앞에서 갈라진다
             const merge = WEST_LANES.mergeYear;
             const mx = merge == null ? trackWidth(scale) - 20 : yearToX(merge, scale);
-            const lanePath = (off) =>
-              `M ${sx} ${baseY} C ${sx+c} ${baseY}, ${sx+c} ${baseY+off}, ${sx+c*2} ${baseY+off} ` +
+            const lanePath = (off, ln) => {
+              const sx = yearToX(westLaneStart(ln), scale) - c * 2;   // 갈래가 시작하는 해에 다 펼쳐지도록 조금 앞에서 갈라진다
+              return `M ${sx} ${baseY} C ${sx+c} ${baseY}, ${sx+c} ${baseY+off}, ${sx+c*2} ${baseY+off} ` +
               (merge == null ? `L ${mx} ${baseY+off}`
                 : `L ${mx-c*2} ${baseY+off} C ${mx-c} ${baseY+off}, ${mx-c} ${baseY}, ${mx} ${baseY}`);
+            };
             return (
               <svg
                 style={{position:'absolute', left:0, top:0, width:trackWidth(scale), height:totalLanesH, pointerEvents:'none', zIndex:1, overflow:'visible'}}
@@ -25575,7 +25719,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                   </linearGradient>
                 </defs>
                 {Object.keys(WEST_LANES.off).map(ln => (
-                  <path key={ln} d={lanePath(WEST_LANES.off[ln])}
+                  <path key={ln} d={lanePath(WEST_LANES.off[ln], ln)}
                     stroke="url(#west-sub-grad)" strokeWidth="1.5" fill="none" strokeLinecap="round"
                     filter="url(#tva-glow)" />
                 ))}
