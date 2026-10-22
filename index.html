@@ -4210,9 +4210,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20261022b"></script>
+<script src="iba-emblem.js?v=20261022c"></script>
 <!-- 연관 기록 대조 — 브라우저 안 의미 검색 (semantic-worker.js · search-index.js) -->
-<script src="semantic-search.js?v=20261022b"></script>
+<script src="semantic-search.js?v=20261022c"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -7365,6 +7365,81 @@ window.TIMELINE_DATA = {
     { id: 'e-m-qianlong', track: 'eastasia', year: 1735, label: '건륭제', en: 'Qianlong Emperor',
       state: '청', theme: '정치', kind: 'event', noSync: true,
       body: '티베트와 신장 등을 정복하여 오늘날 중국 영토의 윤곽을 형성하였다.' },
+    { id: 'e-portsmouth', track: 'eastasia', year: 1905, month: 9, label: '포츠머스 조약', en: 'Treaty of Portsmouth',
+      state: '일본', theme: '외교', kind: 'event', noSync: true, sub: 1,
+      body: '미국의 중재로 일본과 러시아가 맺은 러·일 전쟁의 강화 조약(1905). 일본은 한반도에 대한 독점적 지배권을 인정받고 뤼순·다롄의 조차권과 사할린섬 남부를 차지하였다.' },
+    { id: 'e-russo-jp', track: 'eastasia', year: 1904, month: 2, yearLabel: '1904~1905', label: '러·일 전쟁', en: 'Russo-Japanese War',
+      state: '일본', theme: '군사', kind: 'event', noSync: true, sub: 1,
+      body: '만주와 한반도를 둘러싸고 일본과 러시아가 벌인 전쟁(1904~1905). 승리한 일본은 포츠머스 조약으로 한반도와 만주의 이권을 인정받았다.' },
+    { id: 'e-anglo-jp', track: 'eastasia', year: 1902, month: 1, label: '제1차 영일 동맹', en: 'Anglo-Japanese Alliance',
+      state: '일본', theme: '외교', kind: 'event', noSync: true, sub: 1,
+      body: '러시아의 남하를 견제하려는 영국과 일본이 맺은 동맹(1902). 일본은 이를 바탕으로 러·일 전쟁을 일으켰다.' },
+    { id: 'e-triple-intervention', track: 'eastasia', year: 1895, month: 4, label: '삼국 간섭', en: 'Triple Intervention',
+      state: '일본', theme: '외교', kind: 'event', noSync: true, sub: 1,
+      body: '러시아·프랑스·독일이 일본에 압력을 가하여 시모노세키 조약으로 얻은 랴오둥반도를 청에 돌려주게 한 사건(1895).' },
+    { id: 'e-iwakura', track: 'eastasia', year: 1871, month: 12, yearLabel: '1871~1873', label: '이와쿠라 사절단', en: 'Iwakura Mission',
+      state: '일본', theme: '외교', kind: 'event', noSync: true, sub: 1,
+      body: '메이지 정부가 불평등 조약 개정을 타진하고 서양의 근대 문물을 살펴보기 위해 미국과 유럽에 파견한 사절단(1871~1873).' },
+    { id: 'e-haihan', track: 'eastasia', year: 1871, month: 8, label: '폐번치현', en: 'Abolition of the Han System',
+      state: '일본', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '메이지 정부가 번을 폐지하고 현을 설치하여 중앙 정부가 지방을 직접 다스리게 한 개혁(1871). 천황 중심의 중앙 집권 체제가 확립되었다.' },
+    { id: 'e-harris', track: 'eastasia', year: 1858, month: 7, label: '미·일 수호 통상 조약', en: 'Treaty of Amity and Commerce',
+      state: '일본', theme: '외교', kind: 'event', noSync: true, sub: 1,
+      body: '에도 막부가 미국과 맺은 조약(1858). 개항장을 늘리고 영사 재판권과 협정 관세를 인정한 불평등 조약이었다. 이후 일본은 영국, 네덜란드, 러시아 등과도 비슷한 조약을 맺었다.' },
+    { id: 'e-empire-japan', track: 'eastasia', year: 1868, label: '일본 제국', en: 'Empire of Japan',
+      state: '일본', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '메이지 유신으로 천황 중심의 정권이 세워지면서 성립한 국가(1868). 제2차 세계 대전에서 패한 뒤 일본국 헌법이 시행되면서(1947) 막을 내렸다.' },
+    { id: 'e-chinese-soviet', track: 'eastasia', year: 1931, month: 11, label: '중화 소비에트 공화국', en: 'Chinese Soviet Republic',
+      state: '중국 공산당', theme: '정치', kind: 'event', noSync: true,
+      body: '중국 공산당이 장시성 루이진에 세운 정부(1931). 국민당의 계속된 공격을 받은 공산당은 대장정을 단행하여 옌안으로 옮겨 갔다.' },
+    { id: 'e-roc-nationalist', track: 'eastasia', year: 1925, month: 7, label: '중화민국 국민정부', en: 'Nationalist Government',
+      state: '중화민국', theme: '정치', kind: 'event', noSync: true,
+      body: '중국 국민당이 광저우에서 수립한 정부(1925). 장제스가 북벌로 베이징 군벌 정부를 무너뜨린 뒤(1928) 난징을 수도로 중국을 통치하였다.' },
+    { id: 'e-roc-beiyang', track: 'eastasia', year: 1912, month: 3, label: '중화민국 북양정부', en: 'Beiyang Government',
+      state: '중화민국', theme: '정치', kind: 'event', noSync: true,
+      body: '위안스카이가 청 황제를 퇴위시키고 임시 대총통에 취임하면서 출범한 군벌 중심의 베이징 정부(1912. 3.). 위안스카이 사후 여러 군벌로 분열되었다.' },
+    { id: 'e-roc-provisional', track: 'eastasia', year: 1912, month: 1, label: '중화민국 임시정부', en: 'Provisional Government of the Republic of China',
+      state: '중화민국', theme: '정치', kind: 'event', noSync: true,
+      body: '신해혁명 이후 혁명파가 난징을 수도로 구성한 임시 정부(1912. 1.). 쑨원이 임시 대총통이 되었다.' },
+    { id: 'e-roc', track: 'eastasia', year: 1912, month: 1, label: '중화민국', en: 'Republic of China',
+      state: '중화민국', theme: '정치', kind: 'event', noSync: true,
+      body: '신해혁명으로 각 성의 대표가 난징에 모여 쑨원을 임시 대총통으로 선출하고 수립한 공화국(1912. 1.).' },
+    { id: 'e-tongmenghui', track: 'eastasia', year: 1905, month: 8, label: '중국 동맹회', en: 'Tongmenghui',
+      state: '청', theme: '정치', kind: 'event', noSync: true,
+      body: '쑨원이 도쿄에서 혁명 단체들을 모아 결성한 단체(1905). 삼민주의를 지도 이념으로 삼고 각지에서 무장봉기를 일으키는 등 혁명 운동의 중심 세력이 되었다.' },
+    { id: 'e-guangxu-reform', track: 'eastasia', year: 1901, month: 1, yearLabel: '1901~1911', label: '광서신정', en: 'Late Qing Reforms',
+      state: '청', theme: '정치', kind: 'event', noSync: true,
+      body: '의화단 운동 이후 청 정부가 과거제 폐지, 신식 군대 창설, 군제 개편 등을 단행한 개혁(1901~1911). 입헌파의 요구를 받아들여 「흠정 헌법 대강」을 반포하고 의회 설립을 준비하였다.' },
+    { id: 'e-shimonoseki', track: 'eastasia', year: 1895, month: 4, label: '시모노세키 조약', en: 'Treaty of Shimonoseki',
+      state: '청', theme: '외교', kind: 'event', noSync: true,
+      body: '청·일 전쟁에서 패한 청이 일본과 맺은 조약(1895). 청은 조선에 대한 종주권을 포기하고 랴오둥반도와 타이완 등을 일본에 넘겨주었으며 막대한 배상금을 지불하였다.' },
+    { id: 'e-wuxu-coup', track: 'eastasia', year: 1898, month: 9, label: '무술정변', en: 'Wuxu Coup',
+      state: '청', theme: '정치', kind: 'event', noSync: true,
+      body: '서태후를 중심으로 한 보수파가 정변을 일으켜 광서제를 유폐하고 변법파를 처형하거나 쫓아낸 사건(1898). 이로써 변법자강 운동은 100여 일 만에 좌절되었다.' },
+    { id: 'e-arrow', track: 'eastasia', year: 1856, month: 10, label: '애로호 사건', en: 'Arrow Incident',
+      state: '청', theme: '외교', kind: 'event', noSync: true,
+      body: '밀수선 애로호를 청 관리가 검문하는 과정에서 영국 국기를 끌어내리고 중국인 승무원을 밀수 혐의로 체포한 사건(1856). 영국은 이를 빌미로 프랑스와 연합하여 제2차 아편 전쟁을 일으켰다.' },
+    { id: 'e-beijing1860', track: 'eastasia', year: 1860, month: 10, label: '베이징 조약', en: 'Convention of Peking',
+      state: '청', theme: '외교', kind: 'event', noSync: true,
+      body: '영국·프랑스 연합군이 베이징을 점령한 뒤 청이 맺은 조약(1860). 톈진 조약의 내용을 확인하고 톈진을 개항하였으며, 영국에 주룽반도 일부를 넘겨주었다. 러시아는 조약을 중재한 대가로 연해주를 차지하였다.' },
+    { id: 'e-tianjin', track: 'eastasia', year: 1858, month: 6, label: '톈진 조약', en: 'Treaty of Tianjin',
+      state: '청', theme: '외교', kind: 'event', noSync: true,
+      body: '제2차 아편 전쟁 중 청이 영국, 프랑스, 러시아, 미국과 맺은 조약(1858). 항구의 추가 개항, 크리스트교 포교의 자유, 외국 공사의 베이징 주재 등을 허용하였다.' },
+    { id: 'e-philippines-col', track: 'eastasia', year: 1898, month: 12, label: '필리핀 식민지화', en: 'American Colonization of the Philippines',
+      state: '필리핀', theme: '정치', kind: 'event', noSync: true,
+      body: '미국-에스파냐 전쟁에서 승리한 미국이 필리핀 지배권을 차지하였다(1898). 필리핀인들은 아기날도를 중심으로 필리핀 공화국을 선포하고 맞섰으나 미국에 진압되어 식민지가 되었다.' },
+    { id: 'e-dutch-indies', track: 'eastasia', year: 1800, label: '네덜란드령 동인도', en: 'Dutch East Indies',
+      state: '네덜란드', theme: '정치', kind: 'event', noSync: true,
+      body: '네덜란드 동인도 회사가 해산된 뒤 네덜란드 정부가 오늘날의 인도네시아 지역을 직접 지배하면서 성립한 식민지(1800). 강제 재배 제도로 커피, 사탕수수 등을 재배하게 하였다.' },
+    { id: 'e-indochina', track: 'eastasia', year: 1887, label: '프랑스령 인도차이나 연방', en: 'French Indochina',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true,
+      body: '프랑스가 베트남과 캄보디아를 묶어 조직한 식민지 연방(1887). 이후 라오스도 편입되었다.' },
+    { id: 'e-sino-french', track: 'eastasia', year: 1884, yearLabel: '1884~1885', label: '청-프랑스 전쟁', en: 'Sino-French War',
+      state: '청', theme: '군사', kind: 'event', noSync: true,
+      body: '베트남의 종주권을 둘러싸고 청과 프랑스가 벌인 전쟁(1884~1885). 패배한 청은 베트남에 대한 종주권을 포기하였다.' },
+    { id: 'e-vietnam-protect', track: 'eastasia', year: 1883, month: 8, label: '베트남 보호국화', en: 'French Protectorate over Vietnam',
+      state: '베트남', theme: '정치', kind: 'event', noSync: true,
+      body: '프랑스는 베트남 남부를 차지한 뒤 북부까지 침략하여 베트남을 보호국으로 삼았다(1883).' },
     { id: 'e-zhenghe', track: 'eastasia', year: 1405, yearLabel: '1405~1433', label: '정화의 남해 원정', en: 'Voyages of Zheng He',
       state: '명', theme: '외교', kind: 'event', noSync: true,
       body: '영락제의 명령으로 정화가 대규모 함대를 이끌고 동남아시아와 인도양을 거쳐 아프리카 동해안까지 항해하였다(1405~1433). 30년간 7차례 이루어진 항해로 명 중심의 조공 무역 범위가 확장되었고, 화교가 탄생하는 계기가 되었다.' },
@@ -7464,6 +7539,39 @@ window.TIMELINE_DATA = {
     { id: 's-m-suleiman1', track: 'westasia', year: 1520, label: '술레이만 1세', en: 'Suleiman I',
       state: '오스만', theme: '정치', kind: 'event', noSync: true,
       body: '헝가리를 정복하고 빈을 포위하였으며(1529), 유럽의 연합 함대를 무찔러 지중해를 장악하였다.' },
+    { id: 's-bengal-revoked', track: 'westasia', year: 1911, month: 12, label: '벵골 분할령 철회', en: 'Reversal of the Partition of Bengal',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '인도 국민 회의와 전 인도 이슬람교도 연맹의 반영 운동이 거세지자 영국은 벵골 분할령을 철회하였다(1911).' },
+    { id: 's-calcutta', track: 'westasia', year: 1906, month: 12, label: '콜카타 대회', en: 'Calcutta Congress',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '벵골 분할령에 반대하여 인도 국민 회의가 연 대회(1906). 영국 상품 배척, 스와라지(자치), 스와데시(국산품 애용), 국민 교육 실시의 4대 강령을 채택하였다.' },
+    { id: 's-goi-act', track: 'westasia', year: 1858, month: 8, label: '인도 통치 개선법', en: 'Government of India Act 1858',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '세포이의 항쟁 이후 영국이 제정한 법(1858). 동인도 회사의 인도 통치권을 영국 정부로 넘기고 무굴 제국의 황제를 폐위하였다.' },
+    { id: 's-india-republic', track: 'westasia', year: 1950, month: 1, label: '인도 공화국', en: 'Republic of India',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '헌법을 시행하고 공화국으로 전환하였다(1950. 1.).' },
+    { id: 's-india-union', track: 'westasia', year: 1947, month: 8, label: '인도 연합', en: 'Dominion of India',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '인도·파키스탄 분리 독립으로 성립한 영연방 자치령(1947. 8.).' },
+    { id: 's-company-rule', track: 'westasia', year: 1757, month: 6, yearLabel: '1757~1858', label: '영국 동인도 회사령 인도', en: 'Company Rule in India',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
+      body: '플라시 전투 이후 영국 동인도 회사가 인도를 지배한 시기(1757~1858). 세포이의 항쟁 이후 인도 통치 개선법으로 영국 정부가 인도를 직접 통치하게 되었다.' },
+    { id: 's-russo-turkish', track: 'westasia', year: 1877, month: 4, yearLabel: '1877~1878', label: '러시아-튀르크 전쟁', en: 'Russo-Turkish War',
+      state: '오스만 제국', theme: '군사', kind: 'event', noSync: true,
+      body: '발칸반도를 둘러싸고 러시아와 오스만 제국이 벌인 전쟁(1877~1878). 전쟁 중 술탄 압둘 하미드 2세가 헌법을 정지하고 의회를 해산하여 정치 개혁이 중단되었다.' },
+    { id: 's-iran-islamic', track: 'westasia', year: 1979, month: 4, label: '이란 이슬람 공화국', en: 'Islamic Republic of Iran',
+      state: '이란', theme: '정치', kind: 'event', noSync: true,
+      body: '이란 혁명으로 팔라비 왕조가 무너지고 호메이니를 중심으로 수립된 이슬람 공화국(1979).' },
+    { id: 's-pahlavi', track: 'westasia', year: 1925, month: 12, label: '팔라비 왕조', en: 'Pahlavi Dynasty',
+      state: '이란', theme: '정치', kind: 'event', noSync: true,
+      body: '리자 칸이 카자르 왕조를 무너뜨리고 세운 왕조(1925~1979). 근대화 정책을 추진하였으나 이란 혁명으로 무너졌다.' },
+    { id: 's-saudi', track: 'westasia', year: 1932, label: '사우디아라비아 왕국', en: 'Kingdom of Saudi Arabia',
+      state: '사우디아라비아', theme: '정치', kind: 'event', noSync: true,
+      body: '와하브 운동과 결합한 사우드 가문이 아라비아반도를 통일하고 세운 왕국(1932).' },
+    { id: 's-qajar', track: 'westasia', year: 1796, label: '카자르 왕조', en: 'Qajar Dynasty',
+      state: '이란', theme: '정치', kind: 'event', noSync: true,
+      body: '이란에서 성립한 왕조(1796~1925). 19세기 초 러시아와 영국에 영토와 이권을 빼앗기자 이란인들은 이권 회수 운동과 입헌 혁명을 벌였다.' },
     { id: 's-vienna-siege', track: 'westasia', year: 1529, label: '빈 포위 공격', en: 'Siege of Vienna',
       state: '오스만 제국', theme: '군사', kind: 'event', noSync: true,
       body: '오스만 제국의 술레이만 1세가 헝가리를 정복한 뒤 신성 로마 제국의 빈을 포위하였다(1529). 이후 제2차 빈 포위 공격(1683)이 실패하면서 오스만 제국은 헝가리를 잃었다.' },
@@ -7572,6 +7680,15 @@ window.TIMELINE_DATA = {
     { id: 'w-m-henry8', track: 'west', year: 1509, label: '헨리 8세', en: 'Henry VIII',
       state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '이혼 문제를 계기로 수장법을 공포하여(1534) 국왕이 영국 교회의 수장임을 선포하였다.' },
+    { id: 'w-spanish-american', track: 'west', year: 1898, month: 4, label: '미국-에스파냐 전쟁', en: 'Spanish-American War',
+      state: '미국', theme: '군사', kind: 'event', noSync: true, lane: 'am',
+      body: '쿠바 독립 문제를 계기로 미국과 에스파냐 사이에 일어난 전쟁(1898). 승리한 미국은 필리핀, 괌, 푸에르토리코를 차지하였다.' },
+    { id: 'w-morocco', track: 'west', year: 1905, yearLabel: '1905·1911', label: '모로코 사건', en: 'Moroccan Crises',
+      state: '독일·프랑스', theme: '외교', kind: 'event', noSync: true,
+      body: '모로코를 둘러싸고 독일이 프랑스의 지배에 반발하면서 두 차례 일어난 국제 분쟁(1905, 1911). 영국이 프랑스를 지지하였고, 결국 모로코는 프랑스의 보호국이 되었다.' },
+    { id: 'w-fashoda', track: 'west', year: 1898, month: 9, label: '파쇼다 사건', en: 'Fashoda Incident',
+      state: '영국·프랑스', theme: '외교', kind: 'event', noSync: true,
+      body: '아프리카 종단 정책을 추진한 영국과 횡단 정책을 추진한 프랑스가 수단의 파쇼다에서 충돌한 사건(1898). 프랑스가 물러나면서 전쟁은 피하였다.' },
     { id: 'w-seven-years', track: 'west', year: 1756, yearLabel: '1756~1763', label: '7년 전쟁', en: 'Seven Years’ War',
       state: '프로이센', theme: '군사', kind: 'event', noSync: true, lane: 'de',
       body: '오스트리아가 슐레지엔을 되찾으려 하면서 프로이센과 오스트리아 사이에 일어난 전쟁(1756~1763). 영국과 프랑스도 각각 편을 갈라 참전하여 식민지에서도 전쟁이 벌어졌다. 프로이센은 슐레지엔을 지켜 냈고, 영국은 전쟁 비용으로 재정난이 심해지자 아메리카 식민지에 각종 세금을 부과하였다.' },
@@ -8109,6 +8226,33 @@ window.TIMELINE_DATA = {
     { id: 'e-ming', track: 'eastasia', year: 1368, label: '명(明)', en: 'Ming',
       state: '명', theme: '정치', kind: 'turning',
       body: '원이 쇠퇴하자 홍건적 출신 주원장(홍무제)이 난징에 도읍을 정하고 1368년 명을 건국하였다. 대외 무역을 통제하고 조공 무역만 허용하였다. 영락제(1402 즉위)는 자금성을 건설하고 베이징으로 천도하였으며, 정화에게 대규모 함대를 이끌고 인도양으로 항해하게 하였다(1405~). 1581년 일조편법을 확대 시행하였다.' },
+    { id: 'e-sea-nat', track: 'eastasia', year: 1904, yearLabel: '20세기 초', label: '동남아시아의 민족 운동', en: 'Nationalist Movements in Southeast Asia',
+      state: '동남아시아', theme: '정치', kind: 'turning',
+      body: '열강의 침략에 맞서 베트남에서는 판보이쩌우의 동유 운동, 인도네시아에서는 부디 우토모와 이슬람 동맹, 필리핀에서는 호세 리살과 아기날도의 독립운동이 전개되었다. 태국은 근대화 개혁과 외교로 독립을 유지하였다.' },
+    { id: 'e-jp-expansion', track: 'eastasia', year: 1876, yearLabel: '1876~1910', label: '일본의 대외 팽창', en: 'Japanese Expansion',
+      state: '일본', theme: '군사', kind: 'turning', sub: 1,
+      body: '메이지 정부는 무사층의 불만을 해소하고 해외 시장을 확보하고자 침략 정책을 추진하였다. 강화도 조약, 류큐 병합, 청·일 전쟁과 러·일 전쟁을 거쳐 한반도와 만주로 세력을 넓혔다.' },
+    { id: 'e-jiyu-minken', track: 'eastasia', year: 1874, yearLabel: '1874~1889', label: '자유 민권 운동', en: 'Freedom and People’s Rights Movement',
+      state: '일본', theme: '정치', kind: 'turning', sub: 1,
+      body: '메이지 유신 이후 민간에서 의회 개설과 헌법 제정 등을 요구한 운동. 메이지 정부는 이를 탄압하면서도 일본 제국 헌법을 공포하고(1889) 제국 의회를 열었다.' },
+    { id: 'e-japan-open', track: 'eastasia', year: 1853, yearLabel: '1853~1858', label: '일본의 개항', en: 'Opening of Japan',
+      state: '일본', theme: '외교', kind: 'turning', sub: 1,
+      body: '미국 페리 제독의 무력 시위에 굴복한 에도 막부는 미·일 화친 조약(1854)과 미·일 수호 통상 조약(1858)을 맺고 문호를 개방하였다.' },
+    { id: 'e-new-culture', track: 'eastasia', year: 1915, label: '신문화 운동', en: 'New Culture Movement',
+      state: '중화민국', theme: '문화', kind: 'turning',
+      body: '천두슈 등이 잡지 『신청년』을 만들어 낡은 유교 전통을 타파하고 서양의 과학과 민주주의를 수용하자고 주장한 운동.' },
+    { id: 'e-boxer', track: 'eastasia', year: 1899, yearLabel: '1899~1901', label: '의화단 운동', en: 'Boxer Movement',
+      state: '청', theme: '정치', kind: 'turning',
+      body: '열강의 이권 침탈에 맞서 산둥성에서 일어난 반제국주의 운동. ‘청을 도와 서양 세력을 멸하자(부청멸양)’라는 구호를 내걸었으나 8개국 연합군에 진압되었다.' },
+    { id: 'e-bianfa', track: 'eastasia', year: 1895, yearLabel: '1895~1898', label: '변법자강 운동', en: 'Hundred Days’ Reform Movement',
+      state: '청', theme: '정치', kind: 'turning',
+      body: '청·일 전쟁 이후 캉유웨이, 량치차오 등이 일본의 메이지 유신을 본떠 입헌 군주제 수립 등 제도 개혁을 추진한 운동. 서태후를 중심으로 한 보수파의 탄압으로 좌절되었다.' },
+    { id: 'e-opium2', track: 'eastasia', year: 1856, yearLabel: '1856~1860', label: '제2차 아편 전쟁', en: 'Second Opium War',
+      state: '청', theme: '군사', kind: 'turning',
+      body: '난징 조약 이후에도 무역 상황이 나아지지 않자 영국이 애로호 사건을 빌미로 프랑스와 연합하여 일으킨 전쟁(1856~1860). 청은 톈진 조약과 베이징 조약을 맺었다.' },
+    { id: 'e-china-open', track: 'eastasia', year: 1842, yearLabel: '19세기 중엽', label: '중국의 개항', en: 'Opening of China',
+      state: '청', theme: '외교', kind: 'turning',
+      body: '영국과의 두 차례 아편 전쟁에서 패한 청은 난징 조약, 톈진 조약, 베이징 조약 등 불평등 조약을 맺고 문호를 개방하였다.' },
     { id: 'e-mq-society', track: 'eastasia', year: 1480, yearLabel: '1368~1912', label: '명·청 시대 사회', en: 'Ming-Qing Society',
       state: '명·청', theme: '사회', kind: 'turning',
       body: '명·청 시대에는 유교적 소양을 갖춘 지식인인 신사가 지배층으로서 향촌 사회를 주도하였다. 농업과 상공업의 발전으로 서민층이 경제적으로 성장하고 교육이 확대되면서 서민의 지위가 향상되었다.' },
@@ -8136,17 +8280,17 @@ window.TIMELINE_DATA = {
     { id: 'e-nguyen', track: 'eastasia', year: 1802, label: '응우옌 왕조', en: 'Nguyễn Dynasty',
       state: '베트남', theme: '정치', kind: 'turning',
       body: '1802년부터 1945년까지 베트남을 통치한 왕조.' },
-    { id: 'e-opium', track: 'eastasia', year: 1840, label: '아편 전쟁', en: 'Opium War',
+    { id: 'e-opium', track: 'eastasia', year: 1840, yearLabel: '1840~1842', label: '제1차 아편 전쟁', en: 'Opium War',
       state: '청', theme: '외교', kind: 'turning',
       body: '영국이 청에 아편을 밀수출하자 청이 아편을 단속하였고, 영국은 이를 빌미로 제1차 아편 전쟁(1840~1842)을 일으켰다. 근대식 화포로 무장한 영국군에 패한 청은 난징 조약을 맺었다. 1856년 제2차 아편 전쟁이 일어나 청은 톈진 조약과 베이징 조약을 맺었다.' },
-    { id: 'e-nanjing', track: 'eastasia', year: 1842, label: '난징 조약', en: 'Treaty of Nanjing',
-      state: '청', theme: '외교', kind: 'turning',
+    { id: 'e-nanjing', track: 'eastasia', year: 1842, month: 8, label: '난징 조약', en: 'Treaty of Nanjing',
+      state: '청', theme: '외교', kind: 'event', noSync: true,
       body: '제1차 아편 전쟁에서 패한 청이 영국과 맺은 조약. 상하이 등 5개 항구를 개항하고 홍콩을 영국에 넘겼다.' },
     { id: 'e-taiping', track: 'eastasia', year: 1851, label: '태평천국 운동', en: 'Taiping Movement',
       state: '청', theme: '사회', kind: 'turning',
       body: '크리스트교의 영향을 받은 홍수전이 일으킨 운동(1851~1864). 토지를 사람 수에 따라 나누어 준다는 천조전무 제도를 내세워 농민의 지지를 얻었다.' },
-    { id: 'e-perry', track: 'eastasia', year: 1854, label: '미일 화친 조약', en: 'Convention of Kanagawa',
-      state: '일본', theme: '외교', kind: 'turning', sub: 1,
+    { id: 'e-perry', track: 'eastasia', year: 1854, month: 3, label: '미·일 화친 조약', en: 'Convention of Kanagawa',
+      state: '일본', theme: '외교', kind: 'event', noSync: true, sub: 1,
       body: '미국 페리 함대의 무력시위에 굴복한 에도 막부가 1854년 미일 화친 조약을 맺어 2개 항구를 개항하였다. 1858년에는 미일 수호 통상 조약을 맺었다.' },
     { id: 'e-yangwu', track: 'eastasia', year: 1861, label: '양무운동', en: 'Self-Strengthening Movement',
       state: '청', theme: '정치', kind: 'turning',
@@ -8154,17 +8298,17 @@ window.TIMELINE_DATA = {
     { id: 'e-meiji', track: 'eastasia', year: 1868, label: '메이지 유신', en: 'Meiji Restoration',
       state: '일본', theme: '정치', kind: 'turning', sub: 1,
       body: '에도 막부가 무너지고 1868년 메이지 정부가 수립되었다. 천황 중심의 근대 국가를 세우기 위해 폐번치현 등 서양식 개혁을 추진하였다.' },
-    { id: 'e-meiji-const', track: 'eastasia', year: 1889, label: '일본 제국 헌법', en: 'Meiji Constitution',
-      state: '일본', theme: '정치', kind: 'turning', sub: 1,
+    { id: 'e-meiji-const', track: 'eastasia', year: 1889, month: 2, label: '일본 제국 헌법 공포', en: 'Meiji Constitution',
+      state: '일본', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '정부의 전제 정치를 비판하며 입헌 제도를 요구하는 자유 민권 운동이 일어나는 가운데, 1889년 천황에게 전쟁 선포·조약 체결 등 많은 권한을 부여한 일본 제국 헌법이 공포되었다.' },
-    { id: 'e-sino-jp', track: 'eastasia', year: 1894, label: '청일 전쟁', en: 'First Sino-Japanese War',
-      state: '청', theme: '군사', kind: 'turning',
+    { id: 'e-sino-jp', track: 'eastasia', year: 1894, month: 7, label: '청·일 전쟁', en: 'First Sino-Japanese War',
+      state: '청', theme: '군사', kind: 'event', noSync: true,
       body: '조선을 두고 청과 대립하던 일본이 일으킨 전쟁. 승리한 일본은 시모노세키 조약(1895)으로 청이 조선에 대한 권리를 포기하게 하고 랴오둥반도와 타이완을 넘겨받았다.' },
-    { id: 'e-wuxu', track: 'eastasia', year: 1898, label: '무술변법', en: 'Hundred Days Reform',
-      state: '청', theme: '정치', kind: 'turning',
+    { id: 'e-wuxu', track: 'eastasia', year: 1898, month: 6, label: '무술변법', en: 'Hundred Days Reform',
+      state: '청', theme: '정치', kind: 'event', noSync: true,
       body: '청일 전쟁 패배 이후 캉유웨이와 량치차오 등이 광서제의 신임을 받아 입헌 군주제 도입 등 근대적 개혁을 추진하였으나, 서태후 등 보수 세력의 반발로 실패하였다.' },
-    { id: 'e-xinchou', track: 'eastasia', year: 1901, label: '신축조약', en: 'Boxer Protocol',
-      state: '청', theme: '외교', kind: 'turning',
+    { id: 'e-xinchou', track: 'eastasia', year: 1901, month: 9, label: '신축조약', en: 'Boxer Protocol',
+      state: '청', theme: '외교', kind: 'event', noSync: true,
       body: '‘청 왕조를 도와 서양 세력을 몰아내자.’라고 주장하는 의화단 운동이 산둥에서 일어났으나 8개국 연합군에게 진압되었다. 청은 1901년 열강과 신축조약을 체결하였다.' },
     { id: 'e-xinhai', track: 'eastasia', year: 1911, label: '신해혁명', en: 'Xinhai Revolution',
       state: '중화민국', theme: '정치', kind: 'turning',
@@ -8190,8 +8334,8 @@ window.TIMELINE_DATA = {
     { id: 'e-civilwar', track: 'eastasia', year: 1946, label: '국공 내전', en: 'Chinese Civil War',
       state: '중국', theme: '정치', kind: 'turning',
       body: '일본 패망 후 국민당과 공산당이 다시 충돌하여 1946년 내전이 본격화하였다. 공산당이 승리하였고 국민당 정부는 타이완으로 옮겨 갔다.' },
-    { id: 'e-prc', track: 'eastasia', year: 1949, label: '중화 인민 공화국', en: 'People\'s Republic of China',
-      state: '중국', theme: '정치', kind: 'turning',
+    { id: 'e-prc', track: 'eastasia', year: 1949, month: 10, label: '중화인민공화국', en: 'People\'s Republic of China',
+      state: '중국', theme: '정치', kind: 'event', noSync: true,
       body: '국공 내전에서 승리한 중국 공산당의 마오쩌둥이 1949년 10월 1일 톈안먼 광장에서 중화 인민 공화국 수립을 선포하였다. 수도는 베이징.' },
     { id: 'e-sf', track: 'eastasia', year: 1951, label: '샌프란시스코 강화 조약', en: 'Treaty of San Francisco',
       state: '일본', theme: '외교', kind: 'turning', sub: 1,
@@ -8661,6 +8805,27 @@ window.TIMELINE_DATA = {
     { id: 's-ottoman', track: 'westasia', year: 1299, label: '오스만 제국', en: 'Ottoman Empire',
       state: '오스만 제국', theme: '정치', kind: 'turning',
       body: '셀주크 튀르크가 몽골의 침입으로 무너지자 튀르크 계통의 오스만족이 소아시아에 세운 나라(1299). 앙카라 전투(1402)에서 티무르 왕조에 패하였으나, 1453년 콘스탄티노폴리스를 점령하여 비잔티움 제국을 멸망시켰다. 술레이만 1세 때 헝가리를 정복하고 빈을 포위하였으며(1529), 레판토 해전(1571)에서 에스파냐 등에 패하였다.' },
+    { id: 's-africa-nat', track: 'westasia', year: 1896, yearLabel: '19~20세기', label: '아프리카의 민족 운동', en: 'African Resistance to Imperialism',
+      state: '아프리카', theme: '정치', kind: 'turning',
+      body: '19세기 말 제국주의 열강의 침략에 맞서 알제리, 수단의 마흐디 운동, 헤레로족과 나마족, 줄루 왕국 등이 저항하였다. 에티오피아는 아도와 전투에서 이탈리아의 침입을 막아 독립을 지켰다(1896).' },
+    { id: 's-iran-nat', track: 'westasia', year: 1891, yearLabel: '19~20세기', label: '이란의 민족 운동', en: 'Iranian National Movement',
+      state: '이란', theme: '정치', kind: 'turning',
+      body: '카자르 왕조가 러시아와 영국에 영토와 이권을 빼앗기자 이란인들은 담배 불매 운동을 비롯한 이권 회수 운동을 벌였고, 입헌 혁명(1906)으로 의회를 구성하고 헌법을 제정하였다.' },
+    { id: 's-ottoman-nat', track: 'westasia', year: 1876, yearLabel: '19~20세기', label: '오스만 제국의 민족 운동', en: 'Reform and Nationalism in the Ottoman Empire',
+      state: '오스만 제국', theme: '정치', kind: 'turning',
+      body: '오스만 제국은 탄지마트와 미드하트 헌법(1876)으로 근대화를 꾀하였으나 실패하였다. 청년 튀르크당이 헌법을 부활하였고, 제1차 세계 대전 이후 무스타파 케말이 튀르키예 공화국을 세웠다(1923).' },
+    { id: 's-india-nat', track: 'westasia', year: 1870, yearLabel: '19~20세기', label: '인도의 민족 운동', en: 'Indian National Movement',
+      state: '인도', theme: '정치', kind: 'turning', sub: 1,
+      body: '영국 동인도 회사의 지배와 수탈에 맞선 세포이의 항쟁 이후 영국은 인도를 직접 통치하였다. 인도인들은 브라흐마 사마지 운동, 인도 국민 회의의 반영 운동 등으로 민족 운동을 펼쳤다.' },
+    { id: 's-brahmo', track: 'westasia', year: 1828, label: '브라흐마 사마지 운동', en: 'Brahmo Samaj',
+      state: '인도', theme: '종교', kind: 'turning', sub: 1,
+      body: '서양의 근대 사상에 영향을 받은 힌두교 지도자들이 전개한 운동. 우상 숭배 배격, 카스트제 반대, 여성의 권리 신장 등을 주장하며 인도 사회 개혁에 힘썼다.' },
+    { id: 's-egypt-mod', track: 'westasia', year: 1805, yearLabel: '19세기', label: '이집트의 근대화 운동', en: 'Modernization of Egypt',
+      state: '이집트', theme: '정치', kind: 'turning',
+      body: '오스만 제국의 이집트 총독 무함마드 알리가 유럽식 군대와 행정 기구를 도입하는 근대화 정책을 추진하였다. 이후 막대한 차관으로 열강의 간섭을 받자 아라비 파샤가 혁명을 일으켰으나 영국에 진압되었다.' },
+    { id: 's-wahhabi', track: 'westasia', year: 1744, yearLabel: '18세기 중엽', label: '와하브 운동', en: 'Wahhabi Movement',
+      state: '아랍', theme: '종교', kind: 'turning',
+      body: '오스만 제국이 약해지고 서양 열강이 아랍 지역에 영향력을 넓히자 아라비아반도의 이븐 압둘 와하브가 이슬람교 본래의 순수성을 되찾자며 전개한 운동. 아랍 민족주의의 기반이 되었다.' },
     { id: 's-timurid', track: 'westasia', year: 1369, label: '티무르 왕조', en: 'Timurid Empire',
       state: '티무르 왕조', theme: '정치', kind: 'turning',
       body: '14세기 후반 칭기즈 칸의 계승자를 자처한 티무르가 중앙아시아의 유목 집단을 통합하여 세운 왕조(1369). 사마르칸트를 수도로 동서 무역을 통해 번영하였고, 앙카라 전투(1402)에서 오스만 제국을 물리쳤다.' },
@@ -8673,8 +8838,8 @@ window.TIMELINE_DATA = {
     { id: 's-aurangzeb', track: 'westasia', year: 1658, label: '아우랑제브', en: 'Aurangzeb',
       state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '아우랑제브 황제는 영토를 크게 넓혔으나, 이슬람 제일주의를 내세워 지즈야를 부활시키고 힌두교 사원을 파괴하는 등 비이슬람교도를 탄압하였다. 이에 각지에서 반란이 일어났다.' },
-    { id: 's-plassey', track: 'westasia', year: 1757, label: '플라시 전투', en: 'Battle of Plassey',
-      state: '인도', theme: '군사', kind: 'turning', sub: 1,
+    { id: 's-plassey', track: 'westasia', year: 1757, month: 6, label: '플라시 전투', en: 'Battle of Plassey',
+      state: '인도', theme: '군사', kind: 'event', noSync: true, sub: 1,
       body: '영국 동인도 회사가 플라시 전투에서 프랑스를 물리치고 벵골 지역의 통치권을 차지하였다. 이후 영국은 19세기 중엽 인도 대부분을 차지하였다.' },
     { id: 's-tanzimat', track: 'westasia', year: 1839, label: '탄지마트', en: 'Tanzimat',
       state: '오스만 제국', theme: '정치', kind: 'turning',
@@ -8683,13 +8848,13 @@ window.TIMELINE_DATA = {
       state: '인도', theme: '군사', kind: 'turning', sub: 1,
       body: '영국의 수탈과 인도의 종교적 전통을 무시하는 데 반발하여 동인도 회사의 인도인 용병(세포이)이 항쟁을 일으켰다(~1859). 대규모 민족 운동으로 발전하였으나 영국에 진압되었고, 무굴 제국 황제는 폐위되었다.' },
     { id: 's-indian-empire', track: 'westasia', year: 1877, label: '인도 제국', en: 'British Indian Empire',
-      state: '인도', theme: '정치', kind: 'turning', sub: 1,
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '세포이의 항쟁을 진압한 영국이 인도를 직접 지배하는 영국령 인도 제국이 성립하였다.' },
     { id: 's-inc', track: 'westasia', year: 1885, label: '인도 국민 회의', en: 'Indian National Congress',
       state: '인도', theme: '정치', kind: 'turning', sub: 1,
       body: '인도인의 정치 기구로 결성되었다. 초기에는 영국의 인도 지배를 인정하면서 인도인의 권익 신장을 추구하였다.' },
-    { id: 's-bengal', track: 'westasia', year: 1905, label: '벵골 분할령', en: 'Partition of Bengal',
-      state: '인도', theme: '정치', kind: 'turning', sub: 1,
+    { id: 's-bengal', track: 'westasia', year: 1905, month: 10, label: '벵골 분할령', en: 'Partition of Bengal',
+      state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '영국이 벵골 분할령을 발표하자 인도 국민 회의는 반영 운동으로 돌아섰다. 영국은 1911년 분할령을 취소하였다.' },
     { id: 's-iran-const', track: 'westasia', year: 1906, label: '이란 입헌 혁명', en: 'Persian Constitutional Revolution',
       state: '이란', theme: '정치', kind: 'turning',
@@ -8697,8 +8862,8 @@ window.TIMELINE_DATA = {
     { id: 's-young-turk', track: 'westasia', year: 1908, label: '청년 튀르크당 혁명', en: 'Young Turk Revolution',
       state: '오스만 제국', theme: '정치', kind: 'turning',
       body: '술탄의 전제 정치에 맞서 청년 튀르크당이 봉기하여 정권을 잡고 개혁을 추진하였다. 그러나 극단적인 튀르크 민족주의로 제국 내 다른 민족의 독립운동을 탄압하였다.' },
-    { id: 's-turkey', track: 'westasia', year: 1923, label: '튀르키예 공화국', en: 'Republic of Türkiye',
-      state: '튀르키예', theme: '정치', kind: 'turning',
+    { id: 's-turkey', track: 'westasia', year: 1923, month: 10, label: '튀르키예 공화국', en: 'Republic of Türkiye',
+      state: '튀르키예', theme: '정치', kind: 'event', noSync: true,
       body: '제1차 세계 대전 후 무스타파 케말이 술탄제를 폐지하고 1923년 튀르키예 공화국을 수립하였다. 여성의 지위 향상 등 근대화 정책을 추진하였다.' },
     { id: 's-partition', track: 'westasia', year: 1947, label: '인도·파키스탄 분리 독립', en: 'Partition of India',
       state: '인도', theme: '정치', kind: 'turning', sub: 1,
@@ -10667,7 +10832,7 @@ window.TIMELINE_DB = {
       { slot: 'square', caption: '토기 (이란) — 신석기 토기',                    ref: 'BS p.11' },
       { slot: 'wide',   caption: '괴베클리 테페 (튀르키예) — 거석 신전', ref: '선사시대 보충' }
     ],
-    linked: ['s-paleo', 's-bronze', 'k-neolithic', 'e-neolithic', 'w-neolithic', 's-sumer']
+    linked: ['s-paleo', 's-bronze', 'k-neolithic', 'e-neolithic', 'w-neolithic']
   },
 
   // ============================================================
@@ -10874,7 +11039,7 @@ window.TIMELINE_DB = {
         caption: '쐐기 문자가 새겨진 점토판',
         ref: '메소포타미아에서는 점토판에 쐐기 문자를 새겨 기록하였다.' }
     ],
-    linked: ['s-neolithic', 's-sumer', 's-hammurabi', 'w-egypt-civ', 's-indus']
+    linked: ['s-neolithic', 'w-egypt-civ', 's-indus']
   },
 
   // ============================================================
@@ -10978,7 +11143,7 @@ window.TIMELINE_DB = {
         caption: '기자의 피라미드',
         ref: '파라오의 무덤으로 만든 거대한 피라미드.' }
     ],
-    linked: ['w-egypt', 'w-paleo', 'w-neolithic', 's-mesopotamia', 's-indus']
+    linked: ['w-paleo', 'w-neolithic', 's-mesopotamia', 's-indus']
   },
 
   // ============================================================
@@ -11382,7 +11547,7 @@ window.TIMELINE_DB = {
         caption: '에게해와 그리스 세계',
         ref: '산지가 많은 그리스 · 크레타섬의 크노소스, 미케네, 트로이 · 아테네·스파르타·코린트·테베·델포이·올림피아 등의 도시' }
     ],
-    linked: ['w-minoan', 'w-mycenae', 'w-polis', 's-phoenicia']
+    linked: ['w-polis', 's-phoenicia']
   },
 
   // ============================================================
@@ -14857,6 +15022,135 @@ window.TIMELINE_DB = {
     ],
     linked: ['e-ming', 'e-qing', 'e-mq-society', 'e-mq-economy']
   },
+  'e-china-open': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '중국의 개항 — 청은 광저우의 공행을 통해서만 서양 상인과 교역하게 하였다. 차, 비단, 도자기 수입으로 무역 적자가 커진 영국은 인도산 아편을 청에 몰래 팔았고, 청에서 아편 중독자가 늘고 많은 양의 은이 영국으로 유출되었다. 청 정부가 임칙서를 광저우에 보내 아편을 단속하자 영국은 이를 빌미로 제1차 아편 전쟁을 일으켰다(1840~1842). 전쟁에서 패한 청은 난징 조약을 맺어 광저우, 샤먼, 푸저우, 닝보, 상하이 등 5개 항구를 개항하고 홍콩섬을 넘겨주었으며 공행 무역을 폐지하였다. 이어 추가 조약을 통해 영국에 영사 재판권과 최혜국 대우를 인정하였다. 난징 조약을 체결한 이후에도 영국의 무역 상황은 크게 나아지지 않았다. 영국의 무역 확대 요구를 청이 거절하자 영국은 애로호 사건을 빌미로 프랑스와 연합하여 제2차 아편 전쟁을 일으켰다(1856). 또다시 전쟁에서 패한 청은 영국을 비롯한 열강들과 톈진 조약 및 베이징 조약을 체결하여 항구의 추가 개항, 크리스트교 포교의 자유, 서양 외교관의 베이징 주재 등을 허용하였다. 한편 러시아는 베이징 조약을 중재한 대가로 연해주를 차지하였다.',
+      terms: [
+        { label: '공행', def: '청대 광저우에서 서양 상인과의 무역을 공식적으로 허가받은 상인 조합.' },
+        { label: '불평등 조약', def: '영사 재판권, 최혜국 대우, 협정 관세 등 한쪽에 불리한 내용을 담은 조약.' },
+        { label: '최혜국 대우', def: '한 나라가 제3국에 부여한 가장 유리한 대우를 상대국에도 부여하는 것.' },
+        { label: '난징 조약', def: '제1차 아편 전쟁 후 청이 영국과 맺은 조약(1842). 5개 항구 개항, 홍콩섬 할양, 공행 무역 폐지 등을 담았다.' }
+      ],
+      timeline: [
+        { yl: '19세기 중엽', label: '◆ 두 차례의 아편 전쟁과 중국의 개항' },
+        { y: 1840, label: '제1차 아편 전쟁 (~1842)' },
+        { y: 1842, label: '난징 조약' },
+        { y: 1856, label: '제2차 아편 전쟁 (~1860)' },
+        { y: 1858, label: '톈진 조약' },
+        { y: 1860, label: '베이징 조약' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { kind: '탐구 자료', title: '중국과 영국의 무역 관계 변화', span: true,
+        src: 'assets/w1/근현대/동아시아/china-britain-trade-inquiry.webp',
+        citation: '· 초기 무역(17~18세기): 공행을 통해 차·비단·도자기 수출, 은 유입 → 삼각 무역(19세기): 인도산 아편을 청에 팔아 은 회수 · 1820년대 후반 이후 아편 밀수입액 증가와 청의 은 유출' }
+    ],
+    linked: ['e-opium', 'e-opium2', 'e-taiping', 'e-japan-open']
+  },
+  'e-opium2': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '제2차 아편 전쟁 — 난징 조약을 체결한 이후에도 청으로의 수출이 늘지 않는 등 영국의 무역 상황은 크게 나아지지 않았다. 영국의 무역 확대 요구를 청이 거절하자 영국은 애로호 사건을 빌미로 프랑스와 연합하여 청을 공격하였다(1856). 애로호 사건은 밀수선 애로호를 청 관리가 검문하는 과정에서 영국 국기를 끌어내리고 중국인 승무원을 밀수 혐의로 체포한 사건이다. 또다시 전쟁에서 패한 청은 영국을 비롯한 열강들과 톈진 조약(1858)을 맺었고, 영국·프랑스 연합군이 베이징을 점령한 뒤에는 베이징 조약(1860)을 체결하였다. 이로써 청은 항구의 추가 개항, 크리스트교 포교의 자유, 서양 외교관의 베이징 주재 등을 허용하였다. 한편 러시아는 베이징 조약을 중재한 대가로 연해주를 차지하였다. 베이징 조약으로 각종 이권을 얻은 서양 열강은 이후 청을 도와 태평천국 진압에 나섰다.',
+      terms: [
+        { label: '애로호 사건', def: '청 관리가 밀수선 애로호를 검문하며 영국 국기를 끌어내리고 승무원을 체포한 사건(1856).' },
+        { label: '톈진 조약', def: '제2차 아편 전쟁 중 청이 열강과 맺은 조약(1858).' },
+        { label: '베이징 조약', def: '영국·프랑스 연합군의 베이징 점령 후 청이 맺은 조약(1860). 러시아는 중재 대가로 연해주를 차지하였다.' }
+      ],
+      timeline: [
+        { y: 1856, label: '◆ 애로호 사건 — 제2차 아편 전쟁 발발' },
+        { y: 1858, label: '톈진 조약' },
+        { y: 1860, label: '영국·프랑스 연합군 베이징 점령, 베이징 조약' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/opium-war-treaties-map.webp', span: true,
+        caption: '아편 전쟁과 불평등 조약',
+        ref: '난징 조약(1842): 광저우·샤먼·푸저우·닝보·상하이 5개 항구 개항, 홍콩 할양, 공행 폐지 · 톈진 조약(1858): 10개 항구 개방, 외국 공사의 베이징 주재와 크리스트교 포교 승인 · 베이징 조약(1860): 톈진 추가 개항, 주룽반도 할양' }
+    ],
+    linked: ['e-opium', 'e-china-open', 'e-taiping']
+  },
+  'e-new-culture': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '신문화 운동 — 신해혁명 이후 위안스카이가 혁명파를 탄압하고 황제 체제의 부활을 시도하였으나 실패하였고, 그의 사후 전국 각지에서 군벌이 등장하였다. 이러한 가운데 천두슈 등은 『신청년』이라는 잡지를 만들어 낡은 유교 전통을 타파하고 서양의 과학과 민주주의를 수용하자는 신문화 운동을 주도하였다(1915). 신문화 운동은 중국인의 민족의식과 근대 의식을 일깨웠다. 한편 제1차 세계 대전 중 일본이 독일이 가지고 있던 이권을 차지하고자 ‘21개조 요구’를 강요하였고, 파리 강화 회의에서 이 요구의 무효화가 받아들여지지 않자 베이징 학생들의 시위로 시작된 5·4 운동(1919)이 거국적인 항일 구국 운동으로 발전하였다. 5·4 운동 이후 쑨원은 국민당을, 천두슈 등은 공산당을 결성하였다.',
+      terms: [
+        { label: '『신청년』', def: '천두슈 등이 펴낸 잡지. 신문화 운동을 이끌었다.' },
+        { label: '21개조 요구', def: '제1차 세계 대전 중 일본이 중국에 강요한 이권 요구(1915).' }
+      ],
+      timeline: [
+        { y: 1915, label: '◆ 천두슈, 『신청년』 창간 — 신문화 운동' },
+        { y: 1919, label: '5·4 운동' },
+        { y: 1921, label: '중국 공산당 결성' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['e-xinhai', 'e-may4', 'e-kmt-ccp']
+  },
+  'e-jp-expansion': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '일본의 대외 팽창 — 메이지 정부는 메이지 유신 과정에서 소외된 무사층의 불만을 해소하고 산업화에 필요한 해외 시장을 확보하고자 제국주의 침략 정책을 추진하였다. 일본은 운요호 사건을 구실로 조선과 강화도 조약을 맺었고(1876), 류큐를 병합하여 오키나와현을 설치하였다(1879). 조선을 두고 청과 대립하던 일본은 청·일 전쟁(1894~1895)에서 승리하여 시모노세키 조약을 맺고 청이 조선에 대한 권리를 포기하게 하였으며, 랴오둥반도와 타이완을 넘겨받았다. 그러나 러시아·프랑스·독일의 삼국 간섭으로 랴오둥반도를 청에 돌려주었다. 일본 정부는 조약으로 받은 막대한 배상금을 군사 시설 확충과 산업화에 사용하였다. 이후 일본은 러시아를 견제하려는 영국과 영일 동맹을 맺고(1902), 러시아와 전쟁을 벌여(러·일 전쟁) 포츠머스 조약을 체결하였다(1905). 이로써 일본은 한반도에 대한 독점적 지배권과 만주의 이권을 인정받았으며, 뤼순과 다롄의 조차권, 사할린섬 남부를 차지하였다. 이후 일본은 대한 제국을 강제로 병합하였다(1910).',
+      terms: [
+        { label: '시모노세키 조약', def: '청·일 전쟁 후 청과 일본이 맺은 조약(1895).' },
+        { label: '삼국 간섭', def: '러시아·프랑스·독일이 일본에 랴오둥반도를 청에 돌려주게 한 사건(1895).' },
+        { label: '영일 동맹', def: '러시아의 남하를 견제하려 영국과 일본이 맺은 동맹(1902).' },
+        { label: '포츠머스 조약', def: '러·일 전쟁 후 미국의 중재로 맺은 강화 조약(1905).' }
+      ],
+      timeline: [
+        { y: 1876, label: '◆ 강화도 조약' },
+        { y: 1879, label: '류큐 병합 — 오키나와현 설치' },
+        { y: 1894, label: '청·일 전쟁 (~1895)' },
+        { y: 1895, label: '시모노세키 조약·삼국 간섭' },
+        { y: 1902, label: '제1차 영일 동맹' },
+        { y: 1904, label: '러·일 전쟁 (~1905)' },
+        { y: 1905, label: '포츠머스 조약' },
+        { y: 1910, label: '대한 제국 강제 병합' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/sino-russo-japanese-wars-map.webp',
+        caption: '청일 전쟁과 러일 전쟁의 결과',
+        ref: '시모노세키 조약(1895)으로 일본이 타이완 등을 획득 · 포츠머스 조약(1905)으로 사할린 남부 등을 획득 · 러시아와 일본의 침략 방향' }
+    ],
+    linked: ['e-meiji', 'e-jiyu-minken', 'k-ganghwa-treaty', 'k-russo-japan', 'e-bianfa']
+  },
+  'e-sea-nat': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '동남아시아의 민족 운동 — 19세기 이후 동남아시아 대부분 지역은 서양 열강의 식민지가 되었다. 영국은 미얀마와 말레이반도를, 프랑스는 베트남·캄보디아·라오스를 묶어 프랑스령 인도차이나 연방을, 네덜란드는 인도네시아를 지배하였고, 필리핀은 에스파냐에 이어 미국의 식민지가 되었다. 태국에서는 짜끄리 왕조의 라마 4세, 라마 5세 등이 근대적인 개혁을 주도하고 서양 문물을 적극적으로 수용하여 부국강병을 이루고자 하였다. 또한 동진하는 영국과 서진하는 프랑스의 완충 지역이라는 지정학적 이점을 이용한 외교 활동으로 동남아시아에서 유일하게 독립을 유지하였다. 프랑스의 지배를 받던 베트남에서는 판보이쩌우가 베트남 유신회를 조직하고 일본에 유학생을 파견하는 동유 운동을 벌였으며, 신해혁명이 성공하자 베트남 광복회를 조직하여 독립운동을 지속하였다. 판쩌우찐은 통킹 의숙을 세워 문맹 퇴치와 근대 사상 보급에 앞장섰다. 네덜란드의 지배를 받던 인도네시아에서는 1908년 부디 우토모라는 민족 운동 단체가 조직되어 독립 국가 건설에 힘썼고, 1912년에는 서양식 교육을 받은 지식인과 이슬람교도 상인들이 이슬람 동맹을 결성하여 외국 상인의 세력 확대와 크리스트교 포교에 저항하였다. 에스파냐의 지배를 받던 필리핀에서는 호세 리살이 에스파냐인과 필리핀인의 동등한 대우를 요구하며 필리핀 민족 동맹을 조직하였다. 필리핀 지배권을 두고 미국이 에스파냐와 전쟁하자 아기날도는 필리핀의 독립을 약속해 준 미국을 도왔고, 에스파냐가 물러난 뒤 필리핀 공화국을 선포하였다. 그러나 미국은 이를 진압하고 필리핀을 식민지로 삼았다.',
+      terms: [
+        { label: '동유 운동', def: '판보이쩌우가 베트남 청년들을 일본에 유학 보내 인재를 기르고자 한 운동.' },
+        { label: '통킹 의숙', def: '판쩌우찐이 게이오 의숙을 본떠 하노이에 세운 사립 학교.' },
+        { label: '부디 우토모', def: '1908년 인도네시아에서 조직된 민족 운동 단체.' },
+        { label: '이슬람 동맹', def: '인도네시아의 지식인과 이슬람교도 상인들이 결성한 단체(1912).' },
+        { label: '호세 리살', def: '에스파냐의 필리핀 식민 통치를 고발하고 필리핀 민족 동맹을 조직한 인물.' }
+      ],
+      timeline: [
+        { y: 1887, label: '프랑스령 인도차이나 연방 성립' },
+        { y: 1898, label: '미국-에스파냐 전쟁, 필리핀 공화국 선포' },
+        { y: 1904, label: '◆ 판보이쩌우, 베트남 유신회 조직' },
+        { y: 1908, label: '인도네시아, 부디 우토모 조직' },
+        { y: 1912, label: '인도네시아, 이슬람 동맹 결성' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/asia-pacific-imperialism-map.webp', span: true,
+        caption: '제국주의 열강의 아시아·태평양 지역 침략',
+        ref: '영국령 인도·미얀마·오스트레일리아와 수에즈 운하를 잇는 영국의 주요 무역로 · 프랑스령 인도차이나, 네덜란드령 동인도, 미국령 필리핀, 일본령 한국·타이완' }
+    ],
+    linked: ['e-nguyen', 'w-imperialism', 'e-xinhai']
+  },
   'e-ming': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
@@ -14952,7 +15246,7 @@ window.TIMELINE_DB = {
         caption: '데지마',
         ref: '나가사키 앞바다를 메워 만든 인공 섬. 이곳에 네덜란드 상관이 설치되었다.' }
     ],
-    linked: ['e-sengoku', 'e-perry', 'e-meiji', 'k-joseon']
+    linked: ['e-sengoku', 'e-japan-open', 'e-meiji', 'k-joseon']
   },
   'e-houjin': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15072,17 +15366,20 @@ window.TIMELINE_DB = {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
     overview: {
-      summary: '아편 전쟁 — 청은 광저우의 공행을 통해서만 서양 상인과 교역하게 하였다. 차·비단·도자기 수입으로 무역 적자가 커진 영국은 인도산 아편을 청에 밀수출하는 삼각 무역을 벌였다. 은이 빠져나가고 아편 중독자가 늘자 청이 아편을 단속하였고, 영국은 이를 빌미로 제1차 아편 전쟁(1840~1842)을 일으켰다. 근대식 화포로 무장한 영국군에 패한 청은 난징 조약을 맺었다. 1856년 제2차 아편 전쟁에서도 패하여 톈진 조약과 베이징 조약을 맺었다. 17~18세기 청은 광저우만을 개항하고 공행이라는 상인 단체를 통해서만 서양 국가들과의 무역을 허용하였다. 영국은 차, 비단, 도자기를 수입하며 막대한 은을 지급하였는데, 지정은제 아래 세금을 은으로 납부해야 하는 농민의 부담도 커졌다. 근대식 화포로 무장한 영국군은 청의 여러 도시를 함락하였다. 난징 조약에 따라 공행이 폐지되었는데도 무역량이 기대만큼 늘지 않자, 영국은 프랑스와 연합하여 제2차 아편 전쟁을 일으켰다. 아편 전쟁 소식은 쇄국 정책을 고수하던 일본의 에도 막부에도 충격을 주었다.',
+      summary: '제1차 아편 전쟁 — 청은 광저우의 공행을 통해서만 서양 상인과 교역하게 하였다. 차·비단·도자기 수입으로 무역 적자가 커진 영국은 인도산 아편을 청에 밀수출하는 삼각 무역을 벌였다. 은이 빠져나가고 아편 중독자가 늘자 청이 아편을 단속하였고, 영국은 이를 빌미로 제1차 아편 전쟁(1840~1842)을 일으켰다. 근대식 화포로 무장한 영국군에 패한 청은 난징 조약을 맺었다. 1856년 제2차 아편 전쟁에서도 패하여 톈진 조약과 베이징 조약을 맺었다. 17~18세기 청은 광저우만을 개항하고 공행이라는 상인 단체를 통해서만 서양 국가들과의 무역을 허용하였다. 영국은 차, 비단, 도자기를 수입하며 막대한 은을 지급하였는데, 지정은제 아래 세금을 은으로 납부해야 하는 농민의 부담도 커졌다. 근대식 화포로 무장한 영국군은 청의 여러 도시를 함락하였다. 난징 조약에 따라 공행이 폐지되었는데도 무역량이 기대만큼 늘지 않자, 영국은 프랑스와 연합하여 제2차 아편 전쟁을 일으켰다. 아편 전쟁 소식은 쇄국 정책을 고수하던 일본의 에도 막부에도 충격을 주었다.',
       terms: [
         { label: '공행', def: '청 정부가 서양과의 무역을 허가한 광저우의 특허 상인 조합.' },
         { label: '삼각 무역', def: '영국·인도·청을 잇는 무역. 영국은 인도산 아편을 청에 팔아 은을 확보하였다.' },
         { label: '불평등 조약', def: '개항·영사 재판권·협정 관세 등 한쪽에 불리한 조약.' },
         { label: '임칙서', def: '광저우에 파견되어 아편을 몰수하고 단속을 강화한 청의 관리.' },
+        { label: '영사 재판권', def: '외국인이 머무는 나라의 법이 아니라 자기 나라 영사의 재판을 받을 수 있는 권리.' },
+        { label: '최혜국 대우', def: '한 나라가 제3국에 부여한 가장 유리한 대우를 상대국에도 부여하는 것.' },
         { label: '톈진 조약·베이징 조약', def: '제2차 아편 전쟁 결과 청이 열강과 맺은 조약.' }
       ],
       timeline: [
         { y: 1840, label: '◆ 제1차 아편 전쟁' },
-        { y: 1842, label: '난징 조약' },
+        { y: 1842, label: '난징 조약 — 5개 항구 개항, 홍콩섬 할양, 공행 무역 폐지' },
+        { y: 1843, label: '후먼 조약 — 영사 재판권·최혜국 대우 인정' },
         { y: 1856, label: '제2차 아편 전쟁' },
         { y: 1860, label: '베이징 조약' }
       ]
@@ -15097,39 +15394,7 @@ window.TIMELINE_DB = {
         caption: '아편 전쟁과 불평등 조약',
         ref: '난징 조약(1842): 광저우·샤먼·푸저우·닝보·상하이 5개 항구 개항, 홍콩 할양, 공행 폐지 · 톈진 조약(1858): 10개 항구 개방, 외국 공사의 베이징 주재와 크리스트교 포교 승인 · 베이징 조약(1860): 톈진 추가 개항, 주룽반도 할양' }
     ],
-    linked: ['e-qing', 'e-nanjing', 'e-taiping', 'e-yangwu']
-  },
-  'e-nanjing': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
-    overview: {
-      summary: '난징 조약 — 청은 서양 상인들이 광저우의 공행을 통해서만 교역하게 하였다. 차·비단·도자기 수입으로 무역 적자가 늘어난 영국은 인도산 아편을 청에 밀수출하였고, 청에서는 아편 중독자가 급증하고 은이 해외로 유출되어 재정난이 심각해졌다. 청 정부가 임칙서를 보내 아편을 단속하자 영국은 제1차 아편 전쟁을 일으켰다(1840). 전쟁에서 패한 청은 난징 조약을 맺어(1842) 상하이 등 5개 항구를 개항하고 홍콩을 영국에 넘겨주었으며 공행 무역을 폐지하였다. 이듬해 후먼 조약으로 영사 재판권과 최혜국 대우를 인정하였다. 상하이 와이탄의 서양식 건축물들은 난징 조약으로 개항한 상하이에 외국인들이 들어와 살면서 만들어졌다. 홍콩은 중국과 동남아시아를 잇는 요충지로 중계 무역에 유리하였으며, 영국은 난징 조약으로 홍콩을 할양받았다. 난징 조약에 따라 공행이 폐지되었으나, 무역량이 기대만큼 늘지 않자 영국은 프랑스와 연합하여 제2차 아편 전쟁을 일으켰다.',
-      terms: [
-        { label: '공행', def: '서양 상인이 청과 교역할 때 반드시 거쳐야 했던 광저우의 상인 조직.' },
-        { label: '임칙서', def: '청 정부가 광저우에 보내 아편을 몰수하고 단속한 관리.' },
-        { label: '영사 재판권', def: '외국인이 죄를 지어도 자국 영사의 재판을 받게 하는 권리.' },
-        { label: '최혜국 대우', def: '다른 나라에 준 가장 유리한 조건을 조약 상대국에도 똑같이 주는 것.' },
-        { label: '홍콩 할양', def: '난징 조약으로 홍콩을 영국에 넘겨준 일.' },
-        { label: '5개 항구 개항', def: '난징 조약으로 광저우, 샤먼, 푸저우, 닝보, 상하이를 개항한 것.' }
-      ],
-      timeline: [
-        { y: 1840, label: '제1차 아편 전쟁' },
-        { y: 1842, label: '◆ 난징 조약' },
-        { y: 1843, label: '후먼 조약' },
-        { y: 1856, label: '제2차 아편 전쟁' }
-      ]
-    },
-    sources: [
-      { kind: '탐구 자료', title: '중국과 영국의 무역 관계 변화', span: true,
-        src: 'assets/w1/근현대/동아시아/china-britain-trade-inquiry.webp',
-        citation: '· 초기 무역(17~18세기): 공행을 통해 차·비단·도자기 수출, 은 유입 → 삼각 무역(19세기): 인도산 아편을 청에 팔아 은 회수 · 1820년대 후반 이후 아편 밀수입액 증가와 청의 은 유출' }
-    ],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/동아시아/opium-war-treaties-map.webp', span: true,
-        caption: '아편 전쟁과 불평등 조약',
-        ref: '난징 조약(1842): 광저우·샤먼·푸저우·닝보·상하이 5개 항구 개항, 홍콩 할양, 공행 폐지 · 톈진 조약(1858): 10개 항구 개방, 외국 공사의 베이징 주재와 크리스트교 포교 승인 · 베이징 조약(1860): 톈진 추가 개항, 주룽반도 할양' }
-    ],
-    linked: ['e-opium', 'e-qing', 'e-perry']
+    linked: ['e-qing', 'e-taiping', 'e-yangwu']
   },
   'e-taiping': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15155,11 +15420,11 @@ window.TIMELINE_DB = {
     ],
     linked: ['e-opium', 'e-yangwu', 'e-qing']
   },
-  'e-perry': {
+  'e-japan-open': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
     overview: {
-      summary: '미일 화친 조약 — 에도 막부는 쇄국 정책을 유지하였으나, 1853년 미국 페리 함대가 무력시위를 벌이며 개항을 요구하였다. 막부는 1854년 미일 화친 조약을 맺어 2개 항구를 개항하고 미국에 최혜국 대우를 인정하였다. 1858년에는 미일 수호 통상 조약으로 협정 관세와 영사 재판권을 인정하였다. 위기감이 커지면서 존왕양이 운동이 일어났다. 에도 막부는 서양의 계속된 통상 요구를 거부하고 데지마를 통해 네덜란드와 제한된 무역을 시행하였다. 그러나 청이 아편 전쟁에서 패배한 소식이 전해지자 일본 내 위기감이 고조되었다. 페리는 대포를 실은 4척의 군함을 이끌고 도쿄 앞바다에서 무력시위를 벌였는데, 일본인은 검게 칠한 군함을 보고 ‘흑선’이라 불렀다. 미일 화친 조약으로 시모다와 하코다테를 개항하였다. 협정 관세는 외국과의 통상 조약으로 세율을 결정하는 것으로 관세 자주권 포기를 의미하였다. 막부는 영국, 러시아, 프랑스 등과도 불평등 조약을 맺었고, 굴욕 외교에 대한 비판 여론이 높아지면서 막부의 권위가 추락하였다.',
+      summary: '일본의 개항 — 에도 막부는 쇄국 정책을 유지하였으나, 1853년 미국 페리 함대가 무력시위를 벌이며 개항을 요구하였다. 막부는 1854년 미일 화친 조약을 맺어 2개 항구를 개항하고 미국에 최혜국 대우를 인정하였다. 1858년에는 미일 수호 통상 조약으로 협정 관세와 영사 재판권을 인정하였다. 위기감이 커지면서 존왕양이 운동이 일어났다. 에도 막부는 서양의 계속된 통상 요구를 거부하고 데지마를 통해 네덜란드와 제한된 무역을 시행하였다. 그러나 청이 아편 전쟁에서 패배한 소식이 전해지자 일본 내 위기감이 고조되었다. 페리는 대포를 실은 4척의 군함을 이끌고 도쿄 앞바다에서 무력시위를 벌였는데, 일본인은 검게 칠한 군함을 보고 ‘흑선’이라 불렀다. 미일 화친 조약으로 시모다와 하코다테를 개항하였다. 협정 관세는 외국과의 통상 조약으로 세율을 결정하는 것으로 관세 자주권 포기를 의미하였다. 막부는 영국, 러시아, 프랑스 등과도 불평등 조약을 맺었고, 굴욕 외교에 대한 비판 여론이 높아지면서 막부의 권위가 추락하였다.',
       terms: [
         { label: '존왕양이 운동', def: '천황을 받들고 서양 세력을 물리치자는 운동.' },
         { label: '협정 관세', def: '관세를 상대국과 협의하여 정하게 한 불평등 조항.' },
@@ -15167,9 +15432,9 @@ window.TIMELINE_DB = {
         { label: '시모다·하코다테', def: '미일 화친 조약으로 개항한 2개 항구.' }
       ],
       timeline: [
-        { y: 1853, label: '페리 함대의 개항 요구' },
-        { y: 1854, label: '◆ 미일 화친 조약' },
-        { y: 1858, label: '미일 수호 통상 조약' },
+        { y: 1853, label: '◆ 페리 함대의 개항 요구' },
+        { y: 1854, label: '미·일 화친 조약' },
+        { y: 1858, label: '미·일 수호 통상 조약' },
         { y: 1868, label: '메이지 정부 수립' }
       ]
     },
@@ -15179,7 +15444,7 @@ window.TIMELINE_DB = {
         caption: '페리 제독의 요코하마 상륙과 일본의 개항',
         ref: '페리 일행이 미일 화친 조약을 맺기 위해 상륙하는 모습(1854. 3. 8.) · 미일 화친 조약(1854)으로 시모다·하코다테, 미일 수호 통상 조약(1858)으로 요코하마·나가사키·니가타·고베 등을 개항' }
     ],
-    linked: ['e-edo', 'e-meiji', 'e-nanjing', 'k-ganghwa-treaty']
+    linked: ['e-edo', 'e-meiji', 'e-opium', 'k-ganghwa-treaty']
   },
   'e-yangwu': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15200,7 +15465,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['e-taiping', 'e-sino-jp', 'e-wuxu', 'e-qing']
+    linked: ['e-taiping', 'e-jp-expansion', 'e-bianfa', 'e-qing']
   },
   'e-meiji': {
     notes: { sections: [] },
@@ -15253,7 +15518,7 @@ window.TIMELINE_DB = {
         caption: '이와쿠라 사절단',
         ref: '메이지 정부가 서양 여러 나라에 파견한 사절단(1871). 이와쿠라 도모미를 대표로 이토 히로부미 등이 참여하였다.' }
     ],
-    linked: ['e-perry', 'e-meiji-const', 'e-sino-jp', 'k-ganghwa-treaty', 'w-ww1', 'k-goryeo', 'k-donghak'],
+    linked: ['e-japan-open', 'e-jiyu-minken', 'e-jp-expansion', 'k-ganghwa-treaty', 'w-ww1', 'k-goryeo', 'k-donghak'],
     map: {
       title: '메이지 유신 — 일본 열도',
       bounds: { w: 360, h: 240 },
@@ -15275,11 +15540,11 @@ window.TIMELINE_DB = {
       ]
     }
   },
-  'e-meiji-const': {
+  'e-jiyu-minken': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
     overview: {
-      summary: '일본 제국 헌법 — 메이지 정부의 개혁 과정에서 1870년대부터 정부의 전제 정치를 비판하고 서양식 입헌 제도의 도입을 요구하는 자유 민권 운동이 일어났다. 정부는 1889년 일본 제국 헌법을 공포하고 제국 의회를 열었다. 헌법은 천황에게 전쟁 선포·조약 체결 등 많은 권한을 부여한 반면, 국민의 권리는 법률의 범위 안에서만 인정하였다. 메이지 정부 초기에는 사쓰마번과 조슈번 출신 지사들이 요직을 차지하여 독선적인 정치가 되풀이되었다. 자유 민권 운동은 이러한 정부에 불만을 품은 사족을 중심으로 전개되었으며, 언론의 힘을 활용하여 민중과 공감대를 형성하고 1874년 「민선 의원 설립 건백서」를 발표하였다. 정부는 자유 민권 운동을 탄압하면서도 서양식 제도의 필요성을 인정하였다. 이토 히로부미가 유럽에 가서 헌법을 조사하고 이를 참고하여 헌법 초안을 만들었으며, 헌법 공포 이듬해 중의원 선거를 시행하여 제국 의회를 개설하였다. 자유 민권 운동가는 헌법을 하사하는 천황을 해골로 묘사한 풍자화를 그리기도 하였다.',
+      summary: '자유 민권 운동 — 메이지 정부의 개혁 과정에서 1870년대부터 정부의 전제 정치를 비판하고 서양식 입헌 제도의 도입을 요구하는 자유 민권 운동이 일어났다. 정부는 1889년 일본 제국 헌법을 공포하고 제국 의회를 열었다. 헌법은 천황에게 전쟁 선포·조약 체결 등 많은 권한을 부여한 반면, 국민의 권리는 법률의 범위 안에서만 인정하였다. 메이지 정부 초기에는 사쓰마번과 조슈번 출신 지사들이 요직을 차지하여 독선적인 정치가 되풀이되었다. 자유 민권 운동은 이러한 정부에 불만을 품은 사족을 중심으로 전개되었으며, 언론의 힘을 활용하여 민중과 공감대를 형성하고 1874년 「민선 의원 설립 건백서」를 발표하였다. 정부는 자유 민권 운동을 탄압하면서도 서양식 제도의 필요성을 인정하였다. 이토 히로부미가 유럽에 가서 헌법을 조사하고 이를 참고하여 헌법 초안을 만들었으며, 헌법 공포 이듬해 중의원 선거를 시행하여 제국 의회를 개설하였다. 자유 민권 운동가는 헌법을 하사하는 천황을 해골로 묘사한 풍자화를 그리기도 하였다.',
       terms: [
         { label: '자유 민권 운동', def: '헌법 제정과 의회 설립을 요구한 일본의 정치 운동.' },
         { label: '제국 의회', def: '일본 제국 헌법에 따라 설치된 의회.' },
@@ -15287,8 +15552,8 @@ window.TIMELINE_DB = {
         { label: '이토 히로부미', def: '유럽의 헌법을 조사하고 일본 제국 헌법 초안을 만든 인물.' }
       ],
       timeline: [
-        { yl: '1870년대', label: '자유 민권 운동' },
-        { y: 1889, label: '◆ 일본 제국 헌법 공포' },
+        { yl: '1870년대', label: '◆ 자유 민권 운동' },
+        { y: 1889, label: '일본 제국 헌법 공포' },
         { y: 1894, label: '청일 전쟁' },
         { y: 1874, label: '「민선 의원 설립 건백서」 발표' },
         { y: 1890, label: '제국 의회 개설' }
@@ -15296,38 +15561,13 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['e-meiji', 'e-sino-jp']
+    linked: ['e-meiji', 'e-jp-expansion']
   },
-  'e-sino-jp': {
+  'e-bianfa': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
     overview: {
-      summary: '청일 전쟁 — 조선을 두고 청과 대립하던 일본이 일으킨 전쟁(1894~1895). 승리한 일본은 시모노세키 조약(1895)으로 청이 조선에 대한 권리를 포기하게 하고 랴오둥반도와 타이완을 넘겨받았다. 그러나 러시아·프랑스·독일의 삼국 간섭으로 랴오둥반도를 청에 돌려주었다. 이후 열강의 중국 침략이 심해졌다. 갑신정변 이후 조선을 둘러싼 청과 일본의 대립이 심해진 가운데, 조선에서 동학 농민 운동이 일어났다(1894). 조선 정부의 요청으로 청이 출병하자 일본도 공사관과 자국민 보호를 구실로 군대를 보냈다. 동학 농민군이 해산한 이후에도 일본은 철군을 거부하고 경복궁을 점령하였으며, 청과 전쟁을 일으켰다. 일본은 랴오둥반도와 산둥반도를 장악하여 시모노세키 조약을 맺었으며, 청이 납부한 배상금을 활용하여 군사력을 강화하고 본격적으로 제국주의화되었다. 반면 허약함이 드러난 청은 열강의 본격적인 침략 대상이 되어, 1898년 독일군이 자오저우만에 상륙하고 프랑스와 영국 등도 조차지를 요구하였다. 중국에서는 청일 전쟁을 갑오 전쟁이라고 하며, 웨이하이 류궁다오에 중국 갑오 전쟁 박물원을 세웠다.',
-      terms: [
-        { label: '시모노세키 조약', def: '청일 전쟁을 끝낸 조약(1895).' },
-        { label: '삼국 간섭', def: '러시아·프랑스·독일이 일본에 랴오둥반도를 청에 돌려주도록 압박한 사건.' },
-        { label: '갑오 전쟁', def: '중국에서 청일 전쟁을 부르는 이름.' },
-        { label: '랴오둥반도', def: '시모노세키 조약으로 일본이 넘겨받았다가 삼국 간섭으로 청에 돌려준 지역.' }
-      ],
-      timeline: [
-        { y: 1894, label: '◆ 청일 전쟁' },
-        { y: 1895, label: '시모노세키 조약·삼국 간섭' },
-        { y: 1898, label: '무술변법' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/동아시아/sino-russo-japanese-wars-map.webp',
-        caption: '청일 전쟁과 러일 전쟁의 결과',
-        ref: '시모노세키 조약(1895)으로 일본이 타이완 등을 획득 · 포츠머스 조약(1905)으로 사할린 남부 등을 획득 · 러시아와 일본의 침략 방향' }
-    ],
-    linked: ['e-yangwu', 'e-wuxu', 'e-meiji', 'k-donghak-rev', 'k-gabo']
-  },
-  'e-wuxu': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
-    overview: {
-      summary: '무술변법 — 청일 전쟁에서 패한 뒤 양무운동에서 벗어나 정치 제도까지 바꾸어야 한다는 주장이 힘을 얻었다. 캉유웨이·량치차오 등이 광서제의 신임을 받아 입헌 군주제 도입 등 근대적 개혁을 추진하였다(1898). 그러나 서태후 등 보수 세력의 반발로 실패하였다. 변법자강 운동이라고도 한다. 양무운동이 한창이던 1880년대 후반부터 서양의 정치 제도 도입, 즉 제도적 개혁을 주장하는 지식인들이 나타났다. 캉유웨이와 량치차오는 일본의 메이지 유신을 본받아 과거제 개편, 상공업 육성, 신교육 실시 등 여러 근대적 개혁을 추진하였다. 그러나 서태후와 보수파가 일으킨 정변으로 개혁은 100여 일 만에 중단되었다. 서태후는 동치제의 생모로 수렴청정을 하였으며, 광서제를 황제로 앉힌 후 40여 년간 섭정을 계속하였다.',
+      summary: '변법자강 운동 — 청일 전쟁에서 패한 뒤 양무운동에서 벗어나 정치 제도까지 바꾸어야 한다는 주장이 힘을 얻었다. 캉유웨이·량치차오 등이 광서제의 신임을 받아 입헌 군주제 도입 등 근대적 개혁을 추진하였다(1898). 그러나 서태후 등 보수 세력의 반발로 실패하였다. 무술변법이라고도 한다. 양무운동이 한창이던 1880년대 후반부터 서양의 정치 제도 도입, 즉 제도적 개혁을 주장하는 지식인들이 나타났다. 캉유웨이와 량치차오는 일본의 메이지 유신을 본받아 과거제 개편, 상공업 육성, 신교육 실시 등 여러 근대적 개혁을 추진하였다. 그러나 서태후와 보수파가 일으킨 정변으로 개혁은 100여 일 만에 중단되었다. 서태후는 동치제의 생모로 수렴청정을 하였으며, 광서제를 황제로 앉힌 후 40여 년간 섭정을 계속하였다.',
       terms: [
         { label: '변법자강 운동', def: '제도를 바꾸어 나라를 스스로 강하게 하자는 개혁 운동.' },
         { label: '입헌 군주제', def: '헌법에 따라 군주의 권한을 제한하는 정치 체제.' },
@@ -15336,33 +15576,34 @@ window.TIMELINE_DB = {
       ],
       timeline: [
         { y: 1894, label: '청일 전쟁' },
-        { y: 1898, label: '◆ 무술변법' },
+        { y: 1895, label: '◆ 캉유웨이 등의 변법 주장' },
+        { y: 1898, label: '무술변법 — 무술정변으로 좌절' },
         { y: 1901, label: '신축조약' }
       ]
     },
     sources: [],
     artifacts: [],
-    linked: ['e-yangwu', 'e-sino-jp', 'e-xinchou']
+    linked: ['e-yangwu', 'e-jp-expansion', 'e-boxer']
   },
-  'e-xinchou': {
+  'e-boxer': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
     overview: {
-      summary: '신축조약 — 청일 전쟁 이후 열강이 각종 이권을 빼앗자, ‘청 왕조를 도와 서양 세력을 몰아내자(부청멸양)’를 내건 의화단 운동이 산둥에서 일어났다(1899). 일본을 비롯한 8개국 연합군이 이를 진압하고 베이징을 점령하였다. 청은 1901년 열강과 신축조약을 맺었다. 러시아는 의화단 진압을 구실로 만주에 군대를 주둔시켰다. 개혁이 성과를 거두지 못한 채 열강의 이권 침탈이 심해지자 중국 민중의 반외세 감정은 더욱 커졌다. 일부 백련교도가 조직한 비밀 결사 의화단은 산둥에서 봉기하여 반크리스트교, 반제국주의 운동을 전개하였으며, 교회, 철도 등을 공격하고 베이징의 외국 공사관까지 습격하였다. 열강이 철도 부설을 이유로 무덤을 파헤치고 민가를 철거하자 전통적으로 조상 숭배를 중시하던 중국인의 분노가 컸다. 청은 의화단을 이용해 열강에 대항하고자 선전 포고를 하였으나, 영국, 프랑스, 일본 등 8개국 연합군에 패하였다. 신축조약으로 청은 막대한 배상금을 지불하고 외국 군대가 베이징에 주둔하는 것을 허용하였다.',
+      summary: '의화단 운동 — 청일 전쟁 이후 열강이 각종 이권을 빼앗자, ‘청 왕조를 도와 서양 세력을 몰아내자(부청멸양)’를 내건 의화단 운동이 산둥에서 일어났다(1899). 일본을 비롯한 8개국 연합군이 이를 진압하고 베이징을 점령하였다. 청은 1901년 열강과 신축조약을 맺었다. 러시아는 의화단 진압을 구실로 만주에 군대를 주둔시켰다. 개혁이 성과를 거두지 못한 채 열강의 이권 침탈이 심해지자 중국 민중의 반외세 감정은 더욱 커졌다. 일부 백련교도가 조직한 비밀 결사 의화단은 산둥에서 봉기하여 반크리스트교, 반제국주의 운동을 전개하였으며, 교회, 철도 등을 공격하고 베이징의 외국 공사관까지 습격하였다. 열강이 철도 부설을 이유로 무덤을 파헤치고 민가를 철거하자 전통적으로 조상 숭배를 중시하던 중국인의 분노가 컸다. 청은 의화단을 이용해 열강에 대항하고자 선전 포고를 하였으나, 영국, 프랑스, 일본 등 8개국 연합군에 패하였다. 신축조약으로 청은 막대한 배상금을 지불하고 외국 군대가 베이징에 주둔하는 것을 허용하였다.',
       terms: [
         { label: '의화단 운동', def: '외세 배척을 내건 중국 민중의 무장 운동.' },
         { label: '부청멸양', def: '청을 도와 서양을 멸하자는 의화단의 구호.' },
         { label: '8개국 연합군', def: '의화단을 진압하고 베이징을 점령한 영국, 프랑스, 일본 등 8개국의 군대.' }
       ],
       timeline: [
-        { y: 1899, label: '의화단 운동' },
-        { y: 1901, label: '◆ 신축조약' },
+        { y: 1899, label: '◆ 의화단 운동' },
+        { y: 1901, label: '신축조약(베이징 의정서)' },
         { y: 1904, label: '러일 전쟁' }
       ]
     },
     sources: [],
     artifacts: [],
-    linked: ['e-wuxu', 'e-xinhai', 'e-qing', 'k-russo-japan']
+    linked: ['e-bianfa', 'e-xinhai', 'e-qing', 'k-russo-japan']
   },
   'e-xinhai': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15392,7 +15633,7 @@ window.TIMELINE_DB = {
         caption: '쑨원',
         ref: '삼민주의를 내세워 신해혁명을 이끌고 중화민국의 임시 대총통이 되었다.' }
     ],
-    linked: ['e-qing', 'e-xinchou', 'e-may4', 'k-annexation']
+    linked: ['e-qing', 'e-boxer', 'e-may4', 'k-annexation']
   },
   'e-may4': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15546,19 +15787,21 @@ window.TIMELINE_DB = {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
     overview: {
-      summary: '국공 내전 — 일본이 패망한 뒤 미국의 중재로 국민당과 공산당이 쌍십 협정을 맺었으나(1945), 1946년 국민당이 공산당의 거점을 대대적으로 공격하면서 내전이 본격화되었다. 내전 초기에는 미국의 지원을 받은 국민당이 우세하였다. 그러나 공산당은 점령지에서 ‘경작자가 토지를 소유한다’는 원칙에 따라 토지 개혁을 시행하여 농민의 지지를 얻은 반면, 국민당은 물가 상승과 관료들의 부정부패로 민심을 잃었다. 공산당은 화이하이 전투 등에서 승리하고 난징을 점령하여 전세를 역전하였고, 1949년 10월 베이징에서 중화 인민 공화국을 수립하였다. 패배한 국민당은 타이완으로 옮겨 갔다. 쌍십 협정은 1945년 10월 10일 충칭에서 마오쩌둥과 장제스가 미국의 중재로 맺은 협정이다. 국민당 정부는 전비 마련을 위해 지폐를 대량으로 발행하여 인플레이션을 일으켰다. 화이하이 전투는 랴오선 전투, 핑진 전투와 함께 국공 내전의 3대 전투로, 1948년 11월부터 약 두 달간 벌어져 공산당군이 국민당군 55만여 명을 전멸시키고 창장강 이북을 장악하였다. 국민당은 타이완으로 이동한 이후 진먼섬을 공산당을 방어하는 최전방 기지로 삼았다.',
+      summary: '국공 내전 — 일본이 패망한 뒤 미국의 중재로 국민당과 공산당이 쌍십 협정을 맺었으나(1945), 1946년 국민당이 공산당의 거점을 대대적으로 공격하면서 내전이 본격화되었다. 내전 초기에는 미국의 지원을 받은 국민당이 우세하였다. 그러나 공산당은 점령지에서 ‘경작자가 토지를 소유한다’는 원칙에 따라 토지 개혁을 시행하여 농민의 지지를 얻은 반면, 국민당은 물가 상승과 관료들의 부정부패로 민심을 잃었다. 공산당은 화이하이 전투 등에서 승리하고 난징을 점령하여 전세를 역전하였고, 1949년 10월 베이징에서 중화 인민 공화국을 수립하였다. 패배한 국민당은 타이완으로 옮겨 갔다. 쌍십 협정은 1945년 10월 10일 충칭에서 마오쩌둥과 장제스가 미국의 중재로 맺은 협정이다. 국민당 정부는 전비 마련을 위해 지폐를 대량으로 발행하여 인플레이션을 일으켰다. 화이하이 전투는 랴오선 전투, 핑진 전투와 함께 국공 내전의 3대 전투로, 1948년 11월부터 약 두 달간 벌어져 공산당군이 국민당군 55만여 명을 전멸시키고 창장강 이북을 장악하였다. 국민당은 타이완으로 이동한 이후 진먼섬을 공산당을 방어하는 최전방 기지로 삼았다. 국공 내전에서 승리한 중국 공산당의 마오쩌둥이 1949년 10월 1일 톈안먼 광장에서 중화 인민 공화국 수립을 선포하고 베이징을 수도로 정하였다. 6·25 전쟁에 참전하였고, 대약진 운동(1958)의 실패와 문화 대혁명을 거쳤다. 덩샤오핑의 개혁·개방 이후 급속히 성장하여 2010년부터 세계 경제 2위 국가가 되었다. 국공 내전에서 승리한 중국 공산당은 중화 인민 공화국의 건국을 결의하고 수도를 베이징으로 정하였으며, 중국 국민당 정부(중화민국)는 타이완으로 이동하였다. 중국은 6·25 전쟁을 계기로 내부의 혼란을 잠재우고 공산당 지배 체제를 강화하였다. 대약진 운동은 농업과 공업 분야의 대규모 증산을 목표로 1958년부터 추진되어, 지역마다 용광로를 만들어 철강 증산 운동을 전개하고 농촌에 인민공사를 조직하였으나 농민들의 불만, 근로 의욕 감소, 자연재해 등으로 실패하였다.',
       terms: [
         { label: '쌍십 협정', def: '1945년 10월 10일 미국의 중재로 국민당과 공산당이 평화적으로 새 중국을 건설하기로 합의한 협정.' },
         { label: '토지 개혁', def: '공산당이 점령지에서 지주의 토지를 몰수해 경작자에게 나누어 준 개혁. 농민의 지지를 얻었다.' },
         { label: '중화 인민 공화국', def: '국공 내전에서 승리한 공산당이 1949년 세운 나라. 수도는 베이징.' },
         { label: '화이하이 전투', def: '국공 내전의 향방을 결정지은 전투(1948~1949). 공산당군이 승리하였다.' },
+        { label: '대약진 운동', def: '마오쩌둥이 추진한 급진적 경제 발전 운동(1958). 실패로 끝났다.' },
         { label: '진먼섬', def: '국민당이 타이완 이동 후 최전방 기지로 삼은 섬.' }
       ],
       timeline: [
         { y: 1945, label: '쌍십 협정' },
         { y: 1946, label: '◆ 국공 내전 본격화' },
         { y: 1948, label: '화이하이 전투(~1949)' },
-        { y: 1949, label: '중화 인민 공화국 수립, 국민당 타이완 이동' }
+        { y: 1949, label: '중화인민공화국 수립, 국민당 타이완 이동' },
+        { y: 1958, label: '대약진 운동' }
       ]
     },
     sources: [],
@@ -15567,29 +15810,7 @@ window.TIMELINE_DB = {
         caption: '장제스',
         ref: '쑨원의 뒤를 이어 국민당을 이끌고 북벌을 추진한 지도자. 국공 내전에서 패한 뒤 타이완으로 옮겨 갔다.' }
     ],
-    linked: ['e-kmt-ccp', 'e-prc']
-  },
-  'e-prc': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
-    overview: {
-      summary: '중화 인민 공화국 — 국공 내전에서 승리한 중국 공산당의 마오쩌둥이 1949년 10월 1일 톈안먼 광장에서 중화 인민 공화국 수립을 선포하고 베이징을 수도로 정하였다. 6·25 전쟁에 참전하였고, 대약진 운동(1958)의 실패와 문화 대혁명을 거쳤다. 덩샤오핑의 개혁·개방 이후 급속히 성장하여 2010년부터 세계 경제 2위 국가가 되었다. 국공 내전에서 승리한 중국 공산당은 중화 인민 공화국의 건국을 결의하고 수도를 베이징으로 정하였으며, 중국 국민당 정부(중화민국)는 타이완으로 이동하였다. 중국은 6·25 전쟁을 계기로 내부의 혼란을 잠재우고 공산당 지배 체제를 강화하였다. 대약진 운동은 농업과 공업 분야의 대규모 증산을 목표로 1958년부터 추진되어, 지역마다 용광로를 만들어 철강 증산 운동을 전개하고 농촌에 인민공사를 조직하였으나 농민들의 불만, 근로 의욕 감소, 자연재해 등으로 실패하였다.',
-      terms: [
-        { label: '대약진 운동', def: '마오쩌둥이 추진한 급진적 경제 발전 운동. 실패로 끝났다.' },
-        { label: '인민공사', def: '대약진 운동 때 농촌에 조직하여 모든 재산과 토지를 국유화한 조직.' },
-        { label: '마오쩌둥', def: '1949년 10월 1일 톈안먼 광장에서 중화 인민 공화국 수립을 선포한 중국 공산당 지도자.' }
-      ],
-      timeline: [
-        { y: 1949, label: '◆ 중화 인민 공화국 수립' },
-        { y: 1950, label: '6·25 전쟁 참전' },
-        { y: 1958, label: '대약진 운동' },
-        { y: 1966, label: '문화 대혁명' },
-        { y: 1978, label: '개혁·개방' }
-      ]
-    },
-    sources: [],
-    artifacts: [],
-    linked: ['e-civilwar', 'e-cultural', 'e-reform', 'k-gov-rhee']
+    linked: ['e-kmt-ccp']
   },
   'e-sf': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15636,7 +15857,7 @@ window.TIMELINE_DB = {
         caption: '문화 대혁명',
         ref: '톈안먼 광장에서 『마오쩌둥 어록』을 흔드는 홍위병들.' }
     ],
-    linked: ['e-prc', 'e-reform', 'e-nixon']
+    linked: ['e-civilwar', 'e-reform', 'e-nixon']
   },
   'e-nixon': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -15713,7 +15934,7 @@ window.TIMELINE_DB = {
         citation: '— 덩샤오핑이 중국 남부 지역을 시찰하며 발표한 담화문(남순강화) · 선전·주하이 경제특구의 발전과 사회주의 시장 경제' }
     ],
     artifacts: [],
-    linked: ['e-cultural', 'e-tiananmen', 'e-prc']
+    linked: ['e-cultural', 'e-tiananmen', 'e-civilwar']
   },
   'e-tiananmen': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18294,6 +18515,172 @@ window.TIMELINE_DB = {
     ],
     linked: ['s-ghazni', 's-ghur', 's-gupta', 's-mughal', 's-abbasid', 's-chola']
   },
+  's-wahhabi': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '와하브 운동 — 18세기 이후 오스만 제국의 세력이 약화되자 서양 열강은 아랍 지역에 침입하여 영향력을 확대하였다. 이러한 상황에서 아라비아반도의 이븐 압둘 와하브는 이슬람교 본래의 순수성을 되찾자는 와하브 운동을 전개하였다. 와하브 운동은 오스만 제국의 지배에 반대하는 아랍인의 민족의식을 일깨웠으며, 아랍 민족주의의 기반이 되었다. 와하브 운동과 결합한 사우드 가문은 훗날 아라비아반도를 통일하고 사우디아라비아 왕국을 세웠다(1932).',
+      terms: [
+        { label: '와하브 운동', def: '이븐 압둘 와하브가 이슬람교 본래의 순수성을 되찾자며 전개한 운동.' },
+        { label: '아랍 민족주의', def: '아랍인의 민족적 단결과 독립을 추구한 사상.' }
+      ],
+      timeline: [
+        { yl: '18세기 중엽', label: '◆ 이븐 압둘 와하브, 와하브 운동 전개' },
+        { y: 1932, label: '사우디아라비아 왕국 수립' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/wahhabi-iran-map.webp',
+        caption: '와하브 운동과 이란의 분할',
+        ref: '아라비아반도의 와하브 운동 활동 영역(메카·메디나·리야드) · 이란의 러시아 세력권·중립 지대·영국 세력권' }
+    ],
+    linked: ['s-ottoman', 's-iran-nat', 's-egypt-mod']
+  },
+  's-egypt-mod': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '이집트의 근대화 운동 — 19세기 초 오스만 제국으로부터 이집트 총독에 임명된 무함마드 알리는 유럽식 군대와 행정 기구 등을 도입하는 근대화 정책을 추진하였다. 그리스 독립 전쟁 때에는 오스만 제국을 지원하여 오스만 제국으로부터 자치권을 얻었다. 이후 이집트는 수에즈 운하 건설 등 근대화 사업을 추진하였으나, 막대한 차관 때문에 서양 열강의 내정 간섭을 받게 되었다. 아라비 파샤를 중심으로 한 군부는 ‘이집트인을 위한 이집트의 건설’을 내세워 혁명을 일으켰으나 영국군에 진압되었다. 아라비 파샤는 오늘날에도 ‘이집트 독립의 아버지’로 불린다.',
+      terms: [
+        { label: '무함마드 알리', def: '유럽식 군대와 행정 기구를 도입하여 이집트의 근대화를 추진한 총독.' },
+        { label: '아라비 파샤', def: '‘이집트인을 위한 이집트의 건설’을 내세워 혁명을 일으킨 군인.' }
+      ],
+      timeline: [
+        { y: 1805, label: '◆ 무함마드 알리, 이집트 총독 취임' },
+        { y: 1869, label: '수에즈 운하 개통' },
+        { y: 1881, label: '아라비 파샤의 혁명 (~1882)' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['s-ottoman', 's-africa-nat', 's-wahhabi']
+  },
+  's-brahmo': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '브라흐마 사마지 운동 — 영국은 인도를 통치하면서 인도의 사회적·종교적 분열을 조장하고 경제적 착취를 강화하였다. 그러한 가운데 서양식 교육을 받은 지식인이 늘어나고, 면 공업을 토대로 자본가가 성장하였다. 인도의 지식인과 자본가들은 영국 지배에 저항하는 민족 운동을 펼쳤다. 특히 서양의 근대 사상에 영향을 받은 힌두교 지도자들은 브라흐마 사마지 운동을 전개하였다. 브라흐마 사마지는 ‘브라만의 모임’이라는 뜻으로, 초기에는 힌두교의 순수한 교리로 돌아가자는 종교 운동을 전개하였으나 점차 사회 개혁 운동에 앞장섰다. 이들은 우상 숭배 배격, 카스트제 반대, 여성의 권리 신장 등을 주장하며 인도 사회 개혁에 힘썼다.',
+      terms: [
+        { label: '브라흐마 사마지', def: '‘브라만의 모임’이라는 뜻. 힌두교 개혁과 인도 사회 개혁을 이끈 단체.' },
+        { label: '카스트제', def: '인도의 세습적 신분 제도.' }
+      ],
+      timeline: [
+        { y: 1828, label: '◆ 브라흐마 사마지 결성' },
+        { y: 1885, label: '인도 국민 회의 결성' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['s-india-nat', 's-inc']
+  },
+  's-india-nat': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '인도의 민족 운동 — 무굴 제국이 약해지자 유럽 여러 나라는 인도에서 더 많은 이익을 얻으려 경쟁하였다. 영국 동인도 회사는 플라시 전투에서 프랑스·벵골 연합군에 승리한 뒤(1757) 벵골 지방의 통치권과 조세 징수권을 차지하여 인도 지배의 발판을 마련하였다. 동인도 회사는 벵골 사람들에게서 거둔 세금으로 소금·향신료·면화 등을 사서 본국으로 보냈고, 인도인에게 목화 재배를 강요하며 영국의 값싼 면직물을 대량으로 들여왔다. 이 과정에서 인도의 수공업은 점차 몰락하였으며, 영국은 19세기 중엽 인도 대부분을 차지하였다. 17~18세기 유럽 각국의 상인들은 자국 정부로부터 아시아 무역의 독점과 식민지 경영의 특허를 얻어 동인도 회사를 설립하였다. 영국 동인도 회사는 인도 남부에서 포르투갈과 네덜란드를 몰아낸 뒤 플라시 전투에서 프랑스·벵골 연합군을 물리쳐 벵골 지역의 통치권을 장악하였다. 인도산 면화 덕분에 연간 80만 파운드였던 영국의 면직물 수출액은 플라시 전투 100년 뒤 3,490만 파운드로 늘어났고, 수요 급증에 대응하려는 영국 면직업자들의 기계화는 산업 혁명으로 이어졌다. 영국의 식민 지배 이후 인도는 영국의 상품 시장이자 원료 공급지로 전락하였으며, 농민들은 면화와 아편 재배를 강요받아 곡물 재배가 크게 줄었다. 영국은 인도를 수탈하고 힌두교도와 이슬람교도 간의 갈등을 조장하였으며, 인도의 종교적 전통을 무시하였다. 이에 영국 동인도 회사에 고용된 인도인 용병 세포이가 항쟁을 일으켰고(1857), 각계각층이 참여하면서 대규모 민족 운동으로 발전하였다. 항쟁 세력은 한때 델리를 점령하였으나 내부 분열과 영국의 반격으로 진압되었다. 영국은 인도 통치 개선법을 제정하여(1858) 동인도 회사의 통치권을 거두고 무굴 제국의 황제를 폐위하였으며, 1877년 영국 왕이 인도 황제를 겸하는 영국령 인도 제국을 세워 인도를 직접 지배하였다. 세포이의 항쟁은 인도인의 민족의식을 일깨워 이후 반영 운동에 영향을 주었다. 영국은 인도를 상품 시장이자 원료 공급지로 삼아 값싼 면직물을 대량으로 수출하고 면화와 아편 재배를 강요하였으며, 이 과정에서 인도의 수공업은 점차 몰락하였다. 영국은 미얀마를 차지하여 영국령 인도 제국에 병합하고, 보르네오섬 일부와 말레이반도 등도 영국령으로 만들었다. 한편 서양의 근대 사상에 영향을 받은 힌두교 지도자들은 브라흐마 사마지 운동을 전개하여 우상 숭배 배격, 카스트제 반대, 여성의 권리 신장 등을 주장하며 인도 사회 개혁에 힘썼다. 이후 인도의 지식인과 자본가들은 브라흐마 사마지 운동을 전개하는 등 민족 운동을 펼쳤고, 영국의 지원으로 결성된 인도 국민 회의(1885)는 벵골 분할령(1905)을 계기로 반영 운동에 앞장섰다.',
+      terms: [
+        { label: '동인도 회사', def: '영국이 아시아 무역을 위해 세운 회사. 플라시 전투 이후 인도를 지배하였다.' },
+        { label: '세포이의 항쟁', def: '동인도 회사의 인도인 용병이 일으킨 항쟁(1857).' },
+        { label: '인도 통치 개선법', def: '동인도 회사의 통치권을 영국 정부로 넘기고 무굴 황제를 폐위한 법(1858).' },
+        { label: '영국령 인도 제국', def: '영국 왕이 인도 황제를 겸하며 성립한 제국(1877).' }
+      ],
+      timeline: [
+        { y: 1757, label: '플라시 전투' },
+        { y: 1857, label: '세포이의 항쟁' },
+        { y: 1858, label: '인도 통치 개선법 — 무굴 황제 폐위' },
+        { yl: '19세기', label: '◆ 인도인의 민족 운동 성장' },
+        { y: 1877, label: '영국령 인도 제국 성립' },
+        { y: 1885, label: '인도 국민 회의 결성' },
+        { y: 1905, label: '벵골 분할령' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/british-india-timeline.webp',
+        caption: '영국의 인도 침략 과정',
+        ref: '동인도 회사 설립(1600) → 플라시 전투, 영국 승리(1757) → 세포이의 항쟁(1857~1859) → 무굴 제국 멸망(1858) → 영국령 인도 제국 수립(1877)' },
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/plassey-sepoy-map.webp',
+        caption: '플라시 전투와 세포이 항쟁',
+        ref: '플라시 전투(1757) · 영국 동인도 회사의 지배 지역(1765) · 무굴 제국령(1775) · 세포이 항쟁 중심지(1857, 델리·아그라)' }
+    ],
+    linked: ['s-sepoy', 's-inc', 's-brahmo', 's-mughal', 'w-industrial']
+  },
+  's-ottoman-nat': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '오스만 제국의 민족 운동 — 19세기 들어 오스만 제국은 이집트의 자치와 그리스의 독립을 허용하는 등 유럽 영토 대부분을 잃었다. 위기의식을 느낀 오스만 제국은 1839년부터 ‘탄지마트(은혜 개혁)’라고 불리는 근대적 개혁을 추진하였다. 탄지마트의 성과가 미흡하자 미드하트 파샤를 비롯한 관료들은 입헌 군주제 실시, 의회 설립 등의 내용을 담은 헌법을 공포하였다(1876). 그러나 러시아·튀르크 전쟁이 일어난 후 술탄 압둘 하미드 2세를 중심으로 한 보수 세력이 헌법을 폐지하고 의회를 해산하여 정치 개혁이 중단되었다. 이후 술탄의 전제 정치가 강화되자 청년 장교와 지식인들은 청년 튀르크당을 결성하였다. 청년 튀르크당은 무장봉기를 일으켜 정권을 잡은 뒤 헌법을 부활하고 근대화 개혁을 추진하였으나, 극단적인 튀르크 민족주의를 내세워 제국 내 다른 민족의 반발을 샀다. 제1차 세계 대전에서 패한 오스만 제국이 영토를 분할당할 위기에 놓이자, 무스타파 케말이 저항 운동을 이끌었다. 그는 술탄제를 폐지하고 1923년 튀르키예 공화국을 수립하였다. 이후 여성의 지위 향상, 문자 개혁 등 근대화를 추진하였다. 튀르키예 공화국의 출범에 자극을 받아 이란에서는 팔레비 왕조가 수립되었다(1925). 제1차 세계 대전에서 패한 오스만 제국은 많은 영토를 잃고 전승국의 내정 간섭을 받았다. 청년 튀르크당 당원이었던 무스타파 케말은 청년 장교들과 함께 오스만 왕실의 추종 세력과 이슬람 보수주의자들을 제압하고 술탄제를 폐지하였다. 그는 이슬람의 영향을 축소하면서 서구화와 세속화를 추구하였는데, 종교 재판을 관장하던 샤리아 법정을 폐지하고 일반 법정을 세웠으며, 일부다처제를 폐지하고 결혼을 법으로 보호하였다. 또 문맹률을 낮추고자 아랍 문자 대신 로마자를 변형한 알파벳으로 튀르키예어를 표기하게 하였고, 전통 복장인 터번과 페즈를 금지하였다. 무스타파 케말은 ‘튀르키예의 아버지’라 불리며 추앙받았다. 한편 영국은 전쟁 중 맥마흔 선언으로 아랍인의 독립을, 밸푸어 선언으로 유대인의 국가 건설을 지지하여 훗날 팔레스타인 갈등의 배경을 만들었다.',
+      terms: [
+        { label: '탄지마트', def: '‘은혜 개혁’이라는 뜻으로, 1839년부터 오스만 제국이 추진한 근대적 개혁.' },
+        { label: '미드하트 헌법', def: '입헌 군주제 실시와 의회 설립을 담아 공포한 오스만 제국의 헌법(1876).' },
+        { label: '청년 튀르크당', def: '술탄의 전제 정치에 맞서 청년 장교와 지식인들이 결성한 단체.' },
+        { label: '무스타파 케말', def: '튀르키예 공화국을 세우고 근대화 개혁을 추진한 지도자.' }
+      ],
+      timeline: [
+        { y: 1839, label: '탄지마트 시작' },
+        { y: 1876, label: '◆ 미드하트 헌법 공포' },
+        { y: 1877, label: '러시아-튀르크 전쟁 — 헌법 정지' },
+        { y: 1908, label: '청년 튀르크당 혁명' },
+        { y: 1923, label: '튀르키예 공화국 수립' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/ottoman-decline-map.webp', span: true,
+        caption: '오스만 제국의 영토 축소',
+        ref: '오스만 제국의 최대 영역과 영역 상실(1815~1871, 1871~1914), 1914년의 영역 · 독일·영국·러시아의 진출 방향 · 1675~1914년 아시아·아프리카와 유럽 영토 면적의 변화' }
+    ],
+    linked: ['s-tanzimat', 's-young-turk', 's-ottoman', 'w-ww1']
+  },
+  's-iran-nat': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '이란의 민족 운동 — 이란의 카자르 왕조는 19세기 초 러시아와 영국에 영토와 이권을 빼앗겼다. 영국이 카자르 왕조로부터 담배 제조·판매 독점권을 차지하자 이란인들은 담배 불매 운동을 비롯한 이권 회수 운동을 벌였다. 1906년에는 입헌 혁명이 일어나 의회가 구성되고 입헌 군주제 헌법이 제정되었다. 그러나 영국과 러시아의 간섭으로 개혁은 좌절되었다. 이후 튀르키예 공화국 출범에 자극을 받아 리자 칸이 카자르 왕조를 무너뜨리고 팔라비 왕조를 세워(1925) 근대화 정책을 추진하였다.',
+      terms: [
+        { label: '카자르 왕조', def: '18세기 말 이란에서 성립한 왕조. 열강에 영토와 이권을 빼앗겼다.' },
+        { label: '담배 불매 운동', def: '영국의 담배 독점권에 반대하여 이란인들이 벌인 이권 회수 운동(1891).' },
+        { label: '입헌 혁명', def: '의회를 구성하고 입헌 군주제 헌법을 제정한 이란의 혁명(1906).' }
+      ],
+      timeline: [
+        { y: 1796, label: '카자르 왕조 성립' },
+        { y: 1891, label: '◆ 담배 불매 운동' },
+        { y: 1906, label: '입헌 혁명' },
+        { y: 1925, label: '팔라비 왕조 수립' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['s-iran-const', 's-wahhabi', 's-ottoman-nat']
+  },
+  's-africa-nat': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '아프리카의 민족 운동 — 19세기 말 제국주의 열강은 금, 은, 고무 등의 자원을 노리고 아프리카를 침략하였다. 이에 맞서 아프리카인들은 거세게 저항하였다. 북부 아프리카에서는 알제리가 프랑스의 침략에 30여 년 동안 저항하였다. 영국과 이집트의 이중 지배를 받은 수단에서는 무함마드 아흐마드가 스스로를 ‘마흐디(구세주)’라고 부르며 외세를 배격하고 순수한 이슬람 신앙을 회복하자는 마흐디 운동을 벌였다. 마흐디의 군대는 이집트 군대를 물리쳤으나 영국군의 강한 군사력에 밀려 패배하였다. 아프리카 남부의 나미비아에서는 헤레로족과 나마족이 독일인의 착취에 맞서 봉기하였으나(1904), 독일군은 헤레로족 인구의 약 80%, 나마족 인구의 절반 정도를 살해하는 등 봉기를 무참하게 진압하였다. 19세기 후반 남아프리카에서 다이아몬드 광산이 발견된 이래 줄루 왕국은 영국의 침략을 받았다. 줄루 왕국은 이산들와나 전투에서 영국에 승리하기도 하였으나, 기관총으로 무장한 영국군의 공격에 패하여 식민지로 전락하였다. 한편 에티오피아의 메넬리크 2세는 도로와 교량 등을 건설하고 최신식 무기를 도입하는 등 근대화를 추진하였다. 이에 힘입어 에티오피아는 아도와 전투에서 이탈리아의 침입을 막아 내고 독립을 지켰다(1896).',
+      terms: [
+        { label: '마흐디 운동', def: '수단의 무함마드 아흐마드가 외세를 배격하고 이슬람 신앙 회복을 내세운 저항 운동.' },
+        { label: '헤레로족·나마족의 봉기', def: '나미비아에서 독일의 착취에 맞선 봉기(1904).' },
+        { label: '이산들와나 전투', def: '줄루 왕국이 영국군에 승리한 전투.' },
+        { label: '아도와 전투', def: '에티오피아가 이탈리아의 침입을 막아 낸 전투(1896).' }
+      ],
+      timeline: [
+        { yl: '19세기 말', label: '열강의 아프리카 분할' },
+        { y: 1881, label: '수단, 마흐디 운동' },
+        { y: 1896, label: '◆ 에티오피아, 아도와 전투 승리' },
+        { y: 1898, label: '파쇼다 사건' },
+        { y: 1904, label: '헤레로족·나마족의 봉기' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/africa-partition-map.webp',
+        caption: '제국주의 열강의 아프리카 분할',
+        ref: '영국의 종단 정책(카이로~케이프타운)과 프랑스의 횡단 정책이 충돌한 파쇼다 사건(1898) · 영국·프랑스·독일·포르투갈·이탈리아·에스파냐·벨기에령 · 독립국 에티오피아·라이베리아' }
+    ],
+    linked: ['w-imperialism', 's-egypt-mod']
+  },
   's-ottoman': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
@@ -18427,34 +18814,7 @@ window.TIMELINE_DB = {
         caption: '타지마할',
         ref: '무굴 제국의 샤 자한이 세운 묘당(인도 아그라). 인도와 페르시아의 건축 양식이 조화를 이룬 인도·이슬람 문화의 대표 건축이다.' }
     ],
-    linked: ['s-delhi', 's-timurid', 's-safavid', 's-plassey']
-  },
-  's-plassey': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '플라시 전투 — 무굴 제국이 약해지자 유럽 여러 나라는 인도에서 더 많은 이익을 얻으려 경쟁하였다. 영국 동인도 회사는 플라시 전투에서 프랑스·벵골 연합군에 승리한 뒤(1757) 벵골 지방의 통치권과 조세 징수권을 차지하여 인도 지배의 발판을 마련하였다. 동인도 회사는 벵골 사람들에게서 거둔 세금으로 소금·향신료·면화 등을 사서 본국으로 보냈고, 인도인에게 목화 재배를 강요하며 영국의 값싼 면직물을 대량으로 들여왔다. 이 과정에서 인도의 수공업은 점차 몰락하였으며, 영국은 19세기 중엽 인도 대부분을 차지하였다. 17~18세기 유럽 각국의 상인들은 자국 정부로부터 아시아 무역의 독점과 식민지 경영의 특허를 얻어 동인도 회사를 설립하였다. 영국 동인도 회사는 인도 남부에서 포르투갈과 네덜란드를 몰아낸 뒤 플라시 전투에서 프랑스·벵골 연합군을 물리쳐 벵골 지역의 통치권을 장악하였다. 인도산 면화 덕분에 연간 80만 파운드였던 영국의 면직물 수출액은 플라시 전투 100년 뒤 3,490만 파운드로 늘어났고, 수요 급증에 대응하려는 영국 면직업자들의 기계화는 산업 혁명으로 이어졌다. 영국의 식민 지배 이후 인도는 영국의 상품 시장이자 원료 공급지로 전락하였으며, 농민들은 면화와 아편 재배를 강요받아 곡물 재배가 크게 줄었다.',
-      terms: [
-        { label: '동인도 회사', def: '17~18세기 유럽 각국의 상인들이 아시아 무역 독점과 식민지 경영의 특허를 얻어 세운 회사.' },
-        { label: '벵골', def: '플라시 전투 이후 영국 동인도 회사가 통치권과 조세 징수권을 차지한 인도 동부 지방.' },
-        { label: '원료 공급지', def: '식민지가 본국 공업에 필요한 원료를 대는 역할. 인도는 면화의 공급지가 되었다.' }
-      ],
-      timeline: [
-        { y: 1757, label: '◆ 플라시 전투' },
-        { yl: '19세기 중엽', label: '영국, 인도 대부분 차지' },
-        { y: 1857, label: '세포이의 항쟁' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/british-india-timeline.webp',
-        caption: '영국의 인도 침략 과정',
-        ref: '동인도 회사 설립(1600) → 플라시 전투, 영국 승리(1757) → 세포이의 항쟁(1857~1859) → 무굴 제국 멸망(1858) → 영국령 인도 제국 수립(1877)' },
-      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/plassey-sepoy-map.webp',
-        caption: '플라시 전투와 세포이 항쟁',
-        ref: '플라시 전투(1757) · 영국 동인도 회사의 지배 지역(1765) · 무굴 제국령(1775) · 세포이 항쟁 중심지(1857, 델리·아그라)' }
-    ],
-    linked: ['s-mughal', 's-sepoy', 'w-industrial']
+    linked: ['s-delhi', 's-timurid', 's-safavid', 's-india-nat']
   },
   's-tanzimat': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18508,33 +18868,7 @@ window.TIMELINE_DB = {
         caption: '영국의 인도 침략 과정',
         ref: '동인도 회사 설립(1600) → 플라시 전투, 영국 승리(1757) → 세포이의 항쟁(1857~1859) → 무굴 제국 멸망(1858) → 영국령 인도 제국 수립(1877)' }
     ],
-    linked: ['s-plassey', 's-indian-empire', 's-mughal']
-  },
-  's-indian-empire': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '인도 제국 — 영국은 인도를 수탈하고 힌두교도와 이슬람교도 간의 갈등을 조장하였으며, 인도의 종교적 전통을 무시하였다. 이에 영국 동인도 회사에 고용된 인도인 용병 세포이가 항쟁을 일으켰고(1857), 각계각층이 참여하면서 대규모 민족 운동으로 발전하였다. 항쟁 세력은 한때 델리를 점령하였으나 내부 분열과 영국의 반격으로 진압되었다. 영국은 인도 통치 개선법을 제정하여(1858) 동인도 회사의 통치권을 거두고 무굴 제국의 황제를 폐위하였으며, 1877년 영국 왕이 인도 황제를 겸하는 영국령 인도 제국을 세워 인도를 직접 지배하였다. 세포이의 항쟁은 인도인의 민족의식을 일깨워 이후 반영 운동에 영향을 주었다. 영국은 인도를 상품 시장이자 원료 공급지로 삼아 값싼 면직물을 대량으로 수출하고 면화와 아편 재배를 강요하였으며, 이 과정에서 인도의 수공업은 점차 몰락하였다. 영국은 미얀마를 차지하여 영국령 인도 제국에 병합하고, 보르네오섬 일부와 말레이반도 등도 영국령으로 만들었다. 한편 서양의 근대 사상에 영향을 받은 힌두교 지도자들은 브라흐마 사마지 운동을 전개하여 우상 숭배 배격, 카스트제 반대, 여성의 권리 신장 등을 주장하며 인도 사회 개혁에 힘썼다.',
-      terms: [
-        { label: '세포이의 항쟁', def: '1857년 영국 동인도 회사에 고용된 인도인 용병 세포이가 일으킨 항쟁. 대규모 민족 운동으로 발전하였다.' },
-        { label: '인도 통치 개선법', def: '1858년 영국이 동인도 회사의 인도 통치권을 거둔 법.' },
-        { label: '영국령 인도 제국', def: '1877년 영국 왕이 인도 황제를 겸하며 세운 식민지 국가.' },
-        { label: '브라흐마 사마지 운동', def: '우상 숭배 배격, 카스트제 반대, 여성의 권리 신장 등을 주장한 힌두교 개혁 운동.' }
-      ],
-      timeline: [
-        { y: 1857, label: '세포이의 항쟁' },
-        { y: 1858, label: '인도 통치 개선법, 무굴 제국 황제 폐위' },
-        { y: 1877, label: '◆ 영국령 인도 제국 성립' },
-        { y: 1885, label: '인도 국민 회의 결성' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/british-india-timeline.webp',
-        caption: '영국의 인도 침략 과정',
-        ref: '동인도 회사 설립(1600) → 플라시 전투, 영국 승리(1757) → 세포이의 항쟁(1857~1859) → 무굴 제국 멸망(1858) → 영국령 인도 제국 수립(1877)' }
-    ],
-    linked: ['s-sepoy', 's-inc']
+    linked: ['s-india-nat', 's-mughal']
   },
   's-inc': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18545,12 +18879,15 @@ window.TIMELINE_DB = {
         { label: '스와라지', def: '인도인의 자치.' },
         { label: '스와데시', def: '국산품 애용 운동.' },
         { label: '틸라크', def: '인도 국민 회의의 급진파 지도자. 스와라지를 인도인의 타고난 권리라고 주장하였다.' },
+        { label: '분할 통치', def: '식민지 안의 민족·종교 집단을 서로 갈라 대립하게 하여 지배하는 방식.' },
+        { label: '전 인도 이슬람교도 연맹', def: '벵골 분할령 이후 결성된 인도 이슬람교도의 정치 단체(1906).' },
         { label: '콜카타 대회', def: '1906년 인도 국민 회의가 영국 상품 배척, 스와라지, 스와데시, 민족 교육의 4대 강령을 채택한 대회.' }
       ],
       timeline: [
         { y: 1885, label: '◆ 인도 국민 회의 결성' },
         { y: 1905, label: '벵골 분할령' },
         { y: 1906, label: '콜카타 대회 — 4대 강령 채택' },
+        { y: 1911, label: '벵골 분할령 철회' },
         { y: 1947, label: '인도·파키스탄 분리 독립' }
       ]
     },
@@ -18560,32 +18897,7 @@ window.TIMELINE_DB = {
         caption: '벵골 분할령',
         ref: '벵골주를 힌두교도 중심의 서벵골과 이슬람교도 중심의 동벵골로 나눈 분할선(1905)' }
     ],
-    linked: ['s-bengal', 's-indian-empire', 's-partition']
-  },
-  's-bengal': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '벵골 분할령 — 1905년 인도 총독은 벵골주가 넓고 인구가 많아 행정이 어렵다는 이유로 벵골 분할령을 발표하였다. 실제로는 힌두교도와 이슬람교도를 갈라 민족 운동을 약화하려는 것이었다. 이에 인도 국민 회의는 반영 운동으로 돌아서 4대 강령을 채택하였다. 영국은 1911년 분할령을 취소하였다. 영국은 힌두교도가 다수인 서벵골과 이슬람교도가 다수인 동벵골로 벵골주를 양분하여, 민족 운동이 거센 이 지역의 주민을 분리하고 종교적 대립을 조장하려 하였다. 그러나 이 조치는 오히려 반영 운동을 격화시켰다. 1906년 콜카타 대회에서 인도 국민 회의 의장 나오로지는 벵골 분할령을 비판하고 스와데시의 필요성을 강조하였다. 지식인뿐 아니라 일반 민중까지 반영 운동에 참여하자, 영국은 전 인도 이슬람교도 연맹의 결성(1906)을 지원하여 민족 운동 세력을 분열시키려 하였다. 그러나 이슬람교도 연맹 역시 점차 영국 통치에 저항하는 세력으로 바뀌어 인도 국민 회의와 함께 반영 운동을 전개하였고, 결국 영국은 분할령을 철회하고 명목상 인도인의 자치를 인정하였다.',
-      terms: [
-        { label: '분할 통치', def: '식민지 주민을 종교·민족으로 갈라 다스리는 지배 방식.' },
-        { label: '전 인도 이슬람교도 연맹', def: '1906년 인도 내 이슬람교도의 이익과 권리 향상을 위해 결성된 단체.' },
-        { label: '나오로지', def: '1906년 콜카타 대회에서 벵골 분할령을 비판한 인도 국민 회의 의장.' }
-      ],
-      timeline: [
-        { y: 1885, label: '인도 국민 회의 결성' },
-        { y: 1905, label: '◆ 벵골 분할령' },
-        { y: 1906, label: '전 인도 이슬람교도 연맹 결성' },
-        { y: 1911, label: '분할령 취소' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/서아시아·인도/bengal-partition-map.webp',
-        caption: '벵골 분할령',
-        ref: '벵골주를 힌두교도 중심의 서벵골과 이슬람교도 중심의 동벵골로 나눈 분할선(1905)' }
-    ],
-    linked: ['s-inc', 's-partition']
+    linked: ['s-india-nat', 's-partition']
   },
   's-iran-const': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18610,7 +18922,7 @@ window.TIMELINE_DB = {
         caption: '와하브 운동과 이란의 분할',
         ref: '아라비아반도의 와하브 운동 활동 영역(메카·메디나·리야드) · 이란의 러시아 세력권·중립 지대·영국 세력권' }
     ],
-    linked: ['s-safavid', 's-young-turk', 's-turkey']
+    linked: ['s-safavid', 's-young-turk', 's-ottoman-nat']
   },
   's-young-turk': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18633,30 +18945,7 @@ window.TIMELINE_DB = {
         caption: '오스만 제국의 영토 축소',
         ref: '오스만 제국의 최대 영역과 영역 상실(1815~1871, 1871~1914), 1914년의 영역 · 독일·영국·러시아의 진출 방향 · 1675~1914년 아시아·아프리카와 유럽 영토 면적의 변화' }
     ],
-    linked: ['s-tanzimat', 's-turkey', 'w-ww1']
-  },
-  's-turkey': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '튀르키예 공화국 — 제1차 세계 대전에서 패한 오스만 제국이 영토를 분할당할 위기에 놓이자, 무스타파 케말이 저항 운동을 이끌었다. 그는 술탄제를 폐지하고 1923년 튀르키예 공화국을 수립하였다. 이후 여성의 지위 향상, 문자 개혁 등 근대화를 추진하였다. 튀르키예 공화국의 출범에 자극을 받아 이란에서는 팔레비 왕조가 수립되었다(1925). 제1차 세계 대전에서 패한 오스만 제국은 많은 영토를 잃고 전승국의 내정 간섭을 받았다. 청년 튀르크당 당원이었던 무스타파 케말은 청년 장교들과 함께 오스만 왕실의 추종 세력과 이슬람 보수주의자들을 제압하고 술탄제를 폐지하였다. 그는 이슬람의 영향을 축소하면서 서구화와 세속화를 추구하였는데, 종교 재판을 관장하던 샤리아 법정을 폐지하고 일반 법정을 세웠으며, 일부다처제를 폐지하고 결혼을 법으로 보호하였다. 또 문맹률을 낮추고자 아랍 문자 대신 로마자를 변형한 알파벳으로 튀르키예어를 표기하게 하였고, 전통 복장인 터번과 페즈를 금지하였다. 무스타파 케말은 ‘튀르키예의 아버지’라 불리며 추앙받았다. 한편 영국은 전쟁 중 맥마흔 선언으로 아랍인의 독립을, 밸푸어 선언으로 유대인의 국가 건설을 지지하여 훗날 팔레스타인 갈등의 배경을 만들었다.',
-      terms: [
-        { label: '무스타파 케말', def: '튀르키예 공화국을 세우고 근대화를 이끈 지도자.' },
-        { label: '술탄제 폐지', def: '오스만 제국의 군주제를 없앤 조치.' },
-        { label: '정교분리', def: '정치와 종교를 분리하는 원칙. 무스타파 케말의 근대화 정책의 핵심이었다.' },
-        { label: '문자 개혁', def: '아랍 문자 대신 알파벳으로 튀르키예어를 표기하게 한 개혁.' }
-      ],
-      timeline: [
-        { y: 1915, label: '맥마흔 선언' },
-        { y: 1917, label: '밸푸어 선언' },
-        { y: 1918, label: '제1차 세계 대전 종결' },
-        { y: 1923, label: '◆ 튀르키예 공화국 수립' },
-        { y: 1925, label: '이란, 팔레비 왕조 수립' }
-      ]
-    },
-    sources: [],
-    artifacts: [],
-    linked: ['s-young-turk', 's-iran-const', 'w-ww1']
+    linked: ['s-tanzimat', 's-ottoman-nat', 'w-ww1']
   },
   's-partition': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18691,7 +18980,7 @@ window.TIMELINE_DB = {
         caption: '비동맹 중립주의 노선 국가의 활동',
         ref: '평화 공존 5원칙 발표(1954, 네루와 저우언라이) → 아시아·아프리카 회의(1955, 반둥, 29개국, 평화 10원칙) → 제1차 비동맹 회의(1961, 유고슬라비아)' }
     ],
-    linked: ['s-inc', 's-bengal', 'w-coldwar']
+    linked: ['s-inc', 'w-coldwar']
   },
   's-israel': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -21139,7 +21428,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['k-donghak-rev', 'k-agwan', 'e-sino-jp']
+    linked: ['k-donghak-rev', 'k-agwan', 'e-jp-expansion']
   },
   'k-donghak-rev': {
     notes: {   // 정리 — 사용자 정리본(수능 한국사 연표 정리 2022 개정 작업)
@@ -21195,7 +21484,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['k-donghak', 'k-gabo', 'e-sino-jp']
+    linked: ['k-donghak', 'k-gabo', 'e-jp-expansion']
   },
   'k-agwan': {
     notes: {   // 정리 — 사용자 정리본(수능 한국사 연표 정리 2022 개정 작업)
@@ -23301,7 +23590,7 @@ window.TIMELINE_DB = {
         caption: '6·25 전쟁의 전개',
         ref: '① 대전 함락(1950.7.20.) → ② 유엔군 최후 방어선(9.2.) → ③ 국군과 유엔군의 인천 상륙(9.15.) → ④ 서울 수복(9.28.) → ⑤ 평양 탈환(10.19.) · ⑥ 중국군 개입(10.19.) → ⑦ 국군과 유엔군의 최대 북진선(11.25.) → ⑧ 흥남 철수 작전(12.) → ⑨ 1·4 후퇴(1951.1.4.) → ⑩ 중국군 최대 남진선(1951.1.) → ⑪ 정전 협정 체결(1953.7.27.)' }
     ],
-    linked: ['k-gov-rhee', 'k-yeosun', 'e-prc', 'w-coldwar'],
+    linked: ['k-gov-rhee', 'k-yeosun', 'e-civilwar', 'w-coldwar'],
     // 지도 — 이승만 정부 기록의 「6·25 전쟁의 전개」와 같은 지도
     map: {
       title: '6·25 전쟁의 전개',
@@ -23451,7 +23740,7 @@ window.TIMELINE_DB = {
     artifacts: [
       { slot: 'wide', caption: '전쟁이 촉발된 상황을 풍자한 만화 (1950. 7.)', ref: 'K4, p. 1255' }
     ],
-    linked: ['k-rok', 'k-gov-chang', 'k-liberation', 'e-prc', 'k-625'],
+    linked: ['k-rok', 'k-gov-chang', 'k-liberation', 'e-civilwar', 'k-625'],
     map: {
       title: '6·25 전쟁의 전개',
       bounds: { w: 360, h: 240 },
