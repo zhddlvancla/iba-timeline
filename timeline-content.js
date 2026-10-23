@@ -1742,6 +1742,141 @@ window.TIMELINE_DATA = {
     { id: 'w-m-henry8', track: 'west', year: 1509, label: '헨리 8세', en: 'Henry VIII',
       state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '이혼 문제를 계기로 수장법을 공포하여(1534) 국왕이 영국 교회의 수장임을 선포하였다.' },
+    { id: 'w-ww1-start', track: 'west', year: 1914, month: 7, label: '제1차 세계 대전 발발', en: 'Outbreak of World War I',
+      state: '유럽', theme: '군사', kind: 'event', noSync: true,
+      body: '사라예보 사건을 계기로 오스트리아·헝가리 제국이 세르비아에 선전 포고를 하자, 연이어 동맹국과 협상국이 전쟁에 참여하면서 제1차 세계 대전이 시작되었다(1914).' },
+    { id: 'w-ww2-start', track: 'west', year: 1939, month: 9, label: '제2차 세계 대전 발발', en: 'Outbreak of World War II',
+      state: '유럽', theme: '군사', kind: 'event', noSync: true,
+      body: '독소 불가침 조약을 맺은 독일이 폴란드를 침공하고, 영국과 프랑스가 독일에 선전 포고를 하면서 제2차 세계 대전이 시작되었다(1939).' },
+    { id: 'w-triple-alliance', track: 'west', year: 1882, month: 5, label: '3국 동맹 체결', en: 'Triple Alliance',
+      state: '독일', theme: '외교', kind: 'event', noSync: true,
+      body: '독일의 비스마르크 총리가 프랑스를 고립시키려고 오스트리아·헝가리 제국, 이탈리아와 맺은 동맹(1882).' },
+    { id: 'w-triple-entente', track: 'west', year: 1907, month: 8, label: '3국 협상 성립', en: 'Triple Entente',
+      state: '영국', theme: '외교', kind: 'event', noSync: true,
+      body: '독일의 빌헬름 2세가 대외 팽창 정책을 추진하여 영국과 대립하자, 영국과 프랑스는 러시아를 끌어들여 3국 협상을 완성하고 독일의 팽창을 견제하였다(1907).' },
+    { id: 'w-balkan-wars', track: 'west', year: 1912, month: 10, yearLabel: '1912~1913', label: '발칸 전쟁', en: 'Balkan Wars',
+      state: '발칸반도', theme: '군사', kind: 'event', noSync: true,
+      body: '오스트리아·헝가리 제국이 보스니아와 헤르체고비나를 합병하자 세르비아 등이 발칸 동맹을 맺고 맞서면서 일어난 전쟁(1912~1913). 발칸반도는 ‘유럽의 화약고’로 불렸다.' },
+    { id: 'w-sarajevo', track: 'west', year: 1914, month: 6, label: '사라예보 사건', en: 'Assassination in Sarajevo',
+      state: '오스트리아·헝가리', theme: '정치', kind: 'event', noSync: true,
+      body: '세르비아계 보스니아인이 사라예보에서 오스트리아·헝가리 제국의 황태자 부부를 암살한 사건(1914). 제1차 세계 대전 발발의 계기가 되었다.' },
+    { id: 'w-belgium-invasion', track: 'west', year: 1914, month: 8, label: '벨기에 침공', en: 'German Invasion of Belgium',
+      state: '독일', theme: '군사', kind: 'event', noSync: true,
+      body: '독일은 서부 전선에서 중립국인 벨기에를 침공하며 프랑스로 빠르게 진격하였다(1914).' },
+    { id: 'w-marne', track: 'west', year: 1914, month: 9, label: '마른 전투', en: 'First Battle of the Marne',
+      state: '프랑스', theme: '군사', kind: 'event', noSync: true, lane: 'fr',
+      body: '독일군의 진격이 마른강에서 프랑스군에게 저지된 전투(1914). 이후 서부 전선은 교착 상태에 빠진 채 참호전이 전개되었다.' },
+    { id: 'w-lusitania', track: 'west', year: 1915, month: 5, label: '루시타니아호 침몰 사건', en: 'Sinking of the Lusitania',
+      state: '영국', theme: '군사', kind: 'event', noSync: true,
+      body: '영국 여객선 루시타니아호가 독일 잠수함의 공격으로 침몰하여 미국인을 포함한 많은 승객이 사망한 사건(1915). 미국 내 반독일 여론이 높아졌다.' },
+    { id: 'w-somme', track: 'west', year: 1916, month: 7, label: '솜 전투', en: 'Battle of the Somme',
+      state: '프랑스', theme: '군사', kind: 'event', noSync: true, lane: 'fr',
+      body: '서부 전선의 솜강 일대에서 영국·프랑스군과 독일군이 벌인 전투(1916). 처음으로 탱크가 등장하였으며, 양측 합쳐 100만 명이 넘는 사상자가 발생하였다.' },
+    { id: 'w-zimmermann', track: 'west', year: 1917, month: 1, label: '치머만 전보 사건', en: 'Zimmermann Telegram',
+      state: '미국', theme: '외교', kind: 'event', noSync: true, lane: 'am',
+      body: '독일의 외무 장관 치머만이 멕시코 정부에 미국에 대항하는 동맹을 제안한 전보가 공개된 사건(1917). 미국의 안보를 위협하여 미국이 참전하는 계기가 되었다.' },
+    { id: 'w-unrestricted-sub', track: 'west', year: 1917, month: 2, label: '무제한 잠수함 작전 실시', en: 'Unrestricted Submarine Warfare',
+      state: '독일', theme: '군사', kind: 'event', noSync: true, lane: 'de',
+      body: '영국이 해상을 봉쇄하여 독일로 들어가는 물자를 통제하자, 독일은 영국으로 향하는 모든 선박을 경고 없이 공격하는 무제한 잠수함 작전을 실시하였다(1917).' },
+    { id: 'w-us-entry', track: 'west', year: 1917, month: 4, label: '미국의 참전', en: 'United States Entry into World War I',
+      state: '미국', theme: '군사', kind: 'event', noSync: true, lane: 'am',
+      body: '무제한 잠수함 작전과 치머만 전보 사건을 계기로 중립을 지키던 미국이 협상국 측으로 참전하였다(1917).' },
+    { id: 'w-brest-litovsk', track: 'west', year: 1918, month: 3, label: '브레스트리토프스크 조약', en: 'Treaty of Brest-Litovsk',
+      state: '러시아', theme: '외교', kind: 'event', noSync: true, lane: 'ru',
+      body: '혁명이 일어난 러시아의 소비에트 정부가 독일 등 동맹국과 맺은 강화 조약(1918). 러시아는 제1차 세계 대전에서 이탈하였다.' },
+    { id: 'w-kiel', track: 'west', year: 1918, month: 11, label: '킬 군항 해군의 봉기', en: 'Kiel Mutiny',
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '킬 군항에서 독일 해군들이 출격 명령을 거부하고 봉기한 사건(1918). 혁명이 확산되어 빌헬름 2세가 물러나고 독일은 공화국이 되었다.' },
+    { id: 'w-ww1-end', track: 'west', year: 1918, month: 11, label: '제1차 세계대전 종전', en: 'Armistice of 1918',
+      state: '유럽', theme: '군사', kind: 'event', noSync: true,
+      body: '독일의 새 정부가 연합국에 항복을 선언하여 제1차 세계 대전이 막을 내렸다(1918).' },
+    { id: 'w-bloody-sunday', track: 'west', year: 1905, month: 1, label: '피의 일요일 사건', en: 'Bloody Sunday',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '러일 전쟁으로 경제적 궁핍에 시달리던 러시아에서 평화적 청원 행진을 벌이던 노동자들에게 군대가 발포한 사건(1905). 이를 계기로 총파업이 시작되었다.' },
+    { id: 'w-ru-provisional', track: 'west', year: 1917, month: 3, label: '러시아 임시정부', en: 'Russian Provisional Government',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '러시아력 2월 혁명으로 니콜라이 2세가 퇴위한 뒤 수립된 정부(1917). 케렌스키가 이끌었으나 개혁을 미루고 전쟁을 계속하다 볼셰비키에게 무너졌다.' },
+    { id: 'w-ru-republic', track: 'west', year: 1917, month: 9, label: '러시아 공화국', en: 'Russian Republic',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '러시아 임시정부가 공화국을 선포하였다(1917. 9.).' },
+    { id: 'w-soviet-gov', track: 'west', year: 1917, month: 11, label: '소비에트 정부 수립', en: 'Soviet Government',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '레닌이 이끄는 볼셰비키가 임시정부를 무너뜨리고 수립한 정부(1917. 11.). 노동자·농민·병사의 대표로 구성된 소비에트가 권력을 장악하였다.' },
+    { id: 'w-nep', track: 'west', year: 1921, month: 3, label: '신경제 정책', en: 'New Economic Policy',
+      state: '러시아', theme: '경제', kind: 'event', noSync: true, lane: 'ru',
+      body: '급격한 공산화 정책과 내전으로 경제적 혼란이 심화되자, 레닌이 농업·소매업·소규모 경공업 분야에서 사적 소유와 경영을 허용한 정책(NEP, 1921).' },
+    { id: 'w-ussr-founded', track: 'west', year: 1922, month: 12, label: '소비에트 사회주의 공화국 연방 수립', en: 'Founding of the Soviet Union',
+      state: '소련', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '레닌이 반혁명 세력을 진압하고 정권을 안정시킨 뒤 주변 소비에트 정부를 묶어 수립하였다(1922). 소련이라고 줄여 부른다.' },
+    { id: 'w-five-year', track: 'west', year: 1928, month: 10, label: '경제 개발 5개년 계획', en: 'First Five-Year Plan',
+      state: '소련', theme: '경제', kind: 'event', noSync: true, lane: 'ru',
+      body: '스탈린이 중공업을 육성하고 농업 집단화를 추진하는 등 사회주의 통제 경제를 강화하기 위해 실시한 계획(1928~).' },
+    { id: 'w-versailles-treaty', track: 'west', year: 1919, month: 6, label: '베르사유 조약', en: 'Treaty of Versailles',
+      state: '유럽', theme: '외교', kind: 'event', noSync: true,
+      body: '파리 강화 회의에서 승전국이 독일과 맺은 조약(1919). 전쟁의 책임이 독일에 있음을 분명히 하고 독일에 군비 축소, 배상금 지불 등을 요구하였다. 이후 성립된 국제 질서를 베르사유 체제라고 한다.' },
+    { id: 'w-league', track: 'west', year: 1920, month: 1, label: '국제 연맹 창설', en: 'League of Nations',
+      state: '유럽', theme: '외교', kind: 'event', noSync: true,
+      body: '윌슨의 14개조 평화 원칙에 따라 창설된 국제기구(1920). 군비 축소, 국제 분쟁 해결 등을 협의하였으나 미국이 불참하고 군사적 제재 수단이 없어 한계가 있었다.' },
+    { id: 'w-washington-conf', track: 'west', year: 1921, month: 11, yearLabel: '1921~1922', label: '워싱턴 회의', en: 'Washington Naval Conference',
+      state: '미국', theme: '외교', kind: 'event', noSync: true, lane: 'am',
+      body: '미국의 주도로 열린 국제회의(1921~1922). 해군 군비 축소와 태평양 지역의 현상 유지, 중국의 주권 존중 등에 합의하였다.' },
+    { id: 'w-weimar', track: 'west', year: 1919, month: 8, label: '바이마르 공화국', en: 'Weimar Republic',
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '제1차 세계 대전 이후 독일에서 바이마르 헌법을 제정하고 수립한 공화국(1919). 국민 주권, 남녀 보통 선거 등을 규정하였다.' },
+    { id: 'w-austria-hungary', track: 'west', year: 1867, label: '오스트리아·헝가리 제국', en: 'Austria-Hungary',
+      state: '오스트리아', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '프로이센·오스트리아 전쟁에서 패한 오스트리아가 헝가리의 자치를 인정하여 성립한 이중 제국(1867~1918).' },
+    { id: 'w-austria-rep', track: 'west', year: 1918, month: 11, label: '오스트리아 공화국', en: 'Republic of Austria',
+      state: '오스트리아', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '제1차 세계 대전 패전으로 오스트리아·헝가리 제국이 해체되면서 수립된 공화국(1918).' },
+    { id: 'w-locarno', track: 'west', year: 1925, month: 12, label: '로카르노 조약', en: 'Locarno Treaties',
+      state: '유럽', theme: '외교', kind: 'event', noSync: true,
+      body: '독일과 프랑스, 벨기에 등이 국경 불가침 등을 약속한 조약(1925). 이후 독일은 국제 연맹에 가입하였다.' },
+    { id: 'w-kellogg-briand', track: 'west', year: 1928, month: 8, label: '켈로그·브리앙 조약', en: 'Kellogg–Briand Pact',
+      state: '유럽', theme: '외교', kind: 'event', noSync: true,
+      body: '미국 국무 장관 켈로그와 프랑스 외무 장관 브리앙의 제안으로 국제 분쟁 해결 수단으로서의 전쟁을 포기하기로 한 조약(부전 조약, 1928).' },
+    { id: 'w-free-france', track: 'west', year: 1940, month: 6, label: '자유 프랑스', en: 'Free France',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '독일에 파리를 점령당한 뒤 드골이 런던에서 조직한 망명 정부와 저항 세력(1940). 독일에 맞서 레지스탕스를 이끌었다.' },
+    { id: 'w-vichy', track: 'west', year: 1940, month: 7, label: '프랑스국 비시 정권', en: 'Vichy France',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '독일에 항복한 뒤 페탱이 프랑스 남부의 비시를 수도로 세운 친독일 정권(1940~1944).' },
+    { id: 'w-mil-admin-france', track: 'west', year: 1940, month: 6, label: '프랑스 군정청', en: 'German Military Administration in France',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '나치 독일이 점령한 프랑스 북부 지역을 다스린 독일의 군정 기구(1940~1944).' },
+    { id: 'w-nazi', track: 'west', year: 1933, month: 1, label: '나치 독일 정권', en: 'Nazi Germany',
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '히틀러가 이끄는 나치당이 집권하여 세운 독재 정권(1933~1945). 베르사유 체제를 부정하고 재군비를 추진하였으며 유대인을 학살하였다.' },
+    { id: 'w-fascist-italy', track: 'west', year: 1922, month: 10, label: '파시스트 이탈리아', en: 'Fascist Italy',
+      state: '이탈리아', theme: '정치', kind: 'event', noSync: true, lane: 'it',
+      body: '무솔리니가 로마 진군으로 정권을 장악하여 세운 파시스트 독재 체제(1922~1943).' },
+    { id: 'w-rsi', track: 'west', year: 1943, month: 9, label: '이탈리아 사회공화국', en: 'Italian Social Republic',
+      state: '이탈리아', theme: '정치', kind: 'event', noSync: true, lane: 'it',
+      body: '이탈리아가 연합국에 항복한 뒤 독일의 지원을 받은 무솔리니가 북부에 세운 정권(1943~1945).' },
+    { id: 'w-gprf', track: 'west', year: 1944, month: 6, label: '프랑스 공화국 임시정부', en: 'Provisional Government of the French Republic',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '파리 해방 이후 드골을 중심으로 수립된 임시 정부(1944~1946).' },
+    { id: 'w-republic4', track: 'west', year: 1946, month: 10, label: '프랑스 제4공화정', en: 'French Fourth Republic',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '제2차 세계 대전 이후 새 헌법에 따라 수립된 공화정(1946~1958).' },
+    { id: 'w-allied-germany', track: 'west', year: 1945, month: 6, yearLabel: '1945~1949', label: '연합군 점령하 독일', en: 'Allied-occupied Germany',
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '독일이 항복한 뒤 미국·영국·프랑스·소련이 독일을 4개 지역으로 나누어 점령·통치한 시기(1945~1949).' },
+    { id: 'w-allied-italy', track: 'west', year: 1943, month: 7, yearLabel: '1943~1947', label: '연합군 점령하 이탈리아', en: 'Allied-occupied Italy',
+      state: '이탈리아', theme: '정치', kind: 'event', noSync: true, lane: 'it',
+      body: '연합군이 이탈리아에 상륙한 뒤 점령지에 군정을 실시한 시기(1943~1947).' },
+    { id: 'w-italy-rep', track: 'west', year: 1946, month: 6, label: '이탈리아 공화국', en: 'Italian Republic',
+      state: '이탈리아', theme: '정치', kind: 'event', noSync: true, lane: 'it',
+      body: '국민 투표로 왕정을 폐지하고 수립된 공화국(1946).' },
+    { id: 'w-frg', track: 'west', year: 1949, month: 5, label: '독일 연방 공화국', en: 'Federal Republic of Germany',
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '미국·영국·프랑스 점령 지역에 수립된 서독(1949. 5.).' },
+    { id: 'w-gdr', track: 'west', year: 1949, month: 10, label: '독일 민주 공화국', en: 'German Democratic Republic',
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
+      body: '소련 점령 지역에 수립된 동독(1949. 10.).' },
+    { id: 'w-republic5', track: 'west', year: 1958, month: 10, label: '프랑스 제5공화정', en: 'French Fifth Republic',
+      state: '프랑스', theme: '정치', kind: 'event', noSync: true, lane: 'fr',
+      body: '알제리 문제로 정국이 혼란해지자 드골이 대통령의 권한을 강화한 새 헌법으로 수립한 공화정(1958).' },
     { id: 'w-spanish-american', track: 'west', year: 1898, month: 4, label: '미국-에스파냐 전쟁', en: 'Spanish-American War',
       state: '미국', theme: '군사', kind: 'event', noSync: true, lane: 'am',
       body: '쿠바 독립 문제를 계기로 미국과 에스파냐 사이에 일어난 전쟁(1898). 승리한 미국은 필리핀, 괌, 푸에르토리코를 차지하였다.' },
@@ -2565,6 +2700,18 @@ window.TIMELINE_DATA = {
     { id: 'w-columbus', track: 'west', year: 1492, label: '신항로 개척', en: 'Age of Exploration',
       state: '에스파냐', theme: '경제', kind: 'turning',
       body: '에스파냐의 후원을 받은 콜럼버스가 1492년 아메리카 대륙의 서인도 제도에 도착하였다. 이후 유럽인들이 아메리카와 아시아로 가는 새로운 바닷길을 열면서 세계적인 교역망이 형성되었다.' },
+    { id: 'w-feb-rev-ru', track: 'west', year: 1917, month: 3, label: '러시아력 2월 혁명', en: 'February Revolution',
+      state: '러시아', theme: '정치', kind: 'turning', lane: 'ru',
+      body: '1917년 3월(러시아력 2월) 노동자들이 ‘전제 정치 타도, 전쟁 중지, 식량 배급’을 주장하며 일으킨 혁명. 니콜라이 2세가 퇴위하고 케렌스키가 이끄는 임시 정부가 수립되었다.' },
+    { id: 'w-oct-rev-ru', track: 'west', year: 1917, month: 11, label: '러시아력 10월 혁명', en: 'October Revolution',
+      state: '러시아', theme: '정치', kind: 'turning', lane: 'ru',
+      body: '임시 정부가 개혁을 미루고 전쟁을 계속하자 레닌이 이끄는 볼셰비키가 1917년 11월(러시아력 10월) 무장봉기를 일으켜 임시 정부를 무너뜨리고 소비에트 정부를 수립하였다.' },
+    { id: 'w-lenin', track: 'west', year: 1917, month: 11, label: '블라디미르 레닌', en: 'Vladimir Lenin',
+      state: '러시아', theme: '정치', kind: 'turning', lane: 'ru',
+      body: '볼셰비키를 이끌고 러시아력 10월 혁명을 일으켜 소비에트 정부를 세운 지도자(1917). 토지 분배, 산업 시설 국유화를 단행하고 신경제 정책을 추진하였으며, 소련을 수립하였다(1922).' },
+    { id: 'w-stalin', track: 'west', year: 1924, month: 1, label: '이오시프 스탈린', en: 'Joseph Stalin',
+      state: '소련', theme: '정치', kind: 'turning', lane: 'ru',
+      body: '레닌 사후 정권을 장악한 소련의 지도자(1924). 경제 개발 5개년 계획으로 중공업을 육성하고 반대파를 숙청하며 독재 체제를 강화하였다.' },
     { id: 'w-sci-rev', track: 'west', year: 1543, yearLabel: '16~17세기', label: '과학 혁명', en: 'Scientific Revolution',
       state: '유럽', theme: '문화', kind: 'turning',
       body: '코페르니쿠스의 지동설, 갈릴레이의 천체 관측, 뉴턴의 만유인력 법칙 등 16~17세기 과학 분야에서 중요한 업적이 잇달아 나타났다. 뉴턴이 확립한 기계론적 우주관과 합리적인 사고방식은 계몽사상 형성의 토대가 되었다.' },
@@ -2682,20 +2829,20 @@ window.TIMELINE_DATA = {
     { id: 'w-germany', track: 'west', year: 1871, label: '독일 제국', en: 'German Empire',
       state: '독일', theme: '정치', kind: 'turning', lane: 'de',
       body: '프로이센이 통일을 주도하여 1871년 빌헬름 1세가 황제로 즉위하고 독일 제국의 성립을 선포하였다.' },
-    { id: 'w-ww1', track: 'west', year: 1914, label: '제1차 세계 대전', en: 'World War I',
-      state: '유럽', theme: '군사', kind: 'turning',
+    { id: 'w-ww1', track: 'west', year: 1916, yearLabel: '1914~1918', label: '제1차 세계 대전', en: 'World War I',
+      state: '유럽', theme: '군사', kind: 'event', hidden: true,
       body: '사라예보 사건을 계기로 1914년 시작된 전쟁. 동맹국과 협상국이 총력전을 벌였으며, 1918년 독일이 항복하였다.' },
-    { id: 'w-russia', track: 'west', year: 1917, label: '러시아 혁명', en: 'Russian Revolution',
-      state: '러시아', theme: '정치', kind: 'turning', lane: 'ru',
+    { id: 'w-russia', track: 'west', year: 1919, yearLabel: '1917~1922', label: '러시아 혁명', en: 'Russian Revolution',
+      state: '러시아', theme: '정치', kind: 'event', hidden: true,
       body: '전쟁으로 고통받던 러시아에서 혁명이 일어나 황제가 물러났다. 이어 레닌이 이끄는 볼셰비키가 정권을 잡고 사회주의 정부를 세웠다. 레닌은 민족 자결의 원칙을 내세워 식민지 민족 해방 운동을 지원하겠다고 약속하였다.' },
-    { id: 'w-paris', track: 'west', year: 1919, label: '파리 강화 회의', en: 'Paris Peace Conference',
-      state: '유럽', theme: '외교', kind: 'turning',
+    { id: 'w-paris', track: 'west', year: 1919, month: 1, label: '파리 강화 회의', en: 'Paris Peace Conference',
+      state: '유럽', theme: '외교', kind: 'event', noSync: true,
       body: '제1차 세계 대전의 전후 처리를 위해 열린 회의(1919~1920). 미국 대통령 윌슨이 민족 자결주의를 담은 14개조 평화 원칙을 제시하였다. 1920년 국제 연맹이 창설되었다.' },
     { id: 'w-depression', track: 'west', year: 1929, label: '대공황', en: 'Great Depression',
       state: '미국', theme: '경제', kind: 'turning', lane: 'am',
       body: '1929년 미국에서 시작된 경제 대공황이 전 세계로 확산되었다. 미국은 뉴딜 정책을 펼쳤고, 영국과 프랑스는 블록 경제를 형성하였다. 독일·이탈리아·일본에서는 전체주의가 대두하였다.' },
-    { id: 'w-ww2', track: 'west', year: 1939, label: '제2차 세계 대전', en: 'World War II',
-      state: '유럽', theme: '군사', kind: 'turning',
+    { id: 'w-ww2', track: 'west', year: 1942, yearLabel: '1939~1945', label: '제2차 세계 대전', en: 'World War II',
+      state: '유럽', theme: '군사', kind: 'event', hidden: true,
       body: '1939년 독일의 폴란드 침공으로 시작된 전쟁. 나치 독일은 수백만 명의 유대인을 학살하였다. 노르망디 상륙 작전(1944) 이후 연합국이 반격하였고, 1945년 일본의 항복으로 끝났다.' },
     // 연합국 정상 회담 — 전후 처리와 한국 독립 문제 (2026-10-13 메인 노드로 추가)
     { id: 'w-cairo', track: 'west', year: 1943, month: 11, label: '카이로 회담', en: 'Cairo Conference',
@@ -9701,7 +9848,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['k-samil', 'w-paris', 'e-kmt-ccp', 'e-xinhai']
+    linked: ['k-samil', 'w-ww1', 'e-kmt-ccp', 'e-xinhai']
   },
   'e-kmt-ccp': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -11020,6 +11167,99 @@ window.TIMELINE_DB = {
     ],
     linked: ['w-industrial2', 'w-ww1']
   },
+  'w-feb-rev-ru': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '러시아력 2월 혁명 — 러시아는 차르의 전제 정치와 농업 중심의 경제가 오래 유지되는 가운데 러일 전쟁으로 경제적 궁핍에 시달렸다. 1905년 피의 일요일 사건이 일어나자 총파업이 시작되었고, 이를 무마하려고 니콜라이 2세는 개혁을 약속하였으나 별다른 성과를 내지 못하였다. 러시아가 제1차 세계 대전에 참전하여 패전을 거듭하면서 경제 상황이 악화되고 농민과 노동자의 삶이 비참해지자 국민들의 불만은 더욱 커져 갔다. 결국 1917년 3월 노동자들은 ‘전제 정치 타도, 전쟁 중지, 식량 배급’을 주장하며 혁명을 일으켰다. 그 결과 니콜라이 2세가 퇴위하고 케렌스키가 이끄는 임시 정부가 수립되었다. 이 혁명은 당시 러시아에서 쓰던 달력으로 2월에 일어나 2월 혁명이라고 하며, 오늘날의 달력으로는 3월 혁명이라고도 한다.',
+      terms: [
+        { label: '러시아력', def: '당시 러시아에서 쓰던 율리우스력. 오늘날의 그레고리력보다 13일 늦다.' },
+        { label: '임시 정부', def: '2월 혁명으로 니콜라이 2세가 퇴위한 뒤 수립된 정부. 케렌스키가 이끌었다.' },
+        { label: '소비에트', def: '평의회 또는 대표자 회의를 뜻하는 러시아어. 노동자·농민·병사의 대표로 구성된 기구.' }
+      ],
+      timeline: [
+        { y: 1905, label: '피의 일요일 사건' },
+        { y: 1914, label: '제1차 세계 대전 참전' },
+        { y: 1917, label: '◆ 2월 혁명(3월 혁명) — 니콜라이 2세 퇴위, 임시 정부 수립' },
+        { y: 1917, label: '10월 혁명(11월 혁명)' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['w-russia', 'w-oct-rev-ru', 'w-m-nicholas2', 'w-ww1']
+  },
+  'w-oct-rev-ru': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '러시아력 10월 혁명 — 2월 혁명으로 수립된 임시 정부가 개혁을 미루고 전쟁을 계속하려 하자, 레닌이 이끄는 볼셰비키가 무장봉기를 일으켜 임시 정부를 무너뜨리고 소비에트 정부를 수립하였다(1917). 이 혁명은 러시아력으로 10월, 오늘날의 달력으로 11월에 일어나 11월 혁명이라고도 한다. 소비에트 정부는 독일을 비롯한 동맹국과 브레스트리토프스크 조약을 맺어(1918) 제1차 세계 대전에서 이탈하였고, 토지 분배와 산업 시설 국유화 등 사회주의 개혁에 착수하였다. 또한 코민테른을 조직하여 각국의 노동 운동과 약소민족의 해방 운동 지원을 약속하였다.',
+      terms: [
+        { label: '볼셰비키', def: '‘다수파’라는 뜻으로, 레닌이 이끈 러시아 사회 민주 노동당의 급진파.' },
+        { label: '소비에트 정부', def: '10월 혁명으로 볼셰비키가 수립한 정부.' },
+        { label: '브레스트리토프스크 조약', def: '소비에트 정부가 동맹국과 맺은 강화 조약(1918).' },
+        { label: '코민테른', def: '각국 공산당의 국제 연합 조직(1919).' }
+      ],
+      timeline: [
+        { y: 1917, label: '2월 혁명' },
+        { y: 1917, label: '◆ 10월 혁명(11월 혁명) — 소비에트 정부 수립' },
+        { y: 1918, label: '브레스트리토프스크 조약' },
+        { y: 1919, label: '코민테른 결성' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['w-russia', 'w-feb-rev-ru', 'w-lenin']
+  },
+  'w-lenin': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '블라디미르 레닌 — 러시아의 혁명가로, 볼셰비키를 이끌었다. 2월 혁명 이후 수립된 임시 정부가 개혁을 미루고 전쟁을 계속하자 무장봉기를 주도하여 임시 정부를 무너뜨리고 소비에트 정부를 수립하였다(1917, 10월 혁명). 레닌은 독일 등과 브레스트리토프스크 조약을 맺어 전쟁을 중단하고, 토지 분배, 산업 시설 국유화 등의 개혁을 단행하였다. 그러나 반혁명 세력과의 내전을 치르며 전시 공산주의 정책으로 곡물을 징발하자 농민층의 불만이 높아졌고 경제적 어려움에 처하였다. 이에 레닌은 농업·소매업·소규모 경공업 분야에서 사적 소유와 경영을 허용하는 등 시장 경제 요소를 일부 도입한 신경제 정책(NEP)을 추진하였다. 이어 반혁명 세력을 진압하고 정권을 안정시킨 뒤 소비에트 러시아를 중심으로 주변 소비에트 정부를 묶어 소비에트 사회주의 공화국 연방(소련)을 수립하였다(1922). 또한 코민테른을 조직하여 각국의 노동 운동과 약소민족의 해방 운동을 지원하였다.',
+      terms: [
+        { label: '볼셰비키', def: '레닌이 이끈 러시아 사회 민주 노동당의 급진파.' },
+        { label: '신경제 정책(NEP)', def: '농업·소매업·소규모 경공업 분야에서 사적 소유와 경영을 허용한 정책(1921).' },
+        { label: '소련', def: '소비에트 사회주의 공화국 연방(1922~1991).' }
+      ],
+      timeline: [
+        { y: 1917, label: '◆ 10월 혁명 — 소비에트 정부 수립' },
+        { y: 1918, label: '브레스트리토프스크 조약' },
+        { y: 1921, label: '신경제 정책' },
+        { y: 1922, label: '소련 수립' },
+        { y: 1924, label: '레닌 사망' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/lenin-speech.webp', span: true,
+        caption: '연설하는 레닌',
+        ref: '볼셰비키를 이끌고 10월 혁명으로 소비에트 정부를 세운 레닌이 군중 앞에서 연설하는 모습을 그린 그림.' }
+    ],
+    linked: ['w-russia', 'w-oct-rev-ru', 'w-stalin', 'w-ussr']
+  },
+  'w-stalin': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '이오시프 스탈린 — 레닌 사후 정권을 장악한 소련의 지도자. 경제 개발 5개년 계획을 실시하여 중공업을 육성하고 농업 집단화를 추진하는 등 사회주의 통제 경제 정책을 강화하는 한편, 반대파를 숙청하며 독재 체제를 강화하였다. 제2차 세계 대전 직전 독일과 독소 불가침 조약을 맺었으나(1939), 독일이 소련을 공격하자 연합국 측에서 싸웠고 스탈린그라드 전투에서 승리하여 전세를 바꾸었다. 전쟁 말기에는 얄타 회담과 포츠담 회담에 참여하여 전후 처리를 논의하였다. 전후에는 동유럽에 공산 정권을 수립하고 베를린 봉쇄를 단행하는 등 냉전 체제에서 미국과 대립하였다.',
+      terms: [
+        { label: '경제 개발 5개년 계획', def: '스탈린이 중공업 육성과 농업 집단화를 추진한 계획(1928~).' },
+        { label: '독소 불가침 조약', def: '독일과 소련이 서로 공격하지 않기로 맺은 조약(1939).' },
+        { label: '스탈린그라드 전투', def: '소련이 독일군을 물리쳐 전세를 바꾼 전투(1942~1943).' }
+      ],
+      timeline: [
+        { y: 1924, label: '◆ 레닌 사후 정권 장악' },
+        { y: 1928, label: '제1차 경제 개발 5개년 계획' },
+        { y: 1939, label: '독소 불가침 조약' },
+        { y: 1942, label: '스탈린그라드 전투 (~1943)' },
+        { y: 1945, label: '얄타 회담·포츠담 회담' },
+        { y: 1948, label: '베를린 봉쇄' },
+        { y: 1953, label: '스탈린 사망' }
+      ]
+    },
+    sources: [],
+    artifacts: [],
+    linked: ['w-lenin', 'w-russia', 'w-ww2', 'w-coldwar']
+  },
   'w-columbus': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
@@ -11434,7 +11674,7 @@ window.TIMELINE_DB = {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
     overview: {
-      summary: '제1차 세계 대전 — 제국주의 열강의 식민지 경쟁 속에서 3국 동맹(독일·오스트리아·이탈리아)과 3국 협상(영국·프랑스·러시아)이 대립하였다. 발칸반도에서는 범게르만주의와 범슬라브주의가 충돌하여 ‘유럽의 화약고’라 불렸다. 1914년 사라예보 사건을 계기로 전쟁이 시작되었다. 신무기가 동원된 총력전이 벌어졌고, 독일의 무제한 잠수함 작전을 계기로 미국이 참전하였다(1917). 러시아는 혁명으로 전쟁에서 빠졌고, 1918년 독일이 항복하였다. 19세기 후반 열강은 세력 확대를 위해 비밀 외교 협상과 군비 확장을 계속하였다. 비스마르크는 유럽의 현상 유지와 프랑스 고립화를 위해 오스트리아·헝가리 제국, 이탈리아와 3국 동맹을 체결하였다(1882). 빌헬름 2세는 비스마르크를 해임하고 베를린·비잔티움·바그다드를 연결하는 팽창 정책을 펼쳤는데, 이는 카이로·케이프타운·콜카타를 연결하려는 영국의 정책과 충돌하였다. 사라예보 사건이 일어나자 오스트리아·헝가리 제국이 세르비아에 선전 포고하였고, 동맹 관계를 맺은 여러 나라가 연합국과 동맹국으로 나뉘어 참전하였다. 하늘에서는 전투기, 바다에서는 잠수함이 등장하였고 기관총, 장거리포, 독가스가 사용되었으며, 수백 km에 달하는 서부 전선에서 참호전이 벌어지자 이를 돌파하려고 탱크가 개발되었다. 여성들도 군수 공장과 농장에 동원되었으며, 종전을 전후하여 여러 국가에서 제정이 무너지고 노동자와 여성의 참정권이 확대되었다.',
+      summary: '제1차 세계 대전 — 제국주의 열강의 식민지 경쟁 속에서 3국 동맹(독일·오스트리아·이탈리아)과 3국 협상(영국·프랑스·러시아)이 대립하였다. 발칸반도에서는 범게르만주의와 범슬라브주의가 충돌하여 ‘유럽의 화약고’라 불렸다. 1914년 사라예보 사건을 계기로 전쟁이 시작되었다. 신무기가 동원된 총력전이 벌어졌고, 독일의 무제한 잠수함 작전을 계기로 미국이 참전하였다(1917). 러시아는 혁명으로 전쟁에서 빠졌고, 1918년 독일이 항복하였다. 19세기 후반 열강은 세력 확대를 위해 비밀 외교 협상과 군비 확장을 계속하였다. 비스마르크는 유럽의 현상 유지와 프랑스 고립화를 위해 오스트리아·헝가리 제국, 이탈리아와 3국 동맹을 체결하였다(1882). 빌헬름 2세는 비스마르크를 해임하고 베를린·비잔티움·바그다드를 연결하는 팽창 정책을 펼쳤는데, 이는 카이로·케이프타운·콜카타를 연결하려는 영국의 정책과 충돌하였다. 사라예보 사건이 일어나자 오스트리아·헝가리 제국이 세르비아에 선전 포고하였고, 동맹 관계를 맺은 여러 나라가 연합국과 동맹국으로 나뉘어 참전하였다. 하늘에서는 전투기, 바다에서는 잠수함이 등장하였고 기관총, 장거리포, 독가스가 사용되었으며, 수백 km에 달하는 서부 전선에서 참호전이 벌어지자 이를 돌파하려고 탱크가 개발되었다. 여성들도 군수 공장과 농장에 동원되었으며, 종전을 전후하여 여러 국가에서 제정이 무너지고 노동자와 여성의 참정권이 확대되었다. 제1차 세계 대전의 전후 처리를 위해 1919년 전승국 대표들이 파리에 모였다. 미국 대통령 윌슨이 민족 자결주의 등을 담은 14개조 평화 원칙을 제시하였다. 독일은 베르사유 조약으로 모든 식민지를 잃고 막대한 배상금을 물게 되었다. 1920년 국제 연맹이 창설되었고, 워싱턴 회의(1921~1922)로 아시아·태평양의 질서가 정비되었다. 민족 자결주의는 3·1 운동과 5·4 운동 등 아시아의 민족 운동에 영향을 주었다. 14개조 평화 원칙은 민족 자결주의 외에도 강화 조약 공개, 비밀 외교 폐지, 공해에서의 자유, 군비 축소, 폴란드의 독립, 국제 연맹 창설 등을 담았다. 승전국은 베르사유 조약에서 전쟁 책임이 독일에 있음을 분명히 하고, 식민지에 대한 모든 권리를 넘기고 200억 마르크 금화에 해당하는 배상금을 지급하게 하였다. 베르사유 조약 체결 이후 성립된 국제 질서를 베르사유 체제라고 한다. 조약은 독일에 보복적인 성격이 강하여 독일 국민은 이를 불평등 조약으로 여겼고, 나치스는 이를 대외 팽창을 정당화하는 구실로 이용하였다. 국제 연맹은 군비 축소, 영토 보전, 국제 분쟁 해결 등을 협의하였으나, 미국 의회가 먼로주의 침해 우려 등을 들어 가입을 거부하였고 분쟁을 막을 군사적 수단이 없어 평화 유지에 어려움을 겪었다. 독일에서는 바이마르 헌법을 제정하고 바이마르 공화국 수립을 선포하는 등 전후 유럽에서 민주주의가 크게 발전하였다.',
       terms: [
         { label: '3국 동맹·3국 협상', def: '독일 중심의 동맹과 영국·프랑스·러시아의 협상 체제.' },
         { label: '사라예보 사건', def: '오스트리아 황태자 부부가 세르비아 청년에게 암살된 사건(1914).' },
@@ -11442,14 +11682,20 @@ window.TIMELINE_DB = {
         { label: '범슬라브주의', def: '슬라브족의 단결을 내세운 러시아의 사상. 발칸반도로의 세력 확대 명분이 되었다.' },
         { label: '범게르만주의', def: '게르만족의 단결을 표방한 독일·오스트리아-헝가리의 사상.' },
         { label: '참호전', def: '땅을 파서 만든 도랑(참호)에서 대치하며 벌인 전투. 서부 전선에서 대대적으로 전개되었다.' },
-        { label: '빌헬름 2세', def: '비스마르크를 해임하고 대외 팽창 정책을 추진한 독일 황제.' }
+        { label: '빌헬름 2세', def: '비스마르크를 해임하고 대외 팽창 정책을 추진한 독일 황제.' },
+        { label: '14개조 평화 원칙', def: '윌슨이 제시한 전후 처리 원칙. 민족 자결주의를 담았다.' },
+        { label: '베르사유 조약', def: '독일과 연합국이 맺은 강화 조약.' },
+        { label: '국제 연맹', def: '세계 평화를 위해 1920년 창설된 국제기구.' },
+        { label: '베르사유 체제', def: '베르사유 조약 체결 이후 성립된 국제 질서.' },
+        { label: '바이마르 공화국', def: '1919년 바이마르 헌법을 제정하고 수립된 독일의 공화국.' }
       ],
       timeline: [
         { y: 1882, label: '3국 동맹 체결' },
         { y: 1914, label: '◆ 사라예보 사건·전쟁 발발' },
         { y: 1917, label: '러시아 혁명·미국 참전' },
         { y: 1918, label: '독일 항복' },
-        { y: 1919, label: '파리 강화 회의' }
+        { y: 1919, label: '파리 강화 회의 — 베르사유 조약' },
+        { y: 1920, label: '국제 연맹 창설' }
       ]
     },
     sources: [
@@ -11521,9 +11767,12 @@ window.TIMELINE_DB = {
         ref: '독일·오스트리아·헝가리·이탈리아의 3국 동맹과 영국·프랑스·러시아의 3국 협상이 대립하였다.' },
       { slot: 'auto', src: 'assets/w1/근현대/세계/africa-national-movements-map.webp',
         caption: '아프리카의 민족 운동',
-        ref: '아라비 파샤(1881~1882) · 마흐디 운동(1881~1898) · 만딩고족 · 아샨티족 · 헤헤족 · 줄루족(1879) · 헤레로족과 코이족(1904~1908) · 메날람바족 · 독립국 에티오피아·라이베리아' }
+        ref: '아라비 파샤(1881~1882) · 마흐디 운동(1881~1898) · 만딩고족 · 아샨티족 · 헤헤족 · 줄루족(1879) · 헤레로족과 코이족(1904~1908) · 메날람바족 · 독립국 에티오피아·라이베리아' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/versailles-europe-map.webp',
+        caption: '제1차 세계 대전 이후의 유럽',
+        ref: '동맹국과 러시아의 할양 지역 · 신생 독립 국가(핀란드·에스토니아·라트비아·리투아니아·폴란드·체코슬로바키아·헝가리·유고슬라비아) · 국제 연맹 관리 지역(단치히)과 라인란트 비무장 지대' }
     ],
-    linked: ['w-germany', 'w-russia', 'w-paris', 's-young-turk', 'k-samil', 'k-annexation']
+    linked: ['w-germany', 'w-russia', 's-young-turk', 'k-samil', 'k-annexation']
   },
   'w-russia': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -11600,34 +11849,6 @@ window.TIMELINE_DB = {
     ],
     linked: ['w-ww1', 'w-ussr', 'e-kmt-ccp', 'k-samil', 'k-annexation']
   },
-  'w-paris': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '파리 강화 회의 — 제1차 세계 대전의 전후 처리를 위해 1919년 전승국 대표들이 파리에 모였다. 미국 대통령 윌슨이 민족 자결주의 등을 담은 14개조 평화 원칙을 제시하였다. 독일은 베르사유 조약으로 모든 식민지를 잃고 막대한 배상금을 물게 되었다. 1920년 국제 연맹이 창설되었고, 워싱턴 회의(1921~1922)로 아시아·태평양의 질서가 정비되었다. 민족 자결주의는 3·1 운동과 5·4 운동 등 아시아의 민족 운동에 영향을 주었다. 14개조 평화 원칙은 민족 자결주의 외에도 강화 조약 공개, 비밀 외교 폐지, 공해에서의 자유, 군비 축소, 폴란드의 독립, 국제 연맹 창설 등을 담았다. 승전국은 베르사유 조약에서 전쟁 책임이 독일에 있음을 분명히 하고, 식민지에 대한 모든 권리를 넘기고 200억 마르크 금화에 해당하는 배상금을 지급하게 하였다. 베르사유 조약 체결 이후 성립된 국제 질서를 베르사유 체제라고 한다. 조약은 독일에 보복적인 성격이 강하여 독일 국민은 이를 불평등 조약으로 여겼고, 나치스는 이를 대외 팽창을 정당화하는 구실로 이용하였다. 국제 연맹은 군비 축소, 영토 보전, 국제 분쟁 해결 등을 협의하였으나, 미국 의회가 먼로주의 침해 우려 등을 들어 가입을 거부하였고 분쟁을 막을 군사적 수단이 없어 평화 유지에 어려움을 겪었다. 독일에서는 바이마르 헌법을 제정하고 바이마르 공화국 수립을 선포하는 등 전후 유럽에서 민주주의가 크게 발전하였다.',
-      terms: [
-        { label: '14개조 평화 원칙', def: '윌슨이 제시한 전후 처리 원칙. 민족 자결주의를 담았다.' },
-        { label: '베르사유 조약', def: '독일과 연합국이 맺은 강화 조약.' },
-        { label: '국제 연맹', def: '세계 평화를 위해 1920년 창설된 국제기구.' },
-        { label: '베르사유 체제', def: '베르사유 조약 체결 이후 성립된 국제 질서.' },
-        { label: '바이마르 공화국', def: '1919년 바이마르 헌법을 제정하고 수립된 독일의 공화국.' }
-      ],
-      timeline: [
-        { y: 1918, label: '독일 항복' },
-        { y: 1919, label: '◆ 파리 강화 회의' },
-        { y: 1919, label: '독일, 바이마르 공화국 수립' },
-        { y: 1920, label: '국제 연맹 창설' },
-        { y: 1921, label: '워싱턴 회의' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/세계/versailles-europe-map.webp',
-        caption: '제1차 세계 대전 이후의 유럽',
-        ref: '동맹국과 러시아의 할양 지역 · 신생 독립 국가(핀란드·에스토니아·라트비아·리투아니아·폴란드·체코슬로바키아·헝가리·유고슬라비아) · 국제 연맹 관리 지역(단치히)과 라인란트 비무장 지대' }
-    ],
-    linked: ['w-ww1', 'k-samil', 'e-may4', 'w-depression']
-  },
   'w-depression': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
@@ -11658,7 +11879,7 @@ window.TIMELINE_DB = {
         caption: '대공황 이후의 블록 경제',
         ref: '파운드 블록(영국)·프랑 블록(프랑스)·달러 블록(미국)·엔 블록(일본) — 본국과 식민지를 묶어 다른 나라 상품에 높은 관세를 매겼다.' }
     ],
-    linked: ['w-paris', 'w-ww2', 'e-manchuria']
+    linked: ['w-ww1', 'w-ww2', 'e-manchuria']
   },
   'w-ww2': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -12058,7 +12279,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['w-ww2', 'w-coldwar', 'w-paris']
+    linked: ['w-ww2', 'w-coldwar', 'w-ww1']
   },
   'w-coldwar': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16293,7 +16514,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['k-samil', 'k-provisional', 'w-paris']
+    linked: ['k-samil', 'k-provisional', 'w-ww1']
   },
   'k-provisional': {
     notes: {   // 정리 — 사용자 정리본(수능 한국사 연표 정리 2022 개정 작업)
