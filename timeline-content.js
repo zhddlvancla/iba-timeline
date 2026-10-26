@@ -5704,7 +5704,10 @@ window.TIMELINE_DB = {
         ref: '파라오 신권과 사후 세계 신앙의 상징' },
       { slot: 'auto', span: true, src: 'assets/w1/고대/서아시아·인도/이집트 문명/giza-pyramids.webp',
         caption: '기자의 피라미드',
-        ref: '파라오의 무덤으로 만든 거대한 피라미드.' }
+        ref: '파라오의 무덤으로 만든 거대한 피라미드.' },
+      { slot: 'auto', src: 'assets/w1/고대/서아시아·인도/이집트 문명/[비상교육] 고등_세계사_1-1_15p_오시리스를 미라로 만드는 모습.jpg', span: true,
+        caption: '오시리스를 미라로 만드는 모습',
+        ref: '왕위를 탐낸 동생 세트에게 살해된 오시리스를 이시스가 미라로 만들어 부활시켰다는 신화. 오시리스는 사후 세계의 지배자가 되었고, 이 부활 신화는 이집트인들에게 사후 세계에서의 영원한 삶을 꿈꾸게 하였다.' }
     ],
     linked: ['w-paleo', 'w-neolithic', 's-mesopotamia', 's-indus']
   },
@@ -10305,15 +10308,18 @@ window.TIMELINE_DB = {
         { y: 1937, label: '제2차 국공 합작, 난징 대학살' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '제2차 국공 합작', span: true,
+        src: 'assets/w1/근현대/동아시아/second-united-front-inquiry.webp',
+        citation: '— 『저우언라이 선집』 · 중국 공산당이 국민당과 함께 일본 제국주의의 침략에 맞서겠다고 선언 · 저우언라이(1898~1976)' }
+    ],
     artifacts: [
       { slot: 'auto', src: 'assets/w1/근현대/동아시아/sun-yat-sen.webp',
         caption: '쑨원',
         ref: '삼민주의를 내세워 신해혁명을 이끌고 중화민국의 임시 대총통이 되었다.' },
       { slot: 'auto', src: 'assets/w1/근현대/동아시아/chiang-kai-shek.webp',
         caption: '장제스',
-        ref: '쑨원의 뒤를 이어 국민당을 이끌고 북벌을 추진한 지도자. 국공 내전에서 패한 뒤 타이완으로 옮겨 갔다.' },
-      
+        ref: '쑨원의 뒤를 이어 국민당을 이끌고 북벌을 추진한 지도자. 국공 내전에서 패한 뒤 타이완으로 옮겨 갔다.' }
     ],
     linked: ['e-may4', 'w-totalitarian', 'e-civilwar']
   },
