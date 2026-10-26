@@ -4210,9 +4210,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 <script src="audio-engine.js?v=20261009a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
-<script src="iba-emblem.js?v=20261026b"></script>
+<script src="iba-emblem.js?v=20261026c"></script>
 <!-- 연관 기록 대조 — 브라우저 안 의미 검색 (semantic-worker.js · search-index.js) -->
-<script src="semantic-search.js?v=20261026b"></script>
+<script src="semantic-search.js?v=20261026c"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -7365,6 +7365,42 @@ window.TIMELINE_DATA = {
     { id: 'e-m-qianlong', track: 'eastasia', year: 1735, label: '건륭제', en: 'Qianlong Emperor',
       state: '청', theme: '정치', kind: 'event', noSync: true,
       body: '티베트와 신장 등을 정복하여 오늘날 중국 영토의 윤곽을 형성하였다.' },
+    { id: 'e-aec', track: 'eastasia', year: 2015, month: 12, label: '아세안 경제 공동체', en: 'ASEAN Economic Community',
+      state: '동남아시아', theme: '경제', kind: 'event', noSync: true,
+      body: '동남아시아 국가 연합 회원국들이 단일 시장과 생산 기지를 목표로 출범시킨 경제 공동체(AEC, 2015).' },
+    { id: 'e-southern-tour', track: 'eastasia', year: 1992, month: 1, label: '남순 강화', en: 'Southern Tour',
+      state: '중국', theme: '경제', kind: 'event', noSync: true,
+      body: '덩샤오핑이 선전 등 남부 경제특구를 돌아보며 개혁·개방을 더욱 확대할 것을 강조한 담화(1992).' },
+    { id: 'e-apec', track: 'eastasia', year: 1989, month: 11, label: '아시아·태평양 경제 협력체', en: 'APEC',
+      state: '아시아·태평양', theme: '경제', kind: 'event', noSync: true,
+      body: '아시아·태평양 지역 국가들의 경제 협력을 위해 결성된 기구(APEC, 1989).' },
+    { id: 'e-us-china', track: 'eastasia', year: 1979, month: 1, label: '미국-중국 국교 수립', en: 'US–China Diplomatic Relations',
+      state: '중국', theme: '외교', kind: 'event', noSync: true,
+      body: '닉슨의 중국 방문 이후 관계를 개선해 온 미국과 중국이 정식으로 국교를 맺었다(1979).' },
+    { id: 'e-srv', track: 'eastasia', year: 1976, month: 7, label: '베트남 사회주의 공화국', en: 'Socialist Republic of Vietnam',
+      state: '베트남', theme: '정치', kind: 'event', noSync: true,
+      body: '베트남 전쟁이 끝난 뒤 남북 베트남이 통일되어 수립된 국가(1976).' },
+    { id: 'e-asean', track: 'eastasia', year: 1967, month: 8, label: '동남아시아 국가 연합', en: 'ASEAN',
+      state: '동남아시아', theme: '외교', kind: 'event', noSync: true,
+      body: '동남아시아 국가들이 지역 협력을 위해 결성한 기구(ASEAN, 1967).' },
+    { id: 'e-vietnam-war', track: 'eastasia', year: 1964, month: 8, yearLabel: '1964~1975', label: '베트남 전쟁', en: 'Vietnam War',
+      state: '베트남', theme: '군사', kind: 'event', noSync: true,
+      body: '미국의 지원을 받은 남베트남 정권과 소련의 지원을 받은 북베트남 정권이 충돌하면서 일어난 전쟁. 미국은 통킹만 사건(1964)을 계기로 본격적으로 참전하였으나, 반전 여론 속에 철수하였고 남베트남이 무너지면서 베트남이 통일되었다(1975).' },
+    { id: 'e-great-leap', track: 'eastasia', year: 1958, month: 5, yearLabel: '1958~1960', label: '대약진 운동', en: 'Great Leap Forward',
+      state: '중국', theme: '경제', kind: 'event', noSync: true,
+      body: '마오쩌둥이 중국식 사회주의를 표방하며 농촌에 인민공사를 조직하고 공업 생산을 급격히 늘리려 한 운동(1958~1960). 무리한 계획과 자연재해로 실패하였다.' },
+    { id: 'e-ten-principles', track: 'eastasia', year: 1955, month: 4, label: '평화 10원칙 발표', en: 'Ten Principles of Bandung',
+      state: '아시아·아프리카', theme: '외교', kind: 'event', noSync: true,
+      body: '반둥 회의에서 주권과 영토 보전 존중, 내정 불간섭, 인종과 국가 간 평등 등을 담아 발표한 원칙(1955).' },
+    { id: 'e-bandung', track: 'eastasia', year: 1955, month: 4, label: '반둥 회의', en: 'Bandung Conference',
+      state: '아시아·아프리카', theme: '외교', kind: 'event', noSync: true,
+      body: '인도네시아 반둥에서 아시아·아프리카 29개국 대표가 모여 연 회의(1955). 평화 10원칙을 발표하여 제3 세계의 결속을 다졌다.' },
+    { id: 'e-geneva-1954', track: 'eastasia', year: 1954, month: 7, label: '제네바 협정', en: 'Geneva Accords',
+      state: '베트남', theme: '외교', kind: 'event', noSync: true,
+      body: '프랑스와 베트남의 전쟁이 끝난 뒤 북위 17도선을 경계로 베트남을 남북으로 나누고 총선거를 실시하기로 한 협정(1954).' },
+    { id: 'e-five-principles', track: 'eastasia', year: 1954, month: 6, label: '평화 5원칙 발표', en: 'Five Principles of Peaceful Coexistence',
+      state: '중국·인도', theme: '외교', kind: 'event', noSync: true,
+      body: '중국의 저우언라이와 인도의 네루가 영토 주권 존중, 상호 불가침, 내정 불간섭, 평등 호혜, 평화 공존의 원칙에 합의하였다(1954).' },
     { id: 'e-tokyo-trial', track: 'eastasia', year: 1946, month: 5, yearLabel: '1946~1948', label: '극동 군사 재판', en: 'Tokyo Trial',
       state: '일본', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '연합국이 일본의 전쟁 범죄를 처리하고자 도쿄에서 연 국제 군사 재판(1946~1948). 도조 히데키 등 7명에게 사형을 선고하였으나 천황과 전쟁에 협력한 관료·재벌은 처벌받지 않았다.' },
@@ -7593,6 +7629,27 @@ window.TIMELINE_DATA = {
     { id: 's-m-suleiman1', track: 'westasia', year: 1520, label: '술레이만 1세', en: 'Suleiman I',
       state: '오스만', theme: '정치', kind: 'event', noSync: true,
       body: '헝가리를 정복하고 빈을 포위하였으며(1529), 유럽의 연합 함대를 무찔러 지중해를 장악하였다.' },
+    { id: 's-arab-spring', track: 'westasia', year: 2011, month: 2, label: '아랍의 봄', en: 'Arab Spring',
+      state: '서아시아·북아프리카', theme: '정치', kind: 'event', noSync: true,
+      body: '튀니지의 재스민 혁명을 계기로 이집트, 리비아, 시리아 등 서아시아와 북아프리카 각지로 확산된 민주화 운동(2011).' },
+    { id: 's-jasmine', track: 'westasia', year: 2010, month: 12, label: '재스민 혁명', en: 'Tunisian Revolution',
+      state: '튀니지', theme: '정치', kind: 'event', noSync: true,
+      body: '튀니지에서 장기 독재 정권에 맞선 민주화 시위로 대통령이 물러난 혁명(2010~2011). ‘아랍의 봄’의 시작이 되었다.' },
+    { id: 's-african-union', track: 'westasia', year: 2002, month: 7, label: '아프리카 연합', en: 'African Union',
+      state: '아프리카', theme: '외교', kind: 'event', noSync: true,
+      body: '아프리카 국가들의 정치·경제 통합과 평화를 위해 아프리카 단결 기구를 개편하여 출범한 기구(AU, 2002).' },
+    { id: 's-rwanda', track: 'westasia', year: 1994, month: 4, label: '르완다 분쟁', en: 'Rwandan Genocide',
+      state: '르완다', theme: '군사', kind: 'event', noSync: true,
+      body: '르완다에서 후투족과 투치족 사이의 분쟁으로 대규모 학살이 벌어지고 수많은 난민이 발생하였다(1994).' },
+    { id: 's-palestine', track: 'westasia', year: 1948, month: 5, label: '팔레스타인 분쟁', en: 'Israeli–Palestinian Conflict',
+      state: '팔레스타인', theme: '군사', kind: 'event', noSync: true,
+      body: '이스라엘의 건국(1948)으로 팔레스타인 지역을 둘러싸고 유대인과 아랍인 사이에 벌어진 분쟁. 여러 차례의 중동 전쟁이 일어났고, 오슬로 협정(1993) 이후에도 분쟁이 이어지고 있다.' },
+    { id: 's-kashmir', track: 'westasia', year: 1947, month: 10, label: '카슈미르 분쟁', en: 'Kashmir Conflict',
+      state: '인도·파키스탄', theme: '군사', kind: 'event', noSync: true, sub: 1,
+      body: '이슬람교도가 다수인 카슈미르가 인도에 편입되면서 시작된 인도와 파키스탄의 분쟁(1947~). 국제 연합의 중재로 통제선이 설정되었으나 분쟁이 이어지고 있다.' },
+    { id: 's-apartheid-end', track: 'westasia', year: 1991, month: 6, label: '아파르트헤이트 정책 폐지 선언', en: 'End of Apartheid',
+      state: '남아프리카 공화국', theme: '사회', kind: 'event', noSync: true,
+      body: '남아프리카 공화국이 백인 우월주의에 바탕을 둔 인종 차별 정책(아파르트헤이트)을 폐지하였다(1991). 1994년 넬슨 만델라가 첫 흑인 대통령이 되었다.' },
     { id: 's-goi-1935', track: 'westasia', year: 1935, month: 8, label: '신인도 통치법', en: 'Government of India Act 1935',
       state: '인도', theme: '정치', kind: 'event', noSync: true, sub: 1,
       body: '영국이 인도의 각 주에 대해 외교와 군사를 제외한 자치권을 인정한 법(1935).' },
@@ -7755,6 +7812,153 @@ window.TIMELINE_DATA = {
     { id: 'w-m-henry8', track: 'west', year: 1509, label: '헨리 8세', en: 'Henry VIII',
       state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
       body: '이혼 문제를 계기로 수장법을 공포하여(1534) 국왕이 영국 교회의 수장임을 선포하였다.' },
+    { id: 'w-usmca', track: 'west', year: 2020, month: 7, label: '미국·멕시코·캐나다 협정', en: 'USMCA',
+      state: '북아메리카', theme: '경제', kind: 'event', noSync: true, lane: 'am',
+      body: '북미 자유 무역 협정을 대신하여 미국, 멕시코, 캐나다가 맺은 무역 협정(USMCA, 2020 발효).' },
+    { id: 'w-covid', track: 'west', year: 2020, month: 3, label: '코로나바이러스감염증 확산', en: 'COVID-19 Pandemic',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '코로나바이러스감염증-19가 세계 각지로 확산되어 세계 보건 기구가 세계적 대유행을 선포하였다(2020).' },
+    { id: 'w-paris-agreement', track: 'west', year: 2015, month: 12, label: '파리 협정', en: 'Paris Agreement',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '선진국과 개발 도상국이 모두 온실가스 감축에 참여하기로 한 기후 변화 협약(2015).' },
+    { id: 'w-h1n1', track: 'west', year: 2009, month: 6, label: '신종 플루 확산', en: '2009 Swine Flu Pandemic',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '신종 인플루엔자가 세계 각지로 퍼져 세계 보건 기구가 세계적 대유행을 선포하였다(2009).' },
+    { id: 'w-unasur', track: 'west', year: 2008, month: 5, label: '남아메리카 국가 연합', en: 'UNASUR',
+      state: '남아메리카', theme: '외교', kind: 'event', noSync: true, lane: 'am',
+      body: '남아메리카 12개국이 정치·경제 통합을 위해 결성한 지역 공동체(UNASUR, 2008).' },
+    { id: 'w-lehman', track: 'west', year: 2008, month: 9, label: '리먼 브라더스 사태', en: 'Bankruptcy of Lehman Brothers',
+      state: '미국', theme: '경제', kind: 'event', noSync: true, lane: 'am',
+      body: '미국의 대형 투자 은행 리먼 브라더스가 파산하면서 세계 금융 위기가 본격화되었다(2008).' },
+    { id: 'w-belfast', track: 'west', year: 1998, month: 4, label: '벨파스트 협정', en: 'Good Friday Agreement',
+      state: '영국', theme: '정치', kind: 'event', noSync: true, lane: 'en',
+      body: '북아일랜드의 가톨릭계와 신교계 사이의 오랜 분쟁을 끝내기 위해 영국, 아일랜드, 북아일랜드 정당들이 맺은 평화 협정(1998).' },
+    { id: 'w-kyoto', track: 'west', year: 1997, month: 12, label: '교토 의정서', en: 'Kyoto Protocol',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '선진국의 온실가스 감축 의무를 정한 국제 협약(1997).' },
+    { id: 'w-wto', track: 'west', year: 1995, month: 1, label: '세계 무역 기구', en: 'World Trade Organization',
+      state: '국제', theme: '경제', kind: 'event', noSync: true,
+      body: '국가 사이의 무역 장벽을 없애고 자유 무역을 강화하고자 결성된 국제기구(WTO, 1995).' },
+    { id: 'w-chechnya', track: 'west', year: 1994, month: 12, yearLabel: '1994~2009', label: '체첸-러시아 분쟁', en: 'Chechen Wars',
+      state: '러시아', theme: '군사', kind: 'event', noSync: true, lane: 'ru',
+      body: '러시아 연방 안의 체첸 공화국이 분리 독립을 요구하면서 일어난 두 차례의 전쟁(1994~2009).' },
+    { id: 'w-nafta', track: 'west', year: 1994, month: 1, label: '북미 자유 무역 협정', en: 'NAFTA',
+      state: '북아메리카', theme: '경제', kind: 'event', noSync: true, lane: 'am',
+      body: '미국, 캐나다, 멕시코가 무역 장벽을 없애기로 한 자유 무역 협정(NAFTA, 1994).' },
+    { id: 'w-rio', track: 'west', year: 1992, month: 6, label: '리우 선언', en: 'Rio Declaration',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '국제 연합 환경 개발 회의에서 채택된 환경과 개발에 관한 선언(1992). 지속 가능한 개발을 위한 27개 원칙을 담았다.' },
+    { id: 'w-unced', track: 'west', year: 1992, month: 6, label: '국제 연합 환경 개발 회의', en: 'Earth Summit',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '브라질 리우데자네이루에서 열린 국제 연합의 환경 회의(1992). ‘지속 가능한 개발’을 원칙으로 리우 선언과 기후 변화 협약 등을 채택하였다.' },
+    { id: 'w-maastricht', track: 'west', year: 1992, month: 2, label: '마스트리흐트 조약', en: 'Maastricht Treaty',
+      state: '유럽', theme: '외교', kind: 'event', noSync: true,
+      body: '유럽 공동체의 12개국이 경제·화폐 통합, 공동의 외교·안보 정책 등을 목표로 유럽 연합을 설립하기로 합의한 조약(1992).' },
+    { id: 'w-cis', track: 'west', year: 1991, month: 12, label: '독립 국가 연합 출범', en: 'Commonwealth of Independent States',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '옐친이 소련 내 여러 공화국이 각국의 주권을 유지하되 느슨하게 연합하는 독립 국가 연합(CIS)을 출범시켰다(1991). 이로써 소련은 공식적으로 해체되었다.' },
+    { id: 'w-yugoslav-wars', track: 'west', year: 1991, month: 6, yearLabel: '1991~2001', label: '구 유고슬라비아 분쟁', en: 'Yugoslav Wars',
+      state: '유고슬라비아', theme: '군사', kind: 'event', noSync: true,
+      body: '유고슬라비아 연방이 해체되는 과정에서 슬로베니아, 크로아티아, 보스니아 헤르체고비나 등의 독립을 둘러싸고 민족·종교 간 분쟁이 이어졌다(1991~2001). 보스니아 내전에서는 대량 학살이 일어났다.' },
+    { id: 'w-malta', track: 'west', year: 1989, month: 12, label: '몰타 회담', en: 'Malta Summit',
+      state: '미국·소련', theme: '외교', kind: 'event', noSync: true,
+      body: '미국의 부시 대통령과 소련의 고르바초프가 지중해의 몰타에서 회담을 열고 냉전 체제의 종식을 선언하였다(1989).' },
+    { id: 'w-velvet', track: 'west', year: 1989, month: 11, label: '벨벳 혁명', en: 'Velvet Revolution',
+      state: '체코슬로바키아', theme: '정치', kind: 'event', noSync: true,
+      body: '체코슬로바키아에서 시민들의 비폭력 시위로 공산당 정권이 무너진 민주화 혁명(1989).' },
+    { id: 'w-hungary-1989', track: 'west', year: 1989, month: 10, label: '헝가리 공화국 수립', en: 'Republic of Hungary',
+      state: '헝가리', theme: '정치', kind: 'event', noSync: true,
+      body: '헝가리에서 복수 정당제와 시장 경제가 도입되고 공산당 일당 체제가 끝나며 헝가리 공화국이 선포되었다(1989).' },
+    { id: 'w-poland-1989', track: 'west', year: 1989, month: 8, label: '폴란드 연립 정부 출범', en: 'Polish Coalition Government',
+      state: '폴란드', theme: '정치', kind: 'event', noSync: true,
+      body: '바웬사가 이끄는 자유 노조가 총선거에서 승리하여 동유럽 최초로 비공산당 정치인이 총리가 된 연립 정부가 출범하였다(1989).' },
+    { id: 'w-uruguay-round', track: 'west', year: 1986, month: 9, yearLabel: '1986~1994', label: '우루과이 라운드 협상', en: 'Uruguay Round',
+      state: '국제', theme: '경제', kind: 'event', noSync: true,
+      body: '관세 및 무역에 관한 일반 협정(GATT)의 체제 아래 농산물, 서비스 등으로 자유 무역을 넓히고자 벌인 다자간 무역 협상(1986~1994). 세계 무역 기구 출범으로 이어졌다.' },
+    { id: 'w-gorbachev', track: 'west', year: 1985, month: 3, label: '고르바초프', en: 'Mikhail Gorbachev',
+      state: '소련', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
+      body: '소련 공산당 서기장에 취임하여(1985) 개혁(페레스트로이카)과 개방(글라스노스트) 정책을 추진하였다. 동유럽에 대한 불간섭을 선언하였고, 몰타 회담에서 냉전의 종식을 선언하였다.' },
+    { id: 'w-womens-day', track: 'west', year: 1975, month: 3, label: '세계 여성의 날', en: 'International Women’s Day',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '1908년 미국 여성 노동자들의 참정권 요구 시위에서 비롯된 날로, 국제 연합이 1975년부터 3월 8일을 공식 기념일로 지정하였다.' },
+    { id: 'w-helsinki', track: 'west', year: 1975, month: 8, label: '헬싱키 협약', en: 'Helsinki Accords',
+      state: '국제', theme: '외교', kind: 'event', noSync: true,
+      body: '미국과 소련, 유럽 국가들이 상호 협력의 기초를 마련하고 국제 문제의 평화적 해결을 논의한 협약(1975). 데탕트 분위기를 보여 준다.' },
+    { id: 'w-cyprus', track: 'west', year: 1974, month: 7, label: '키프로스 분쟁', en: 'Cyprus Conflict',
+      state: '키프로스', theme: '군사', kind: 'event', noSync: true,
+      body: '그리스계 주민과 튀르키예계 주민 사이의 갈등 속에서 튀르키예가 키프로스를 침공하여 섬이 그리스계 지역과 튀르키예계 지역으로 분리되었다(1974).' },
+    { id: 'w-salt1', track: 'west', year: 1972, month: 5, label: '제1차 전략 무기 제한 협정', en: 'SALT I',
+      state: '미국·소련', theme: '외교', kind: 'event', noSync: true,
+      body: '미국과 소련이 전략 핵무기의 수를 제한하기로 합의한 협정(SALT, 1972).' },
+    { id: 'w-ostpolitik', track: 'west', year: 1969, month: 10, label: '빌리 브란트의 동방 정책', en: 'Ostpolitik',
+      state: '독일', theme: '외교', kind: 'event', noSync: true, lane: 'de',
+      body: '서독의 총리 빌리 브란트가 동유럽 공산주의 국가들과의 관계 개선을 모색한 정책(1969~). 그 결과 동독과 서독이 국제 연합에 동시 가입하였다(1973).' },
+    { id: 'w-nixon-doctrine', track: 'west', year: 1969, month: 7, label: '닉슨 독트린', en: 'Nixon Doctrine',
+      state: '미국', theme: '외교', kind: 'event', noSync: true, lane: 'am',
+      body: '미국의 닉슨 대통령이 아시아에서 벌어지는 내란이나 침략에 직접 개입하지 않겠다고 발표한 선언(1969).' },
+    { id: 'w-npt', track: 'west', year: 1968, month: 7, label: '핵 확산 금지 조약', en: 'Treaty on the Non-Proliferation of Nuclear Weapons',
+      state: '국제', theme: '외교', kind: 'event', noSync: true,
+      body: '핵무기를 가진 나라가 늘어나는 것을 막기 위해 체결된 조약(NPT, 1968).' },
+    { id: 'w-may68', track: 'west', year: 1968, month: 5, label: '68 운동', en: 'Protests of 1968',
+      state: '프랑스', theme: '사회', kind: 'event', noSync: true, lane: 'fr',
+      body: '프랑스 파리의 학생과 노동자들을 중심으로 권위주의와 기성 질서에 저항하며 일어나 세계 각지로 확산된 사회 운동(1968). 반전, 인권, 여성 해방 운동 등에 영향을 주었다.' },
+    { id: 'w-prague-spring', track: 'west', year: 1968, month: 1, label: '프라하의 봄', en: 'Prague Spring',
+      state: '체코슬로바키아', theme: '정치', kind: 'event', noSync: true,
+      body: '체코슬로바키아에서 일어난 민주화·자유화 운동(1968). 소련과 바르샤바 조약 기구군의 침공으로 좌절되었다.' },
+    { id: 'w-ec', track: 'west', year: 1967, month: 7, label: '유럽 공동체', en: 'European Communities',
+      state: '유럽', theme: '경제', kind: 'event', noSync: true,
+      body: '유럽 석탄 철강 공동체, 유럽 경제 공동체, 유럽 원자력 공동체가 통합되어 출범한 기구(EC, 1967).' },
+    { id: 'w-march-washington', track: 'west', year: 1963, month: 8, label: '워싱턴 행진', en: 'March on Washington',
+      state: '미국', theme: '사회', kind: 'event', noSync: true, lane: 'am',
+      body: '흑인 차별 철폐와 시민권 보장을 요구하며 워싱턴에서 열린 대규모 행진(1963). 마틴 루서 킹이 「나에게는 꿈이 있습니다」 연설을 하였다.' },
+    { id: 'w-nam1', track: 'west', year: 1961, month: 9, label: '제1차 비동맹 회의', en: 'First Non-Aligned Summit',
+      state: '국제', theme: '외교', kind: 'event', noSync: true,
+      body: '유고슬라비아의 베오그라드에서 열린 비동맹 국가들의 첫 정상 회의(1961). 냉전 체제에서 어느 진영에도 속하지 않는 제3 세계의 결속을 다졌다.' },
+    { id: 'w-wwf', track: 'west', year: 1961, month: 4, label: '세계 자연 기금', en: 'World Wide Fund for Nature',
+      state: '국제', theme: '사회', kind: 'event', noSync: true,
+      body: '야생 동물과 자연환경을 보호하기 위해 설립된 국제 비정부 기구(WWF, 1961).' },
+    { id: 'w-eec', track: 'west', year: 1958, month: 1, label: '유럽 경제 공동체', en: 'European Economic Community',
+      state: '유럽', theme: '경제', kind: 'event', noSync: true,
+      body: '로마 조약에 따라 유럽 석탄 철강 공동체 6개국이 공동 시장을 만들기 위해 출범시킨 기구(EEC, 1958).' },
+    { id: 'w-warsaw-pact', track: 'west', year: 1955, month: 5, label: '바르샤바 조약 기구', en: 'Warsaw Pact',
+      state: '소련', theme: '군사', kind: 'event', noSync: true, lane: 'ru',
+      body: '북대서양 조약 기구에 맞서 소련과 동유럽 공산주의 국가들이 결성한 군사 동맹(1955).' },
+    { id: 'w-ecsc', track: 'west', year: 1952, month: 7, label: '유럽 석탄 철강 공동체', en: 'European Coal and Steel Community',
+      state: '유럽', theme: '경제', kind: 'event', noSync: true,
+      body: '프랑스, 서독, 이탈리아, 베네룩스 3국이 석탄과 철강을 공동으로 관리하기 위해 출범시킨 기구(ECSC, 1952). 유럽 통합의 첫걸음이 되었다.' },
+    { id: 'w-europe-day', track: 'west', year: 1950, month: 5, label: '유럽의 날', en: 'Europe Day (Schuman Declaration)',
+      state: '유럽', theme: '외교', kind: 'event', noSync: true,
+      body: '프랑스 외무 장관 쉬망이 프랑스와 서독의 석탄·철강 생산을 공동으로 관리하자고 제안한 날(1950. 5. 9.)을 기념한 날. 유럽 통합의 출발점으로 여겨진다.' },
+    { id: 'w-nato', track: 'west', year: 1949, month: 4, label: '북대서양 조약 기구', en: 'NATO',
+      state: '국제', theme: '군사', kind: 'event', noSync: true,
+      body: '미국과 서유럽 국가들이 소련에 맞서 결성한 집단 방위 기구(NATO, 1949).' },
+    { id: 'w-comecon', track: 'west', year: 1949, month: 1, label: '코메콘', en: 'Comecon',
+      state: '소련', theme: '경제', kind: 'event', noSync: true, lane: 'ru',
+      body: '소련이 공산주의 국가들의 경제 협력을 위해 설립한 경제 상호 원조 회의(1949).' },
+    { id: 'w-berlin-blockade', track: 'west', year: 1948, month: 6, yearLabel: '1948~1949', label: '베를린 봉쇄', en: 'Berlin Blockade',
+      state: '독일', theme: '외교', kind: 'event', noSync: true, lane: 'de',
+      body: '미국·영국·프랑스가 서독 지역에 새 통화 제도를 도입하자 소련이 서베를린으로 통하는 철도와 도로를 봉쇄한 사건(1948~1949). 미국과 영국은 수송기로 생필품을 공수하였다.' },
+    { id: 'w-gatt', track: 'west', year: 1947, month: 10, label: '관세 및 무역에 관한 일반 협정', en: 'General Agreement on Tariffs and Trade',
+      state: '국제', theme: '경제', kind: 'event', noSync: true,
+      body: '관세 등 무역 장벽을 낮추어 자유 무역을 확대하고자 체결된 협정(GATT, 1947).' },
+    { id: 'w-cominform', track: 'west', year: 1947, month: 9, label: '코민포름', en: 'Cominform',
+      state: '소련', theme: '외교', kind: 'event', noSync: true, lane: 'ru',
+      body: '트루먼 독트린과 마셜 계획에 맞서 소련이 조직한 공산당 정보국(1947).' },
+    { id: 'w-marshall', track: 'west', year: 1947, month: 6, label: '마셜 계획 발표', en: 'Marshall Plan',
+      state: '미국', theme: '경제', kind: 'event', noSync: true, lane: 'am',
+      body: '미국의 국무 장관 마셜이 제안한 유럽 부흥 계획(1947). 미국은 4년 동안 서유럽에 약 130억 달러를 원조하여 경제 회복을 도왔다.' },
+    { id: 'w-truman', track: 'west', year: 1947, month: 3, label: '트루먼 독트린', en: 'Truman Doctrine',
+      state: '미국', theme: '외교', kind: 'event', noSync: true, lane: 'am',
+      body: '그리스와 튀르키예에 공산주의 세력이 확대되자 미국의 트루먼 대통령이 공산주의의 확산을 막기 위해 군사·경제 지원을 약속한 선언(1947).' },
+    { id: 'w-ibrd', track: 'west', year: 1945, month: 12, label: '국제 부흥 개발 은행 설립', en: 'International Bank for Reconstruction and Development',
+      state: '국제', theme: '경제', kind: 'event', noSync: true,
+      body: '브레턴우즈 회의의 결정에 따라 전후 복구와 개발 도상국의 경제 개발을 지원하기 위해 설립된 국제기구(IBRD, 세계은행, 1945).' },
+    { id: 'w-imf', track: 'west', year: 1945, month: 12, label: '국제 통화 기금 설립', en: 'International Monetary Fund',
+      state: '국제', theme: '경제', kind: 'event', noSync: true,
+      body: '브레턴우즈 회의의 결정에 따라 환율 안정과 국제 수지 균형을 돕기 위해 설립된 국제기구(IMF, 1945).' },
+    { id: 'w-bretton-woods', track: 'west', year: 1944, month: 7, label: '브레턴우즈 회의', en: 'Bretton Woods Conference',
+      state: '미국', theme: '경제', kind: 'event', noSync: true, lane: 'am',
+      body: '제2차 세계 대전 말 연합국 대표들이 미국 브레턴우즈에 모여 전후 국제 경제 질서를 논의한 회의(1944). 미국 달러를 기축 통화로 하는 브레턴우즈 체제가 성립하였고, 국제 통화 기금과 국제 부흥 개발 은행의 설립이 결정되었다.' },
     { id: 'w-nuremberg', track: 'west', year: 1945, month: 11, yearLabel: '1945~1946', label: '뉘른베르크 전범 재판', en: 'Nuremberg Trials',
       state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '전쟁이 끝난 뒤 연합국의 주도로 독일의 뉘른베르크에서 열린 국제 군사 재판(1945~1946). 나치 독일의 전쟁 범죄자들을 처벌하였다.' },
@@ -8508,6 +8712,9 @@ window.TIMELINE_DATA = {
     { id: 'e-ming', track: 'eastasia', year: 1368, label: '명(明)', en: 'Ming',
       state: '명', theme: '정치', kind: 'turning',
       body: '원이 쇠퇴하자 홍건적 출신 주원장(홍무제)이 난징에 도읍을 정하고 1368년 명을 건국하였다. 대외 무역을 통제하고 조공 무역만 허용하였다. 영락제(1402 즉위)는 자금성을 건설하고 베이징으로 천도하였으며, 정화에게 대규모 함대를 이끌고 인도양으로 항해하게 하였다(1405~). 1581년 일조편법을 확대 시행하였다.' },
+    { id: 'e-china-change', track: 'eastasia', year: 1960, yearLabel: '1949 이후', label: '중국의 변화', en: 'China since 1949',
+      state: '중국', theme: '정치', kind: 'turning',
+      body: '중화 인민 공화국 수립 이후 마오쩌둥은 대약진 운동과 문화대혁명을 추진하였다. 마오쩌둥 사후 덩샤오핑은 개혁·개방 정책으로 경제를 성장시켰으나, 정치 민주화 요구는 톈안먼 사건으로 진압되었다.' },
     { id: 'e-vietnam-nat', track: 'eastasia', year: 1925, yearLabel: '20세기 전반', label: '베트남의 민족 운동', en: 'Vietnamese Nationalist Movement',
       state: '베트남', theme: '정치', kind: 'turning',
       body: '프랑스의 지배를 받던 베트남에서는 판보이쩌우의 동유 운동, 판쩌우찐의 통킹 의숙 등 민족 운동이 일어났다. 제1차 세계 대전 이후에는 호찌민이 베트남 공산당을 결성하여(1930) 민족 운동을 주도하였다.' },
@@ -8622,14 +8829,14 @@ window.TIMELINE_DATA = {
     { id: 'e-civilwar', track: 'eastasia', year: 1946, label: '국공 내전', en: 'Chinese Civil War',
       state: '중국', theme: '정치', kind: 'turning',
       body: '일본 패망 후 국민당과 공산당이 다시 충돌하여 1946년 내전이 본격화하였다. 공산당이 승리하였고 국민당 정부는 타이완으로 옮겨 갔다.' },
-    { id: 'e-prc', track: 'eastasia', year: 1949, month: 10, label: '중화인민공화국', en: 'People\'s Republic of China',
+    { id: 'e-prc', track: 'eastasia', year: 1949, month: 10, label: '중화 인민 공화국', en: 'People\'s Republic of China',
       state: '중국', theme: '정치', kind: 'event', noSync: true,
       body: '국공 내전에서 승리한 중국 공산당의 마오쩌둥이 1949년 10월 1일 톈안먼 광장에서 중화 인민 공화국 수립을 선포하였다. 수도는 베이징.' },
     { id: 'e-sf', track: 'eastasia', year: 1951, month: 9, label: '샌프란시스코 강화 회의', en: 'Treaty of San Francisco',
       state: '일본', theme: '외교', kind: 'event', noSync: true, sub: 1,
       body: '일본과 연합국이 맺은 강화 조약. 일본은 이 조약으로 주권을 회복하였다.' },
-    { id: 'e-cultural', track: 'eastasia', year: 1966, label: '문화 대혁명', en: 'Cultural Revolution',
-      state: '중국', theme: '정치', kind: 'turning',
+    { id: 'e-cultural', track: 'eastasia', year: 1966, month: 5, yearLabel: '1966~1976', label: '문화대혁명', en: 'Cultural Revolution',
+      state: '중국', theme: '정치', kind: 'event', noSync: true,
       body: '정치적 위기에 빠진 마오쩌둥이 홍위병을 동원하여 반대 세력을 제거한 정치·권력 투쟁(1966~1976).' },
     { id: 'e-nixon', track: 'eastasia', year: 1972, label: '닉슨 중국 방문', en: 'Nixon in China',
       state: '중국', theme: '외교', kind: 'turning',
@@ -8640,8 +8847,8 @@ window.TIMELINE_DATA = {
     { id: 'e-reform', track: 'eastasia', year: 1978, label: '개혁·개방', en: 'Reform and Opening-up',
       state: '중국', theme: '경제', kind: 'turning',
       body: '마오쩌둥 사후 실권을 잡은 덩샤오핑이 개혁·개방 정책을 추진하였다. 중국은 급속한 경제 성장을 이루었으나 관료들의 부정부패도 심해졌다.' },
-    { id: 'e-tiananmen', track: 'eastasia', year: 1989, label: '톈안먼 사건', en: 'Tiananmen Square Incident',
-      state: '중국', theme: '사회', kind: 'turning',
+    { id: 'e-tiananmen', track: 'eastasia', year: 1989, month: 6, label: '톈안먼 사건', en: 'Tiananmen Square Incident',
+      state: '중국', theme: '사회', kind: 'event', noSync: true,
       body: '1989년 톈안먼 광장에서 정치 민주화를 요구하던 시위를 정부가 무력으로 진압하였다.' },
 
     // ============================================================
@@ -8791,6 +8998,9 @@ window.TIMELINE_DATA = {
     { id: 'w-columbus', track: 'west', year: 1492, label: '신항로 개척', en: 'Age of Exploration',
       state: '에스파냐', theme: '경제', kind: 'turning',
       body: '에스파냐의 후원을 받은 콜럼버스가 1492년 아메리카 대륙의 서인도 제도에 도착하였다. 이후 유럽인들이 아메리카와 아시아로 가는 새로운 바닷길을 열면서 세계적인 교역망이 형성되었다.' },
+    { id: 'w-world-order', track: 'west', year: 1990, yearLabel: '1989 이후', label: '세계 질서의 재편', en: 'Post-Cold War World Order',
+      state: '국제', theme: '정치', kind: 'turning',
+      body: '고르바초프의 개혁·개방 이후 동유럽 공산 정권이 무너지고 소련이 해체되면서 냉전이 끝났다. 이후 이념 대립은 완화되었지만 민족·종교·영토 등을 둘러싼 분쟁이 이어졌고, 세계 무역 기구와 유럽 연합 등 세계화와 지역 협력이 확대되었다.' },
     { id: 'w-totalitarian', track: 'west', year: 1925, yearLabel: '1920~1930년대', label: '전체주의의 등장', en: 'Rise of Totalitarianism',
       state: '유럽', theme: '정치', kind: 'turning',
       body: '1920년대 이후 개인의 권리보다 국가나 민족의 이익을 우선시하는 전체주의가 등장하였다. 이탈리아의 파시즘, 독일의 나치즘, 일본의 군국주의가 대표적이며, 이들은 대외 침략에 나서 추축국을 형성하였다.' },
@@ -8970,23 +9180,23 @@ window.TIMELINE_DATA = {
     { id: 'w-un-little', track: 'west', year: 1948, month: 2, label: '유엔 소총회', en: 'UN Interim Committee',
       state: '국제', theme: '외교', kind: 'turning',
       body: '소련이 유엔 한국 임시 위원단의 38도선 이북 방문을 거부하자, 1948년 2월 유엔은 소총회를 열어 선거 감시가 가능한 지역에서만 선거를 치르기로 결정하였다.' },
-    { id: 'w-cuba', track: 'west', year: 1962, label: '쿠바 미사일 위기', en: 'Cuban Missile Crisis',
-      state: '국제', theme: '군사', kind: 'turning',
+    { id: 'w-cuba', track: 'west', year: 1962, month: 10, label: '쿠바 미사일 위기', en: 'Cuban Missile Crisis',
+      state: '국제', theme: '군사', kind: 'event', noSync: true,
       body: '소련이 쿠바에 미사일 기지를 건설하려 하자 미국과 소련이 핵전쟁 직전까지 대립한 사건.' },
-    { id: 'w-berlin', track: 'west', year: 1989, label: '베를린 장벽 붕괴', en: 'Fall of the Berlin Wall',
-      state: '독일', theme: '정치', kind: 'turning', lane: 'de',
+    { id: 'w-berlin', track: 'west', year: 1989, month: 11, label: '베를린 장벽 붕괴', en: 'Fall of the Berlin Wall',
+      state: '독일', theme: '정치', kind: 'event', noSync: true, lane: 'de',
       body: '동유럽의 공산 정권이 잇달아 무너지는 가운데 1989년 동서 베를린을 가르던 장벽이 무너졌다.' },
     { id: 'w-unify', track: 'west', year: 1990, label: '독일 통일', en: 'German Reunification',
       state: '독일', theme: '정치', kind: 'turning', lane: 'de',
       body: '베를린 장벽 붕괴 이듬해 동독과 서독이 통일하였다.' },
-    { id: 'w-ussr', track: 'west', year: 1991, label: '소련 해체', en: 'Dissolution of the Soviet Union',
-      state: '러시아', theme: '정치', kind: 'turning', lane: 'ru',
+    { id: 'w-ussr', track: 'west', year: 1991, month: 12, label: '소련 해체', en: 'Dissolution of the Soviet Union',
+      state: '러시아', theme: '정치', kind: 'event', noSync: true, lane: 'ru',
       body: '고르바초프의 개혁·개방 이후 소련이 해체되고 독립 국가 연합(CIS)이 출범하였다.' },
-    { id: 'w-eu', track: 'west', year: 1993, label: '유럽 연합', en: 'European Union',
-      state: '유럽', theme: '경제', kind: 'turning',
+    { id: 'w-eu', track: 'west', year: 1993, month: 11, label: '유럽 연합', en: 'European Union',
+      state: '유럽', theme: '경제', kind: 'event', noSync: true,
       body: '마스트리흐트 조약으로 1993년 12개국이 참여한 유럽 연합(EU)이 창설되었다.' },
-    { id: 'w-911', track: 'west', year: 2001, label: '9·11 테러', en: 'September 11 Attacks',
-      state: '미국', theme: '사회', kind: 'turning', lane: 'am',
+    { id: 'w-911', track: 'west', year: 2001, month: 9, label: '9·11 테러', en: 'September 11 Attacks',
+      state: '미국', theme: '사회', kind: 'event', noSync: true, lane: 'am',
       body: '2001년 미국에서 9·11 테러가 일어났다.' },
     { id: 'w-ukraine', track: 'west', year: 2022, label: '러시아의 우크라이나 공격', en: 'Russian Invasion of Ukraine',
       state: '러시아', theme: '군사', kind: 'turning', lane: 'ru',
@@ -15480,6 +15690,40 @@ window.TIMELINE_DB = {
     artifacts: [],
     linked: ['e-sea-nat', 'e-dr-vietnam', 'e-indochina']
   },
+  'e-china-change': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '중국의 변화 — 국공 내전에서 승리한 공산당은 1949년 중화 인민 공화국을 수립하였고, 패배한 국민당은 타이완으로 이동하였다. 중화 인민 공화국 수립 이후 마오쩌둥은 중국식 사회주의를 표방하면서 대약진 운동을 추진하였으나, 무리한 계획과 자연재해로 실패하였다. 정치적 위기에 빠진 마오쩌둥은 공산주의 혁명을 완수한다는 명목으로 문화대혁명을 일으켰다(1966~1976). 1970년대 말 마오쩌둥이 죽은 후 집권한 덩샤오핑은 실용주의 노선을 내세워 사회주의 체제와 자본주의 요소를 결합한 개혁·개방 정책을 실시하였다. 이후 중국은 각 지역에 경제특구를 설치하고 수출 주도형 경제 발전 전략을 추진하여 연평균 10%를 전후하는 경제 성장률을 기록하였다. 그러나 급속한 경제 발전의 부작용으로 관료들의 부정부패가 심해졌고, 민주화를 요구하는 톈안먼 시위를 정부가 무력으로 진압하였다(1989). 덩샤오핑은 남순 강화(1992)로 개혁·개방을 더욱 확대하였고, 오늘날 중국은 국내 총생산(GDP) 세계 2위의 경제 대국으로 성장하였다. 대약진 운동의 실패로 정치적 위기에 빠진 마오쩌둥이 홍위병을 앞세워 류사오치·덩샤오핑 등 실용주의 세력을 자본주의에 협조하였다는 죄목으로 몰아낸 정치·권력 투쟁(1966~1976). 1981년 중국 공산당은 공식적으로 문화 대혁명이 잘못이었다고 평가하였다. 대약진 운동이 실패하면서 류사오치 등이 집단화의 점진적 추진과 사회주의 경제의 수정을 요구하자, 정치적 위기에 몰린 마오쩌둥은 홍위병을 앞세운 문화 대혁명을 일으켜 반대파를 몰아냈다. 문화 대혁명에서는 낡은 사상, 낡은 문화, 낡은 풍속, 낡은 습관을 폐지하자는 정치 운동이 진행되어 중국의 전통 문화유산이 파괴되는 등의 문제가 발생하였다. 홍위병은 학생들을 중심으로 마오쩌둥의 이념을 관철하고자 만들어진 조직이다. 마오쩌둥이 사망하면서 문화 대혁명은 중단되었다. 덩샤오핑의 개혁·개방 정책으로 경제가 성장하였으나, 관료들의 부정부패와 빈부 격차 등의 부작용이 생겨나자 민주화를 요구하는 시위가 일어났다. 1989년 6월 4일 중국 톈안먼 광장에서 민주화를 요구하던 학생과 시민의 시위를 정부가 무력으로 진압하여 많은 사람이 희생되었다(6·4 사건). 중국의 개혁·개방은 경제 분야에서만 이루어졌으며, 정치적으로는 공산당 집권 체제가 유지되었다. 홍콩에서는 1990년부터 30년 이상 희생자 추모 행사가 열렸다. 톈안먼 광장은 자금성 톈안먼 앞에 있는 약 100만 명을 수용할 수 있는 대규모 광장으로, 1949년 마오쩌둥이 중화 인민 공화국 수립을 선포한 곳이다. 중국 정부는 군대를 동원하여 톈안먼 광장에서 민주화 시위를 전개하는 학생과 시민들을 무력으로 진압하였고, 이후 민주화 요구를 억압하면서 공산당 일당 지배 체제를 지속하고 있다. 톈안먼 사건은 6·4 사건, 6·4 항쟁으로도 불리며, 2023년에는 타이완의 타이베이에서 희생자 추모 집회가 열렸다. 톈안먼 사건 이후 중국은 서방 세계의 비판을 받기도 하였지만 경제 성장을 바탕으로 국제 사회에서 영향력을 확대하였다.',
+      terms: [
+        { label: '개혁·개방', def: '덩샤오핑이 사회주의 체제에 자본주의 요소를 결합하여 추진한 정책.' },
+        { label: '경제특구', def: '외국 자본과 기술을 끌어들이기 위해 설치한 특별 경제 구역.' },
+        { label: '홍위병', def: '문화 대혁명에 동원된 학생 조직.' },
+        { label: '류사오치', def: '대약진 운동 실패 이후 사회주의 경제의 수정을 요구하다 문화 대혁명으로 밀려난 인물.' },
+        { label: '대약진 운동', def: '1958년부터 추진된 대규모 증산 운동. 실패하였다.' },
+        { label: '톈안먼 광장', def: '1989년 민주화 시위가 벌어진 베이징의 광장. 1949년 마오쩌둥이 중화 인민 공화국 수립을 선포한 곳이기도 하다.' },
+        { label: '6·4 사건', def: '톈안먼 사건이 일어난 1989년 6월 4일을 가리키는 이름.' },
+        { label: '공산당 일당 지배 체제', def: '톈안먼 사건 이후에도 중국이 유지한 정치 체제.' }
+      ],
+      timeline: [
+        { yl: '1949 이후', label: '◆ 중화 인민 공화국의 변화' },
+        { y: 1949, label: '중화 인민 공화국 수립' },
+        { y: 1958, label: '대약진 운동' },
+        { y: 1966, label: '문화대혁명 (~1976)' },
+        { y: 1978, label: '개혁·개방 시작' },
+        { y: 1979, label: '미국과 국교 수립' },
+        { y: 1989, label: '톈안먼 사건' },
+        { y: 1992, label: '남순 강화' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/동아시아/cultural-revolution-tiananmen.webp',
+        caption: '문화 대혁명',
+        ref: '톈안먼 광장에서 『마오쩌둥 어록』을 흔드는 홍위병들.' }
+    ],
+    linked: ['e-civilwar', 'e-reform', 'e-nixon', 'w-world-order']
+  },
   'e-ming': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
@@ -16077,31 +16321,6 @@ window.TIMELINE_DB = {
     ],
     linked: ['e-china-nat']
   },
-  'e-cultural': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
-    overview: {
-      summary: '문화 대혁명 — 대약진 운동의 실패로 정치적 위기에 빠진 마오쩌둥이 홍위병을 앞세워 류사오치·덩샤오핑 등 실용주의 세력을 자본주의에 협조하였다는 죄목으로 몰아낸 정치·권력 투쟁(1966~1976). 1981년 중국 공산당은 공식적으로 문화 대혁명이 잘못이었다고 평가하였다. 대약진 운동이 실패하면서 류사오치 등이 집단화의 점진적 추진과 사회주의 경제의 수정을 요구하자, 정치적 위기에 몰린 마오쩌둥은 홍위병을 앞세운 문화 대혁명을 일으켜 반대파를 몰아냈다. 문화 대혁명에서는 낡은 사상, 낡은 문화, 낡은 풍속, 낡은 습관을 폐지하자는 정치 운동이 진행되어 중국의 전통 문화유산이 파괴되는 등의 문제가 발생하였다. 홍위병은 학생들을 중심으로 마오쩌둥의 이념을 관철하고자 만들어진 조직이다. 마오쩌둥이 사망하면서 문화 대혁명은 중단되었다.',
-      terms: [
-        { label: '홍위병', def: '문화 대혁명에 동원된 학생 조직.' },
-        { label: '류사오치', def: '대약진 운동 실패 이후 사회주의 경제의 수정을 요구하다 문화 대혁명으로 밀려난 인물.' },
-        { label: '대약진 운동', def: '1958년부터 추진된 대규모 증산 운동. 실패하였다.' }
-      ],
-      timeline: [
-        { y: 1958, label: '대약진 운동' },
-        { y: 1966, label: '◆ 문화 대혁명 시작' },
-        { y: 1976, label: '문화 대혁명 종결' },
-        { y: 1981, label: '공산당의 공식 평가' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/동아시아/cultural-revolution-tiananmen.webp',
-        caption: '문화 대혁명',
-        ref: '톈안먼 광장에서 『마오쩌둥 어록』을 흔드는 홍위병들.' }
-    ],
-    linked: ['e-civilwar', 'e-reform', 'e-nixon']
-  },
   'e-nixon': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
@@ -16127,7 +16346,7 @@ window.TIMELINE_DB = {
         caption: '미국 대통령 닉슨의 중국 방문(1972)',
         ref: '닉슨과 마오쩌둥의 만남. 냉전 체제가 완화되는 계기가 되었다.' }
     ],
-    linked: ['e-cultural', 'w-coldwar', 'k-gov-park']
+    linked: ['e-china-change', 'w-coldwar', 'k-gov-park']
   },
   'e-vietwar-end': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -16177,27 +16396,7 @@ window.TIMELINE_DB = {
         citation: '— 덩샤오핑이 중국 남부 지역을 시찰하며 발표한 담화문(남순강화) · 선전·주하이 경제특구의 발전과 사회주의 시장 경제' }
     ],
     artifacts: [],
-    linked: ['e-cultural', 'e-tiananmen', 'e-civilwar']
-  },
-  'e-tiananmen': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사 / 동아시아 역사 기행',
-    overview: {
-      summary: '톈안먼 사건 — 덩샤오핑의 개혁·개방 정책으로 경제가 성장하였으나, 관료들의 부정부패와 빈부 격차 등의 부작용이 생겨나자 민주화를 요구하는 시위가 일어났다. 1989년 6월 4일 중국 톈안먼 광장에서 민주화를 요구하던 학생과 시민의 시위를 정부가 무력으로 진압하여 많은 사람이 희생되었다(6·4 사건). 중국의 개혁·개방은 경제 분야에서만 이루어졌으며, 정치적으로는 공산당 집권 체제가 유지되었다. 홍콩에서는 1990년부터 30년 이상 희생자 추모 행사가 열렸다. 톈안먼 광장은 자금성 톈안먼 앞에 있는 약 100만 명을 수용할 수 있는 대규모 광장으로, 1949년 마오쩌둥이 중화 인민 공화국 수립을 선포한 곳이다. 중국 정부는 군대를 동원하여 톈안먼 광장에서 민주화 시위를 전개하는 학생과 시민들을 무력으로 진압하였고, 이후 민주화 요구를 억압하면서 공산당 일당 지배 체제를 지속하고 있다. 톈안먼 사건은 6·4 사건, 6·4 항쟁으로도 불리며, 2023년에는 타이완의 타이베이에서 희생자 추모 집회가 열렸다. 톈안먼 사건 이후 중국은 서방 세계의 비판을 받기도 하였지만 경제 성장을 바탕으로 국제 사회에서 영향력을 확대하였다.',
-      terms: [
-        { label: '톈안먼 광장', def: '1989년 민주화 시위가 벌어진 베이징의 광장. 1949년 마오쩌둥이 중화 인민 공화국 수립을 선포한 곳이기도 하다.' },
-        { label: '6·4 사건', def: '톈안먼 사건이 일어난 1989년 6월 4일을 가리키는 이름.' },
-        { label: '공산당 일당 지배 체제', def: '톈안먼 사건 이후에도 중국이 유지한 정치 체제.' }
-      ],
-      timeline: [
-        { y: 1978, label: '개혁·개방 시작' },
-        { y: 1989, label: '◆ 톈안먼 사건' },
-        { y: 1990, label: '홍콩, 추모 행사 시작' }
-      ]
-    },
-    sources: [],
-    artifacts: [],
-    linked: ['e-reform', 'w-berlin', 'k-gov-chun']
+    linked: ['e-china-change', 'e-civilwar']
   },
   'w-pax-romana': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -17283,7 +17482,7 @@ window.TIMELINE_DB = {
         caption: '연설하는 레닌',
         ref: '볼셰비키를 이끌고 10월 혁명으로 소비에트 정부를 세운 레닌이 군중 앞에서 연설하는 모습을 그린 그림.' }
     ],
-    linked: ['w-russia', 'w-oct-rev-ru', 'w-stalin', 'w-ussr']
+    linked: ['w-russia', 'w-oct-rev-ru', 'w-stalin', 'w-world-order']
   },
   'w-stalin': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -17341,6 +17540,61 @@ window.TIMELINE_DB = {
     sources: [],
     artifacts: [],
     linked: ['w-depression', 'w-ww2', 'e-china-nat', 'w-nazi', 'w-fascist-italy']
+  },
+  'w-world-order': {
+    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
+    fileRef: '미래엔·비상교육 세계사',
+    overview: {
+      summary: '세계 질서의 재편 — 소련에서 고르바초프의 개혁·개방 정책이 시행된 이후 소련과 동유럽 국가의 사회주의 체제가 와해되기 시작하였다. 이러한 상황에서 미국과 소련의 두 나라 정상이 1989년 12월 지중해의 몰타에서 회담을 열고, 제2차 세계 대전 이후 전개된 냉전 체제를 종식하고 평화를 지향하는 새로운 세계 질서를 수립한다는 역사적 선언을 하였다. 탈냉전 시대가 시작되면서 자본주의와 사회주의의 이념 대립은 완화되었지만, 세계 여러 지역에서 민족, 인종, 종교, 영토 등 다양한 원인으로 분쟁이 발생하고 있다. 오랫동안 강대국의 이해관계에 억눌려 있던 갈등이 드러난 것이다. 세계 각국의 경제와 외교 정책은 이념이 아닌 자국의 이익을 최우선으로 하는 시대가 되었다. 한편 국경을 넘어 물자와 사람, 정보 등의 교류가 활발해지는 세계화 현상이 두드러지면서 1995년 세계 무역 기구(WTO)가 결성되었고, 유럽 연합, 북미 자유 무역 협정, 동남아시아 국가 연합, 아시아·태평양 경제 협력체 등 지역 단위의 협력도 강화되었다. 경제 침체에 빠진 소련에서 고르바초프가 개혁(페레스트로이카)과 개방(글라스노스트) 정책을 추진하였다. 동유럽 공산 정권이 무너지고 소련 안의 공화국들이 독립을 선언하면서 1991년 소련이 해체되고 독립 국가 연합(CIS)이 출범하였다. 이로써 냉전 체제가 끝났다. 스탈린 사후 집권한 흐루쇼프는 미국을 방문하는 등 서방과의 관계 개선을 통해 평화 공존을 도모하였으나 보수파의 반발로 축출되었다. 이후 집권한 브레즈네프는 미국과 전략 무기 제한 협정을 체결하였으나 대내적으로는 경제 성장이 둔화되었다. 1980년대 소련은 공산당 관료 체제가 강화되고 계획 경제 체제로 생산 의욕과 효율성이 떨어져 경제 침체가 나타났다. 고르바초프는 시장 경제 원리 도입, 서방 국가와의 관계 개선, 언론 통제 완화, 복수 정당제 도입 등 정치 민주화를 추구하고 동유럽 국가들에 대한 불간섭을 선언하였다. 1989년 미국의 부시 대통령과 고르바초프는 몰타 회담에서 “세계는 냉전 시대에서 벗어나 새로운 시대로 들어섰다.”라고 냉전의 종식을 선언하였다. 그러나 소련의 경제 사정은 나아지지 않았고, 옐친의 주도로 독립 국가 연합(CIS)이 출범하면서 소련은 해체되었다. 탈냉전 초기에는 미국 중심의 단극 체제가 형성되었다. 1980년대 소련의 고르바초프가 페레스트로이카(개혁)·글라스노스트(개방) 정책을 펼치고 동유럽에 대한 불간섭을 선언하자, 동유럽에서 민주화 운동이 확산되었다. 폴란드에서는 바웬사의 자유 노조 운동이 총선거 승리로 이어졌다. 동독에서는 서독의 풍요와 자유를 동경한 주민들이 민주화와 자유를 요구하며 서독으로 탈출하였고, 결국 동독이 주민의 자유로운 통행을 허락하면서 냉전의 상징이던 베를린 장벽이 무너졌다(1989년 11월). 같은 해 12월 미국과 소련의 정상은 몰타 회담을 열어 냉전 체제의 종식을 선언하였다. 제2차 세계 대전 후 독일과 수도 베를린은 미국, 소련, 영국, 프랑스에 의해 분할 점령되었다. 미국, 영국, 프랑스가 점령 지역에서 화폐 개혁을 단행하자 소련은 서베를린으로 통하는 철도와 도로를 봉쇄하였고(1948), 미국과 영국 등은 11개월 동안 1천여 대의 수송기로 매일 2천여 톤의 생필품을 공수하였다. 이후 독일은 서독과 동독으로 분단되었으며, 미국의 지원을 받은 서독이 급속히 경제 성장을 하자 동독 주민의 이탈이 이어졌다. 이에 동독은 소련의 승인을 받아 1961년 8월 13일 베를린 장벽을 설치하였다. 1985년 소련 공산당 서기장에 취임한 고르바초프는 복수 정당제 도입 등 민주화를 추구하고 미국과 군축 협상을 벌였다. 1989년 11월 9일 동독이 발표한 ‘통행 자유화 정책’을 계기로 장벽이 무너졌고, 오늘날 장벽의 잔해 일부는 자유와 평화를 염원하는 그림이 그려진 이스트사이드 갤러리로 조성되었다. 제2차 세계 대전 이후 유럽은 경제 협력을 통해 통합을 추진하였다. 유럽 경제 공동체(EEC)와 유럽 공동체(EC)를 거쳐 1993년 마스트리흐트 조약으로 12개국이 참여한 유럽 연합(EU)이 출범하였다. 단일 화폐 유로를 도입하였다. 2016년 영국은 유럽 연합 탈퇴를 결정하였다. 마스트리흐트 조약은 유럽 공동체의 12개국이 유럽 연합을 설립하기 위해 합의한 조약으로, 경제와 화폐 통합, 공동의 외교와 안보 정책, 내정과 사법에 관한 회원국의 협조를 목표로 하였다. 유럽 연합기의 12개의 별이 원을 이룬 디자인은 단결을 나타낸다. 1995년 오스트리아, 스웨덴, 핀란드가 가입하였고, 1999년 공통 화폐 유로를 도입하였으며 국가 간 여행에서 출입국 관리를 폐지하는 등 표준화된 법으로 유럽 단일 시장을 발전시켰다. 2004년 라트비아 등 10개국, 2007년 루마니아와 불가리아, 2013년 크로아티아가 가입하여 회원국은 28개국이 되었다. 그러나 영국이 2020년 1월 31일 탈퇴(브렉시트)하여 2024년 기준 27개 회원국이 유럽 연합을 구성하고 있다. 경제의 세계화 속에서 북미 자유 무역 협정(NAFTA), 동남아시아 국가 연합(ASEAN), 아시아 태평양 경제 협력체(APEC) 등 지역 공동체도 형성되었다. 2001년 9월 11일 이슬람 테러 단체 알카에다의 공격으로 미국 뉴욕의 세계 무역 센터와 국방부 건물에 항공기가 잇따라 충돌하여 짧은 시간에 많은 사상자를 냈다. 미국은 알카에다를 비호하던 아프가니스탄의 탈레반 정권을 공격하여 무너뜨렸다. 그러나 탈레반은 남부 지역을 중심으로 세력을 회복하여 2021년 다시 정권을 차지하였다. 이 사건 이후 테러는 국제 평화를 위협하는 지구적 과제로 인식되었다. 아프가니스탄에서는 쿠데타로 왕정이 무너진 이후 정치적 혼란과 내전이 이어졌다. 소련은 친소 정권을 유지하고자 1979년 아프가니스탄을 침공하였으나 이슬람 반군의 저항으로 전쟁이 장기화되었고, 1989년 군대를 철수하였다. 이후 이슬람 반군 사이에 내전이 일어나 탈레반이 수도 카불을 점령하고 정권을 장악하였다. 탈레반 정권은 이슬람 율법을 엄격하게 적용하여 여성의 부르카 착용 의무화, 여학교 폐쇄, 여성의 공직 참여 금지 등을 추진하였고, 국제 사회의 만류에도 유네스코 세계 유산인 바미얀 석불을 파괴하였다. 9·11 테러는 잔인한 무력 수단으로 짧은 시간 내 많은 사상자를 낸 사건으로, 국제 사회가 함께 해결해야 할 과제를 일깨웠다.',
+      terms: [
+        { label: '탈냉전', def: '냉전 체제가 끝난 뒤의 국제 질서.' },
+        { label: '세계화', def: '국경을 넘어 물자와 사람, 정보 등의 교류가 활발해지는 현상.' },
+        { label: '세계 무역 기구(WTO)', def: '무역 장벽을 없애고 자유 무역을 강화하고자 결성된 국제기구(1995).' },
+        { label: '페레스트로이카', def: '고르바초프의 개혁 정책.' },
+        { label: '글라스노스트', def: '고르바초프의 개방 정책.' },
+        { label: '독립 국가 연합(CIS)', def: '소련 해체 후 옛 공화국들이 만든 연합체.' },
+        { label: '옐친', def: '독립 국가 연합(CIS) 출범을 주도한 러시아의 지도자.' },
+        { label: '몰타 회담', def: '1989년 미국의 부시와 소련의 고르바초프가 냉전 종식을 선언한 정상 회담.' },
+        { label: '단극 체제', def: '절대적 우위를 차지한 하나의 진영을 중심으로 세계 질서가 움직이는 상태.' },
+        { label: '베를린 장벽', def: '냉전의 상징적 구조물. 동독이 소련의 승인을 받아 베를린에 세운 장벽(1961).' },
+        { label: '자유 노조', def: '폴란드에서 바웬사가 이끈 노동조합 운동. 민주화를 이끌었다.' },
+        { label: '베를린 공수 작전', def: '소련이 서베를린을 봉쇄한 동안 미국, 영국 등이 비행기로 생필품을 실어 나른 작전(1948~1949).' },
+        { label: '통행 자유화 정책', def: '1989년 11월 9일 동독이 발표한 정책. 베를린 장벽 붕괴의 계기가 되었다.' },
+        { label: '마스트리흐트 조약', def: '유럽 연합 창설을 정한 조약.' },
+        { label: '유로', def: '유럽 연합의 단일 화폐.' },
+        { label: '브렉시트', def: '영국의 유럽 연합 탈퇴. 2016년 결정되어 2020년 단행되었다.' },
+        { label: '지역 공동체', def: '지역별로 이익을 함께 도모하고자 국가들이 결성한 경제·정치 협력체.' },
+        { label: '알카에다', def: '9·11 테러를 일으킨 이슬람 테러 단체.' },
+        { label: '탈레반', def: '아프가니스탄의 이슬람 세력. 알카에다를 비호하다 미국의 공격으로 무너졌으나 2021년 재집권하였다.' },
+        { label: '바미얀 석불', def: '6세기에 축조된 것으로 추정되는 간다라 양식의 석불. 탈레반 정권이 파괴하였다.' }
+      ],
+      timeline: [
+        { yl: '1989 이후', label: '◆ 냉전 종식과 세계 질서의 재편' },
+        { y: 1985, label: '고르바초프 집권' },
+        { y: 1989, label: '베를린 장벽 붕괴·몰타 회담' },
+        { y: 1990, label: '독일 통일' },
+        { y: 1991, label: '소련 해체, 독립 국가 연합 출범' },
+        { y: 1993, label: '유럽 연합 출범' },
+        { y: 1995, label: '세계 무역 기구 출범' },
+        { y: 2001, label: '9·11 테러' }
+      ]
+    },
+    sources: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/세계/eastern-europe-1989-map.webp', span: true,
+        caption: '동유럽의 변화와 소련 해체',
+        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/europe-ethnic-conflicts-map.webp', span: true,
+        caption: '냉전 이후 유럽과 주변 지역의 분쟁',
+        ref: '북아일랜드(1969년 이후) · 보스니아(1992~1995) · 코소보(1998~1999) · 체첸(1991년 이후) · 나고르노카라바흐(1988~1994) · 키프로스(1960년 이후)' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/germany-occupation-zones-map.webp',
+        caption: '전후 독일의 분할 점령',
+        ref: '영국·프랑스·미국·소련이 독일과 베를린을 나누어 통치 · 서독과 동독, 서베를린과 동베를린으로 분단' },
+      { slot: 'auto', src: 'assets/w1/근현대/세계/regional-blocs-map.webp',
+        caption: '지역 협력 기구',
+        ref: '유럽 연합(EU, 1993) · 아시아 태평양 경제 협력체(APEC, 1989) · 북아메리카 자유 무역 협정(NAFTA, 1994) · 아프리카 연합(AU, 2002) · 동남아시아 국가 연합(ASEAN, 1967) · 남아메리카 국가 연합(UNASUR, 2008)' }
+    ],
+    linked: ['w-coldwar', 'w-unify', 'w-russia', 's-syria', 'w-ukraine', 'k-gov-roh']
   },
   'w-columbus': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -17929,7 +18183,7 @@ window.TIMELINE_DB = {
         caption: '연설하는 레닌',
         ref: '볼셰비키를 이끌고 10월 혁명으로 소비에트 정부를 세운 레닌이 군중 앞에서 연설하는 모습을 그린 그림.' }
     ],
-    linked: ['w-ww1', 'w-ussr', 'e-china-nat', 'k-samil', 'k-annexation']
+    linked: ['w-ww1', 'w-world-order', 'e-china-nat', 'k-samil', 'k-annexation']
   },
   'w-depression': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18219,13 +18473,17 @@ window.TIMELINE_DB = {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
     fileRef: '미래엔·비상교육 세계사',
     overview: {
-      summary: '냉전 — 제2차 세계 대전 이후 미국 중심의 자본주의 진영과 소련 중심의 공산주의 진영이 직접적인 무력 충돌 없이 정치·외교·군사 등에서 대립한 상황. 1947년 미국이 트루먼 독트린과 마셜 계획을 발표하자 소련은 코민포름을 조직하였다. 북대서양 조약 기구(NATO, 1949)와 바르샤바 조약 기구(1955)가 결성되었고, 베를린 봉쇄·6·25 전쟁·베트남 전쟁 등으로 대립이 격화하였다. 아시아·아프리카 신생국들은 반둥 회의(1955)에서 제3 세계를 형성하였다. 제2차 세계 대전 후 동유럽 곳곳에 공산주의 정부가 수립되고 그리스와 튀르키예에 공산주의 세력이 확대되자, 미국의 트루먼 대통령은 군사·경제 지원을 약속하는 트루먼 독트린을 발표하였다. 국무 장관 마셜이 제안한 유럽 부흥 계획(마셜 계획)으로 미국은 1947년부터 4년 동안 서유럽에 약 130억 달러를 무상으로 원조하였고, 서유럽 경제는 30% 이상 성장하였다. 이에 맞서 소련은 코민포름(공산당 정보국)과 공산주의 국가들의 경제 협력 기구인 코메콘을 설립하였다. 미국, 영국, 프랑스가 서독 지역에 새 통화 제도를 도입하자 소련은 베를린을 봉쇄하였고(1948~1949), 이후 동독 주민의 이탈을 막고자 베를린 장벽을 세웠다(1961). 냉전은 6·25 전쟁, 베트남 전쟁, 쿠바 미사일 위기, 핵무기 개발 경쟁으로 이어졌다.',
+      summary: '냉전 — 제2차 세계 대전 이후 미국 중심의 자본주의 진영과 소련 중심의 공산주의 진영이 직접적인 무력 충돌 없이 정치·외교·군사 등에서 대립한 상황. 1947년 미국이 트루먼 독트린과 마셜 계획을 발표하자 소련은 코민포름을 조직하였다. 북대서양 조약 기구(NATO, 1949)와 바르샤바 조약 기구(1955)가 결성되었고, 베를린 봉쇄·6·25 전쟁·베트남 전쟁 등으로 대립이 격화하였다. 아시아·아프리카 신생국들은 반둥 회의(1955)에서 제3 세계를 형성하였다. 제2차 세계 대전 후 동유럽 곳곳에 공산주의 정부가 수립되고 그리스와 튀르키예에 공산주의 세력이 확대되자, 미국의 트루먼 대통령은 군사·경제 지원을 약속하는 트루먼 독트린을 발표하였다. 국무 장관 마셜이 제안한 유럽 부흥 계획(마셜 계획)으로 미국은 1947년부터 4년 동안 서유럽에 약 130억 달러를 무상으로 원조하였고, 서유럽 경제는 30% 이상 성장하였다. 이에 맞서 소련은 코민포름(공산당 정보국)과 공산주의 국가들의 경제 협력 기구인 코메콘을 설립하였다. 미국, 영국, 프랑스가 서독 지역에 새 통화 제도를 도입하자 소련은 베를린을 봉쇄하였고(1948~1949), 이후 동독 주민의 이탈을 막고자 베를린 장벽을 세웠다(1961). 냉전은 6·25 전쟁, 베트남 전쟁, 쿠바 미사일 위기, 핵무기 개발 경쟁으로 이어졌다. 1949년 소련이 원자 폭탄 개발에 성공하면서 미국과 소련은 군비 경쟁에 돌입하였다. 미국이 소련의 수도 모스크바를 타격할 수 있는 이탈리아와 튀르키예에 핵미사일을 배치하자, 소련은 핵전력의 열세를 만회하려 쿠바에 중거리 핵미사일 기지 건설을 추진하였다(1962). 미국은 이를 직접적인 위협이라며 즉각적인 철수를 요구하고 쿠바를 봉쇄하여 핵전쟁 위기가 고조되었다. 결국 소련이 쿠바에서 미사일을 철수하고, 미국은 쿠바를 침공하지 않겠다고 약속하며 튀르키예에서 핵미사일을 철수함으로써 위기가 일단락되었다. 이 사건으로 핵무기 확산의 위험성이 널리 인식되었다. 1960년대 초까지는 미국의 핵전력이 소련을 압도하였다. 위기가 고조되자 미국의 케네디 대통령은 소련의 흐루쇼프 서기장에게 서한을 보내 쿠바의 공격용 미사일 기지 설치 작업을 중단하고, 국제 연합의 감시와 감독 아래 무기를 철수할 것을 요구하였다. 쿠바 미사일 위기는 6·25 전쟁, 베트남 전쟁, 핵무기 개발 경쟁과 함께 냉전이 열전으로 번질 수 있음을 보여 준 대표적인 사건이었다.',
       terms: [
         { label: '트루먼 독트린', def: '공산주의 확산을 막겠다는 미국의 선언(1947).' },
         { label: '마셜 계획', def: '미국이 서유럽 경제 부흥을 지원한 계획.' },
         { label: '제3 세계', def: '어느 진영에도 속하지 않은 아시아·아프리카 신생국.' },
         { label: '코메콘', def: '소련이 마셜 계획에 맞서 만든 공산주의 국가들의 경제 협력 기구.' },
-        { label: '베를린 봉쇄', def: '서독 지역의 새 통화 제도 도입에 반발하여 소련이 서베를린을 봉쇄한 사건(1948~1949).' }
+        { label: '베를린 봉쇄', def: '서독 지역의 새 통화 제도 도입에 반발하여 소련이 서베를린을 봉쇄한 사건(1948~1949).' },
+        { label: '해상 봉쇄', def: '미국이 소련의 미사일 반입을 막으려고 쿠바 주변 바다를 막은 조치.' },
+        { label: '흐루쇼프·케네디', def: '쿠바 미사일 위기 당시 소련의 서기장과 미국의 대통령.' },
+        { label: '흐루쇼프', def: '쿠바 미사일 위기 당시 소련의 서기장.' },
+        { label: '케네디', def: '쿠바 미사일 위기 당시 미국의 대통령. 쿠바 해상 봉쇄를 단행하였다.' }
       ],
       timeline: [
         { y: 1947, label: '◆ 트루먼 독트린' },
@@ -18233,7 +18491,7 @@ window.TIMELINE_DB = {
         { y: 1949, label: '북대서양 조약 기구 결성' },
         { y: 1955, label: '반둥 회의' },
         { y: 1961, label: '베를린 장벽 설치' },
-        { y: 1962, label: '쿠바 미사일 위기' },
+        { y: 1962, label: '쿠바 미사일 위기 — 핵전쟁 위기' },
         { y: 1969, label: '닉슨 독트린' }
       ]
     },
@@ -18253,58 +18511,7 @@ window.TIMELINE_DB = {
         caption: '비동맹 중립주의 노선 국가의 활동',
         ref: '평화 공존 5원칙 발표(1954, 네루와 저우언라이) → 아시아·아프리카 회의(1955, 반둥, 29개국, 평화 10원칙) → 제1차 비동맹 회의(1961, 유고슬라비아)' }
     ],
-    linked: ['w-ww2', 'w-cuba', 'w-berlin', 'k-gov-rhee', 'e-vietwar-end']
-  },
-  'w-cuba': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '쿠바 미사일 위기 — 1949년 소련이 원자 폭탄 개발에 성공하면서 미국과 소련은 군비 경쟁에 돌입하였다. 미국이 소련의 수도 모스크바를 타격할 수 있는 이탈리아와 튀르키예에 핵미사일을 배치하자, 소련은 핵전력의 열세를 만회하려 쿠바에 중거리 핵미사일 기지 건설을 추진하였다(1962). 미국은 이를 직접적인 위협이라며 즉각적인 철수를 요구하고 쿠바를 봉쇄하여 핵전쟁 위기가 고조되었다. 결국 소련이 쿠바에서 미사일을 철수하고, 미국은 쿠바를 침공하지 않겠다고 약속하며 튀르키예에서 핵미사일을 철수함으로써 위기가 일단락되었다. 이 사건으로 핵무기 확산의 위험성이 널리 인식되었다. 1960년대 초까지는 미국의 핵전력이 소련을 압도하였다. 위기가 고조되자 미국의 케네디 대통령은 소련의 흐루쇼프 서기장에게 서한을 보내 쿠바의 공격용 미사일 기지 설치 작업을 중단하고, 국제 연합의 감시와 감독 아래 무기를 철수할 것을 요구하였다. 쿠바 미사일 위기는 6·25 전쟁, 베트남 전쟁, 핵무기 개발 경쟁과 함께 냉전이 열전으로 번질 수 있음을 보여 준 대표적인 사건이었다.',
-      terms: [
-        { label: '해상 봉쇄', def: '미국이 소련의 미사일 반입을 막으려고 쿠바 주변 바다를 막은 조치.' },
-        { label: '흐루쇼프·케네디', def: '쿠바 미사일 위기 당시 소련의 서기장과 미국의 대통령.' },
-        { label: '흐루쇼프', def: '쿠바 미사일 위기 당시 소련의 서기장.' },
-        { label: '케네디', def: '쿠바 미사일 위기 당시 미국의 대통령. 쿠바 해상 봉쇄를 단행하였다.' }
-      ],
-      timeline: [
-        { y: 1949, label: '소련, 원자 폭탄 개발' },
-        { y: 1962, label: '◆ 쿠바 미사일 위기' }
-      ]
-    },
-    sources: [],
-    artifacts: [],
-    linked: ['w-coldwar', 'w-berlin']
-  },
-  'w-berlin': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '베를린 장벽 붕괴 — 1980년대 소련의 고르바초프가 페레스트로이카(개혁)·글라스노스트(개방) 정책을 펼치고 동유럽에 대한 불간섭을 선언하자, 동유럽에서 민주화 운동이 확산되었다. 폴란드에서는 바웬사의 자유 노조 운동이 총선거 승리로 이어졌다. 동독에서는 서독의 풍요와 자유를 동경한 주민들이 민주화와 자유를 요구하며 서독으로 탈출하였고, 결국 동독이 주민의 자유로운 통행을 허락하면서 냉전의 상징이던 베를린 장벽이 무너졌다(1989년 11월). 같은 해 12월 미국과 소련의 정상은 몰타 회담을 열어 냉전 체제의 종식을 선언하였다. 제2차 세계 대전 후 독일과 수도 베를린은 미국, 소련, 영국, 프랑스에 의해 분할 점령되었다. 미국, 영국, 프랑스가 점령 지역에서 화폐 개혁을 단행하자 소련은 서베를린으로 통하는 철도와 도로를 봉쇄하였고(1948), 미국과 영국 등은 11개월 동안 1천여 대의 수송기로 매일 2천여 톤의 생필품을 공수하였다. 이후 독일은 서독과 동독으로 분단되었으며, 미국의 지원을 받은 서독이 급속히 경제 성장을 하자 동독 주민의 이탈이 이어졌다. 이에 동독은 소련의 승인을 받아 1961년 8월 13일 베를린 장벽을 설치하였다. 1985년 소련 공산당 서기장에 취임한 고르바초프는 복수 정당제 도입 등 민주화를 추구하고 미국과 군축 협상을 벌였다. 1989년 11월 9일 동독이 발표한 ‘통행 자유화 정책’을 계기로 장벽이 무너졌고, 오늘날 장벽의 잔해 일부는 자유와 평화를 염원하는 그림이 그려진 이스트사이드 갤러리로 조성되었다.',
-      terms: [
-        { label: '베를린 장벽', def: '냉전의 상징적 구조물. 동독이 소련의 승인을 받아 베를린에 세운 장벽(1961).' },
-        { label: '자유 노조', def: '폴란드에서 바웬사가 이끈 노동조합 운동. 민주화를 이끌었다.' },
-        { label: '몰타 회담', def: '1989년 12월 미소 정상이 지중해 몰타에서 냉전 종식을 선언한 회담.' },
-        { label: '베를린 공수 작전', def: '소련이 서베를린을 봉쇄한 동안 미국, 영국 등이 비행기로 생필품을 실어 나른 작전(1948~1949).' },
-        { label: '통행 자유화 정책', def: '1989년 11월 9일 동독이 발표한 정책. 베를린 장벽 붕괴의 계기가 되었다.' }
-      ],
-      timeline: [
-        { y: 1948, label: '베를린 봉쇄·공수 작전' },
-        { y: 1961, label: '베를린 장벽 건설' },
-        { y: 1985, label: '고르바초프, 공산당 서기장 취임' },
-        { y: 1989, label: '◆ 베를린 장벽 붕괴, 몰타 회담' },
-        { y: 1990, label: '독일 통일' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/세계/eastern-europe-1989-map.webp', span: true,
-        caption: '동유럽의 변화와 소련 해체',
-        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' },
-      { slot: 'auto', src: 'assets/w1/근현대/세계/germany-occupation-zones-map.webp',
-        caption: '전후 독일의 분할 점령',
-        ref: '영국·프랑스·미국·소련이 독일과 베를린을 나누어 통치 · 서독과 동독, 서베를린과 동베를린으로 분단' }
-    ],
-    linked: ['w-coldwar', 'w-unify', 'w-ussr', 'e-tiananmen']
+    linked: ['w-ww2', 'w-world-order', 'k-gov-rhee', 'e-vietwar-end']
   },
   'w-unify': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18332,87 +18539,7 @@ window.TIMELINE_DB = {
         caption: '동유럽의 변화와 소련 해체',
         ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' }
     ],
-    linked: ['w-berlin', 'w-coldwar', 'w-ussr']
-  },
-  'w-ussr': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '소련 해체 — 경제 침체에 빠진 소련에서 고르바초프가 개혁(페레스트로이카)과 개방(글라스노스트) 정책을 추진하였다. 동유럽 공산 정권이 무너지고 소련 안의 공화국들이 독립을 선언하면서 1991년 소련이 해체되고 독립 국가 연합(CIS)이 출범하였다. 이로써 냉전 체제가 끝났다. 스탈린 사후 집권한 흐루쇼프는 미국을 방문하는 등 서방과의 관계 개선을 통해 평화 공존을 도모하였으나 보수파의 반발로 축출되었다. 이후 집권한 브레즈네프는 미국과 전략 무기 제한 협정을 체결하였으나 대내적으로는 경제 성장이 둔화되었다. 1980년대 소련은 공산당 관료 체제가 강화되고 계획 경제 체제로 생산 의욕과 효율성이 떨어져 경제 침체가 나타났다. 고르바초프는 시장 경제 원리 도입, 서방 국가와의 관계 개선, 언론 통제 완화, 복수 정당제 도입 등 정치 민주화를 추구하고 동유럽 국가들에 대한 불간섭을 선언하였다. 1989년 미국의 부시 대통령과 고르바초프는 몰타 회담에서 “세계는 냉전 시대에서 벗어나 새로운 시대로 들어섰다.”라고 냉전의 종식을 선언하였다. 그러나 소련의 경제 사정은 나아지지 않았고, 옐친의 주도로 독립 국가 연합(CIS)이 출범하면서 소련은 해체되었다. 탈냉전 초기에는 미국 중심의 단극 체제가 형성되었다.',
-      terms: [
-        { label: '페레스트로이카', def: '고르바초프의 개혁 정책.' },
-        { label: '글라스노스트', def: '고르바초프의 개방 정책.' },
-        { label: '독립 국가 연합(CIS)', def: '소련 해체 후 옛 공화국들이 만든 연합체.' },
-        { label: '옐친', def: '독립 국가 연합(CIS) 출범을 주도한 러시아의 지도자.' },
-        { label: '몰타 회담', def: '1989년 미국의 부시와 소련의 고르바초프가 냉전 종식을 선언한 정상 회담.' },
-        { label: '단극 체제', def: '절대적 우위를 차지한 하나의 진영을 중심으로 세계 질서가 움직이는 상태.' }
-      ],
-      timeline: [
-        { y: 1972, label: '미·소 전략 무기 제한 협정' },
-        { y: 1985, label: '고르바초프 집권' },
-        { y: 1989, label: '몰타 회담' },
-        { y: 1991, label: '◆ 소련 해체' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/세계/eastern-europe-1989-map.webp', span: true,
-        caption: '동유럽의 변화와 소련 해체',
-        ref: '폴란드·체코·헝가리·루마니아·불가리아의 체제 변화(1989~1990) · 독일 통일(1990) · 유고슬라비아 해체(1992) · 독립 국가 연합(CIS)' },
-      { slot: 'auto', src: 'assets/w1/근현대/세계/europe-ethnic-conflicts-map.webp', span: true,
-        caption: '냉전 이후 유럽과 주변 지역의 분쟁',
-        ref: '북아일랜드(1969년 이후) · 보스니아(1992~1995) · 코소보(1998~1999) · 체첸(1991년 이후) · 나고르노카라바흐(1988~1994) · 키프로스(1960년 이후)' }
-    ],
-    linked: ['w-berlin', 'w-unify', 'w-russia', 'k-gov-roh']
-  },
-  'w-eu': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '유럽 연합 — 제2차 세계 대전 이후 유럽은 경제 협력을 통해 통합을 추진하였다. 유럽 경제 공동체(EEC)와 유럽 공동체(EC)를 거쳐 1993년 마스트리흐트 조약으로 12개국이 참여한 유럽 연합(EU)이 출범하였다. 단일 화폐 유로를 도입하였다. 2016년 영국은 유럽 연합 탈퇴를 결정하였다. 마스트리흐트 조약은 유럽 공동체의 12개국이 유럽 연합을 설립하기 위해 합의한 조약으로, 경제와 화폐 통합, 공동의 외교와 안보 정책, 내정과 사법에 관한 회원국의 협조를 목표로 하였다. 유럽 연합기의 12개의 별이 원을 이룬 디자인은 단결을 나타낸다. 1995년 오스트리아, 스웨덴, 핀란드가 가입하였고, 1999년 공통 화폐 유로를 도입하였으며 국가 간 여행에서 출입국 관리를 폐지하는 등 표준화된 법으로 유럽 단일 시장을 발전시켰다. 2004년 라트비아 등 10개국, 2007년 루마니아와 불가리아, 2013년 크로아티아가 가입하여 회원국은 28개국이 되었다. 그러나 영국이 2020년 1월 31일 탈퇴(브렉시트)하여 2024년 기준 27개 회원국이 유럽 연합을 구성하고 있다. 경제의 세계화 속에서 북미 자유 무역 협정(NAFTA), 동남아시아 국가 연합(ASEAN), 아시아 태평양 경제 협력체(APEC) 등 지역 공동체도 형성되었다.',
-      terms: [
-        { label: '마스트리흐트 조약', def: '유럽 연합 창설을 정한 조약.' },
-        { label: '유로', def: '유럽 연합의 단일 화폐.' },
-        { label: '브렉시트', def: '영국의 유럽 연합 탈퇴. 2016년 결정되어 2020년 단행되었다.' },
-        { label: '지역 공동체', def: '지역별로 이익을 함께 도모하고자 국가들이 결성한 경제·정치 협력체.' }
-      ],
-      timeline: [
-        { y: 1993, label: '◆ 유럽 연합 창설' },
-        { y: 1999, label: '단일 화폐 유로 도입' },
-        { y: 2004, label: '라트비아 등 10개국 가입' },
-        { y: 2016, label: '영국, 탈퇴 결정' },
-        { y: 2020, label: '영국 탈퇴 단행' }
-      ]
-    },
-    sources: [],
-    artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/세계/regional-blocs-map.webp',
-        caption: '지역 협력 기구',
-        ref: '유럽 연합(EU, 1993) · 아시아 태평양 경제 협력체(APEC, 1989) · 북아메리카 자유 무역 협정(NAFTA, 1994) · 아프리카 연합(AU, 2002) · 동남아시아 국가 연합(ASEAN, 1967) · 남아메리카 국가 연합(UNASUR, 2008)' }
-    ],
-    linked: ['w-unify', 'w-coldwar']
-  },
-  'w-911': {
-    notes: { sections: [] },   // 정리 — 내용은 비워 둔다
-    fileRef: '미래엔·비상교육 세계사',
-    overview: {
-      summary: '9·11 테러 — 2001년 9월 11일 이슬람 테러 단체 알카에다의 공격으로 미국 뉴욕의 세계 무역 센터와 국방부 건물에 항공기가 잇따라 충돌하여 짧은 시간에 많은 사상자를 냈다. 미국은 알카에다를 비호하던 아프가니스탄의 탈레반 정권을 공격하여 무너뜨렸다. 그러나 탈레반은 남부 지역을 중심으로 세력을 회복하여 2021년 다시 정권을 차지하였다. 이 사건 이후 테러는 국제 평화를 위협하는 지구적 과제로 인식되었다. 아프가니스탄에서는 쿠데타로 왕정이 무너진 이후 정치적 혼란과 내전이 이어졌다. 소련은 친소 정권을 유지하고자 1979년 아프가니스탄을 침공하였으나 이슬람 반군의 저항으로 전쟁이 장기화되었고, 1989년 군대를 철수하였다. 이후 이슬람 반군 사이에 내전이 일어나 탈레반이 수도 카불을 점령하고 정권을 장악하였다. 탈레반 정권은 이슬람 율법을 엄격하게 적용하여 여성의 부르카 착용 의무화, 여학교 폐쇄, 여성의 공직 참여 금지 등을 추진하였고, 국제 사회의 만류에도 유네스코 세계 유산인 바미얀 석불을 파괴하였다. 9·11 테러는 잔인한 무력 수단으로 짧은 시간 내 많은 사상자를 낸 사건으로, 국제 사회가 함께 해결해야 할 과제를 일깨웠다.',
-      terms: [
-        { label: '알카에다', def: '9·11 테러를 일으킨 이슬람 테러 단체.' },
-        { label: '탈레반', def: '아프가니스탄의 이슬람 세력. 알카에다를 비호하다 미국의 공격으로 무너졌으나 2021년 재집권하였다.' },
-        { label: '바미얀 석불', def: '6세기에 축조된 것으로 추정되는 간다라 양식의 석불. 탈레반 정권이 파괴하였다.' }
-      ],
-      timeline: [
-        { y: 1979, label: '소련, 아프가니스탄 침공' },
-        { y: 1989, label: '소련군 철수' },
-        { y: 2001, label: '◆ 9·11 테러' },
-        { y: 2001, label: '미국의 아프가니스탄 공격, 탈레반 정권 붕괴' },
-        { y: 2021, label: '탈레반 재집권' }
-      ]
-    },
-    sources: [],
-    artifacts: [],
-    linked: ['s-syria', 'w-ukraine']
+    linked: ['w-world-order', 'w-coldwar']
   },
   'w-ukraine': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -18434,7 +18561,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['w-ussr', 'w-911']
+    linked: ['w-world-order']
   },
   's-umayyad': {
     notes: { sections: [] },   // 정리 — 내용은 비워 둔다
@@ -19283,7 +19410,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['w-911', 's-israel']
+    linked: ['w-world-order', 's-israel']
   },
 
   // ============================================================
@@ -24193,7 +24320,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [],
-    linked: ['k-gov-chun', 'k-gov-kys', 'w-ussr']
+    linked: ['k-gov-chun', 'k-gov-kys', 'w-world-order']
   },
   'k-gov-kys': {
     notes: {   // 정리 — 사용자 정리본 (머리 항목 아래 세부 항목으로 배치 정리, 2026-10-10)
