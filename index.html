@@ -3541,6 +3541,8 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 /* ── 스캔 문서 본문 (종이 위) ── */
 .d2-paper{padding:40px 64px 36px}
 .d2-paper .docx-head__node h2{font-size:44px}
+/* 긴 장 제목(07 본부 — 제1보존서고 · 너머의 집) — 가운데 칸이 양옆 표시를 밀어내지 않게 글자를 줄이고 낱말 단위로 줄을 바꾼다 */
+.d2-paper .docx-head__node h2.is-long{font-size:28px;letter-spacing:.04em;line-height:1.3;max-width:360px;margin:0 auto;word-break:keep-all;padding-left:0}
 .d2-paper .d2-h{
   font-size:19px;color:#151614;margin:28px 0 12px;padding-bottom:6px;
   border-bottom:1px solid #2a2b27;letter-spacing:.02em;
@@ -4124,7 +4126,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     line.at = Date.now(); bcCur = line;
     window.dispatchEvent(new CustomEvent('vestigia-bc', { detail: line }));
     var A = window.DENDRO_AUDIO;
-    if (A && !(window.IBA_STUDY && window.IBA_STUDY.on())) A.sfx('chime');   // 학습 모드에서는 차임을 울리지 않는다
+    // 학습 모드에서는 차임을 울리지 않는다. 앰비언트를 끄면 방송 차임도 함께 끈다 (방송 문구는 그대로 뜬다)
+    var ambOn = !A || typeof A.state !== 'function' || !!A.state().ambient;
+    if (A && ambOn && !(window.IBA_STUDY && window.IBA_STUDY.on())) A.sfx('chime');
     if (typeof window.VESTIGIA.voice === 'function') setTimeout(function () { window.VESTIGIA.voice(line); }, CHIME_MS);
   }
   function pump() {
@@ -27598,7 +27602,7 @@ function D2Doc({ onClose }) {
                   <span className="docx-head__txt"><b>관리국 총람</b><small>MANAGEMENT BUREAU</small></span>
                 </div>
                 <div className="docx-head__node">
-                  <h2>{cur ? cur.label : ''}</h2>
+                  <h2 className={cur && cur.label.length > 12 ? 'is-long' : undefined}>{cur ? cur.label : ''}</h2>
                   <div>MB-0000-0000 · VESTIGIUM 수록 문서</div>
                 </div>
                 <div className="docx-head__mark">
