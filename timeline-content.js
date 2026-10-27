@@ -14064,7 +14064,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/한국/k-moscow-plan.png',
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-moscow-plan.webp',
         caption: '모스크바 3국 외상 회의 결정에 따른 한국 문제 해결 방안',
         ref: '미·소 공동 위원회 설치 → 민주적 정당·사회단체와 협의 → 조선 임시 정부 수립 → 4대국에 의한 신탁 통치 실시(최장 5년) → 독립 국가 수립' }
     ],
@@ -17834,7 +17834,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-yangyo-map.webp', span: true,
+        caption: '병인양요와 신미양요',
+        ref: '병인양요(1866) 때 한성근이 문수산성에서, 양헌수가 정족산성에서 프랑스군을 막아 냈다. 신미양요(1871) 때는 어재연이 광성보에서 미군에 맞서 싸웠다.' }
+    ],
     linked: ['k-imsul', 'k-sinmi', 'k-ganghwa-treaty', 'k-joseon']
   },
   'k-imsul': {
@@ -17894,7 +17898,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-yangyo-map.webp', span: true,
+        caption: '병인양요와 신미양요',
+        ref: '병인양요(1866) 때 한성근이 문수산성에서, 양헌수가 정족산성에서 프랑스군을 막아 냈다. 신미양요(1871) 때는 어재연이 광성보에서 미군에 맞서 싸웠다.' }
+    ],
     linked: ['k-daewongun', 'k-ganghwa-treaty', 'w-us-dev']
   },
   'k-imo': {
@@ -17928,7 +17936,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1880s-powers-map.webp',
+        caption: '1880년대 열강의 세력 침투',
+        ref: '임오군란 이후 일본은 제물포 조약(1882), 청은 조·청 상민 수륙 무역 장정(1882)으로 세력을 넓혔다. 이어 조·러 수호 통상 조약(1884), 톈진 조약(1885), 영국의 거문도 사건(1885)이 이어지며 열강의 대립이 깊어졌다.' }
+    ],
     linked: ['k-ganghwa-treaty', 'k-gapsin', 'k-daewongun', 'e-yangwu']
   },
   'k-gapsin': {
@@ -17971,8 +17983,19 @@ window.TIMELINE_DB = {
         { y: 1885, label: '톈진 조약 · 거문도 사건(~1887)' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '갑신정변 당시 개혁 정강',
+        src: 'assets/w1/근현대/한국/k-gapsin-14.webp',
+        citation: '— 김옥균, 『갑신일록』' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1880s-powers-map.webp',
+        caption: '1880년대 열강의 세력 침투',
+        ref: '임오군란 이후 일본은 제물포 조약(1882), 청은 조·청 상민 수륙 무역 장정(1882)으로 세력을 넓혔다. 이어 조·러 수호 통상 조약(1884), 톈진 조약(1885), 영국의 거문도 사건(1885)이 이어지며 열강의 대립이 깊어졌다.' },
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-modern-facilities.webp',
+        caption: '근대 시설의 도입',
+        ref: '박문국·기기창·전환국(1883), 우정총국(1884), 광혜원(1885), 경복궁 전등(1887), 경운궁 전화(1898), 전차·경인선(1899), 경부선(1905)·경의선(1906)이 차례로 들어섰다.' }
+    ],
     linked: ['k-imo', 'k-donghak-rev', 'e-meiji']
   },
   'k-gabo': {
@@ -18079,7 +18102,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-donghak-map.webp',
+        caption: '동학 농민 운동의 전개',
+        ref: '고부 농민 봉기(1894. 1.) → 황토현 전투 → 전주성 점령·전주 화약 → 청·일 군대 상륙과 일본군의 경복궁 침범 → 2차 봉기, 우금치 전투(11.) → 전봉준 체포(12.)' }
+    ],
     linked: ['k-donghak', 'k-gabo', 'e-jp-expansion']
   },
   'k-agwan': {
@@ -18109,7 +18136,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-concessions-map.webp',
+        caption: '열강의 이권 침탈',
+        ref: '아관 파천 이후 러시아·미국·일본·영국 등이 광산 채굴권, 삼림 채벌권, 철도 부설권, 전신 가설권을 잇달아 차지하였다.' },
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1896-1899-timeline.webp',
+        caption: '아관 파천에서 대한국 국제까지',
+        ref: '아관 파천·독립 협회 창립(1896) → 고종 경운궁 환궁·대한 제국 수립(1897) → 독립 협회 해산(1898) → 대한국 국제 반포(1899)' }
+    ],
     linked: ['k-gabo', 'k-korean-empire']
   },
   'k-eulsa': {
@@ -18152,7 +18186,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-patriotic-enlightenment.webp',
+        caption: '애국 계몽 운동 단체의 활동',
+        ref: '보안회는 일본의 황무지 개간권 요구를 막아 냈고, 헌정 연구회는 입헌 정치 체제 수립을 지향하였으며, 대한 자강회는 고종의 강제 퇴위 반대 운동을 벌였다.' }
+    ],
     linked: ['k-russo-japan', 'k-gukchae', 'k-annexation']
   },
   'k-gukchae': {
@@ -18189,8 +18227,19 @@ window.TIMELINE_DB = {
         { y: 1910, label: '국권 피탈' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '화폐 정리 사업 — 탁지부령 제1호', span: true,
+        src: 'assets/w1/근현대/한국/k-currency-reform-order.webp',
+        citation: '— 탁지부령 제1호, 『관보』(1905. 6.)' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-currency-baekdong.webp',
+        caption: '백동화와 일본 제일 은행권',
+        ref: '전환국에서 1892년부터 발행한 백동화(위)와 일본 제일 은행에서 발행한 십 원짜리 지폐(1902). 화폐 정리 사업으로 백동화가 제일 은행권으로 교환되면서 국내 상인과 은행이 큰 타격을 입었다.' },
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-patriotic-enlightenment.webp',
+        caption: '애국 계몽 운동 단체의 활동',
+        ref: '보안회는 일본의 황무지 개간권 요구를 막아 냈고, 헌정 연구회는 입헌 정치 체제 수립을 지향하였으며, 대한 자강회는 고종의 강제 퇴위 반대 운동을 벌였다.' }
+    ],
     linked: ['k-eulsa', 'k-annexation']
   },
   'k-singanhoe': {
@@ -18320,7 +18369,11 @@ window.TIMELINE_DB = {
         { y: 1883, label: '인천 개항' }
       ]
     },
-    sources: [],
+    sources: [
+      { kind: '탐구 자료', title: '조·일 수호 조규(강화도 조약)',
+        src: 'assets/w1/근현대/한국/k-ganghwa-treaty-text.webp',
+        citation: '— 「조·일 수호 조규」(1876) · 제1관 자주국 규정, 제4관 부산 외 두 항구 개항, 제7관 해안 측량권, 제10관 영사 재판권' }
+    ],
     artifacts: [],
     linked: ['k-sinmi', 'k-daewongun', 'k-imo', 'k-joseon', 'e-meiji']
   },
@@ -18381,8 +18434,19 @@ window.TIMELINE_DB = {
         { y: 1904, label: '러·일 전쟁 발발' }
       ]
     },
-    sources: [],
-    artifacts: [],
+    sources: [
+      { kind: '탐구 자료', title: '대한국 국제',
+        src: 'assets/w1/근현대/한국/k-daehanguk-gukje.webp',
+        citation: '— 『고종실록』, 1899. 8.' }
+    ],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1896-1899-timeline.webp',
+        caption: '아관 파천에서 대한국 국제까지',
+        ref: '아관 파천·독립 협회 창립(1896) → 고종 경운궁 환궁·대한 제국 수립(1897) → 독립 협회 해산(1898) → 대한국 국제 반포(1899)' },
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-modern-facilities.webp',
+        caption: '근대 시설의 도입',
+        ref: '박문국·기기창·전환국(1883), 우정총국(1884), 광혜원(1885), 경복궁 전등(1887), 경운궁 전화(1898), 전차·경인선(1899), 경부선(1905)·경의선(1906)이 차례로 들어섰다.' }
+    ],
     linked: ['k-agwan', 'k-gabo', 'k-russo-japan', 'k-eulsa']
   },
   'k-annexation': {
@@ -18900,7 +18964,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/한국/k-provisional-map.png',
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-provisional-map.webp',
         caption: '대한민국 임시 정부의 수립',
         ref: '대한 국민 의회(1919.3., 블라디보스토크) · 한성 정부(1919.4., 경성) · 대한민국 임시 정부(1919.4., 상하이) → 통합 대한민국 임시 정부(1919.9., 상하이)' }
     ],
@@ -19304,7 +19368,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/한국/k-3bu.png',
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-3bu.webp',
         caption: '3부의 성립과 통합',
         ref: '참의부·정의부·신민부 → 국민부(조선 혁명당·조선 혁명군)와 혁신 의회(한국 독립당·한국 독립군)' },
       { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-hanjung-map.webp',
@@ -19610,7 +19674,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.png',
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.webp',
         caption: '광복 직전 국내외의 건국 준비 활동',
         ref: '옌안의 조선 독립 동맹, 충칭의 대한민국 임시 정부, 서울의 조선 건국 동맹' }
     ],
@@ -19672,7 +19736,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.png',
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.webp',
         caption: '광복 직전 국내외의 건국 준비 활동',
         ref: '옌안의 조선 독립 동맹, 충칭의 대한민국 임시 정부, 서울의 조선 건국 동맹' },
       { slot: 'auto', src: 'assets/w1/근현대/한국/k-1930s-parties.webp',
@@ -19706,7 +19770,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.png',
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-1940s-geonguk-map.webp',
         caption: '광복 직전 국내외의 건국 준비 활동',
         ref: '옌안의 조선 독립 동맹, 충칭의 대한민국 임시 정부, 서울의 조선 건국 동맹' }
     ],
@@ -19843,7 +19907,7 @@ window.TIMELINE_DB = {
     },
     sources: [],
     artifacts: [
-      { slot: 'auto', src: 'assets/w1/근현대/한국/k-moscow-plan.png',
+      { slot: 'auto', src: 'assets/w1/근현대/한국/k-moscow-plan.webp',
         caption: '모스크바 3국 외상 회의 결정에 따른 한국 문제 해결 방안',
         ref: '미·소 공동 위원회 설치 → 민주적 정당·사회단체와 협의 → 조선 임시 정부 수립 → 4대국에 의한 신탁 통치 실시(최장 5년) → 독립 국가 수립' }
     ],
