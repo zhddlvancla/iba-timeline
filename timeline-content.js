@@ -3577,8 +3577,8 @@ window.TIMELINE_DB = {
         caption: '발해 용머리 조각(옆면)',
         note: '같은 유형의 용머리 조각을 옆에서 본 모습이다.' },
       { slot: 'photo', src: 'assets/w1/고대/한국/k-balhae-princess-epitaph.webp',
-        caption: '발해 공주 묘지(墓誌)',
-        note: '문왕의 딸들의 무덤에서 나온 묘지에는 문왕을 「황상」이라 일컫는 등 발해의 자주적 위상이 드러난다.' },
+        caption: '발해 정효 공주 묘지(墓誌)',
+        note: '문왕의 넷째 딸 정효 공주의 무덤(지린성 화룡 용두산 고분군)에서 나온 묘지로, 문왕을 「황상」이라 일컬어 발해의 자주적 위상을 보여 준다.' },
       { slot: 'photo', src: 'assets/w1/고대/한국/k-balhae-goguryeo-source.webp',
         caption: '사료 — 고구려를 계승한 발해',
         note: '『삼국사기』, 『구당서』, 『속일본기』는 발해가 고구려의 남은 무리가 세운 나라이며 고구려의 옛 땅을 회복하고 부여의 습속을 이었다고 전한다.' }
@@ -4379,9 +4379,15 @@ window.TIMELINE_DB = {
       arrows: []
     },
     artifacts: [
-      { slot: 'square', caption: '주먹도끼 (경기 연천 전곡리) — 구석기 대표 뗀석기',         ref: 'K1, p. 12 (PDF 5)' },
-      { slot: 'square', caption: '슴베찌르개 (경남 밀양·충북 단양) — 후기 이음 도구',        ref: 'K1, p. 12 (PDF 5)' },
-      { slot: 'wide',   caption: '검은모루 동굴 · 전곡리 · 석장리 — 대표 유적 분포도',      ref: 'K1, p. 12 (PDF 5) 보충' }
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-paleo-handaxe.webp',
+        caption: '주먹도끼(경기 연천 전곡리)',
+        ref: '하나의 도구로 자르고 찍고 땅을 파는 등 여러 용도로 쓴 뗀석기이다. 연천 전곡리에서 발견되어 동아시아에는 주먹도끼가 없다는 모비우스의 학설을 반박하는 근거가 되었다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-paleo-tanged-point.webp',
+        caption: '슴베찌르개',
+        ref: '구석기 후기에 쓰인 이음 도구로, 아랫부분(슴베)을 자루에 꽂아 창처럼 사냥에 썼다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-paleo-sites-map.webp',
+        caption: '구석기 시대의 주요 유적',
+        ref: '상원 검은모루 동굴, 연천 전곡리, 공주 석장리, 단양 수양개·금굴, 제주 빌레못 동굴 등 한반도 곳곳에서 구석기 유적이 발견되었다.' }
     ],
     linked: ['k-neolithic', 'k-bronze']
   },
@@ -4489,11 +4495,21 @@ window.TIMELINE_DB = {
       arrows: []
     },
     artifacts: [
-      { slot: 'square', caption: '빗살무늬 토기 (서울 암사동) — 신석기 대표 토기',          ref: 'K1, p. 12 (PDF 5)' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-neo-comb-pottery.webp',
+        caption: '빗살무늬 토기(서울 암사동)',
+        ref: '신석기 시대를 대표하는 토기로, 밑이 뾰족하거나 둥글어 강가나 바닷가의 모래땅에 꽂아 두고 식량을 저장하였다.' },
       { slot: 'square', caption: '돌도끼 (강원 양양 오산리) — 간석기',                       ref: 'K1, p. 12 (PDF 5)' },
-      { slot: 'square', caption: '갈돌과 갈판 (제주 고산리) — 식량 가공 도구',              ref: 'K1, p. 12 (PDF 5)' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-neo-galdol.webp',
+        caption: '갈돌과 갈판',
+        ref: '곡식이나 열매의 껍질을 벗기거나 가루로 만드는 데 쓴 간석기로, 농경과 채집으로 얻은 식량을 가공하였다.' },
       { slot: 'square', caption: '탄화된 곡식 (경남 진주 상촌리) — 농경 증거',              ref: 'K1, p. 12 (PDF 5)' },
-      { slot: 'wide',   caption: '신석기 시대의 밭 흔적 (강원 고성 문암리) — 농경 정착',    ref: 'K1, p. 12 (PDF 5)' }
+      { slot: 'wide',   caption: '신석기 시대의 밭 흔적 (강원 고성 문암리) — 농경 정착',    ref: 'K1, p. 12 (PDF 5)' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-neo-sites-map.webp',
+        caption: '신석기 시대의 주요 유적',
+        ref: '서울 암사동, 양양 오산리, 부산 동삼동, 제주 고산리 등 주로 강가와 바닷가에서 유적이 발견된다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-neo-pit-house.webp',
+        caption: '신석기 시대의 움집(복원도)',
+        ref: '땅을 둥글게 파고 기둥을 세워 지붕을 덮은 반지하 집이다. 가운데에 화덕을 두었고, 갈돌과 갈판으로 곡식을 갈았으며 토기에 식량을 저장하였다.' }
     ],
     linked: ['k-paleo', 'k-bronze', 'k-gojoseon']
   },
@@ -4610,7 +4626,10 @@ window.TIMELINE_DB = {
       { slot: 'square', caption: '반달 돌칼 (경기 여주) — 추수용 농기구',                   ref: 'K1, p. 13 (PDF 6)' },
       { slot: 'square', caption: '민무늬 토기 — 청동기 시대 토기',                          ref: 'K1, p. 13 (PDF 6)' },
       { slot: 'square', caption: '탁자식 고인돌 — 지배자의 무덤',                           ref: 'K1, p. 13 (PDF 6)' },
-      { slot: 'wide',   caption: '청동기 시대의 마을 복원 상상도 — 환호(도랑)·목책(나무 울타리)', ref: 'K1, p. 13 (PDF 6)' }
+      { slot: 'wide',   caption: '청동기 시대의 마을 복원 상상도 — 환호(도랑)·목책(나무 울타리)', ref: 'K1, p. 13 (PDF 6)' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bronze-dolmen.webp',
+        caption: '고인돌',
+        ref: '청동기 시대 지배층의 무덤이다. 거대한 덮개돌을 옮기려면 많은 사람을 동원해야 했으므로, 고인돌은 지배자의 권력을 보여 준다.' }
     ],
     linked: ['k-neolithic', 'k-gojoseon', 'k-iron']
   },
@@ -15761,7 +15780,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-5c-map.webp',
+        caption: '5세기 고구려의 발전',
+        ref: '광개토 대왕은 후연·거란·부여·동부여 방면으로 세력을 넓혔고, 장수왕은 평양으로 천도(427)한 뒤 한성을 함락(475)하여 한강 유역을 차지하였다. 광개토 대왕릉비와 충주 고구려비가 그 자취를 전한다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-hyeonmu.webp',
+        caption: '고구려 강서대묘 「사신도」 중 「현무」',
+        ref: '도교의 방위신인 사신(청룡·백호·주작·현무) 가운데 북쪽을 지키는 현무로, 거북과 뱀이 얽힌 모습이다. 고구려 무덤 벽화에 도교 사상이 반영되었음을 보여 준다.' }
+    ],
     linked: ['k-buyeo', 'k-baekje', 'k-silla', 'k-balhae', 'e-sui', 'e-tang']
   },
   'k-baekje': {
@@ -15798,7 +15824,20 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bj-4c-map.webp',
+        caption: '4세기 백제의 발전',
+        ref: '근초고왕은 마한의 남은 세력을 정복하고 가야에 영향력을 행사하였으며, 북쪽으로 고구려 평양성을 공격하였다(371). 동진·왜와 교류하며 활발한 해상 활동을 펼쳤다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bj-ungjin-sabi-map.webp',
+        caption: '백제의 웅진·사비 천도',
+        ref: '고구려에 한성을 빼앗긴 뒤 문주왕이 웅진(공주)으로 천도하였고(475), 성왕은 사비(부여)로 천도하며(538) 국호를 남부여로 고쳤다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bj-landscape-tile.webp',
+        caption: '백제 산수무늬 벽돌(부여 외리)',
+        ref: '산과 나무, 구름 등 자연을 무늬로 새긴 벽돌로, 신선이 사는 이상향을 그리는 도교 사상과 백제의 세련된 미적 감각을 보여 준다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bj-incense-burner.webp',
+        caption: '백제 금동 대향로(부여 능산리)',
+        ref: '용이 받치고 봉황이 앉은 향로로, 뚜껑에 신선이 사는 산과 동물, 악사가 새겨져 있다. 불교와 도교 사상이 어우러진 백제 금속 공예의 걸작이다.' }
+    ],
     linked: ['k-goguryeo', 'k-silla', 'k-samhan', 'e-asuka']
   },
   'k-silla': {
@@ -15841,7 +15880,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-sl-jinheung-map.webp',
+        caption: '진흥왕의 영토 확장',
+        ref: '진흥왕은 한강 유역을 차지하고(553) 대가야를 정복하였으며(562), 함경도 지역까지 진출하였다. 단양 신라 적성비와 북한산비·창녕비·황초령비·마운령비 등 순수비가 넓어진 영역을 보여 준다.' }
+    ],
     linked: ['k-goguryeo', 'k-baekje', 'k-gaya', 'k-unify']
   },
   'k-gaya': {
@@ -15872,7 +15915,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gaya-iron-ingots.webp',
+        caption: '덩이쇠',
+        ref: '철을 일정한 모양의 덩어리로 만든 것으로, 화폐처럼 쓰이거나 낙랑·왜 등지로 수출되었다. 풍부한 철 생산과 교역은 가야 성장의 바탕이었다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gaya-horse-mask.webp',
+        caption: '가야의 말 머리 가리개(말 투구)',
+        ref: '쇠판을 이어 만든 말 투구로, 가야의 발달한 철기 문화와 철갑을 두른 기병의 존재를 보여 준다.' }
+    ],
     linked: ['k-silla', 'k-baekje', 'k-samhan']
   },
   'k-era-samguk': {
@@ -16095,7 +16145,17 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-gwanggaeto-stele.webp',
+        caption: '광개토 대왕릉비(중국 지린성 지안)',
+        ref: '장수왕이 아버지 광개토 대왕의 업적을 기리기 위해 414년에 세웠다. 고구려의 건국 이야기, 광개토 대왕의 정복 활동, 왕릉을 지키는 수묘인에 관한 내용이 새겨져 있다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-5c-map.webp',
+        caption: '5세기 고구려의 발전',
+        ref: '광개토 대왕은 후연·거란·부여·동부여 방면으로 세력을 넓혔고, 장수왕은 평양으로 천도(427)한 뒤 한성을 함락(475)하여 한강 유역을 차지하였다. 광개토 대왕릉비와 충주 고구려비가 그 자취를 전한다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-houmyeong-bowl.webp', span: true,
+        caption: '경주 호우총 출토 청동 「광개토 대왕」명 호우',
+        ref: '그릇 밑바닥에 「을묘년 국강상 광개토지 호태왕 호우십」이 새겨져 있다. 광개토 대왕을 기리며 415년(장수왕 3)에 만든 그릇이 신라 무덤에서 나와, 5세기 고구려와 신라의 밀접한 관계를 보여 준다.' }
+    ],
     linked: ['k-goguryeo', 'k-sosurim', 'k-jangsu', 'k-gaya-early']
   },
   'k-jangsu': {
@@ -16127,7 +16187,20 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-5c-map.webp',
+        caption: '5세기 고구려의 발전',
+        ref: '광개토 대왕은 후연·거란·부여·동부여 방면으로 세력을 넓혔고, 장수왕은 평양으로 천도(427)한 뒤 한성을 함락(475)하여 한강 유역을 차지하였다. 광개토 대왕릉비와 충주 고구려비가 그 자취를 전한다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-chungju-stele.webp',
+        caption: '충주 고구려비',
+        ref: '5세기 고구려가 남한강 유역까지 진출하였음을 보여 주는 비석이다. 비문에서 신라 왕을 「동이 매금」이라 부르는 등 고구려가 신라를 아래로 보던 관계가 드러난다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-gwanggaeto-stele.webp',
+        caption: '광개토 대왕릉비(중국 지린성 지안)',
+        ref: '장수왕이 아버지 광개토 대왕의 업적을 기리기 위해 414년에 세웠다. 고구려의 건국 이야기, 광개토 대왕의 정복 활동, 왕릉을 지키는 수묘인에 관한 내용이 새겨져 있다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-houmyeong-bowl.webp', span: true,
+        caption: '경주 호우총 출토 청동 「광개토 대왕」명 호우',
+        ref: '그릇 밑바닥에 「을묘년 국강상 광개토지 호태왕 호우십」이 새겨져 있다. 광개토 대왕을 기리며 415년(장수왕 3)에 만든 그릇이 신라 무덤에서 나와, 5세기 고구려와 신라의 밀접한 관계를 보여 준다.' }
+    ],
     linked: ['k-goguryeo', 'k-gwanggaeto', 'k-gaero']
   },
   'k-goguryeo-sui': {
@@ -16246,7 +16319,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bj-4c-map.webp',
+        caption: '4세기 백제의 발전',
+        ref: '근초고왕은 마한의 남은 세력을 정복하고 가야에 영향력을 행사하였으며, 북쪽으로 고구려 평양성을 공격하였다(371). 동진·왜와 교류하며 활발한 해상 활동을 펼쳤다.' }
+    ],
     linked: ['k-baekje', 'k-gogugwon', 'k-chimnyu']
   },
   'k-chimnyu': {
@@ -16330,7 +16407,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bj-ungjin-sabi-map.webp',
+        caption: '백제의 웅진·사비 천도',
+        ref: '고구려에 한성을 빼앗긴 뒤 문주왕이 웅진(공주)으로 천도하였고(475), 성왕은 사비(부여)로 천도하며(538) 국호를 남부여로 고쳤다.' }
+    ],
     linked: ['k-baekje', 'k-gaero', 'k-muryeong']
   },
   'k-muryeong': {
@@ -16391,7 +16472,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-bj-ungjin-sabi-map.webp',
+        caption: '백제의 웅진·사비 천도',
+        ref: '고구려에 한성을 빼앗긴 뒤 문주왕이 웅진(공주)으로 천도하였고(475), 성왕은 사비(부여)로 천도하며(538) 국호를 남부여로 고쳤다.' }
+    ],
     linked: ['k-baekje', 'k-muryeong', 'k-jinheung']
   },
   'k-naemul': {
@@ -16418,7 +16503,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gg-houmyeong-bowl.webp', span: true,
+        caption: '경주 호우총 출토 청동 「광개토 대왕」명 호우',
+        ref: '그릇 밑바닥에 「을묘년 국강상 광개토지 호태왕 호우십」이 새겨져 있다. 광개토 대왕을 기리며 415년(장수왕 3)에 만든 그릇이 신라 무덤에서 나와, 5세기 고구려와 신라의 밀접한 관계를 보여 준다.' }
+    ],
     linked: ['k-silla', 'k-gwanggaeto', 'k-era-samguk']
   },
   'k-jijeung': {
@@ -16521,7 +16610,11 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-sl-jinheung-map.webp',
+        caption: '진흥왕의 영토 확장',
+        ref: '진흥왕은 한강 유역을 차지하고(553) 대가야를 정복하였으며(562), 함경도 지역까지 진출하였다. 단양 신라 적성비와 북한산비·창녕비·황초령비·마운령비 등 순수비가 넓어진 영역을 보여 준다.' }
+    ],
     linked: ['k-silla', 'k-beopheung', 'k-seong', 'k-gaya-late']
   },
   'k-nadang': {
@@ -16583,7 +16676,14 @@ window.TIMELINE_DB = {
       ]
     },
     sources: [],
-    artifacts: [],
+    artifacts: [
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gaya-iron-ingots.webp',
+        caption: '덩이쇠',
+        ref: '철을 일정한 모양의 덩어리로 만든 것으로, 화폐처럼 쓰이거나 낙랑·왜 등지로 수출되었다. 풍부한 철 생산과 교역은 가야 성장의 바탕이었다.' },
+      { slot: 'auto', src: 'assets/w1/고대/한국/k-gaya-horse-mask.webp',
+        caption: '가야의 말 머리 가리개(말 투구)',
+        ref: '쇠판을 이어 만든 말 투구로, 가야의 발달한 철기 문화와 철갑을 두른 기병의 존재를 보여 준다.' }
+    ],
     linked: ['k-gaya', 'k-gaya-late', 'k-gwanggaeto']
   },
   'k-gaya-late': {
