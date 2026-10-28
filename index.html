@@ -2017,14 +2017,17 @@ html.study .footer__study{display:inline-block}
   position:fixed;inset:0;z-index:1100;
   background:rgba(5,4,8,.92);
   display:flex;align-items:center;justify-content:center;
-  padding:36px;
+  padding:12px;
   animation:tva-overlay-in .25s ease;
 }
 @keyframes tva-overlay-in{from{opacity:0}to{opacity:1}}
 .sync-dialog{
   position:relative;
-  width:min(1320px, 96vw);
-  height:min(880px, 92vh);
+  /* 열람 창을 화면 가득 — 큰 화면에서도 1640×1080까지 (2026-10-28) */
+  width:min(1640px, 98vw);
+  height:min(1080px, 97vh);
+  /* 이미지 최대 높이 = 창 높이 − 머리·탭·바닥줄(약 300px) → 사진 한 장이 스크롤 없이 한 화면에 담긴다 */
+  --img-max:calc(min(1080px, calc(97vh / var(--lz, 1))) - 300px);
   display:flex;flex-direction:column;
   background:var(--panel);
   color:var(--amber);
@@ -2756,6 +2759,15 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
 .sync-art__slot{color:var(--amber);font-family:var(--font-display);font-size:16px}
 .sync-art__caption{margin-top:8px;font-family:var(--font-ko);font-size:13px;color:var(--amber)}
 .sync-art__ref{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--amber-dim)}
+/* 열람 창 안의 모든 이미지는 --img-max를 넘지 않는다 — 세로로 긴 사진도 한 화면에 (2026-10-28) */
+.sync-dialog .sync-art--auto .sync-art__img,
+.sync-dialog .sync-source__img,
+.sync-dialog .sync-source--img-only .sync-source__img,
+.sync-dialog .sync-source__gallery-item .sync-source__img{max-height:var(--img-max)}
+.sync-dialog .sync-source--img-only .sync-source__img-wrap{max-height:none}
+.sync-dialog .docx-img img{max-height:var(--img-max)}
+.sync-dialog .docx-plate--land .docx-plate__fig .docx-img img{max-height:min(480px, var(--img-max))}
+.sync-dialog .docx-plate--port .docx-plate__fig .docx-img img{width:auto;max-width:100%}
 
 /* linked rows */
 .sync-linklist{display:flex;flex-direction:column;gap:5px}
@@ -3737,7 +3749,7 @@ html.lecture .topbar__title{letter-spacing:.06em}
 html.lecture .app.timeline-root{height:calc(100vh / var(--lz));max-height:calc(100vh / var(--lz))}
 html.lecture .tl-mapmodal__win{width:min(960px, calc(90vw / var(--lz)));height:min(640px, calc(80vh / var(--lz)))}
 html.lecture .tmb-lightbox__img{width:calc(98vw / var(--lz));height:calc(94vh / var(--lz))}
-html.lecture .sync-dialog{width:min(1320px, calc(96vw / var(--lz)));height:min(880px, calc(92vh / var(--lz)))}
+html.lecture .sync-dialog{width:min(1640px, calc(98vw / var(--lz)));height:min(1080px, calc(97vh / var(--lz)))}
 html.lecture .tl-mapmodal__win--doc{width:min(1400px, calc(94vw / var(--lz)));height:min(900px, calc(90vh / var(--lz)))}
 html.lecture .portal-view .pt-stage{gap:clamp(28px, calc(6vh / var(--lz)), 60px)}
 html.lecture .portal-view .pt-seal{height:min(calc(64vh / var(--lz)), 600px);max-width:calc(78vw / var(--lz))}
