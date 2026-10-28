@@ -2512,17 +2512,91 @@ html.study .footer__study{display:inline-block}
   width:20px;height:20px;border-radius:50%;background:#b3261e;color:#fff;
   font-family:var(--font-mono);font-size:12px;line-height:20px;text-align:center;font-weight:700;
 }
-@media (max-width: 1100px){
+/* ── 2026-10-28 모든 메인 노드 문서 연출 — 요약 계층·빈칸, 결락 도판, 사료, 연결, 연구원 기록 ── */
+.docx-desk{container-type:inline-size}
+.docx-head{grid-template-columns:minmax(max-content,1fr) minmax(0,auto) minmax(max-content,1fr)}
+.docx-head__node h2{word-break:keep-all}
+.docx-head__node h2.is-m{font-size:44px}
+.docx-head__node h2.is-l{font-size:38px;letter-spacing:.08em;padding-left:.08em}
+.docx-head__node h2.is-xl{font-size:32px;letter-spacing:.04em;padding-left:.04em}
+.docx-void{color:#66685f}
+/* 요약 — 단은 내용 높이로 나누고, 항목 하나는 단을 넘어 쪼개지 않는다 */
+.docx-notes .docx-sec{break-inside:auto}
+.docx-notes .docx-sec__h{break-after:avoid}
+.docx-notes .docx-list > li{break-inside:avoid}
+.docx-secgrid--one{columns:1}
+.docx-list > li.has-sub{font-weight:700;margin-top:4px}
+.docx-list > li.has-sub::before{content:'◆';font-size:11px;line-height:1;top:.72em;color:#2a2b27}
+.docx-sublist{list-style:none;margin:2px 0 8px;padding:0}
+.docx-sublist li{position:relative;padding-left:20px;font-weight:400;font-size:17.5px;line-height:1.75}
+.docx-sublist li::before{content:'·';position:absolute;left:5px;color:#44463f;font-weight:700}
+/* 강조 — 형광펜. 강의 모드에서는 빈칸이 되고 누르면 드러난다 */
+.docx-page b.cloze{font-weight:700;background:linear-gradient(transparent 58%, rgba(214,186,72,.5) 58%);padding:0 2px}
+html.lecture .docx-page b.cloze{cursor:pointer}
+html.lecture .docx-page b.cloze:not(.is-open){color:transparent;background:rgba(40,38,30,.06);border-bottom:2px solid #2a2b27;user-select:none}
+html.lecture .docx-page b.cloze:not(.is-open):hover{background:rgba(214,186,72,.35)}
+html.lecture .docx-page b.cloze.is-open{animation:cloze-open .25s steps(4) both}
+html.lecture .docx-notes > .docx-h::after{content:'빈칸을 누르면 낱말이 보입니다';display:inline-block;margin-left:14px;font-weight:400;font-size:15px;color:#66685f}
+/* 결락 도판 — 사본이 아직 없는 자리 */
+.docx-plate--void{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:36px;align-items:start}
+.docx-void-fig{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;aspect-ratio:4/3;
+  border:1.5px dashed #8f8d84;color:#55574f;font-size:17px;font-weight:700;letter-spacing:.06em;
+  background:repeating-linear-gradient(135deg, rgba(40,38,30,.05) 0 8px, rgba(40,38,30,0) 8px 16px);
+}
+.docx-void-fig small{font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;font-weight:400}
+/* 탐구 — 사료 */
+.docx-src{margin:6px 0 30px;padding:0 0 28px;border-bottom:1px solid #b3b0a6}
+.docx-src__kind{margin-left:10px;padding:1px 7px;border:1px solid #8f8d84;font-family:var(--font-ko);font-size:12px;letter-spacing:.06em;color:#3d3f39}
+.docx-quote{
+  margin:10px 0 12px;padding:14px 22px;border-left:3px solid #2a2b27;background:rgba(40,38,30,.05);
+  font-size:18.5px;line-height:1.9;color:#1f201d;word-break:keep-all;
+}
+.docx-gloss{margin:8px 0 0;font-size:16.5px;line-height:1.75;color:#2a2b27;word-break:keep-all}
+.docx-gloss b{display:inline-block;margin-right:10px;padding:0 6px;border:1px solid #2a2b27;font-size:13px;letter-spacing:.1em;line-height:1.5}
+.docx-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin:12px 0}
+.docx-gallery figure{margin:0}
+.docx-gallery .docx-img{display:block}
+.docx-gallery .docx-img img{width:100%}
+/* 지도 — 소견 없이 지점만 있을 때는 여러 줄로 흘린다 */
+.docx-pins--flow{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));column-gap:40px}
+.docx-pins--flow li:first-child{padding-top:7px}
+/* 연결 — 관련 기록 대조표. 행을 누르면 그 기록으로 간다 */
+.docx-xref{border-collapse:collapse;width:100%}
+.docx-xref th{font-size:14px;font-weight:600;text-align:left;padding:7px 12px;border-top:2px solid #2a2b27;border-bottom:1px solid #2a2b27;background:rgba(40,38,30,.06);color:#3d3f39}
+.docx-xref td{padding:10px 12px;border-bottom:1px dotted #a9a79e;vertical-align:baseline;font-size:17.5px;line-height:1.5}
+.docx-xref__row{cursor:pointer}
+.docx-xref__row:hover td{background:rgba(214,186,72,.18)}
+.docx-xref td.docx-xref__y{width:150px;font-family:var(--font-mono);font-size:15px;color:#3d3f39;white-space:nowrap}
+.docx-xref__l b{font-size:18.5px}
+.docx-xref__l span{margin-left:12px;font-family:var(--font-mono);font-size:13px;color:#66685f;letter-spacing:.06em}
+.docx-xref td.docx-xref__t{width:190px;color:#3d3f39;white-space:nowrap}
+.docx-xref__t em{margin-left:8px;font-style:normal;font-family:var(--font-mono);font-size:13px;color:#66685f}
+.docx-xref td.docx-xref__go{width:80px;text-align:right;font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:#1f6b40;white-space:nowrap}
+/* 연구원 기록 */
+.docx-log{list-style:none;margin:0;padding:0}
+.docx-log li{padding:12px 0;border-bottom:1px dotted #a9a79e}
+.docx-log li.is-reply{border-left:2px solid #8f8d84;padding-left:16px}
+.docx-log__meta{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--font-mono);font-size:13px;color:#55574f;letter-spacing:.06em}
+.docx-log__type{font-family:var(--font-ko);font-weight:700;color:#151614;border:1px solid #2a2b27;padding:0 6px}
+.docx-log__re{color:#8f2a22}
+/* 좁은 창(강의 모드 포함) — 화면 폭이 아니라 문서 책상 폭으로 판단한다 */
+@container (max-width: 1100px){
+  .docx-page{padding:36px 44px 32px}
+}
+@container (max-width: 1000px){
   .docx-head{grid-template-columns:1fr auto;grid-template-areas:'kind mark' 'node node'}
   .docx-head__kind{grid-area:kind}.docx-head__mark{grid-area:mark}.docx-head__node{grid-area:node}
   .docx-cols--detail,.docx-cols--map,.docx-plate--port,.docx-plate--inq.docx-plate--port{grid-template-columns:1fr}
   .docx-plate--port .docx-plate__fig{max-width:460px}
   .docx-secgrid{columns:1}
+  .docx-plate--void{grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:24px}
 }
-@media (max-width: 760px){
+@container (max-width: 700px){
   .docx-page{padding:30px 22px 28px}
   .docx-head__node h2{font-size:38px}
   .docx-terms > div{grid-template-columns:1fr;gap:2px}
+  .docx-plate--void{grid-template-columns:1fr}
 }
 /* ── 전자칠판 수업용 — 정리(NOTES)·개요(OVERVIEW) 탭 본문 확대 ──
    교실 뒤에서도 읽히도록 본문 계열을 약 1.35배로 키움.
@@ -27471,6 +27545,7 @@ window.TIMELINE_DB = {
   },
   'k-gov-rmh': {
     fileRef: '동아출판 한국사1·2',
+    notes: { sections: [] },
     overview: {
       summary: '노무현 정부 — 2003년 출범한 노무현(참여) 정부는 더불어 사는 균형 발전 사회 등을 목표로 제시하였다. 국가 정보원·검찰 등 국가 기관의 독립성을 강화하고, 혁신 도시를 건설하여 주요 공공 기관의 지방 이전을 추진하였다. 과거사 정리를 위해 친일 반민족 행위 진상 규명 위원회와 진실·화해를 위한 과거사 정리 위원회를 조직하였다. 그러나 부동산 가격 급등 등으로 부정적인 평가를 받기도 하였다. 김대중 정부의 대북 화해 협력 정책을 이어받아 개성 공단을 조성하였고, 2007년 평양에서 남북 정상 회담을 열어 10·4 남북 정상 선언을 발표하였다. 2007년 부산, 대구, 광주·전남 등 10곳의 혁신 도시 지구가 결정되어 이후 여러 공공 기관이 각 혁신 도시로 이주하였다. 2009년에는 친일 반민족 행위자의 명단과 친일 행적을 담은 『친일 반민족 행위 진상 규명 보고서』가 발간되었다. 2004년 노무현 대통령은 정치적 중립성 위반을 이유로 탄핵 소추되었으나 헌법재판소가 기각하였다. 노무현 정부는 남북 경제 협력과 긴장 완화를 추구하였으며, 10·4 남북 정상 선언은 2007년 평양에서 열린 두 번째 남북 정상 회담에서 채택되었다.',
       terms: [
@@ -27493,6 +27568,7 @@ window.TIMELINE_DB = {
   },
   'k-gov-lmb': {
     fileRef: '동아출판 한국사1·2',
+    notes: { sections: [] },
     overview: {
       summary: '이명박 정부 — 2008년 이명박 대통령이 취임하면서 10년 만에 다시 여야 정권이 교체되었다. 이명박 정부는 선진 일류 국가를 목표로 내세우고 성장 위주의 경제 정책을 추진하였다. 하지만 미국산 쇠고기 수입과 4대강 살리기 사업을 추진하는 과정에서 시민 사회와 갈등을 빚기도 하였다. 한편 북한이 천안함 피격 사건과 연평도 포격전을 일으키고(2010) 잇따라 핵 실험을 하면서 남북 관계가 악화되었다. 4대강 살리기 사업으로 한강, 금강, 낙동강, 영산강의 4대강에 보 설치, 강줄기 준설, 중소 규모 다목적댐 건설, 농업용 저수지 둑 높이기 등이 실시되었다. 2008년에는 금강산 관광이 중단되었다. 연평도 포격전은 2010년 11월 북한이 서해 연평도의 해병대 기지와 민간인 마을을 향해 포탄을 발사한 사건으로 해병대 2명, 민간인 2명이 사망하였다.',
       terms: [
@@ -27513,6 +27589,7 @@ window.TIMELINE_DB = {
   },
   'k-gov-pgh': {
     fileRef: '동아출판 한국사1·2',
+    notes: { sections: [] },
     overview: {
       summary: '박근혜 정부 — 2013년 출범한 박근혜 정부는 일자리 중심의 창조 경제, 안전과 통합의 사회 등을 국정 목표로 내세웠다. 2014년 세월호 참사가 일어났고, 2016년 개성 공단이 폐쇄되었다. 민간인이 대통령과 밀착하여 국정에 개입한 사실이 드러나 촛불 집회가 이어졌고, 2017년 박근혜 대통령이 탄핵되었다. 박근혜 정부는 세월호 참사 대응, 역사 교과서 국정화 추진, 피해자 동의 없는 일본군 ‘위안부’ 합의 등으로 비판을 받기도 하였다. 세월호 참사는 2014년 4월 16일 제주도로 향하던 여객선 세월호가 진도 인근 해상에서 침몰하여 탑승객 476명 중 304명의 사망자와 미수습자가 발생한 사건이다. 2016년 10월 아무런 직책이 없는 민간인이 대통령과 밀착하여 국정에 개입하고 부정부패를 저지른 사건이 알려지자, 국회는 대통령 탄핵 소추안을 발의하였고 2017년 3월 헌법재판소에서 탄핵이 결정되었다. 헌법재판소는 대통령의 헌법과 법률 위배 행위가 국민의 신임을 배반한 중대한 법 위배 행위라고 판단하였다.',
       terms: [
@@ -27533,6 +27610,7 @@ window.TIMELINE_DB = {
   },
   'k-gov-moon': {
     fileRef: '동아출판 한국사1·2',
+    notes: { sections: [] },
     overview: {
       summary: '문재인 정부 — 2016년 민간인의 국정 개입과 부정부패가 알려지자 시민들은 촛불 집회를 열어 대통령 탄핵을 촉구하였고, 2017년 3월 헌법재판소가 박근혜 대통령의 탄핵을 결정하였다. 탄핵 이후 치러진 선거에서 문재인 대통령이 당선되어 여야 정권이 교체되었다. 문재인 정부는 더불어 잘사는 경제, 평화와 번영의 한반도 등을 목표로 내세웠다. 문재인 정부가 제시한 남북 화해 협력 방안에 북한이 호응하면서 2018년 평창 동계 올림픽에 북한 선수단이 참가하였고, 남북한 정상이 판문점과 평양에서 세 차례 정상 회담을 열어 판문점 선언 등을 발표하였다. 한편 2020년 초부터 코로나19가 유행하여 사회·경제적 어려움을 겪었다. 촛불 집회는 항의나 추모를 목적으로 하는 비폭력 평화 시위의 한 방식으로, 2016~2017년 촛불 집회에는 총 1,567만여 명이 참가하였다. 문재인 정부는 2017년 5월 중·고등학교 한국사 교과서 발행 체제를 검정 체제로 전환한다고 발표하였다. 평창 동계 올림픽에서는 여자 아이스하키 남북한 단일팀이 구성되고 예술 공연단 교류도 성사되었다. 그러나 2019년 북·미 정상 회담이 결렬된 이후 북한이 다시 핵무기 개발에 나서고, 2020년 개성 공단 남북 공동 연락 사무소를 폭파하면서 남북 관계는 위기를 맞았다.',
       terms: [
@@ -27555,6 +27633,7 @@ window.TIMELINE_DB = {
   },
   'k-gov-yoon': {
     fileRef: '동아출판 한국사1·2',
+    notes: { sections: [] },
     overview: {
       summary: '윤석열 정부 — 2022년 3월에 치러진 선거에서 윤석열 대통령이 당선되어 다시 여야 정권이 교체되었다. 윤석열 정부는 다시 도약하는 대한민국, 함께 잘사는 국민의 나라를 국정 비전으로 내세웠다. 이로써 1987년 6월 민주 항쟁 이후 선거를 통한 평화적 정권 교체가 자리 잡았다. 대한민국에서는 노태우 정부 이후 자유민주적 기본질서에 입각한 평화적 정권 교체가 자리 잡았다. 김영삼 정부에서 민간인 출신 대통령이 등장하였고, 김대중 정부에서 정부 수립 이후 최초로 선거를 통한 평화적 정권 교체가 이루어졌으며, 이후 이명박 정부, 문재인 정부, 윤석열 정부가 들어서며 여야 정권 교체가 이어졌다. 2020년 초부터 유행한 코로나19로 사회·경제적 어려움을 겪는 가운데 2022년 대통령 선거가 치러졌다.',
       terms: [
@@ -30193,7 +30272,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
     if (!event) return;
     const dbx = window.TIMELINE_DB && window.TIMELINE_DB[event.id];
     // 대응요원 접속으로 위험 노드를 열면 LUMINA 보고서부터 보여 준다
-    setTab(dbx && dbx.docMode && event.risk && accessMode === 'response' ? 'lumina' : (dbx && dbx.docMode ? 'notes' : (window.hasNotes(dbx) ? 'notes' : 'overview')));   // 정리가 비었으면 개요부터
+    setTab(dbx && dbx.lumina && event.risk && accessMode === 'response' && docCountRedactions(dbx) > 0 ? 'lumina' : (window.hasNotes(dbx) ? 'notes' : 'overview'));   // 요약이 비었으면 상세부터
     setRestored(new Set());
     setPhase('boot');
     const t = setTimeout(() => setPhase('ready'), 900);
@@ -30220,7 +30299,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   useEffectSync(() => {
     if (!event) return;
     const d = window.TIMELINE_DB && window.TIMELINE_DB[event.id];
-    if (!d || !d.docMode || accessMode !== 'response' || !event.risk) return;
+    if (!d || accessMode !== 'response' || !event.risk) return;
     const open = restored.size > 0 && restored.size >= docCountRedactions(d);
     if (open && !unlockedRef.current && window.DENDRO_AUDIO) { window.DENDRO_AUDIO.sfx('transition'); }
     unlockedRef.current = open;
@@ -30229,41 +30308,32 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   if (!event) return null;
   const db = (window.TIMELINE_DB && window.TIMELINE_DB[event.id]) || null;
 
-  const docMode = !!(db && db.docMode);   // 문서 연출 노드 — 지도·요약·상세·자료·탐구
-  const DOC_TABS = [
+  // 모든 메인 노드 — 스캔 문서 연출 (2026-10-28 발해 문서를 전 노드로 확대). 요약 = 옛 정리, 상세 = 옛 개요
+  let TABS = [
     { id: 'map',       label: 'MAP',        ko: '지도',   icon: <SyncIcon.Map/> },
     { id: 'notes',     label: 'SUMMARY',    ko: '요약',   icon: <SyncIcon.Info/> },
     { id: 'overview',  label: 'DETAIL',     ko: '상세',   icon: <SyncIcon.Info/> },
     { id: 'artifacts', label: 'ARTIFACTS',  ko: '자료',   icon: <SyncIcon.Image/> },
     { id: 'sources',   label: 'INQUIRY',    ko: '탐구',   icon: <SyncIcon.Doc/> },
+    { id: 'linked',    label: 'LINKED',     ko: '연결',   icon: <SyncIcon.Link/> },
+    { id: 'research',  label: 'RESEARCH',   ko: '연구원 기록', icon: <SyncIcon.Doc/> },
   ];
-  const redactOn = accessMode === 'response' && !!event.risk;   // 위험 노드 왜곡 — 대응요원 접속 시에만
+  // 위험 노드 왜곡 — 대응요원 접속이고 기록에 {{원본|왜곡}}이 있을 때만
+  const distN = db ? docCountRedactions(db) : 0;
+  const redactOn = accessMode === 'response' && !!event.risk && distN > 0;
   // 대응요원 · 위험 노드 — 모두 정정해야(원본 복원) 봉인된 자료·탐구 탭이 열린다
-  const unsealed = !(docMode && redactOn) || restored.size >= docCountRedactions(db);
-  if (docMode && redactOn) {
+  const unsealed = !redactOn || restored.size >= distN;
+  if (redactOn) {
+    TABS = TABS.filter(t => unsealed || DOC_SEALED.indexOf(t.id) < 0);
+    if (unsealed) TABS.forEach(t => { if (DOC_SEALED.indexOf(t.id) >= 0) t.unlock = true; });   // 막 열린 탭 — 글리치와 함께 나타난다
     // 지도 왼쪽(맨 앞)에 LUMINA 접근·왜곡 보고서 탭 — 붉은색
-    DOC_TABS.unshift({ id: 'lumina', label: 'LUMINA', ko: '왜곡 보고', icon: <SyncIcon.Doc/>, risk: true });
-    if (!unsealed) DOC_TABS.splice(-2, 2);
-    else DOC_TABS.slice(-2).forEach(t => { t.unlock = true; });   // 막 열린 탭 — 글리치와 함께 나타난다
+    if (db.lumina) TABS.unshift({ id: 'lumina', label: 'LUMINA', ko: '왜곡 보고', icon: <SyncIcon.Doc/>, risk: true });
   }
   const restore = (id) => setRestored(prev => {
     if (prev.has(id)) return prev;
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('key');   /* 타자기 타건 — 원본 기록으로 정정 */
     const n = new Set(prev); n.add(id); return n;
   });
-
-  const TABS = docMode ? DOC_TABS : [
-    // 지도 → 정리 순 (2026-10-10 사용자 요청으로 자리 바꿈)
-    { id: 'map',       label: 'MAP',        ko: '지도',   icon: <SyncIcon.Map/> },
-    // 정리 — 모든 기록에 둔다. 내용이 비어 있으면 빈 정리 화면 (2026-10-04)
-    ...(db && db.notes ? [{ id: 'notes', label: 'NOTES', ko: '정리', icon: <SyncIcon.Info/> }] : []),
-    { id: 'overview',  label: 'OVERVIEW',   ko: '개요',   icon: <SyncIcon.Info/> },
-    { id: 'artifacts', label: 'ARTIFACTS',  ko: '자료',   icon: <SyncIcon.Image/> },
-    { id: 'sources',   label: 'INQUIRY',    ko: '탐구',   icon: <SyncIcon.Doc/> },
-    { id: 'linked',    label: 'LINKED',     ko: '연결',   icon: <SyncIcon.Link/> },
-    // 연구원 기록 — 부속 자료(주해·증언·분기·복원) 보기. 2026-10-09 이름을 바꾸고 연결 옆으로 옮김
-    { id: 'research',  label: 'RESEARCH',   ko: '연구원 기록', icon: <SyncIcon.Doc/> },
-  ];
 
   const yearStr = window.eventYearText(event);
   const memId = window.eventCallNo(event);
@@ -30309,7 +30379,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
           </div>
           <div className="sync-head__right">
             {/* 부속 자료 열람 — 확정 기록 옆에 등재된 주해·증언·분기 기록·복원. 누르면 가운데에 따로 창이 뜬다 */}
-            {db && !docMode && (
+            {db && (
               <button className="sync-annexbtn" onClick={openAnnex} title="부속 자료 열람 — 주해·증언·분기 기록·복원">
                 <span className="sync-annexbtn__k">ANNEX · 부속 자료</span>
                 <span className="sync-annexbtn__v"><SyncIcon.Doc/><span>열람</span></span>
@@ -30354,16 +30424,9 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
         </nav>
 
         {/* BODY */}
-        <div className={`sync-body ${docMode ? 'sync-body--doc' : ''}`}>
+        <div className={`sync-body ${db ? 'sync-body--doc' : ''}`}>
           {!db && <NoDataView event={event}/>}
-          {docMode && <DocView tab={tab} db={db} event={event} redactOn={redactOn} restored={restored} onRestore={restore}/>}
-          {db && !docMode && tab === 'research'  && <ResearchTab  db={db}/>}
-          {db && !docMode && tab === 'notes'     && <NotesTab     db={db} event={event}/>}
-          {db && !docMode && tab === 'overview'  && <OverviewTab  db={db} event={event}/>}
-          {db && !docMode && tab === 'sources'   && <SourcesTab   db={db}/>}
-          {db && !docMode && tab === 'map'       && <MapTab       db={db} event={event}/>}
-          {db && !docMode && tab === 'artifacts' && <ArtifactsTab db={db}/>}
-          {db && !docMode && tab === 'linked'    && <LinkedTab    db={db} event={event} onJumpTo={onJumpTo}/>}
+          {db && <DocView tab={tab} db={db} event={event} redactOn={redactOn} restored={restored} onRestore={restore} onJumpTo={onJumpTo}/>}
         </div>
 
         {/* FOOTER */}
@@ -30415,18 +30478,7 @@ function EntryList({ list, hint, empty, emptyHint, cls }) {
       </div>
     );
   }
-  // 반박 트리 — 루트부터 깊이 우선으로 늘어놓고 깊이만큼 들여 쓴다
-  const keyOf = (a, i) => (a.id != null ? String(a.id) : String(i));
-  const kids = {};
-  list.forEach((a, i) => {
-    const to = a.reply_to == null ? '' : String(a.reply_to);
-    (kids[to] = kids[to] || []).push({ a, k: keyOf(a, i) });
-  });
-  const rows = [];
-  const walk = (parent, depth) => (kids[parent] || []).forEach(n => { rows.push({ ...n, depth }); walk(n.k, depth + 1); });
-  walk('', 0);
-  // 대상이 없는 반박도 빠뜨리지 않는다
-  list.forEach((a, i) => { const k = keyOf(a, i); if (!rows.some(r => r.k === k)) rows.push({ a, k, depth: 1 }); });
+  const rows = entryRows(list);   // 반박 트리 — 깊이만큼 들여 쓴다
   return (
     <div className={`sync-pane ${cls || ''}`}>
       <div className="sync-pane__hint">{hint} · {list.length}건</div>
@@ -30445,11 +30497,6 @@ function EntryList({ list, hint, empty, emptyHint, cls }) {
       </ol>
     </div>
   );
-}
-
-/* 연구원 기록 탭 — db.research (부속 자료와 별개). 비어 있으면 빈 화면 */
-function ResearchTab({ db }) {
-  return <EntryList list={db.research} cls="sync-pane--annex" hint="// RESEARCH · 연구원 기록" empty="등재된 연구원 기록이 없습니다."/>;
 }
 
 /* 부속 자료 열람 창 — 기록 열람 창 위 가운데에 떠 있는 창. db.annex */
@@ -30481,11 +30528,8 @@ function AnnexModal({ event, db, onClose }) {
 }
 
 // =================================================
-// TAB: NOTES — 연구원 정리 (교과서 외 별도 정리 메모)
-//   db.notes = string | { sections: [{ head, body, list? }] }
-//   사용자 명령에 따라 누적되는 영역. 비어있으면 placeholder 표시.
+// 요약(옛 정리) 항목 안의 **강조** → <b>
 // =================================================
-// 정리 항목 안의 **강조** → <b>
 function notesEm(item) {
   if (typeof item !== 'string' || item.indexOf('**') < 0) return item;
   // 강의 모드에서는 강조어가 빈칸으로 가려지고, 누르면 드러난다(2026-10-11 사용자 요청 — 정리본의 [ ] 표시 낱말)
@@ -30493,513 +30537,8 @@ function notesEm(item) {
     ? <b key={k} className="cloze" onClick={(e) => { if (document.documentElement.classList.contains('lecture')) e.currentTarget.classList.toggle('is-open'); }}>{t}</b>
     : t);
 }
-function NotesTab({ db, event }) {
-  const notes = db.notes;
-  if (!window.hasNotes(db)) {
-    return (
-      <div className="sync-pane sync-pane--notes">
-        <div className="sync-empty" style={{padding:'40px 24px'}}>
-          <div className="sync-empty__icon">◇</div>
-          <div className="sync-empty__title">// 정리 — NOTES NOT YET ENTERED</div>
-          <div className="sync-empty__body">
-            <b>{event.label}</b> 항목에 대한 연구원 정리가 아직 등록되지 않았습니다.<br/>
-            정리본이 작성되면 이 영역에 누적된다.
-          </div>
-          <div className="sync-empty__hint">// AWAITING RESEARCHER INPUT · ENTRY POINT FOR CUSTOM NOTES</div>
-        </div>
-      </div>
-    );
-  }
-  // 문자열 단일 입력 — 단순 문단으로 표시
-  if (typeof notes === 'string') {
-    return (
-      <div className="sync-pane sync-pane--notes">
-        <div className="sync-pane__hint">// RESEARCHER NOTES · 연구원 정리</div>
-        <section className="sync-section">
-          <h3 className="sync-section__head">▸ 정리</h3>
-          <p className="sync-prose">{notes}</p>
-        </section>
-      </div>
-    );
-  }
-  return <NotesStructured notes={notes} db={db}/>;
-}
-
-/* 정리 — 구조화된 입력 { summary?, sections: [{ head, body?, list? }] } */
-function NotesStructured({ notes, db }) {
-  // 두 단 배치(2026-10-11 사용자 요청): 먼저 반 폭 한 단으로 그려 실제 높이를 재고, 높이가 반이 되는 곳에서 나눈다.
-  // 머리 항목 경계에서 나누는 것을 우선하고, 머리 항목 하나가 너무 길 때만 그 안에서 나눠 오른쪽 단에 「(이어서)」 머리를 다시 단다.
-  // 폭이 바뀌면 다시 잰다. 단이 쌓이는 좁은 폭(752px 미만)에서는 나누지 않는다.
-  const secs = Array.isArray(notes.sections) ? notes.sections : [];
-  const parts = secs.map(sec => ({ sec, items: Array.isArray(sec.list) ? sec.list : [], cont: false }));
-  const measureRef = React.useRef(null);
-  const [split, setSplit] = React.useState(null);   // null = 재는 중 · { s, k } = 나눌 곳 · { none:true } = 한 단
-  const paneRef = React.useRef(null);
-  const lastDb = React.useRef(db), lastW = React.useRef(0);
-  if (lastDb.current !== db) { lastDb.current = db; if (split !== null) setSplit(null); }   // 다른 기록으로 바뀌면 다시 잰다
-  React.useEffect(() => {
-    const el = paneRef.current; if (!el || typeof ResizeObserver === 'undefined') return;
-    const ro = new ResizeObserver(() => {
-      const w = Math.round(el.clientWidth);
-      if (lastW.current && Math.abs(lastW.current - w) > 8) setSplit(null);   // 폭이 바뀌면 다시 잰다
-      lastW.current = w;
-    });
-    ro.observe(el); return () => ro.disconnect();
-  }, []);
-  React.useLayoutEffect(() => {
-    if (split !== null || !measureRef.current) return;
-    const box = measureRef.current;
-    if (box.parentElement.clientWidth < 752 || parts.length === 0) { setSplit({ none: true }); return; }
-    const secEls = [...box.querySelectorAll(':scope > .sync-section')];
-    // 각 머리 항목의 머리 높이와 항목별 높이(아래 여백 포함)
-    const blocks = secEls.map(el => {
-      const top = el.getBoundingClientRect().top;
-      const lis = [...el.querySelectorAll(':scope > .sync-notes-list > li')];
-      const head = lis.length ? lis[0].getBoundingClientRect().top - top : el.getBoundingClientRect().height;
-      const items = lis.map((li, k) => (k < lis.length - 1 ? lis[k + 1].getBoundingClientRect().top : el.getBoundingClientRect().bottom) - li.getBoundingClientRect().top);
-      const mb = parseFloat(getComputedStyle(el).marginBottom) || 0;
-      return { head, items, mb };
-    });
-    const total = blocks.reduce((a, b) => a + b.head + b.items.reduce((x, y) => x + y, 0) + b.mb, 0);
-    const PEN = blocks.length === 1 ? 0 : Math.max(180, total * 0.15);   // 머리 항목 안에서 나누면 머리를 한 번 더 달아야 하므로 그만큼 손해로 친다
-    let best = null, acc = 0;
-    blocks.forEach((b, i) => {
-      if (i > 0) { const c = Math.abs(2 * acc - total); if (!best || c < best.c) best = { c, s: i, k: 0 }; }
-      acc += b.head;
-      b.items.forEach((h, k) => {
-        acc += h;
-        if (k < b.items.length - 1) { const c = Math.abs(2 * acc - total) + PEN; if (!best || c < best.c) best = { c, s: i, k: k + 1 }; }
-      });
-      acc += b.mb;
-    });
-    setSplit(best ? { s: best.s, k: best.k, headH: blocks[best.s].head } : { none: true });
-  });
-  const cols = (() => {
-    if (!split || split.none) return [parts, []];
-    const L = [], R = [];
-    parts.forEach((p, i) => {
-      if (i < split.s) L.push(p);
-      else if (i > split.s || split.k === 0) R.push(p);
-      else { L.push({ sec: p.sec, items: p.items.slice(0, split.k), cont: false }); R.push({ sec: { head: p.sec.head }, items: p.items.slice(split.k), cont: true, solo: parts.length === 1 }); }
-    });
-    return [L, R];
-  })();
-  // 머리 항목이 하나뿐이면 오른쪽 단에 머리를 다시 달지 않고, 첫 항목 높이를 왼쪽 단 첫 항목에 맞춘다
-  const renderPart = (p, key) => (
-    <section className="sync-section" key={key} style={p.solo && split && split.headH ? { paddingTop: split.headH } : undefined}>
-      {p.sec.head && !p.solo && <h3 className="sync-section__head">▸ {p.sec.head}{p.cont && <span className="sync-section__cont"> (이어서)</span>}</h3>}
-      {!p.cont && p.sec.body && <p className="sync-prose">{p.sec.body}</p>}
-      {p.items.length > 0 && (
-        <ul className="sync-notes-list">
-          {p.items.map((item, j) => (
-            // 항목은 문자열, 또는 { t, sub: [...] } — 머리 항목 아래 세부 항목을 들여 단다
-            typeof item === 'object' && item
-              ? <li key={j} className={Array.isArray(item.sub) && item.sub.length > 0 ? 'has-sub' : undefined}>{notesEm(item.t)}
-                  {Array.isArray(item.sub) && item.sub.length > 0 && (
-                    <ul className="sync-notes-sub">{item.sub.map((x, k) => <li key={k}>{notesEm(x)}</li>)}</ul>
-                  )}
-                </li>
-              : <li key={j}>{notesEm(item)}</li>
-          ))}
-        </ul>
-      )}
-    </section>
-  );
-  return (
-    <div className="sync-pane sync-pane--notes" ref={paneRef}>
-      <div className="sync-pane__hint">// RESEARCHER NOTES · 연구원 정리</div>
-      {notes.summary && (
-        <section className="sync-section">
-          <h3 className="sync-section__head">▸ 정리 · SUMMARY</h3>
-          <p className="sync-prose">{notes.summary}</p>
-        </section>
-      )}
-      {secs.length > 0 && split === null && (
-        <div className="sync-notes-cols sync-notes-cols--measure">
-          <div className="sync-notes-col" ref={measureRef}>{parts.map((p, i) => renderPart(p, i))}</div>
-        </div>
-      )}
-      {secs.length > 0 && split !== null && (
-        <div className={`sync-notes-cols ${cols[1].length ? '' : 'sync-notes-cols--one'}`}>
-          <div className="sync-notes-col" ref={measureRef}>{cols[0].map((p, i) => renderPart(p, i))}</div>
-          {cols[1].length > 0 && <div className="sync-notes-col">{cols[1].map((p, i) => renderPart(p, i))}</div>}
-        </div>
-      )}
-    </div>
-  );
-}
-
 // =================================================
-// TAB: OVERVIEW
-// =================================================
-function OverviewTab({ db, event }) {
-  const ov = db.overview;
-  // overview 미등록 항목 — 크래시(검은 화면) 방지용 graceful 폴백.
-  // (일부 노드는 notes/sources만 있고 overview가 없음 → db.overview.summary 접근 시 throw → 트리 언마운트)
-  if (!ov) {
-    return (
-      <div className="sync-pane sync-pane--overview">
-        <div className="sync-empty" style={{padding:'40px 24px'}}>
-          <div className="sync-empty__icon">◇</div>
-          <div className="sync-empty__title">// 개요 — OVERVIEW NOT YET ENTERED</div>
-          <div className="sync-empty__body">
-            <b>{event.label}</b> 항목의 개요(요약)는 아직 등록되지 않았습니다.<br/>
-            정리(NOTES)·탐구(INQUIRY) 탭에서 관련 내용을 확인할 수 있습니다.
-          </div>
-          <div className="sync-empty__hint">// AWAITING OVERVIEW DIGEST</div>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className="sync-pane sync-pane--overview">
-      {ov.summary && (
-      <section className="sync-section">
-        <h3 className="sync-section__head">▸ RECORD DIGEST · 기록 개요</h3>
-        <p className="sync-prose">{window.redactText(ov.summary, db, 'summary')}</p>
-      </section>
-      )}
-
-      {db.overview.terms && db.overview.terms.length > 0 && (
-        <section className="sync-section">
-          <h3 className="sync-section__head">▸ KEY TERMS · 핵심 개념</h3>
-          <dl className="sync-terms">
-            {db.overview.terms.map((t, i) => (
-              <div className="sync-term" key={i}>
-                <dt>{t.label}</dt>
-                <dd>{t.def}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-      )}
-
-      {db.overview.timeline && (
-        <section className="sync-section">
-          <h3 className="sync-section__head">▸ INLINE TIMELINE · 기록줄기</h3>
-          <ol className="sync-microtl">
-            {db.overview.timeline.map((t, i) => {
-              const isThis = !event.yearLabel && t.y === event.year;
-              return (
-                <li key={i} className={isThis ? 'sync-microtl__item sync-microtl__item--active' : 'sync-microtl__item'}>
-                  <span className="sync-microtl__y">{window.tlYearText(t)}</span>
-                  <span className="sync-microtl__node">{isThis ? '◆' : '◇'}</span>
-                  <span className="sync-microtl__l">{t.label}</span>
-                </li>
-              );
-            })}
-          </ol>
-        </section>
-      )}
-    </div>
-  );
-}
-
-// =================================================
-// TAB: SOURCES — primary-source quotations from textbooks
-// =================================================
-function SourcesTab({ db }) {
-  // 모든 사료가 이미지+제목만 있고 본문/해설이 없으면 좌우 2열 그리드로 표시
-  const sources = Array.isArray(db.sources) ? db.sources : [];
-  // 이미지 카드(진 노드식): 실제 이미지(src) 또는 빈 자리표시자(ph) — 본문/해설/갤러리가 없는 항목
-  const allImgOnly = sources.length > 0 && sources.every(s => (s.src || s.ph) && !s.body && !s.gloss && !s.images);
-  if (sources.length === 0) {
-    return (
-      <div className="sync-pane sync-pane--sources">
-        <div className="sync-pane__hint">// 등록된 탐구 자료가 없습니다.</div>
-      </div>
-    );
-  }
-  return (
-    <div className="sync-pane sync-pane--sources">
-      <div className="sync-pane__hint">// 모든 서술은 원본 출처에서 인용된다</div>
-      <ul className={`sync-sources ${allImgOnly ? 'sync-sources--grid' : ''}`}>
-        {sources.map((s, i) => {
-          const isImgOnly = (s.src || s.ph) && !s.body && !s.gloss && !s.images;
-          const hasMulti = Array.isArray(s.images) && s.images.length > 0;
-          return (
-            <li className={`sync-source ${s.src && !isImgOnly ? 'sync-source--has-img' : ''} ${isImgOnly ? 'sync-source--img-only' : ''} ${hasMulti ? 'sync-source--multi' : ''} ${s.span ? 'sync-source--span' : ''}`} key={i}>
-              <header className="sync-source__head">
-                <span className="sync-source__kind">{String(s.kind || '').replace(/^(?:교과서|세계사) 본문$/, '원본 본문').replace(/^(?:교과서|판서)\s+/, '')}</span>
-                <span className="sync-source__title">{s.title}</span>
-              </header>
-              {s.src ? (
-                <div className="sync-source__img-wrap">
-                  <img className="sync-source__img" src={s.src} alt={s.title} loading="eager"
-                    onClick={() => window.__tmbLightbox && window.__tmbLightbox(s.src, s.title)}
-                    title="클릭하여 크게 보기"/>
-                </div>
-              ) : s.ph ? (
-                <div className="sync-source__img-wrap">
-                  <div className="sync-art__placeholder">
-                    <span>// IMAGE PLACEHOLDER</span>
-                    <span className="sync-art__slot">탐구 자료</span>
-                  </div>
-                </div>
-              ) : null}
-              {s.body && <blockquote className="sync-source__body">{window.redactText(s.body, db, 'sources')}</blockquote>}
-              {s.gloss && <div className="sync-source__gloss">{s.gloss}</div>}
-              {hasMulti && (
-                <div className="sync-source__gallery">
-                  {s.images.map((im, j) => (
-                    <figure className="sync-source__gallery-item" key={j}>
-                      <img className="sync-source__img" src={im.src} alt={im.caption || s.title} loading="eager"
-                        onClick={() => window.__tmbLightbox && window.__tmbLightbox(im.src, im.caption || s.title)}
-                        title="클릭하여 크게 보기"/>
-                      {im.caption && <figcaption className="sync-source__gallery-cap">{im.caption}</figcaption>}
-                    </figure>
-                  ))}
-                </div>
-              )}
-              {window.cleanCite(s.citation) && <footer className="sync-source__cite">{window.cleanCite(s.citation)}</footer>}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
-// =================================================
-// TAB: MAP — schematic HUD-style map
-// =================================================
-function MapTab({ db, event }) {
-  // db.map이 없을 때도 event.label/en으로 Google Maps fallback 자동 생성
-  const m = db.map || {
-    title: event ? (event.label || event.en || event.id) : '',
-    pins: [],
-    googleQuery: event ? (event.en || event.label) : '',
-    googleZoom: 5
-  };
-  const W = m.bounds?.w || 360, H = m.bounds?.h || 240;
-  // Google Maps 쿼리 결정 — googleQuery 우선, 없으면 amber 핀 라벨, 그것도 없으면 title
-  const amberPin = m.pins && m.pins.find(p => p.amber);
-  const gQuery = m.googleQuery || (amberPin && amberPin.label) || m.title || '';
-  const gZoom = m.googleZoom || 5;
-  const gMapUrl = `https://www.google.com/maps?q=${encodeURIComponent(gQuery)}&t=k&z=${gZoom}&output=embed`;
-  return (
-    <div className="sync-pane sync-pane--map">
-      <header className="sync-mapheader">
-        <span className="sync-mapheader__title">▸ {m.title}</span>
-        <span className="sync-mapheader__coords">// GOOGLE MAPS · Q: {gQuery}</span>
-      </header>
-      <div className="sync-mapwrap sync-mapwrap--google">
-        <iframe
-          src={gMapUrl}
-          title={`Google Maps · ${m.title}`}
-          loading="eager"
-          referrerPolicy="no-referrer-when-downgrade"
-          allowFullScreen
-        />
-      </div>
-      <div className="sync-mappins">
-        <span className="sync-mappins__head">▸ NODE INDEX</span>
-        {m.pins && m.pins.map((p, i) => (
-          <span key={'idx'+i} className={`sync-mappins__chip ${p.amber ? 'is-amber' : p.red ? 'is-red' : ''}`}>
-            ◆ {p.label}{p.sub ? ` · ${p.sub}` : ''}
-          </span>
-        ))}
-      </div>
-      {/* SVG 도식은 후방 호환 옵션 — 기본은 숨김. db.map.useSchematic=true면 표시 */}
-      {m.useSchematic && (
-      <div className="sync-mapwrap" style={{marginTop:14}}>
-        <svg viewBox={`0 0 ${W} ${H}`} className="sync-map" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="mapgrid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(232, 176, 43,0.10)" strokeWidth="0.5"/>
-            </pattern>
-            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#5dd5f5"/>
-            </marker>
-          </defs>
-
-          {/* Grid */}
-          <rect x="0" y="0" width={W} height={H} fill="url(#mapgrid)"/>
-
-          {/* Frame ticks */}
-          {[0, W/4, W/2, 3*W/4, W].map((x, i) => (
-            <line key={'tx'+i} x1={x} x2={x} y1="0" y2="6" stroke="rgba(168,188,204,0.4)" strokeWidth="0.5"/>
-          ))}
-          {[0, H/4, H/2, 3*H/4, H].map((y, i) => (
-            <line key={'ty'+i} x1="0" x2="6" y1={y} y2={y} stroke="rgba(168,188,204,0.4)" strokeWidth="0.5"/>
-          ))}
-
-          {/* Region outlines (schematic land mass) */}
-          {m.regions && m.regions.map((r, i) => (
-            <g key={'rg'+i}>
-              <path d={r.d}
-                fill="rgba(232, 176, 43,0.06)"
-                stroke="var(--cyan-400)"
-                strokeWidth="1"
-                strokeDasharray="2 3"/>
-              {r.label && (
-                <text x="14" y={H - 10} fill="var(--cyan-300)"
-                  fontFamily="var(--font-mono)" fontSize="9"
-                  letterSpacing="0.18em" textTransform="uppercase">
-                  ▸ {r.label}
-                </text>
-              )}
-            </g>
-          ))}
-
-          {/* Optional grid line (boundary) */}
-          {m.gridLine && (
-            <g>
-              <line x1="0" x2={W} y1={m.gridLine.y} y2={m.gridLine.y}
-                stroke="var(--amber-500)" strokeWidth="1" strokeDasharray="6 4" opacity="0.85"/>
-              <text x={W - 14} y={m.gridLine.y - 5} fill="var(--amber-300)" textAnchor="end"
-                fontFamily="var(--font-mono)" fontSize="9" letterSpacing="0.14em">
-                {m.gridLine.label}
-              </text>
-            </g>
-          )}
-
-          {/* Arrows */}
-          {m.arrows && m.arrows.map((a, i) => {
-            const dx = a.to[0] - a.from[0], dy = a.to[1] - a.from[1];
-            const len = Math.hypot(dx, dy);
-            const mx = (a.from[0] + a.to[0]) / 2, my = (a.from[1] + a.to[1]) / 2;
-            return (
-              <g key={'ar'+i}>
-                <line x1={a.from[0]} y1={a.from[1]} x2={a.to[0]} y2={a.to[1]}
-                  stroke="var(--cyan-300)" strokeWidth="1"
-                  strokeDasharray="3 3"
-                  markerEnd="url(#arr)" opacity="0.9"/>
-                <text x={mx} y={my - 4} fill="var(--cyan-200)"
-                  fontFamily="var(--font-mono)" fontSize="8.5" letterSpacing="0.12em" textAnchor="middle">
-                  {a.label}
-                </text>
-              </g>
-            );
-          })}
-
-          {/* Pins */}
-          {m.pins && m.pins.map((p, i) => {
-            const color = p.amber ? 'var(--amber-500)' : (p.red ? 'var(--red-500)' : 'var(--cyan-300)');
-            const labelColor = p.amber ? 'var(--amber-300)' : (p.red ? 'var(--red-300)' : 'var(--fg-1)');
-            return (
-              <g key={'pn'+i}>
-                <g transform={`translate(${p.x},${p.y}) rotate(45)`}>
-                  <rect x="-3.5" y="-3.5" width="7" height="7" fill="var(--bg-base)" stroke={color} strokeWidth="1.4"/>
-                </g>
-                {p.amber && <circle cx={p.x} cy={p.y} r="10" fill="none" stroke={color} strokeWidth="0.8" opacity="0.4"/>}
-                <text x={p.x + 8} y={p.y + 2} fill={labelColor}
-                  fontFamily="var(--font-ko-ui), var(--font-display)"
-                  fontSize="11" fontWeight="500">{p.label}</text>
-                {p.sub && (
-                  <text x={p.x + 8} y={p.y + 14} fill="var(--fg-3)"
-                    fontFamily="var(--font-mono)" fontSize="8.5" letterSpacing="0.1em">
-                    {p.sub}
-                  </text>
-                )}
-              </g>
-            );
-          })}
-        </svg>
-      </div>
-      )}
-    </div>
-  );
-}
-
-// =================================================
-// TAB: ARTIFACTS — image-frame placeholders
-// =================================================
-function ArtifactsTab({ db }) {
-  const items = db.artifacts || [];
-  return (
-    <div className="sync-pane sync-pane--artifacts">
-      <div className="sync-pane__hint">// 부속 자료철 · 원본 사본</div>
-      <div className="sync-artgrid">
-        {items.map((a, i) => (
-          <div key={i} className={`sync-art sync-art--${a.slot}${a.span ? ' sync-art--span' : ''}`}>
-            <div className="sync-art__frame">
-              <span className="sync-art__corner sync-art__corner--tl"/>
-              <span className="sync-art__corner sync-art__corner--tr"/>
-              <span className="sync-art__corner sync-art__corner--bl"/>
-              <span className="sync-art__corner sync-art__corner--br"/>
-              {a.src ? (
-                <img className="sync-art__img" src={a.src} alt={a.caption} loading="eager"
-                  onClick={() => window.__tmbLightbox && window.__tmbLightbox(a.src, a.caption)}
-                  title="클릭하여 크게 보기"/>
-              ) : (
-                <div className="sync-art__placeholder">
-                  <span>// IMAGE PLACEHOLDER</span>
-                  <span className="sync-art__slot">{a.slot.toUpperCase()}</span>
-                </div>
-              )}
-            </div>
-            <div className="sync-art__caption">{a.caption}</div>
-            {window.cleanCite(a.ref) && <div className="sync-art__ref">{window.cleanCite(a.ref)}</div>}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// =================================================
-// TAB: LINKED — jump to other events
-// =================================================
-function LinkedTab({ db, event, onJumpTo }) {
-  const all = window.TIMELINE_DATA.events;
-  const links = (db.linked || [])
-    .map(id => all.find(e => e.id === id))
-    .filter(Boolean);
-
-  // Compute "concurrent" events (within ±25y) on the OTHER track
-  const otherTrack = event.track === 'korea' ? 'world' : 'korea';
-  const concurrent = all
-    .filter(e => e.track === otherTrack)
-    .filter(e => Math.abs(e.year - event.year) <= 35 && e.id !== event.id)
-    .sort((a, b) => Math.abs(a.year - event.year) - Math.abs(b.year - event.year))
-    .slice(0, 3);
-
-  const renderItem = (e, note) => {
-    const yearStr = window.eventYearText(e);
-    return (
-      <button key={e.id} className={`sync-linkrow sync-linkrow--${e.track}`} onClick={() => onJumpTo(e.id)}>
-        <span className="sync-linkrow__y">{yearStr}</span>
-        <span className="sync-linkrow__diamond">◆</span>
-        <span className="sync-linkrow__body">
-          <span className="sync-linkrow__label">{e.label}</span>
-          <span className="sync-linkrow__en">{e.en}</span>
-        </span>
-        <span className="sync-linkrow__meta">
-          <span className="sync-linkrow__track">{({korea:'한국',eastasia:'동아시아',west:'유럽·미주',westasia:'서아·인도'})[e.track] || e.track}</span>
-          {note && <span className="sync-linkrow__note">{note}</span>}
-        </span>
-        <span className="sync-linkrow__chev">연결 · 대조</span>
-      </button>
-    );
-  };
-
-  return (
-    <div className="sync-pane sync-pane--linked">
-      <section className="sync-section">
-        <h3 className="sync-section__head">▸ EDITORIALLY LINKED · 연결 기록</h3>
-        <div className="sync-linklist">
-          {links.length === 0 && <div className="sync-pane__hint">// 색인된 연결 없음</div>}
-          {links.map(e => renderItem(e))}
-        </div>
-      </section>
-      <section className="sync-section">
-        <h3 className="sync-section__head">▸ CONCURRENT · 동시대 — {otherTrack === 'korea' ? '한국사' : '세계사'}</h3>
-        <div className="sync-linklist">
-          {concurrent.length === 0 && <div className="sync-pane__hint">// ±35년 내 동시대 기록 없음</div>}
-          {concurrent.map(e => {
-            const delta = e.year - event.year;
-            const note = delta === 0 ? '동년' : (delta > 0 ? `+${delta}년` : `${delta}년`);
-            return renderItem(e, note);
-          })}
-        </div>
-      </section>
-    </div>
-  );
-}
-
-// =================================================
-// DOC MODE — 스캔 문서 연출 (db.docMode). 탭: 지도·요약·상세·자료·탐구 (+ 대응요원: LUMINA 보고)
+// DOC MODE — 스캔 문서 연출 (모든 메인 노드). 탭: 지도·요약·상세·자료·탐구·연결·연구원 기록 (+ 대응요원: LUMINA 보고)
 //   문자열 속 {{원본|왜곡}} = LUMINA가 바꿔 쓴 문장.
 //     연구원 접속 — 원본만 보인다.
 //     대응요원 접속 — 왜곡된 문장이 평범하게 섞여 보인다. 찾아 누르면 왜곡에 줄을 긋고 원본을 옆에 적는다(정정).
@@ -31012,7 +30551,33 @@ const DOC_META = {
   overview:  { no: '03', head: '기록 상세 조사', en: 'DETAILED RECORD' },
   artifacts: { no: '04', head: '부속 자료철',   en: 'ANNEXED PLATES' },
   sources:   { no: '05', head: '사료 탐구 보고', en: 'SOURCE INQUIRY' },
+  linked:    { no: '06', head: '관련 기록 대조', en: 'CROSS-REFERENCE' },
+  research:  { no: '07', head: '연구원 기록',   en: 'RESEARCHER LOG' },
 };
+const DOC_PAGES = 7;
+const DOC_TRACK = { korea: 'KR', eastasia: 'EA', west: 'EU', westasia: 'WA' };
+const DOC_TRACK_KO = { korea: '한국', eastasia: '동아시아', west: '유럽·미주', westasia: '서아시아·인도' };
+// 문서 번호 — db.docNo가 없으면 계통·연도·이름으로 만든다 (예: KR-0698-BH)
+function docBase(db, event) {
+  if (db.docNo) return db.docNo;
+  const tail = String(event.id).replace(/^[a-z]+-/, '').replace(/[^a-z]/gi, '').slice(0, 2).toUpperCase() || 'XX';
+  return `${DOC_TRACK[event.track] || 'XX'}-${window.eventYearCode(event)}-${tail}`;
+}
+// 등재 목록(부속 자료·연구원 기록) — 반박 트리를 깊이 우선으로 펼친다. reply_to = 대상 id 또는 배열 순번
+function entryRows(list) {
+  const keyOf = (a, i) => (a.id != null ? String(a.id) : String(i));
+  const kids = {};
+  list.forEach((a, i) => {
+    const to = a.reply_to == null ? '' : String(a.reply_to);
+    (kids[to] = kids[to] || []).push({ a, k: keyOf(a, i) });
+  });
+  const rows = [];
+  const walk = (parent, depth) => (kids[parent] || []).forEach(n => { rows.push({ ...n, depth }); walk(n.k, depth + 1); });
+  walk('', 0);
+  // 대상이 없는 반박도 빠뜨리지 않는다
+  list.forEach((a, i) => { const k = keyOf(a, i); if (!rows.some(r => r.k === k)) rows.push({ a, k, depth: 1 }); });
+  return rows;
+}
 const DIST_RE = /(\{\{[^}]*\}\})/g;
 const docStrip = (str) => String(str || '').replace(/\{\{([^|}]*)\|[^}]*\}\}/g, '$1');
 const docDistCount = (x) => (JSON.stringify(x || '').match(/\{\{/g) || []).length;
@@ -31029,12 +30594,12 @@ function docSections(db) {
 function docCountRedactions(db) { return docSections(db).reduce((t, s) => t + s.n, 0); }
 function DocText({ text, id, ctx }) {
   const str = String(text || '');
-  if (!ctx.redactOn) return <>{docStrip(str)}</>;
+  if (!ctx.redactOn) return <>{notesEm(docStrip(str))}</>;
   const parts = str.split(DIST_RE);
   let k = 0;
   return <>{parts.map((part, i) => {
     const m = part.match(/^\{\{([^|}]*)\|([^}]*)\}\}$/);
-    if (!m) return <React.Fragment key={i}>{part}</React.Fragment>;
+    if (!m) return <React.Fragment key={i}>{notesEm(part)}</React.Fragment>;
     const rid = `${id}.${k++}`;
     if (ctx.restored.has(rid)) {
       return <span key={i} className="docx-fixed" title="LUMINA 왜곡 — 원본 기록으로 정정"><s>{m[2]}</s><ins>{m[1]}</ins></span>;
@@ -31099,7 +30664,16 @@ function DocPlate({ src, alt, redact, idPrefix, ctx, cap, children, className = 
     </div>
   );
 }
-function DocView({ tab, db, event, redactOn, restored, onRestore }) {
+// 결락 도판 — 사본이 아직 편입되지 않은 자리
+function DocVoid({ label = '도판', children }) {
+  return (
+    <div className="docx-plate docx-plate--void">
+      <div className="docx-void-fig"><span>{label} 결락</span><small>사본 미편입</small></div>
+      <div className="docx-plate__body">{children}</div>
+    </div>
+  );
+}
+function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo }) {
   // 정정 — 맞게 찾으면 알림 줄에 잠깐 결과를 띄운다
   const [probe, setProbe] = useStateSync(null);
   const probeT = useRefSync(0);
@@ -31112,7 +30686,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
     if (!redactOn || tab === 'lumina') return;
     const t = e.target;
     if (t.closest('.docx-dist, .docx-fixed, .docx-imgbar, img, button, iframe, a')) return;
-    if (t.closest('.docx-p, .docx-list li, .docx-olist li, .docx-terms dd, .docx-find td, .docx-vtl li, .docx-pins li')) {
+    if (t.closest('.docx-p, .docx-list li, .docx-olist li, .docx-terms dd, .docx-find td, .docx-vtl li, .docx-pins li, .docx-quote')) {
       if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('click');
       flash('clean');
     }
@@ -31123,7 +30697,8 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
   const closeMap = () => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setBigMap(null); };
   window.useEscLayer(!!bigMap, closeMap);   // ESC는 지도 창만 닫고 기록 열람 창은 유지
   const meta = DOC_META[tab] || DOC_META.notes;
-  const docNo = `${db.docNo || event.id.toUpperCase()}-${meta.no}`;
+  const base = docBase(db, event);
+  const docNo = `${base}-${meta.no}`;
   const total = redactOn ? docCountRedactions(db) : 0;
   const done = redactOn ? restored.size : 0;
   const secs = docSections(db).map(sec => ({ ...sec, done: [...restored].filter(id => sec.pre.some(p => id.startsWith(p))).length }));
@@ -31137,7 +30712,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
     body = <>
       <h4 className="docx-h">탐지 개요:</h4>
       <table className="docx-kv"><tbody>
-        <tr><th>표적 기록</th><td>{event.label} · 문서 {db.docNo || event.id.toUpperCase()}-01 ~ 05</td></tr>
+        <tr><th>표적 기록</th><td>{event.label} · 문서 {base}-01 ~ {String(DOC_PAGES).padStart(2, '0')}</td></tr>
         <tr><th>탐지 시각</th><td><DocBars text={L.detected}/></td></tr>
         <tr><th>접근 경로</th><td><DocBars text={L.route}/></td></tr>
         <tr><th>접근자</th><td><DocBars text={L.accessor || '████████'}/> · LUMINA 계열 추정</td></tr>
@@ -31165,7 +30740,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
         <tr><th>문서</th><th>왜곡</th><th>정정</th><th>상태</th></tr>
         {secs.map(sec => (
           <tr key={sec.tab} className={sec.n > 0 && sec.done >= sec.n ? 'is-done' : ''}>
-            <td>{db.docNo || event.id.toUpperCase()}-{sec.no} · {sec.name}</td>
+            <td>{base}-{sec.no} · {sec.name}</td>
             <td>{sec.n}건</td>
             <td>{sec.done}건</td>
             <td>{sec.n === 0 ? '이상 없음' : sec.done >= sec.n ? '정정 완료' : '대조 필요'}</td>
@@ -31173,7 +30748,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
         ))}
         {[['04', '부속 자료철'], ['05', '사료 탐구 보고']].map(([no, name]) => (
           <tr key={no} className={allDone ? 'is-done' : 'is-sealed'}>
-            <td>{db.docNo || event.id.toUpperCase()}-{no} · {name}</td>
+            <td>{base}-{no} · {name}</td>
             <td>—</td>
             <td>—</td>
             <td>{allDone ? '봉인 해제' : '열람 봉인'}</td>
@@ -31189,12 +30764,14 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
     </>;
     tail = window.cleanCite(L.cite) ? `대조 근거는 ${window.cleanCite(L.cite)} 참고.` : null;
   } else if (tab === 'map') {
+    // 지도 자료가 없는 기록은 노드 이름으로 위성 지도를 찾는다
     const m = db.map || {};
-    const title = m.title || event.label;
-    const q = m.googleQuery || m.title || event.label;
-    const url = `https://www.google.com/maps?q=${encodeURIComponent(q)}&t=k&z=${m.googleZoom || 5}&output=embed`;
     const pins = Array.isArray(m.pins) ? m.pins : [];
     const notes = Array.isArray(m.notes) ? m.notes : [];
+    const keyPin = pins.find(p => p.amber);
+    const title = m.title || event.label;
+    const q = m.googleQuery || (keyPin && keyPin.label) || m.title || event.en || event.label;
+    const url = `https://www.google.com/maps?q=${encodeURIComponent(q)}&t=k&z=${m.googleZoom || 5}&output=embed`;
     body = <>
       <h4 className="docx-h">첨부 1. 위성 지도 — {title}</h4>
       <div className="docx-mapframe">
@@ -31205,10 +30782,10 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
         </button>
       </div>
       <div className="docx-cap">▲ 위성 지도 — 조회 좌표: {q}</div>
-      <div className="docx-cols docx-cols--map">
+      {(pins.length > 0 || notes.length > 0) && <div className={`docx-cols ${pins.length && notes.length ? 'docx-cols--map' : ''}`}>
         {pins.length > 0 && <section>
           <h4 className="docx-h">표시 지점:</h4>
-          <ul className="docx-pins">
+          <ul className={`docx-pins ${notes.length ? '' : 'docx-pins--flow'}`}>
             {pins.map((p, i) => (
               <li key={i} className={p.amber ? 'is-key' : p.red ? 'is-red' : ''}>
                 <span className="docx-pins__mk">{p.amber ? '◆' : p.red ? '✕' : '◇'}</span>
@@ -31223,36 +30800,48 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
             {notes.map((t, i) => <li key={i}><DocText text={t} id={`map.${i}`} ctx={ctx}/></li>)}
           </ol>
         </section>}
-      </div>
+      </div>}
     </>;
     tail = window.cleanCite(m.cite) ? `지도 원본은 ${window.cleanCite(m.cite)} 참고.` : null;
   } else if (tab === 'notes') {
+    // 요약 = 옛 정리. 항목은 문자열 또는 { t, sub:[...] } — 머리 항목 아래 세부 항목을 들여 단다. **강조**는 강의 모드 빈칸
     const notes = db.notes;
     const secs = notes && Array.isArray(notes.sections) ? notes.sections : [];
-    body = <>
+    const item = (it, key, id) => {
+      if (it && typeof it === 'object') {
+        const sub = Array.isArray(it.sub) ? it.sub : [];
+        return <li key={key} className={sub.length ? 'has-sub' : undefined}><DocText text={it.t} id={id} ctx={ctx}/>
+          {sub.length > 0 && <ul className="docx-sublist">{sub.map((x, k) => <li key={k}><DocText text={x} id={`${id}.s${k}`} ctx={ctx}/></li>)}</ul>}
+        </li>;
+      }
+      return <li key={key}><DocText text={it} id={id} ctx={ctx}/></li>;
+    };
+    body = <div className="docx-notes">
       <h4 className="docx-h">요약:</h4>
-      {typeof notes === 'string' && <p className="docx-p"><DocText text={notes} id="n" ctx={ctx}/></p>}
+      {!window.hasNotes(db) && <p className="docx-p docx-void">요약본 미작성 — 이 기록의 요약은 아직 등재되지 않았음.</p>}
+      {typeof notes === 'string' && notes.trim() && <p className="docx-p"><DocText text={notes} id="n" ctx={ctx}/></p>}
       {notes && notes.summary && <p className="docx-p docx-lead"><DocText text={notes.summary} id="n.s" ctx={ctx}/></p>}
-      <div className="docx-secgrid">
+      {secs.length > 0 && <div className={`docx-secgrid ${secs.length === 1 && !(secs[0].list || []).length ? 'docx-secgrid--one' : ''}`}>
         {secs.map((sec, i) => (
           <div className="docx-sec" key={i}>
             {sec.head && <div className="docx-sec__h">{sec.head}</div>}
             {sec.body && <p className="docx-p"><DocText text={sec.body} id={`n.${i}.b`} ctx={ctx}/></p>}
             {Array.isArray(sec.list) && (
               <ul className="docx-list">
-                {sec.list.map((it, j) => <li key={j}><DocText text={it} id={`n.${i}.${j}`} ctx={ctx}/></li>)}
+                {sec.list.map((it, j) => item(it, j, `n.${i}.${j}`))}
               </ul>
             )}
           </div>
         ))}
-      </div>
-    </>;
-    tail = `상세 내용은 문서 ${db.docNo || event.id.toUpperCase()}-03 참고.`;
+      </div>}
+    </div>;
+    tail = `상세 내용은 문서 ${base}-03 참고.`;
   } else if (tab === 'overview') {
     const ov = db.overview || {};
     const terms = Array.isArray(ov.terms) ? ov.terms : [];
     const tl = Array.isArray(ov.timeline) ? ov.timeline : [];
     body = <>
+      {!ov.summary && !terms.length && !tl.length && <p className="docx-p docx-void">상세 조사 미등재 — 이 기록의 상세 조사는 아직 편입되지 않았음.</p>}
       {ov.summary && <>
         <h4 className="docx-h">개요:</h4>
         <p className="docx-p docx-lead"><DocText text={ov.summary} id="o.s" ctx={ctx}/></p>
@@ -31279,26 +30868,33 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
         </section>}
       </div>
     </>;
-    tail = `요약본은 문서 ${db.docNo || event.id.toUpperCase()}-02 참고.`;
+    tail = `요약본은 문서 ${base}-02 참고.`;
   } else if (tab === 'artifacts') {
-    const items = (db.artifacts || []).filter(a => a.src);
+    // 자료 — 도판마다 한 장. 가로 도판은 설명을 아래, 세로 도판은 옆에. 아직 사본이 없는 자리는 결락 칸으로 남긴다
+    const items = Array.isArray(db.artifacts) ? db.artifacts : [];
     body = <>
       <h4 className="docx-h">수록 도판:</h4>
-      {items.length === 0 && <p className="docx-p">수록된 도판이 없음.</p>}
-      {items.map((a, i) => (
-        <DocPlate key={i} src={a.src} alt={a.caption} ctx={ctx}>
+      {items.length === 0 && <p className="docx-p docx-void">수록된 도판이 없음.</p>}
+      {items.map((a, i) => {
+        const desc = a.note || window.cleanCite(a.ref);
+        const text = <>
           <div className="docx-plate__no">도판 {i + 1}.</div>
           <div className="docx-plate__t">{a.caption}</div>
-          {a.note && <p className="docx-p docx-p--sm"><DocText text={a.note} id={`a.${i}`} ctx={ctx}/></p>}
-          {window.cleanCite(a.ref) && <div className="docx-plate__ref">출처: {window.cleanCite(a.ref)}</div>}
-        </DocPlate>
-      ))}
+          {desc && <p className="docx-p docx-p--sm"><DocText text={desc} id={`a.${i}`} ctx={ctx}/></p>}
+        </>;
+        return a.src
+          ? <DocPlate key={a.src + i} src={a.src} alt={a.caption} ctx={ctx}>{text}</DocPlate>
+          : <DocVoid key={'v' + i}>{text}</DocVoid>;
+      })}
     </>;
     tail = '도판 원본은 부속 자료 보관함에 별도 보관.';
   } else if (tab === 'sources') {
+    // 탐구 — 발해식 탐구 보고(db.inquiry)가 있으면 먼저, 이어서 사료(db.sources)를 한 건씩
     const q = db.inquiry;
-    if (q) {
-      body = <>
+    const srcs = Array.isArray(db.sources) ? db.sources : [];
+    const kindOf = (k) => String(k || '').replace(/^(?:교과서|세계사) 본문$/, '원본 본문').replace(/^(?:교과서|판서)\s+/, '');
+    body = <>
+      {q && <>
         <h4 className="docx-h">탐구 자료 — {q.title}</h4>
         <DocPlate src={q.src} alt={q.title} ctx={ctx} redact={q.redact} idPrefix="img" className="docx-plate--inq"
           cap={`▲ ${q.title}${window.cleanCite(q.cite) ? ` (${window.cleanCite(q.cite)})` : ''}`}>
@@ -31316,11 +30912,94 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
         </DocPlate>
         <h4 className="docx-h">결론:</h4>
         <p className="docx-p docx-lead"><DocText text={q.conclusion} id="q.c" ctx={ctx}/></p>
-      </>;
-      tail = window.cleanCite(q.cite) ? `탐구 자료 원본은 ${window.cleanCite(q.cite)} 참고.` : null;
-    } else {
-      body = <p className="docx-p">등록된 탐구 기록이 없음.</p>;
-    }
+      </>}
+      {srcs.length > 0 && <h4 className="docx-h">{q ? '추가 사료:' : '수록 사료:'}</h4>}
+      {!q && srcs.length === 0 && <p className="docx-p docx-void">등록된 탐구 기록이 없음.</p>}
+      {srcs.map((sItem, i) => {
+        const cite = window.cleanCite(sItem.citation);
+        const gallery = Array.isArray(sItem.images) ? sItem.images : [];
+        const head = <>
+          <div className="docx-plate__no">사료 {i + 1}.{kindOf(sItem.kind) && <span className="docx-src__kind">{kindOf(sItem.kind)}</span>}</div>
+          <div className="docx-plate__t">{sItem.title}</div>
+        </>;
+        const text = <>
+          {sItem.body && <blockquote className="docx-quote"><DocText text={sItem.body} id={`s.${i}`} ctx={ctx}/></blockquote>}
+          {sItem.gloss && <p className="docx-gloss"><b>해설</b>{sItem.gloss}</p>}
+          {gallery.length > 0 && <div className="docx-gallery">
+            {gallery.map((im, k) => (
+              <figure key={k}>
+                <DocFigure src={im.src} alt={im.caption || sItem.title} ctx={ctx}/>
+                {im.caption && <figcaption className="docx-cap">{im.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>}
+          {cite && <div className="docx-plate__ref">출처: {cite}</div>}
+        </>;
+        if (sItem.src) return <DocPlate key={'s' + i} src={sItem.src} alt={sItem.title} ctx={ctx}>{head}{text}</DocPlate>;
+        if (sItem.ph) return <DocVoid key={'s' + i} label="탐구 자료">{head}{text}</DocVoid>;
+        return <section key={'s' + i} className="docx-src">{head}{text}</section>;
+      })}
+    </>;
+    tail = q && window.cleanCite(q.cite) ? `탐구 자료 원본은 ${window.cleanCite(q.cite)} 참고.` : null;
+  } else if (tab === 'linked') {
+    // 연결 — 편집 연결 기록과, 다른 계통의 동시대 기록(±35년)
+    const all = window.TIMELINE_DATA.events;
+    const links = (db.linked || []).map(id => all.find(e => e.id === id)).filter(Boolean);
+    const near = all
+      .filter(e => e.id !== event.id && !e.hidden && (event.track === 'korea' ? e.track !== 'korea' : e.track === 'korea'))
+      .filter(e => Math.abs(e.year - event.year) <= 35)
+      .sort((a, b) => Math.abs(a.year - event.year) - Math.abs(b.year - event.year))
+      .slice(0, 4);
+    const row = (e, note) => (
+      <tr key={e.id} className="docx-xref__row" onClick={() => onJumpTo && onJumpTo(e.id)} title={`${e.label} 기록으로 이동`}>
+        <td className="docx-xref__y">{window.eventYearText(e)}</td>
+        <td className="docx-xref__l"><b>{e.label}</b>{e.en && <span>{e.en}</span>}</td>
+        <td className="docx-xref__t">{DOC_TRACK_KO[e.track] || e.track}{note && <em>{note}</em>}</td>
+        <td className="docx-xref__go">대조 →</td>
+      </tr>
+    );
+    body = <>
+      <h4 className="docx-h">연결 기록:</h4>
+      {links.length === 0 ? <p className="docx-p docx-void">색인된 연결 기록 없음.</p> : (
+        <table className="docx-xref"><tbody>
+          <tr><th>연도</th><th>기록</th><th>계통</th><th/></tr>
+          {links.map(e => row(e))}
+        </tbody></table>
+      )}
+      <h4 className="docx-h">동시대 기록 — {event.track === 'korea' ? '세계사' : '한국사'} (±35년):</h4>
+      {near.length === 0 ? <p className="docx-p docx-void">±35년 안에 동시대 기록 없음.</p> : (
+        <table className="docx-xref"><tbody>
+          <tr><th>연도</th><th>기록</th><th>계통</th><th/></tr>
+          {near.map(e => {
+            const d = e.year - event.year;
+            return row(e, d === 0 ? '동년' : (d > 0 ? `+${d}년` : `${d}년`));
+          })}
+        </tbody></table>
+      )}
+    </>;
+    tail = '행을 누르면 해당 기록으로 이동한다.';
+  } else if (tab === 'research') {
+    // 연구원 기록 — db.research (부속 자료와 별개). 등재 항목만 보인다
+    const list = Array.isArray(db.research) ? db.research : [];
+    body = <>
+      <h4 className="docx-h">등재 기록{list.length ? ` · ${list.length}건` : ''}:</h4>
+      {list.length === 0 ? <p className="docx-p docx-void">등재된 연구원 기록 없음.</p> : (
+        <ol className="docx-log">
+          {entryRows(list).map(({ a, k, depth }) => (
+            <li key={k} className={depth ? 'is-reply' : ''} style={{ marginLeft: `${Math.min(depth, 6) * 34}px` }}>
+              <div className="docx-log__meta">
+                <span className="docx-log__type">{a.type || '주해'}</span>
+                <span>{a.author_code || '—'}</span>
+                <span>{a.year || '연도 없음'}</span>
+                {depth > 0 && <span className="docx-log__re">↳ 반박</span>}
+              </div>
+              <p className="docx-p docx-p--sm">{a.body}</p>
+            </li>
+          ))}
+        </ol>
+      )}
+    </>;
+    tail = '확정 기록의 본문은 고치지 않는다 — 소견은 이 문서에 덧붙여 등재한다.';
   }
 
   return (
@@ -31347,7 +31026,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
             <span className="docx-head__txt"><b>{meta.head}</b><small>{meta.en}</small></span>
           </div>
           <div className="docx-head__node">
-            <h2>{event.label}</h2>
+            <h2 className={event.label.length > 16 ? 'is-xl' : event.label.length > 11 ? 'is-l' : event.label.length > 7 ? 'is-m' : ''}>{event.label}</h2>
             <div>{event.en} · {yearStr} · {event.state}{event.theme ? ` / ${event.theme}` : ''}</div>
           </div>
           <div className="docx-head__mark">
@@ -31359,7 +31038,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore }) {
         </div>
         {body}
         {tail && <p className="docx-tail">{tail}</p>}
-        <footer className="docx-foot">{tab === 'lumina' ? '— 부속 보고 · 대응요원 전용 —' : `— ${Number(meta.no)} / 5 —`}</footer>
+        <footer className="docx-foot">{tab === 'lumina' ? '— 부속 보고 · 대응요원 전용 —' : `— ${Number(meta.no)} / ${DOC_PAGES} —`}</footer>
       </article>
       {bigMap && ReactDOM.createPortal(
         <div className="tl-mapmodal" role="dialog" aria-modal="true" onClick={closeMap}>
