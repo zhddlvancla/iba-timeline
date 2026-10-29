@@ -1612,7 +1612,7 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 /* ============================================================
    MAP — floating modal (Google Maps) triggered by 위치 확인
    ============================================================ */
-.tl-stickywrap{position:absolute;left:12px;display:flex;flex-direction:column;gap:6px;z-index:4}
+.tl-stickywrap{position:absolute;left:30px;display:flex;flex-direction:column;gap:6px;z-index:4}
 .tl-stickywrap .tl-stickylabel{position:static !important;left:auto !important}
 .tl-mapbtn{
   display:inline-flex;align-items:center;gap:8px;
@@ -3855,63 +3855,34 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 .brk::before,.brk::after,.brk > .brk-tl,.brk > .brk-tr,.brk > .brk-bl,.brk > .brk-br{display:none !important}
 
 /* 가로 스크롤 표시 — 얇은 선으로, 연표 맨 아래에 붙여 갈래 이름표와 겹치지 않게 */
-.tl-minimap{left:220px;right:14px;bottom:2px;height:3px;border:0;background:rgba(47,174,94,.16)}
+.tl-minimap{left:222px;right:14px;bottom:2px;height:3px;border:0;background:rgba(47,174,94,.16)}
 .tl-minimap__bar{opacity:.9;box-shadow:0 0 4px var(--amber-glow)}
 .tl-minimap__label{top:-16px;text-align:right}
 
-/* 기록줄기 진입 — 맹세에서 넘어오면 구성 요소가 하나씩 서서히 켜진다 */
-@keyframes tr-boot-in{
-  0%  {opacity:0;filter:brightness(2.2) blur(2px);clip-path:inset(0 0 100% 0)}
-  35% {opacity:.85;filter:brightness(1.6) blur(.6px);clip-path:inset(0 0 40% 0)}
-  55% {opacity:.35}
-  70% {opacity:1;filter:brightness(1.15) blur(0);clip-path:inset(0 0 0 0)}
-  100%{opacity:1;filter:none;clip-path:inset(0 0 0 0)}
+/* 기록줄기 진입 — 맹세에서 넘어오면 칸마다 1987년 단말기 화면처럼 켜진다.
+   가운데 가는 빛줄기가 먼저 서고 위아래로 펼쳐지며, 형광체가 데워지듯 밝기가 가라앉는다. 켜지는 순서는 매번 무작위(--bd) */
+@keyframes tr-crt-on{
+  0%  {opacity:0;transform:scaleY(.006) scaleX(.6);filter:brightness(4) blur(1.5px)}
+  18% {opacity:1;transform:scaleY(.006) scaleX(1);filter:brightness(3.2) blur(1px)}
+  55% {opacity:1;transform:scaleY(1) scaleX(1);filter:brightness(1.7) blur(.5px)}
+  100%{opacity:1;transform:none;filter:none}
 }
-.timeline-root.is-booting .topbar,
-.timeline-root.is-booting .subnav > *,
-.timeline-root.is-booting .canvas,
-.timeline-root.is-booting .footer{opacity:0;animation:tr-boot-in .7s ease-out both}
-.timeline-root.is-booting .topbar{animation-delay:.05s}
-.timeline-root.is-booting .subnav > *:nth-child(1){animation-delay:.35s}
-.timeline-root.is-booting .subnav > *:nth-child(2){animation-delay:.6s}
-.timeline-root.is-booting .subnav > *:nth-child(3){animation-delay:.85s}
-.timeline-root.is-booting .subnav > *:nth-child(4){animation-delay:1.05s}
-.timeline-root.is-booting .canvas{animation-delay:1.25s;animation-duration:.9s}
-.timeline-root.is-booting .footer{animation-delay:1.7s}
+.timeline-root.is-booting .boot-part{opacity:0;transform-origin:50% 50%;animation:tr-crt-on .95s cubic-bezier(.3,.6,.25,1) var(--bd,0s) both}
 
-/* 대응요원 접속 전환 — 경보 섬광 → 적색 주사선이 위에서 아래로 훑으며 화면을 물들인다 → 잔상 글리치 */
-.mode-sweep{position:fixed;inset:0;z-index:2600;pointer-events:none;overflow:hidden}
-.mode-sweep__flash{position:absolute;inset:0;background:rgba(255,68,34,.20);animation:ms-flash .9s steps(6,end) both}
-.mode-sweep__line{position:absolute;left:0;right:0;height:140px;top:-140px;
-  background:linear-gradient(180deg,transparent,rgba(255,68,34,.10) 60%,rgba(255,96,64,.85) 97%,#ffd2c8 100%);
-  box-shadow:0 6px 24px rgba(255,68,34,.6);animation:ms-line 1.05s cubic-bezier(.55,.05,.35,1) .12s both}
-.mode-sweep__stamp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  padding:10px 26px;border:2px solid var(--red);background:rgba(10,4,4,.86);color:var(--red);
-  font:700 15px/1.5 var(--font-mono);letter-spacing:.32em;text-align:center;white-space:nowrap;
-  text-shadow:0 0 8px var(--red-glow);box-shadow:0 0 30px var(--red-glow);
-  animation:ms-stamp 1.6s ease both}
-.mode-sweep__stamp span{display:block;font:600 13px/1.5 var(--font-ko);letter-spacing:.12em;color:#ffb4a4}
-.mode-sweep--back .mode-sweep__flash{background:rgba(47,174,94,.14)}
-.mode-sweep--back .mode-sweep__line{background:linear-gradient(180deg,transparent,rgba(47,174,94,.08) 60%,rgba(86,207,133,.7) 97%,#d8ffe6 100%);box-shadow:0 6px 24px rgba(47,174,94,.5)}
-@keyframes ms-flash{0%{opacity:0}10%{opacity:1}25%{opacity:.2}40%{opacity:.9}70%{opacity:.25}100%{opacity:0}}
-@keyframes ms-line{from{top:-140px}to{top:100%}}
-@keyframes ms-stamp{0%{opacity:0;transform:translate(-50%,-50%) scale(1.25)}12%{opacity:1;transform:translate(-50%,-50%) scale(1)}
-  20%{opacity:.3}28%{opacity:1}80%{opacity:1}100%{opacity:0}}
-/* 적색으로 바뀌는 순간 화면이 RGB로 갈라졌다 붙는다 */
-.timeline-root.is-mode-glitch{animation:ms-glitch .55s steps(2,end) .1s}
-@keyframes ms-glitch{
-  0%{filter:none;transform:none}
-  20%{filter:drop-shadow(3px 0 0 rgba(255,40,40,.7)) drop-shadow(-3px 0 0 rgba(0,255,200,.45));transform:translateX(-2px)}
-  40%{filter:drop-shadow(-4px 0 0 rgba(255,40,40,.7)) drop-shadow(4px 0 0 rgba(0,255,200,.45));transform:translateX(3px) skewX(-1deg)}
-  60%{filter:none;transform:translateX(-1px)}
-  100%{filter:none;transform:none}
-}
-/* 테두리·글자색도 툭 바뀌지 않고 번지듯 바뀐다 */
-.timeline-root .canvas,.timeline-root .canvas__header,.timeline-root .subnav__operator,.timeline-root .footer,
-.timeline-root .subnav__sidemeta,.timeline-root .topbar__sync{transition:border-color .8s ease .35s,box-shadow .8s ease .35s,background-color .8s ease .35s,color .8s ease .35s}
+/* 접속 전환 — 관리국 서고의 조명이 바뀌는 것처럼.
+   대응요원: 형광등이 꺼지듯 화면이 어둑해지고(그 사이 색이 바뀐다), 가장자리부터 붉은 비상등이 데워지며 들어온다.
+   연구원 복귀: 같은 소등 뒤 녹색 형광이 다시 들어온다 */
+.mode-shift{position:fixed;inset:0;z-index:2600;pointer-events:none}
+.mode-shift__dark{position:absolute;inset:0;background:#020403;animation:msh-dark 1.5s ease both}
+.mode-shift__lamp{position:absolute;inset:0;opacity:0;
+  background:radial-gradient(130% 95% at 50% 50%, transparent 45%, rgba(255,52,28,.30) 82%, rgba(255,52,28,.55) 100%);
+  animation:msh-lamp 2.4s ease-out .32s both}
+.mode-shift--back .mode-shift__lamp{background:radial-gradient(130% 95% at 50% 50%, transparent 50%, rgba(47,174,94,.16) 85%, rgba(86,207,133,.30) 100%);animation-duration:1.6s}
+@keyframes msh-dark{0%{opacity:0}18%{opacity:.88}30%{opacity:.88}100%{opacity:0}}
+@keyframes msh-lamp{0%{opacity:0}35%{opacity:1}60%{opacity:.75}100%{opacity:0}}
 @media (prefers-reduced-motion: reduce){
-  .timeline-root.is-booting *{animation:none !important;opacity:1 !important}
-  .mode-sweep,.timeline-root.is-mode-glitch{animation:none !important;display:none}
+  .timeline-root.is-booting .boot-part{animation:none !important;opacity:1 !important}
+  .mode-shift{display:none}
 }
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
@@ -32431,9 +32402,9 @@ const _yearLookup = (() => {
   return { cum, STEP, cumM, target: cumM[cumM.length - 1] };
 })();
 
-const LEAD_PAD = 328;  // left padding for trunk + branch fan-out (2026-10-29 간격을 좁혀 기록줄기 구간을 넓힘)
-const TRUNK_ORIGIN_X = 232;   // 갈래 이름표(왼쪽 12px, 가장 넓은 칸 오른쪽 끝 ≈209px) + 모래시계 반지름 14 + 여백 9
-const TRUNK_END_X = 256;
+const LEAD_PAD = 420;  // left padding for trunk + branch fan-out
+const TRUNK_ORIGIN_X = 250;
+const TRUNK_END_X = 290;
 // 갈래 곡선 끝과 기록줄기·첫 연도 틱(-4000)이 정확히 같은 x에서 만나도록 LEAD_PAD에 맞춤
 const BRANCH_END_X = LEAD_PAD;
 
@@ -34561,7 +34532,7 @@ Object.assign(window, { SyncDialog });
 </script>
 <script type="text/babel">
 /* global React, ReactDOM, TIMELINE_DATA, TopBar, SubNav, TimelineCanvas, MemoryDetail, Footer, SyncDialog */
-const { useState: useStateApp, useCallback: useCallbackApp, useEffect: useEffectApp, useRef: useRefApp } = React;
+const { useState: useStateApp, useCallback: useCallbackApp, useEffect: useEffectApp, useLayoutEffect: useLayoutEffectApp, useRef: useRefApp } = React;
 
 // ====================================================================
 // PORTAL VIEW — 대외 포털 (대외판 인장) → 포털 우회 로그인 → 글리치 → 대문
@@ -35052,18 +35023,30 @@ function Terminal({ onReboot }) {
   const modeRef = useRefApp('researcher');
   // 진입 연출 — 맹세에서 넘어오면 상단바 → 상황판 칸 → 기록줄기 → 하단바 순으로 하나씩 켜진다
   const [booting, setBooting] = useStateApp(true);
-  useEffectApp(() => { const id = setTimeout(() => setBooting(false), 2700); return () => clearTimeout(id); }, []);
+  const rootRef = useRefApp(null);
+  useLayoutEffectApp(() => {
+    // 켜지는 칸과 순서를 매번 섞는다 — 단말기 여러 대가 제각각 데워지듯
+    const root = rootRef.current; if (!root) return;
+    const parts = Array.from(root.querySelectorAll('.topbar, .subnav__leftcol > *, .subnav__operator, .subnav__rightcol > *, .canvas, .footer'));
+    for (let i = parts.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [parts[i], parts[j]] = [parts[j], parts[i]]; }
+    parts.forEach((el, i) => { el.classList.add('boot-part'); el.style.setProperty('--bd', (0.15 + i * 0.26 + Math.random() * 0.12).toFixed(2) + 's'); });
+    const total = 1100 + parts.length * 260 + 300;
+    const id = setTimeout(() => { setBooting(false); parts.forEach(el => { el.classList.remove('boot-part'); el.style.removeProperty('--bd'); }); }, total);
+    return () => clearTimeout(id);
+  }, []);
   // 접속 전환 연출 — 대응요원: 적색 섬광·주사선·「DISTORTION DETECTED」 / 연구원 복귀: 녹색 주사선
   const [sweep, setSweep] = useStateApp(null);   // { kind:'resp'|'back', key }
   const sweepTimer = useRefApp(null);
+  const modeTimer = useRefApp(null);
   const changeAccessMode = useCallbackApp((m) => {
     const prev = modeRef.current; modeRef.current = m;
     if (m !== prev) {
-      clearTimeout(sweepTimer.current);
+      // 조명이 어둑해진 순간에 색을 바꾼다 (소등 → 색 전환 → 비상등/형광 점등)
+      clearTimeout(sweepTimer.current); clearTimeout(modeTimer.current);
       setSweep({ kind: m === 'response' ? 'resp' : 'back', key: Date.now() });
-      sweepTimer.current = setTimeout(() => setSweep(null), 1700);
-    }
-    setAccessMode(m);
+      modeTimer.current = setTimeout(() => setAccessMode(m), 300);
+      sweepTimer.current = setTimeout(() => setSweep(null), 2800);
+    } else setAccessMode(m);
     // 배경음악 구역도 함께 전환 (재생 중일 때만 들린다)
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.zone(m === 'response' ? 1 : 0);
     // 대응 구역(제2폐가) 진입·이탈 — V-ZN-001 → 002 (경보음 뒤) / V-ZN-003
@@ -35149,12 +35132,11 @@ function Terminal({ onReboot }) {
   window.useEscLayer(!!lightbox, () => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setLightbox(null); });
 
   return (
-    <div className={`app timeline-root ${accessMode === 'response' ? 'is-response' : ''} ${booting ? 'is-booting' : ''} ${sweep ? 'is-mode-glitch' : ''}`}>
+    <div ref={rootRef} className={`app timeline-root ${accessMode === 'response' ? 'is-response' : ''} ${booting ? 'is-booting' : ''}`}>
       {sweep && (
-        <div key={sweep.key} className={`mode-sweep ${sweep.kind === 'back' ? 'mode-sweep--back' : ''}`} aria-hidden="true">
-          <div className="mode-sweep__flash"/>
-          <div className="mode-sweep__line"/>
-          {sweep.kind === 'resp' && <div className="mode-sweep__stamp">DISTORTION DETECTED<span>대응요원 접속 · 왜곡 구역 열람</span></div>}
+        <div key={sweep.key} className={`mode-shift ${sweep.kind === 'back' ? 'mode-shift--back' : ''}`} aria-hidden="true">
+          <div className="mode-shift__dark"/>
+          <div className="mode-shift__lamp"/>
         </div>
       )}
       <TopBar accessMode={accessMode} onAccessMode={changeAccessMode}/>
