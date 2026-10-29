@@ -3859,30 +3859,26 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 .tl-minimap__bar{opacity:.9;box-shadow:0 0 4px var(--amber-glow)}
 .tl-minimap__label{top:-16px;text-align:right}
 
-/* 기록줄기 진입 — 맹세에서 넘어오면 칸마다 1987년 단말기 화면처럼 켜진다.
-   가운데 가는 빛줄기가 먼저 서고 위아래로 펼쳐지며, 형광체가 데워지듯 밝기가 가라앉는다. 켜지는 순서는 매번 무작위(--bd) */
-@keyframes tr-crt-on{
-  0%  {opacity:0;transform:scaleY(.006) scaleX(.6);filter:brightness(4) blur(1.5px)}
-  18% {opacity:1;transform:scaleY(.006) scaleX(1);filter:brightness(3.2) blur(1px)}
-  55% {opacity:1;transform:scaleY(1) scaleX(1);filter:brightness(1.7) blur(.5px)}
-  100%{opacity:1;transform:none;filter:none}
+/* 접속 전환 — 대문 「제1보존서고 접근 주의」 제목의 글리치를 화면 전체에 약하게.
+   몇 줄이 옆으로 튀고, 붉은·청록 색이 1~2px 어긋났다 붙는다. 색은 첫 튐 사이에 바뀐다 */
+.timeline-root.is-mode-glitch{animation:mg-jitter .5s steps(1,end) both}
+@keyframes mg-jitter{
+  0%{transform:none;filter:none}
+  10%{transform:translate(2px,0);filter:drop-shadow(-2px 0 0 rgba(255,68,34,.5)) drop-shadow(2px 0 0 rgba(74,214,224,.4)) brightness(1.12)}
+  20%{transform:translate(-1px,1px) skewX(-.4deg);filter:drop-shadow(2px 0 0 rgba(255,68,34,.5)) drop-shadow(-2px 0 0 rgba(74,214,224,.4))}
+  30%{transform:none;filter:none}
+  62%{transform:translate(1px,0);filter:drop-shadow(-1px 0 0 rgba(255,68,34,.45)) drop-shadow(1px 0 0 rgba(74,214,224,.35))}
+  70%,100%{transform:none;filter:none}
 }
-.timeline-root.is-booting .boot-part{opacity:0;transform-origin:50% 50%;animation:tr-crt-on .95s cubic-bezier(.3,.6,.25,1) var(--bd,0s) both}
-
-/* 접속 전환 — 관리국 서고의 조명이 바뀌는 것처럼.
-   대응요원: 형광등이 꺼지듯 화면이 어둑해지고(그 사이 색이 바뀐다), 가장자리부터 붉은 비상등이 데워지며 들어온다.
-   연구원 복귀: 같은 소등 뒤 녹색 형광이 다시 들어온다 */
-.mode-shift{position:fixed;inset:0;z-index:2600;pointer-events:none}
-.mode-shift__dark{position:absolute;inset:0;background:#020403;animation:msh-dark 1.5s ease both}
-.mode-shift__lamp{position:absolute;inset:0;opacity:0;
-  background:radial-gradient(130% 95% at 50% 50%, transparent 45%, rgba(255,52,28,.30) 82%, rgba(255,52,28,.55) 100%);
-  animation:msh-lamp 2.4s ease-out .32s both}
-.mode-shift--back .mode-shift__lamp{background:radial-gradient(130% 95% at 50% 50%, transparent 50%, rgba(47,174,94,.16) 85%, rgba(86,207,133,.30) 100%);animation-duration:1.6s}
-@keyframes msh-dark{0%{opacity:0}18%{opacity:.88}30%{opacity:.88}100%{opacity:0}}
-@keyframes msh-lamp{0%{opacity:0}35%{opacity:1}60%{opacity:.75}100%{opacity:0}}
+.mode-glitch{position:fixed;inset:0;z-index:2600;pointer-events:none;overflow:hidden}
+.mode-glitch i{position:absolute;left:0;right:0;opacity:0;
+  backdrop-filter:brightness(1.3) contrast(1.12);-webkit-backdrop-filter:brightness(1.3) contrast(1.12);
+  background:rgba(255,68,34,.05);animation:mg-band .5s steps(1,end) both}
+.mode-glitch--back i{background:rgba(47,174,94,.05)}
+@keyframes mg-band{0%{opacity:0;transform:none}8%{opacity:1;transform:translateX(5px)}18%{opacity:1;transform:translateX(-4px)}28%,100%{opacity:0;transform:none}}
 @media (prefers-reduced-motion: reduce){
-  .timeline-root.is-booting .boot-part{animation:none !important;opacity:1 !important}
-  .mode-shift{display:none}
+  .timeline-root.is-mode-glitch,.mode-glitch i{animation:none !important}
+  .mode-glitch{display:none}
 }
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
@@ -35021,31 +35017,19 @@ function Terminal({ onReboot }) {
   // 접속 구분 — 'researcher' 연구원 접속(기본) / 'response' 대응요원 접속(위험 노드 노출)
   const [accessMode, setAccessMode] = useStateApp('researcher');
   const modeRef = useRefApp('researcher');
-  // 진입 연출 — 맹세에서 넘어오면 상단바 → 상황판 칸 → 기록줄기 → 하단바 순으로 하나씩 켜진다
-  const [booting, setBooting] = useStateApp(true);
-  const rootRef = useRefApp(null);
-  useLayoutEffectApp(() => {
-    // 켜지는 칸과 순서를 매번 섞는다 — 단말기 여러 대가 제각각 데워지듯
-    const root = rootRef.current; if (!root) return;
-    const parts = Array.from(root.querySelectorAll('.topbar, .subnav__leftcol > *, .subnav__operator, .subnav__rightcol > *, .canvas, .footer'));
-    for (let i = parts.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [parts[i], parts[j]] = [parts[j], parts[i]]; }
-    parts.forEach((el, i) => { el.classList.add('boot-part'); el.style.setProperty('--bd', (0.15 + i * 0.26 + Math.random() * 0.12).toFixed(2) + 's'); });
-    const total = 1100 + parts.length * 260 + 300;
-    const id = setTimeout(() => { setBooting(false); parts.forEach(el => { el.classList.remove('boot-part'); el.style.removeProperty('--bd'); }); }, total);
-    return () => clearTimeout(id);
-  }, []);
-  // 접속 전환 연출 — 대응요원: 적색 섬광·주사선·「DISTORTION DETECTED」 / 연구원 복귀: 녹색 주사선
-  const [sweep, setSweep] = useStateApp(null);   // { kind:'resp'|'back', key }
+  // 접속 전환 연출 — 대문 경고 제목과 같은 글리치를 화면 전체에 약하게 (튀는 줄 위치는 매번 다르다)
+  const [sweep, setSweep] = useStateApp(null);   // { kind:'resp'|'back', key, bands:[[top,h,delay]] }
   const sweepTimer = useRefApp(null);
   const modeTimer = useRefApp(null);
   const changeAccessMode = useCallbackApp((m) => {
     const prev = modeRef.current; modeRef.current = m;
     if (m !== prev) {
-      // 조명이 어둑해진 순간에 색을 바꾼다 (소등 → 색 전환 → 비상등/형광 점등)
+      // 화면이 튀는 첫 순간에 색을 바꾼다
       clearTimeout(sweepTimer.current); clearTimeout(modeTimer.current);
-      setSweep({ kind: m === 'response' ? 'resp' : 'back', key: Date.now() });
-      modeTimer.current = setTimeout(() => setAccessMode(m), 300);
-      sweepTimer.current = setTimeout(() => setSweep(null), 2800);
+      setSweep({ kind: m === 'response' ? 'resp' : 'back', key: Date.now(),
+        bands: [0, 1, 2].map(i => [Math.round(8 + Math.random() * 80), Math.round(2 + Math.random() * 7), [0, 0.07, 0.29][i]]) });
+      modeTimer.current = setTimeout(() => setAccessMode(m), 60);
+      sweepTimer.current = setTimeout(() => setSweep(null), 600);
     } else setAccessMode(m);
     // 배경음악 구역도 함께 전환 (재생 중일 때만 들린다)
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.zone(m === 'response' ? 1 : 0);
@@ -35132,11 +35116,10 @@ function Terminal({ onReboot }) {
   window.useEscLayer(!!lightbox, () => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setLightbox(null); });
 
   return (
-    <div ref={rootRef} className={`app timeline-root ${accessMode === 'response' ? 'is-response' : ''} ${booting ? 'is-booting' : ''}`}>
+    <div className={`app timeline-root ${accessMode === 'response' ? 'is-response' : ''} ${sweep ? 'is-mode-glitch' : ''}`}>
       {sweep && (
-        <div key={sweep.key} className={`mode-shift ${sweep.kind === 'back' ? 'mode-shift--back' : ''}`} aria-hidden="true">
-          <div className="mode-shift__dark"/>
-          <div className="mode-shift__lamp"/>
+        <div key={sweep.key} className={`mode-glitch ${sweep.kind === 'back' ? 'mode-glitch--back' : ''}`} aria-hidden="true">
+          {sweep.bands.map(([top, h, d], i) => <i key={i} style={{top: top + '%', height: h + '%', animationDelay: d + 's'}}/>)}
         </div>
       )}
       <TopBar accessMode={accessMode} onAccessMode={changeAccessMode}/>
