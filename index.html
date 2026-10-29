@@ -1612,7 +1612,7 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 /* ============================================================
    MAP — floating modal (Google Maps) triggered by 위치 확인
    ============================================================ */
-.tl-stickywrap{position:absolute;left:30px;display:flex;flex-direction:column;gap:6px;z-index:4}
+.tl-stickywrap{position:absolute;left:12px;display:flex;flex-direction:column;gap:6px;z-index:4}
 .tl-stickywrap .tl-stickylabel{position:static !important;left:auto !important}
 .tl-mapbtn{
   display:inline-flex;align-items:center;gap:8px;
@@ -3832,6 +3832,87 @@ html.lecture .landing-view .lv-trunk-deco{width:min(820px, calc(80vw / var(--lz)
 html.lecture .briefing-view .bf-win{width:min(1080px, calc(96vw / var(--lz)));min-height:min(560px, calc(84vh / var(--lz)))}
 html.lecture .iba-about__win{width:min(1020px, calc(94vw / var(--lz)));max-height:calc(88vh / var(--lz))}
 html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, calc(90vh / var(--lz)))}
+
+/* ============================================================
+   2026-10-29 사용자 요청
+   ============================================================ */
+/* 네모 칸 모서리 꺽쇠 장식 — 전부 없앤다 */
+.trackbranch::before,.trackbranch::after,
+.subnav__operator::before,.subnav__operator::after,
+.canvas::before,.canvas::after,
+.tl-stickylabel::before,.tl-stickylabel::after,
+.tl-origin::before,.tl-origin::after,
+.tl-vrail::before,.tl-vrail::after,
+.tl-intro__btn::before,.tl-intro__btn::after,
+.detail::before,.detail::after,
+.sync-corner,.sync-art__corner,
+.landing-view .lv-observed::before,.landing-view .lv-observed::after,
+.landing-view .lv-btn::before,.landing-view .lv-btn::after,
+.loader-view .lo-shell::before,.loader-view .lo-shell::after,
+.loader-view .lo-shell .lo-c-bl,.loader-view .lo-shell .lo-c-br,
+.briefing-view .bf-win::before,.briefing-view .bf-win::after,
+.briefing-view .bf-c-bl,.briefing-view .bf-c-br,
+.brk::before,.brk::after,.brk > .brk-tl,.brk > .brk-tr,.brk > .brk-bl,.brk > .brk-br{display:none !important}
+
+/* 가로 스크롤 표시 — 얇은 선으로, 연표 맨 아래에 붙여 갈래 이름표와 겹치지 않게 */
+.tl-minimap{left:220px;right:14px;bottom:2px;height:3px;border:0;background:rgba(47,174,94,.16)}
+.tl-minimap__bar{opacity:.9;box-shadow:0 0 4px var(--amber-glow)}
+.tl-minimap__label{top:-16px;text-align:right}
+
+/* 기록줄기 진입 — 맹세에서 넘어오면 구성 요소가 하나씩 서서히 켜진다 */
+@keyframes tr-boot-in{
+  0%  {opacity:0;filter:brightness(2.2) blur(2px);clip-path:inset(0 0 100% 0)}
+  35% {opacity:.85;filter:brightness(1.6) blur(.6px);clip-path:inset(0 0 40% 0)}
+  55% {opacity:.35}
+  70% {opacity:1;filter:brightness(1.15) blur(0);clip-path:inset(0 0 0 0)}
+  100%{opacity:1;filter:none;clip-path:inset(0 0 0 0)}
+}
+.timeline-root.is-booting .topbar,
+.timeline-root.is-booting .subnav > *,
+.timeline-root.is-booting .canvas,
+.timeline-root.is-booting .footer{opacity:0;animation:tr-boot-in .7s ease-out both}
+.timeline-root.is-booting .topbar{animation-delay:.05s}
+.timeline-root.is-booting .subnav > *:nth-child(1){animation-delay:.35s}
+.timeline-root.is-booting .subnav > *:nth-child(2){animation-delay:.6s}
+.timeline-root.is-booting .subnav > *:nth-child(3){animation-delay:.85s}
+.timeline-root.is-booting .subnav > *:nth-child(4){animation-delay:1.05s}
+.timeline-root.is-booting .canvas{animation-delay:1.25s;animation-duration:.9s}
+.timeline-root.is-booting .footer{animation-delay:1.7s}
+
+/* 대응요원 접속 전환 — 경보 섬광 → 적색 주사선이 위에서 아래로 훑으며 화면을 물들인다 → 잔상 글리치 */
+.mode-sweep{position:fixed;inset:0;z-index:2600;pointer-events:none;overflow:hidden}
+.mode-sweep__flash{position:absolute;inset:0;background:rgba(255,68,34,.20);animation:ms-flash .9s steps(6,end) both}
+.mode-sweep__line{position:absolute;left:0;right:0;height:140px;top:-140px;
+  background:linear-gradient(180deg,transparent,rgba(255,68,34,.10) 60%,rgba(255,96,64,.85) 97%,#ffd2c8 100%);
+  box-shadow:0 6px 24px rgba(255,68,34,.6);animation:ms-line 1.05s cubic-bezier(.55,.05,.35,1) .12s both}
+.mode-sweep__stamp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  padding:10px 26px;border:2px solid var(--red);background:rgba(10,4,4,.86);color:var(--red);
+  font:700 15px/1.5 var(--font-mono);letter-spacing:.32em;text-align:center;white-space:nowrap;
+  text-shadow:0 0 8px var(--red-glow);box-shadow:0 0 30px var(--red-glow);
+  animation:ms-stamp 1.6s ease both}
+.mode-sweep__stamp span{display:block;font:600 13px/1.5 var(--font-ko);letter-spacing:.12em;color:#ffb4a4}
+.mode-sweep--back .mode-sweep__flash{background:rgba(47,174,94,.14)}
+.mode-sweep--back .mode-sweep__line{background:linear-gradient(180deg,transparent,rgba(47,174,94,.08) 60%,rgba(86,207,133,.7) 97%,#d8ffe6 100%);box-shadow:0 6px 24px rgba(47,174,94,.5)}
+@keyframes ms-flash{0%{opacity:0}10%{opacity:1}25%{opacity:.2}40%{opacity:.9}70%{opacity:.25}100%{opacity:0}}
+@keyframes ms-line{from{top:-140px}to{top:100%}}
+@keyframes ms-stamp{0%{opacity:0;transform:translate(-50%,-50%) scale(1.25)}12%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  20%{opacity:.3}28%{opacity:1}80%{opacity:1}100%{opacity:0}}
+/* 적색으로 바뀌는 순간 화면이 RGB로 갈라졌다 붙는다 */
+.timeline-root.is-mode-glitch{animation:ms-glitch .55s steps(2,end) .1s}
+@keyframes ms-glitch{
+  0%{filter:none;transform:none}
+  20%{filter:drop-shadow(3px 0 0 rgba(255,40,40,.7)) drop-shadow(-3px 0 0 rgba(0,255,200,.45));transform:translateX(-2px)}
+  40%{filter:drop-shadow(-4px 0 0 rgba(255,40,40,.7)) drop-shadow(4px 0 0 rgba(0,255,200,.45));transform:translateX(3px) skewX(-1deg)}
+  60%{filter:none;transform:translateX(-1px)}
+  100%{filter:none;transform:none}
+}
+/* 테두리·글자색도 툭 바뀌지 않고 번지듯 바뀐다 */
+.timeline-root .canvas,.timeline-root .canvas__header,.timeline-root .subnav__operator,.timeline-root .footer,
+.timeline-root .subnav__sidemeta,.timeline-root .topbar__sync{transition:border-color .8s ease .35s,box-shadow .8s ease .35s,background-color .8s ease .35s,color .8s ease .35s}
+@media (prefers-reduced-motion: reduce){
+  .timeline-root.is-booting *{animation:none !important;opacity:1 !important}
+  .mode-sweep,.timeline-root.is-mode-glitch{animation:none !important;display:none}
+}
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
@@ -4107,8 +4188,8 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     "V-RG-020": ["분기 · 당시 없던 선택지", "당시에 존재하지 않은 선택지가 포함되어 있습니다. 분기 기록을 보류합니다."],
     "V-RG-021": ["분기 · 파급 부족", "파급 서술이 두 단계에 미치지 않습니다."],
     "V-RG-022": ["분기 · 불변 요소 누락", "바뀌지 않았을 것이 기재되지 않았습니다. 이 항목은 생략할 수 없습니다."],
-    "V-RG-023": ["LUMINA · 층 혼재", "사실, 해석, 허구의 층이 섞여 있습니다. 세 층을 분리하여 다시 제출하십시오."],
-    "V-RG-024": ["LUMINA · 허구 표시 누락", "허구 표시가 누락되어 있습니다. 제3층은 반드시 허구임을 명시하십시오."],
+    "V-RG-023": ["복원 · 층 혼재", "사실, 해석, 허구의 층이 섞여 있습니다. 세 층을 분리하여 다시 제출하십시오."],
+    "V-RG-024": ["복원 · 허구 표시 누락", "허구 표시가 누락되어 있습니다. 재구성한 부분(제3층)은 반드시 허구임을 명시하십시오."],
     "V-RG-025": ["결손 신고 접수", "결손 신고를 접수하였습니다. 해당 구역을 관측 대상으로 등록합니다."],
     "V-RG-026": ["반박 주해 등재", "대상 주해의 오른쪽에 반박이 등재되었습니다."],
     "V-RG-027": ["기계 작성 의심", "기계로 작성된 문장은 등재할 수 없습니다. 별표 2를 확인하십시오."],
@@ -4127,9 +4208,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     "V-RQ-012": ["적힘 감지", "당대 기록에서 귀하의 흔적이 감지되었습니다. 즉시 을지를 펼치십시오."],
     "V-RQ-013": ["보고서 접수", "파견 보고서를 접수하였습니다."],
     /* 구역 · 경보 */
-    "V-ZN-001": ["LUMINA 진입", "제2폐가 구역에 진입합니다. 작전명 LUMINA."],
-    "V-ZN-002": ["LUMINA 진입 직후", "이 구역의 제3층 기록은 허구를 포함합니다. 허구 표시를 확인하십시오."],
-    "V-ZN-003": ["LUMINA 이탈", "제2폐가 구역을 벗어납니다."],
+    "V-ZN-001": ["대응 구역 진입", "제2폐가 구역에 진입합니다."],
+    "V-ZN-002": ["대응 구역 진입 직후", "이 구역의 기록에는 왜곡이 섞여 있습니다. 원본과 대조하여 정정하십시오."],
+    "V-ZN-003": ["대응 구역 이탈", "제2폐가 구역을 벗어납니다."],
     "V-ZN-004": ["폐가 진입", "폐가 구역입니다. 2인 1조로 출입하십시오."],
     "V-ZN-005": ["폐가 벽면", "이 구역의 벽면 주해를 읽지 마십시오."],
     "V-ZN-006": ["폐가 이탈", "폐가 구역을 벗어났습니다. 인원을 확인하십시오."],
@@ -4297,7 +4378,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   }, true);
 })();
 </script>
-<script src="audio-engine.js?v=20261009a"></script>
+<script src="audio-engine.js?v=20261029a"></script>
 <script>/* 구버전 엔진(IBCA_AUDIO · IBA_AUDIO)이 캐시된 경우에도 동작하도록 */ window.DENDRO_AUDIO = window.DENDRO_AUDIO || window.IBA_AUDIO || window.IBCA_AUDIO;</script>
 <!-- IBA 인장 — 대외판·관리국 내부판·세로 락업 SVG 생성기 -->
 <script src="iba-emblem.js?v=20261026g"></script>
@@ -31474,7 +31555,8 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
       const on = !!(e.detail && e.detail.on);
       setLecture(on);
       const A = window.DENDRO_AUDIO; if (!A) return;
-      if (on) { A.stopAll(); setMusOn(false); setAmbOn(false); return; }
+      if (on) { A.stopAll(); if (A.typing) A.typing(false); setMusOn(false); setAmbOn(false); return; }
+      if (A.typing) A.typing(load('ambOn', true));
       const study = window.IBA_STUDY && window.IBA_STUDY.on();
       if (!study && load('musOn', true) && !A.state().music) setMusOn(!!A.music(true));
       if (load('ambOn', true) && !A.state().ambient) setAmbOn(!!A.ambient(true));
@@ -31512,6 +31594,7 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
     pushVolumes();
     const on = A.ambient(!A.state().ambient);
     setAmbOn(!!on); save('ambOn', !!on);
+    if (A.typing) A.typing(!!on);   // 타자기 소리도 앰비언트와 함께 켜고 끈다
     window.VESTIGIA.say(on ? 'V-SYS-013' : 'V-SYS-014');
   };
   const toggleMus = () => {
@@ -32348,9 +32431,9 @@ const _yearLookup = (() => {
   return { cum, STEP, cumM, target: cumM[cumM.length - 1] };
 })();
 
-const LEAD_PAD = 420;  // left padding for trunk + branch fan-out
-const TRUNK_ORIGIN_X = 250;
-const TRUNK_END_X = 290;
+const LEAD_PAD = 328;  // left padding for trunk + branch fan-out (2026-10-29 간격을 좁혀 기록줄기 구간을 넓힘)
+const TRUNK_ORIGIN_X = 232;   // 갈래 이름표(왼쪽 12px, 가장 넓은 칸 오른쪽 끝 ≈209px) + 모래시계 반지름 14 + 여백 9
+const TRUNK_END_X = 256;
 // 갈래 곡선 끝과 기록줄기·첫 연도 틱(-4000)이 정확히 같은 x에서 만나도록 LEAD_PAD에 맞춤
 const BRANCH_END_X = LEAD_PAD;
 
@@ -34967,12 +35050,23 @@ function Terminal({ onReboot }) {
   // 접속 구분 — 'researcher' 연구원 접속(기본) / 'response' 대응요원 접속(위험 노드 노출)
   const [accessMode, setAccessMode] = useStateApp('researcher');
   const modeRef = useRefApp('researcher');
+  // 진입 연출 — 맹세에서 넘어오면 상단바 → 상황판 칸 → 기록줄기 → 하단바 순으로 하나씩 켜진다
+  const [booting, setBooting] = useStateApp(true);
+  useEffectApp(() => { const id = setTimeout(() => setBooting(false), 2700); return () => clearTimeout(id); }, []);
+  // 접속 전환 연출 — 대응요원: 적색 섬광·주사선·「DISTORTION DETECTED」 / 연구원 복귀: 녹색 주사선
+  const [sweep, setSweep] = useStateApp(null);   // { kind:'resp'|'back', key }
+  const sweepTimer = useRefApp(null);
   const changeAccessMode = useCallbackApp((m) => {
     const prev = modeRef.current; modeRef.current = m;
+    if (m !== prev) {
+      clearTimeout(sweepTimer.current);
+      setSweep({ kind: m === 'response' ? 'resp' : 'back', key: Date.now() });
+      sweepTimer.current = setTimeout(() => setSweep(null), 1700);
+    }
     setAccessMode(m);
     // 배경음악 구역도 함께 전환 (재생 중일 때만 들린다)
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.zone(m === 'response' ? 1 : 0);
-    // LUMINA 구역 진입·이탈 — V-ZN-001 → 002 (경보음 뒤) / V-ZN-003
+    // 대응 구역(제2폐가) 진입·이탈 — V-ZN-001 → 002 (경보음 뒤) / V-ZN-003
     if (m === prev) return;
     if (m === 'response') { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('alert'); window.VESTIGIA.chain(['V-ZN-001', 'V-ZN-002']); }
     else window.VESTIGIA.say('V-ZN-003');
@@ -35055,7 +35149,14 @@ function Terminal({ onReboot }) {
   window.useEscLayer(!!lightbox, () => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setLightbox(null); });
 
   return (
-    <div className={`app timeline-root ${accessMode === 'response' ? 'is-response' : ''}`}>
+    <div className={`app timeline-root ${accessMode === 'response' ? 'is-response' : ''} ${booting ? 'is-booting' : ''} ${sweep ? 'is-mode-glitch' : ''}`}>
+      {sweep && (
+        <div key={sweep.key} className={`mode-sweep ${sweep.kind === 'back' ? 'mode-sweep--back' : ''}`} aria-hidden="true">
+          <div className="mode-sweep__flash"/>
+          <div className="mode-sweep__line"/>
+          {sweep.kind === 'resp' && <div className="mode-sweep__stamp">DISTORTION DETECTED<span>대응요원 접속 · 왜곡 구역 열람</span></div>}
+        </div>
+      )}
       <TopBar accessMode={accessMode} onAccessMode={changeAccessMode}/>
       <SubNav
         tracks={tracks} setTracks={setTracks}

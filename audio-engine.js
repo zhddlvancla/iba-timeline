@@ -24,6 +24,9 @@ var AC=null,M=null,V=null,AG=null,MG=null,HPF=null,DG=null;
 var ambOn=false,musOn=false,zone=0,den=0.5;
 var ambN=[],musN=[],ambT=[],musT=[];
 var VOL={master:0.70,ambient:0.55,music:0.62};
+/* 타자기 소리(key·carriageReturn)는 앰비언트 켜기/끄기를 따른다 — 사용자가 앰비언트를 끈 적이 있으면(세션 저장값) 처음부터 끈다 */
+var typeOn=(function(){ try{ var v=global.sessionStorage&&global.sessionStorage.getItem('iba.aud.ambOn'); return v===null||v===undefined?true:JSON.parse(v)!==false; }catch(e){ return true; } })();
+var TYPE_KEYS={key:1,carriageReturn:1};
 
 function boot(){
   if(AC||AC===false) return;
@@ -410,6 +413,7 @@ var API={
   /* 효과음 1회 재생. 키 목록은 DENDRO_AUDIO.list() 참조 */
   sfx:function(key){
     if(!ready()) return false;
+    if(TYPE_KEYS[key]&&!typeOn) return false;
     var f=SFX[key];
     if(!f){ if(global.console) console.warn('[DENDRO_AUDIO] 알 수 없는 효과음: '+key); return false; }
     f(AC.currentTime); return true;
@@ -426,6 +430,9 @@ var API={
     if(ambOn) startAmb(); else stopAmb();
     return ambOn;
   },
+
+  /* 타자기 소리 on/off — 앰비언트 토글과 함께 쓴다. 인자 생략 시 현재 값 */
+  typing:function(on){ if(on!==undefined) typeOn=!!on; return typeOn; },
 
   /* 배경음악 on/off. 인자 생략 시 토글 */
   music:function(on){
