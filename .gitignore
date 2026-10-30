@@ -9,6 +9,9 @@
 !/semantic-search.js
 !/semantic-worker.js
 !/search-index.js
+!/AGENTS.md
+!/tools/
+!/docs/
 !/assets/
 /assets/*
 !/assets/w1/
@@ -29,3 +32,7 @@ _pre_upscale_backup/
 /assets/w1/고대/유럽·미주/로마 공화정/[[]비상교육] 고등_세계사_1-3_50p_로마 공화정의 구조.jpg
 /assets/w1/고대/유럽·미주/로마 공화정/미래엔_세계사_이미지_48쪽_로마_공화정.JPG
 /assets/w1/고대/서아시아·인도/이집트 문명/[[]비상교육] 고등_세계사_1-1_15p_오시리스를 미라로 만드는 모습.jpg
+
+# 작업 도구 캐시
+tools/.hash_cache.json
+__pycache__/
