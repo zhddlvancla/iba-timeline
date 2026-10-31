@@ -70,7 +70,7 @@
 
 ```sh
 python3 -m http.server 5555        # 저장소 루트에서 → http://localhost:5555/
-sh tools/check.sh                  # 데이터 문법 + 두 파일 TIMELINE_DB 일치
+sh tools/check.sh                  # 데이터 문법 + 두 파일 TIMELINE_DATA·TIMELINE_DB 일치
 python3 tools/audit_notes.py       # 정리본 원문 보존 감사
 ```
 
@@ -88,7 +88,7 @@ python3 tools/audit_notes.py       # 정리본 원문 보존 감사
 | 도구 | 용도 |
 |---|---|
 | `dump_db.py` | `timeline-content.js`를 실행해(node가 없으면 macOS `jsc`) DB를 JSON/dict로 읽는다 |
-| `check.sh` | 문법 검사, 두 파일 일치 검사 |
+| `check.sh` | 문법 검사, 두 파일 TIMELINE_DATA·TIMELINE_DB 일치 검사(실패 시 종료 코드 1) |
 | `tl.py` | 레코드 소스 직접 편집: `put`(자료·탐구 추가), `remove_src`, `entries`, `srcs`. 두 파일 모두에 적용한다 |
 | `notes_edit.py` | 요약 탭 편집: `app` / `subadd` / `after` / `before` / `add` / `newsec` / `rep` → `write()`. 바뀐 노드만 원래 서식으로 다시 쓴다 |
 | `audit_notes.py` | 기준 커밋(기본 16cd53e) 대비 정리본 문장 보존 감사 |
@@ -114,7 +114,7 @@ python3 tools/audit_notes.py       # 정리본 원문 보존 감사
 
 ## 7. 이미지 작업 규칙
 
-- 교과서 이미지 원본은 사용자 Mac의 iCloud에 있다: `~/Library/Mobile Documents/com~apple~CloudDocs/콩잎무침/개인 작업/수업 자료 작업/교과서/…`.
+- 교과서 이미지 원본은 사용자 Mac의 비공개 iCloud 자료 폴더에 있다. 공개 문서에는 개인 폴더 경로를 적지 않는다.
   - 클라우드 환경에서는 접근할 수 없다. 이미지 작업은 로컬에서 한다.
 - 이미지마다 맞는 **메인 노드와 기간 노드 모두**에 넣는다.
   - 사진·지도·유물은 자료(`artifacts`)에, 도표·통계는 탐구(`sources`, `kind:'탐구 자료'`)에 넣는다.

@@ -12,7 +12,7 @@ On 2026-10-08 the user chose a **public** GitHub repo named `iba-timeline`, serv
 - A new top-level file or asset folder must be un-ignored in `.gitignore`, or it won't publish.
 - The local git identity is `IBA timeline <iba-timeline@local>`, so the user's gmail is never exposed on a public repo.
 
-**Push is the user's job.** The user does the remote add and the push, then Settings → Pages (`main`, `/`).
+**현재 배포 규칙:** 확인을 마친 작업은 에이전트가 커밋하고 `git push origin main` 한다. 사용자에게 매번 재승인을 요청하지 않는다. `AGENTS.md` 9절과 [timeline-auto-deploy](timeline-auto-deploy.md)의 2026-10-08 결정을 따른다. 사용자가 직접 push하던 방식은 저장소 초기 설정 당시의 기록이다.
 
 **Before each push:** check that every asset path referenced in the code exists exactly, case-sensitive and NFC. Pages is case-sensitive; macOS is not.
 

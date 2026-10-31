@@ -1,11 +1,29 @@
 #!/bin/sh
-# 데이터 파일 문법 검사 + index.html 과 timeline-content.js 의 TIMELINE_DB 가 같은지 확인
-cd "$(dirname "$0")/.." || exit 1
-python3 tools/dump_db.py >/dev/null && echo "timeline-content.js 문법 OK"
-python3 - <<'PY'
-import re
-a = open('timeline-content.js').read(); b = open('index.html').read()
-def db(s):
-    i = s.index('window.TIMELINE_DB = {'); return [l for l in s[i:].split('\n};', 1)[0].splitlines() if l.strip()]
-print('TIMELINE_DB 두 파일 일치' if db(a) == db(b) else '!! TIMELINE_DB 가 두 파일에서 다릅니다')
-PY
+# 데이터 문법 검사 + 두 파일의 TIMELINE_DATA / TIMELINE_DB 일치 검사
+set -eu
+cd "$(dirname "$0")/.."
+python3 tools/dump_db.py >/dev/null
+echo "timeline-content.js 문법 OK"
+python3 - <<'CHECK'
+from pathlib import Path
+import sys
+
+sources = [Path(name).read_text(encoding='utf-8')
+           for name in ('timeline-content.js', 'index.html')]
+
+def assignment(source, name):
+    marker = 'window.' + name + ' = {'
+    start = source.index(marker)
+    end = source.index('\n};', start) + len('\n};')
+    return [line for line in source[start:end].splitlines() if line.strip()]
+
+failed = False
+for name in ('TIMELINE_DATA', 'TIMELINE_DB'):
+    try:
+        same = assignment(sources[0], name) == assignment(sources[1], name)
+    except ValueError:
+        same = False
+    print(name + (' 두 파일 일치' if same else ' 두 파일 불일치 또는 선언 누락'))
+    failed |= not same
+sys.exit(1 if failed else 0)
+CHECK

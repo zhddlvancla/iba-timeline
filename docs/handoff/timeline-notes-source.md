@@ -3,7 +3,7 @@
 > 한국 줄기 정리 탭의 원본은 iCloud 넘버스 파일 「수능 한국사 연표 정리(2022 개정 작업).numbers」. 내용이 텍스트 상자에 있어 CSV로는 비고, AppleScript로 text items를 뽑아야 함
 
 The 정리 (notes) tab for Korea nodes comes from the user's Numbers file:
-`~/Library/Mobile Documents/com~apple~CloudDocs/콩잎무침/개인 작업/수업 자료 작업/넘버스/한국사/수능 한국사 연표 정리(2022 개정 작업).numbers`
+비공개 iCloud 자료 폴더 안의 `넘버스/한국사/수능 한국사 연표 정리(2022 개정 작업).numbers`. 개인 폴더 경로는 공개 저장소에 기록하지 않는다.
 
 - The file has 13 sheets, from 선사 to 민주주의.
 - The content sits in **text boxes over an empty table**. A CSV export only gives the table headers.
