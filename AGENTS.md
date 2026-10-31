@@ -180,3 +180,6 @@ python3 tools/audit_notes.py       # 정리본 원문 보존 감사
 | `timeline-github-deploy.md`, `timeline-auto-deploy.md` | 배포 |
 | `timeline-dialog-images-no-lazy.md` | 대화창 이미지 eager 규칙 |
 | `iba-emblem.md` | 인장 생성기 |
+| `IBA_VESTIGIUM_canon.md` | 최신 총람 제16판 원문(앱 내장 문서와 일치) |
+| `IBA_beyond_house_image_prompts.md` | 너머의 집 이미지 프롬프트(이미지용 제안) |
+| `IBA_RS-PH_stack_phenomena.md` | 서고 현상 기록철(가상 연구원 기록) |

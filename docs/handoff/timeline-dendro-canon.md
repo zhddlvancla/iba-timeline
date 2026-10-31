@@ -1,8 +1,8 @@
 # timeline-dendro-canon
 
-> timeline-app 세계관 정본 — 총람 제16판(2026-10-27): 지부 BR-1~4, 평가대응과(DA·DA-R 대응요원), VESTIGIUM·MNEMOSYNE, 요원 코드 형식, SIT 관측소, 도착층; 옛 AC·TVA·지역국·DENDRO 화면 용어 금지
+> timeline-app 세계관 정본 — 총람 제16판(최신본 반영 2026-10-31): 최신 첨부 정본은 `IBA_VESTIGIUM_canon.md`이며 앱의 `#d2-doc`에 원문으로 반영한다. 입사·팔찌·제0열람실·귀환 절차와 실격 행위자 검거 규정은 이 판을 따른다. 화면 용어는 지부 BR-1~4, 평가대응과, VESTIGIUM·MNEMOSYNE를 사용하며 옛 AC·TVA·지역국·DENDRO는 금지한다.
 
-**Current canon (2026-10-27): 총람 제16판 `~/Downloads/IBA_DENDRO_canon.md`. It overrides the 15th-edition terms below.**
+**Current canon (2026-10-31): [IBA_VESTIGIUM_canon.md](IBA_VESTIGIUM_canon.md), 총람 제16판. 앱의 `#d2-doc` 원문도 이 파일과 일치해야 한다. 이 최신본은 2026-10-27 기록보다 우선하며 입사 절차, 출근 지점, 팔찌의 작동, 제0열람실 열람·귀환, 실격자 검거를 갱신한다. 아래 상세 이력은 기존 UI 용어와 구현 배경을 위한 기록이며, 충돌 시 최신 정본을 따른다.**
 - The 16th-edition text is now embedded verbatim in `#d2-doc`.
   - The parser puts the pre-chapter front matter at the top of tab 00.
   - Non-chapter `# ` headings (열람 종료) render as h3.
@@ -88,6 +88,13 @@ The track list order stays 한국·동아시아·유럽·미주·서아시아·�
 **Exception:** the fix order puts 교과서 names on the sync footer. That is overridden by the user's rule that textbook sources are never shown on screen ([timeline-history-data-rules](timeline-history-data-rules.md)).
 
 Related: [timeline-ui-conventions](timeline-ui-conventions.md) [iba-emblem](iba-emblem.md)
+
+**P4-3 MNEMOSYNE speech assets (2026-10-31):**
+- The user selected the Qwen3-TTS VoiceDesign announcer sample with large-building PA reflections, then asked to produce all 126 dialogue lines and apply them to the site.
+- Generated speech files are grouped under `assets/mnemosyne-voice/<category>/<V-ID>.mp3`; `assets/mnemosyne-voice/manifest.json` maps IDs to the display text, spoken text, and file path.
+- Qwen3-TTS 0.6B Base clones the selected VoiceDesign sample as a reference so all lines retain one speaker timbre. Apply the same large interior PA processing to every generated line.
+- `window.VESTIGIA.voice(line)` plays a line's matching asset. Ordinary lines play when emitted; V-BC lines play after the four-note chime. The audio settings panel has an independent 「안내 음성」 toggle; it defaults on and is stored for the session. The lecture mode stops speech playback.
+- Audio assets are licensed/generated separately from the application source. Keep model attribution and licensing notes in the audio folder README. Do not add model weights to the public repository.
 
 - **2026-10-13 renames (user):**
   - The directorate is now 관리국 (formerly 제2국) in every in-game text, the 총람 and the emblem ring; English is "Directorate of Custody". Internal codes D-II and D2-0000 were left unchanged.

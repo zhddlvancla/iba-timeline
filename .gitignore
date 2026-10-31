@@ -21,6 +21,18 @@
 !/assets/w1/근세/
 !/assets/w1/기관/
 !/assets/w1/근현대/
+!/assets/mnemosyne-voice/
+/assets/mnemosyne-voice/*
+!/assets/mnemosyne-voice/README.md
+!/assets/mnemosyne-voice/manifest.json
+!/assets/mnemosyne-voice/access-system/
+!/assets/mnemosyne-voice/reading/
+!/assets/mnemosyne-voice/registry/
+!/assets/mnemosyne-voice/zero-reading-room/
+!/assets/mnemosyne-voice/zones/
+!/assets/mnemosyne-voice/broadcast/
+!/assets/mnemosyne-voice/rules/
+!/assets/mnemosyne-voice/errors/
 
 # 백업·시스템 파일
 _pre_upscale_backup/
