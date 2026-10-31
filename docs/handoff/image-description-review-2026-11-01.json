@@ -1,0 +1,3680 @@
+{
+  "review_date": "2026-11-01",
+  "status": "partial",
+  "total_image_uses": 1845,
+  "total_unique_images": 1532,
+  "edited_unique_images": 243,
+  "edited_uses": 289,
+  "edited_nodes": 54,
+  "fields": {
+    "artifacts": 258,
+    "sources": 31
+  },
+  "note": "교과서 본문·도판 대조 및 일부 전문자료 보강 기록. lookup_term은 재검색용이며 해당 문장 전체가 그 검색어만으로 검증되었다는 뜻은 아니다. 미검토 이미지를 완료 처리하지 않는다. 원문 보존 감사의 기존 46건 차이는 이번 수정 전후 동일하다.",
+  "records": [
+    {
+      "image": "assets/w1/고대/한국/k-balhae-map.jpg",
+      "title": "발해의 발전",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "발해",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-balhae-gov.jpg",
+      "title": "발해의 중앙 통치 제도",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "정당성",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-balhae-yeonggwang-pagoda.webp",
+      "title": "발해 영광탑",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "영광탑",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-balhae-ibul-byeongjwa.webp",
+      "title": "발해 이불병좌상",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "이불병좌상",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-balhae-dragon-head-1.webp",
+      "title": "발해 용머리 조각",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "용머리",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-balhae-dragon-head-2.webp",
+      "title": "발해 용머리 조각(옆면)",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "용머리",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-balhae-princess-epitaph.webp",
+      "title": "발해 정효 공주 묘지(墓誌)",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "정효",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-balhae-goguryeo-source.webp",
+      "title": "사료 — 고구려를 계승한 발해",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "고려",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/26쪽-발해를-고려-라고-표현한-일본-나라-시대의-목간-32.webp",
+      "title": "발해를 ‘고려’라고 적은 일본 나라 시대 목간",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "목간",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/33쪽-발해-석등과-흥륭사-91.webp",
+      "title": "발해 석등과 흥륭사",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "흥륭사",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-balhae",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/[비상교육] 고등_세계사_1-3_50p_그라쿠스 형제.jpg",
+      "title": "그라쿠스 형제",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "그라쿠스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/roman-republic-structure.webp",
+      "title": "로마 공화정의 정치 구조",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "호민관",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/punic-wars-map.webp",
+      "title": "포에니 전쟁(로마·카르타고 전쟁)",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "한니발",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마/via-appia.webp",
+      "title": "아피우스 가도",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "도로망",
+      "supplementary_sources": [
+        "https://whc.unesco.org/en/list/1708"
+      ],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마/roman-territory-expansion-map.webp",
+      "title": "로마의 영토 확장",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "최대 영역",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 4
+        },
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 8
+        },
+        {
+          "node": "w-rome-found",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-로마-노예-703.webp",
+      "title": "로마의 노예",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "노예",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-스키피오-771.webp",
+      "title": "스키피오",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "스키피오",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-원로원-사진-810.webp",
+      "title": "원로원",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "원로원",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-카이사르-836.webp",
+      "title": "카이사르",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "카이사르",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-한니발-903.webp",
+      "title": "한니발",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "한니발",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/로마 공화정의 구조.jpg",
+      "title": "로마 공화정의 정치 형태",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "원로원",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마/12표법의 의의.png",
+      "title": "12표법의 의의",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "12표법",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "sources",
+          "index": 1
+        },
+        {
+          "node": "w-rome-found",
+          "field": "sources",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/로마·카르타고 전쟁.jpg",
+      "title": "로마·카르타고 전쟁",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "포에니 전쟁",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "sources",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/그라쿠스의 개혁.jpg",
+      "title": "티베리우스 그라쿠스의 개혁",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "농지법",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "sources",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/제1차 삼두 정치의 전개.jpg",
+      "title": "제1차 삼두 정치의 전개",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "폼페이우스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "sources",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/카이사르 개혁에 대한 키케로의 비판.jpg",
+      "title": "카이사르의 개혁에 대한 키케로의 비판",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "카이사르",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "sources",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 공화정/옥타비아누스의 이집트 지배.png",
+      "title": "옥타비아누스의 이집트 지배",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "악티움",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-rep",
+          "field": "sources",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/그리스 문화/[비상교육] 고등_세계사_1-3_48p_파르테논 신전.jpg",
+      "title": "파르테논 신전",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "파르테논",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-greek-culture",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/그리스 문화/원반 던지는 사람.jpg",
+      "title": "원반 던지는 사람",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "원반",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-greek-culture",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/그리스 문화/athena-parthenos-copy.webp",
+      "title": "아테나 여신상",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "아테네",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-greek-culture",
+          "field": "artifacts",
+          "index": 2
+        },
+        {
+          "node": "w-athens",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/그리스 문화/school-of-athens.webp",
+      "title": "아테네 학당",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "아테네 학당",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-greek-culture",
+          "field": "artifacts",
+          "index": 3
+        },
+        {
+          "node": "w-renaissance",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-그리스-극장-678.webp",
+      "title": "그리스의 원형 극장",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "비극",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-greek-culture",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-아리스토텔레스-780.webp",
+      "title": "아리스토텔레스",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "아리스토텔레스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-greek-culture",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/그리스 문화/그리스 문화의 발달.png",
+      "title": "그리스 문화의 발달",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "소크라테스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-greek-culture",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 제정/[비상교육] 고등_세계사_1-3_51p_로마 제국의 영역.jpg",
+      "title": "로마 제국의 영역",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "최대 영역",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 제정/미래엔_세계사_이미지_50쪽_로마_제국.JPG",
+      "title": "로마 제국",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "도로망",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 제정/[비상교육] 고등_세계사_1-3_51p_4분할 통치를 표현한 조각.jpg",
+      "title": "4분할 통치를 표현한 조각",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "디오클레티아누스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 제정/트리야누스의 원주.jpg",
+      "title": "트라야누스의 원주",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "트라야누스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마 제정/augustus-prima-porta.webp",
+      "title": "아우구스투스상",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "아우구스투스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마/pont-du-gard-aqueduct.webp",
+      "title": "퐁뒤가르 수도교",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "수도교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 5
+        },
+        {
+          "node": "w-rome-found",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마/pantheon-section.webp",
+      "title": "판테온 단면도",
+      "textbook": "미래엔_세계사_교사용교과서_1.pdf",
+      "lookup_term": "판테온",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 6
+        },
+        {
+          "node": "w-rome-found",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마/colosseum.webp",
+      "title": "콜로세움",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "콜로세움",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 7
+        },
+        {
+          "node": "w-rome-found",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-악티움-해전-790.webp",
+      "title": "악티움 해전",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "악티움",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/세계/천재/IV-하드리아누스-901.webp",
+      "title": "하드리아누스 황제",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "하드리아누스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-rome-emp",
+          "field": "artifacts",
+          "index": 10
+        },
+        {
+          "node": "w-pax-romana",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-paleo-handaxe.webp",
+      "title": "주먹도끼(경기 연천 전곡리)",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "주먹 도끼",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-paleo",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-paleo-tanged-point.webp",
+      "title": "슴베찌르개",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "슴베찌르개",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-paleo",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-paleo-sites-map.webp",
+      "title": "구석기 시대의 주요 유적",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "구석기 유적지",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-paleo",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/11쪽-긁개-1.webp",
+      "title": "긁개",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "긁개",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-paleo",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/11쪽-찍개-4.webp",
+      "title": "찍개",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "찍개",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-paleo",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-neo-comb-pottery.webp",
+      "title": "빗살무늬 토기(서울 암사동)",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "빗살무늬 토기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/미래엔/P012-신석기돌도끼.webp",
+      "title": "돌도끼 (강원 양양 오산리) — 간석기",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "간석기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-neo-galdol.webp",
+      "title": "갈돌과 갈판",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "갈돌과 갈판",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/미래엔/P012-신석기탄화곡물.webp",
+      "title": "탄화된 곡식 (경남 진주 상촌리) — 농경 증거",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "탄화된 곡식",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-neo-sites-map.webp",
+      "title": "신석기 시대의 주요 유적",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "신석기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-neo-pit-house.webp",
+      "title": "신석기 시대의 움집(복원도)",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "움집",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/12쪽-가락바퀴-5.webp",
+      "title": "가락바퀴",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "가락바퀴",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/12쪽-그물추-7.webp",
+      "title": "그물추",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "그물추",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/29쪽-사람-얼굴을-새긴-사슴-뼈-78.webp",
+      "title": "사람 얼굴을 새긴 사슴 뼈",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "사슴 뼈",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/29쪽-조개껍데기가면-83.webp",
+      "title": "조개껍데기 가면",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "조개껍데기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/29쪽-흙으로-빚은-여인상-84.webp",
+      "title": "흙으로 빚은 여인상",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "여인상",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-neolithic",
+          "field": "artifacts",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-bronze-bipa-dagger.webp",
+      "title": "비파형 동검",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "비파형 동검",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 0
+        },
+        {
+          "node": "k-gojoseon",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-bronze-half-moon-knife.webp",
+      "title": "반달 돌칼",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "반달",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-bronze-dolmen.webp",
+      "title": "탁자식 고인돌",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "고인돌",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 3
+        },
+        {
+          "node": "k-gojoseon",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-gj-misongri-pottery.webp",
+      "title": "미송리식 토기",
+      "textbook": "고_한국사(최)_1-0-0_지도서PDF_15개정_천재교육.pdf",
+      "lookup_term": "미송리",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 5
+        },
+        {
+          "node": "k-gojoseon",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-gj-culture-map.webp",
+      "title": "고조선 관련 문화 범위 — 탁자식 고인돌·비파형 동검 분포",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "비파형 동검",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 6
+        },
+        {
+          "node": "k-gojoseon",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/13쪽-거친무늬-거울-10.webp",
+      "title": "거친무늬 거울",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "거친무늬 거울",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/13쪽-거푸집-11.webp",
+      "title": "청동기 거푸집",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "거푸집",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/29쪽-울주-대곡리-반구대-암각화-79.webp",
+      "title": "울주 대곡리 반구대 암각화",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "반구대",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-bronze",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-iron-mingdao-coin.webp",
+      "title": "명도전",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "명도전",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-gojoseon",
+          "field": "artifacts",
+          "index": 4
+        },
+        {
+          "node": "k-iron",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/30쪽-고구려-각저총-벽화에-그러진-신단수-85.webp",
+      "title": "각저총 벽화의 신단수",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "각저총",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-gojoseon",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-gj-8-laws-source.webp",
+      "title": "『한서』 — 고조선 8조법",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "8조법",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-gojoseon",
+          "field": "sources",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/k-iron-slender-dagger.webp",
+      "title": "세형 동검",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "세형 동검",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-iron",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/미래엔/P012-팔주령.webp",
+      "title": "팔주령(전남 화순 대곡리)",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "팔주령",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-iron",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/한국/천재/13쪽-철제-농기구와-무기-16.webp",
+      "title": "철제 농기구와 무기",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "철제",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-iron",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-전곡-31.webp",
+      "title": "전곡리 주먹도끼",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "주먹 도끼",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-paleo",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/상/shang-bronze-ding.webp",
+      "title": "상의 청동 정(鼎)",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "청동기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-bronze",
+          "field": "artifacts",
+          "index": 4
+        },
+        {
+          "node": "e-shang",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-뗀석기-22.webp",
+      "title": "뗀석기",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "뗀석기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-루시-23.webp",
+      "title": "오스트랄로피테쿠스 ‘루시’ 화석",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "루시",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-발자국-24.webp",
+      "title": "라에톨리 발자국 화석",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "인류",
+      "supplementary_sources": [
+        "https://humanorigins.si.edu/evidence/behavior/footprints/laetoli-footprint-trails"
+      ],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-빌렌도르프-비너스-25.webp",
+      "title": "빌렌도르프의 비너스",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "빌렌도르프",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-뼈바늘-26.webp",
+      "title": "뼈바늘",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "뼈바늘",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-알타미라-28.webp",
+      "title": "알타미라 동굴 벽화",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "알타미라",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-오스트랄로피테쿠스-29.webp",
+      "title": "오스트랄로피테쿠스 복원 모형",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "오스트랄로피테쿠스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-삽20-1-292.webp",
+      "title": "뗀석기를 만드는 방법",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "뗀석기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-컷20-1-299.webp",
+      "title": "현생 인류의 이동",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "아프리카",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/미래엔/20쪽_1_이동_생활-142.webp",
+      "title": "구석기 시대의 이동 생활",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "이동",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/미래엔/20쪽_2_채집-143.webp",
+      "title": "구석기 시대의 채집",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "채집",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/미래엔/20쪽_3_수렵-144.webp",
+      "title": "구석기 시대의 수렵",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "사냥",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "artifacts",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-컷19-1-298.webp",
+      "title": "인류의 진화 계통",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "인류",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-paleo",
+          "field": "sources",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-갈판-17.webp",
+      "title": "갈돌과 갈판",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "갈돌과 갈판",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-농경-18.webp",
+      "title": "신석기 시대의 농경",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "농경",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-돌낫-19.webp",
+      "title": "돌낫",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "돌낫",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-돌도끼-21.webp",
+      "title": "간석기 돌도끼",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "돌도끼",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-스톤헨지-27.webp",
+      "title": "스톤헨지",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "스톤헨지",
+      "supplementary_sources": [
+        "https://www.nature.com/articles/s41586-024-07652-1"
+      ],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-타실리-농경-32.webp",
+      "title": "타실리 암각화 — 농경",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "타실리",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-2-토기-33.webp",
+      "title": "신석기 시대의 토기",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "토기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-타실리목축-57.webp",
+      "title": "타실리 암각화 — 목축",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "타실리",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-삽22-1-293.webp",
+      "title": "신석기 시대의 마을",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "촌락",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-삽23-2-295.webp",
+      "title": "신석기 시대 사람들의 생활",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "농경",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/미래엔/20쪽_4_정착_생활-145.webp",
+      "title": "신석기 시대의 정착 생활",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "정착",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/미래엔/20쪽_5_농경과_목축-146.webp",
+      "title": "신석기 시대의 농경과 목축",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "목축",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "artifacts",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-컷21-1-300.webp",
+      "title": "신석기 혁명과 인구 증가",
+      "textbook": "고_세계사(김)_1-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "인구",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "sources",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-컷21-2jpg-301.webp",
+      "title": "빙기 이후의 기온 변화",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "빙하",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-neolithic",
+          "field": "sources",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/메소포타미아 문명/cuneiform-tablet.webp",
+      "title": "쐐기 문자가 새겨진 점토판",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "쐐기 문자",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-bronze",
+          "field": "artifacts",
+          "index": 3
+        },
+        {
+          "node": "s-mesopotamia",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/indus-seal-bull.webp",
+      "title": "인더스 문자가 새겨진 인장",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "인장",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-bronze",
+          "field": "artifacts",
+          "index": 4
+        },
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/메소포타미아 문명/[비상교육] 고등_세계사_1-1_13p_메소포타미아 문명 발상지.jpg",
+      "title": "메소포타미아 문명 발상지",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "메소포타미아",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-mesopotamia",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/메소포타미아 문명/[비상교육] 고등_세계사_1-1_13p_우르의 지구라트.jpg",
+      "title": "우르의 지구라트",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "지구라트",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-mesopotamia",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/메소포타미아 문명/fertile-crescent-map.webp",
+      "title": "메소포타미아 문명의 발상지",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "수메르",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-mesopotamia",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-1-바빌로니아-5.webp",
+      "title": "바빌로니아의 세계 지도(점토판)",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "점토판",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-mesopotamia",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-티그리스-58.webp",
+      "title": "티그리스강",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "티그리스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-mesopotamia",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/메소포타미아 문명/[교과서이미지] p23 길가메시.jpg",
+      "title": "「길가메시 서사시」",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "메소포타미아",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-mesopotamia",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/메소포타미아 문명/hammurabi-code-inquiry.webp",
+      "title": "함무라비 법전",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "함무라비",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-mesopotamia",
+          "field": "sources",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/이집트 문명/[비상교육] 고등_세계사_1-1_14p_이집트 문명.jpg",
+      "title": "이집트 문명의 영역과 정치 중심지",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "이집트",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/이집트 문명/pyramid-sphinx.png",
+      "title": "기자의 대피라미드와 스핑크스",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "피라미드",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/이집트 문명/giza-pyramids.webp",
+      "title": "기자의 피라미드",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "피라미드",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/이집트 문명/[비상교육] 고등_세계사_1-1_15p_오시리스를 미라로 만드는 모습.jpg",
+      "title": "오시리스를 미라로 만드는 모습",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "오시리스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-삽27-1-296.webp",
+      "title": "나일강의 세 계절",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "나일강",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/I-삽35-1-297.webp",
+      "title": "나일강과 피라미드",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "나일강",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-미라-40.webp",
+      "title": "이집트의 미라",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "미라",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-아부심벨-45.webp",
+      "title": "아부심벨 신전",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "파라오",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-오시리스-47.webp",
+      "title": "오시리스",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "오시리스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-이집트-농경-49.webp",
+      "title": "이집트의 농경",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "나일강",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-이집트숫자-50.webp",
+      "title": "이집트의 숫자",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "기하학",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-파피루스-59.webp",
+      "title": "파피루스",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "파피루스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "artifacts",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/이집트 문명/사자의 서·이집트 내세관 (원본).png",
+      "title": "「사자의 서」",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "사자의 서",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/이집트 문명/로제타석·상형 문자 (원본).png",
+      "title": "로제타석",
+      "textbook": "미래엔_세계사_교사용교과서_1.pdf",
+      "lookup_term": "로제타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "sources",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/이집트 문명/book-of-the-dead-inquiry.webp",
+      "title": "「사자의 서」와 사후 심판",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "심장",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-egypt-civ",
+          "field": "sources",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/미래엔_세계사_이미지_18쪽_인도_문명.JPG",
+      "title": "인도 문명의 영역",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "모헨조다로",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/[비상교육] 고등_세계사_1-1_16p_카스트제의 신분 구조.jpg",
+      "title": "카스트제의 신분 구조",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "카스트",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/[비상교육] 고등_세계사_1-1_16p_모헨조다로 유적에서 발견된 인장.jpg",
+      "title": "모헨조다로 유적에서 발견된 인장",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "인장",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/mohenjo-daro-great-bath.webp",
+      "title": "모헨조다로의 대목욕탕",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "목욕탕",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/caste-four-varnas.webp",
+      "title": "카스트제의 네 계급",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "카스트",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/aryan-migration-map.webp",
+      "title": "아리아인의 이동",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "아리아",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-아그니-44.webp",
+      "title": "아리아인의 신 아그니",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "베다",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-인드라-54.webp",
+      "title": "아리아인의 신 인드라",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "베다",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/A8339060-BB01-4535-9A9E-5DE20A508FD3_4_5005_c.jpeg",
+      "title": "모헨조다로의 도시 구조",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "모헨조다로",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/indus-long-distance-trade.webp",
+      "title": "인도 문명의 원거리 교역",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "교역",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "sources",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/히타이트, 페니키아, 헤브라이/[비상교육] 고등_세계사_1-1_18p_에게 문명과 지중해 동부 연안 국가.jpg",
+      "title": "에게 문명과 지중해 동부 연안 국가",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "히타이트",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-hittite",
+          "field": "artifacts",
+          "index": 0
+        },
+        {
+          "node": "s-hebrew",
+          "field": "artifacts",
+          "index": 0
+        },
+        {
+          "node": "s-phoenicia",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/히타이트, 페니키아, 헤브라이/hittite-phoenicia-hebrew-map.webp",
+      "title": "히타이트·페니키아·헤브라이",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "페니키아",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-hittite",
+          "field": "artifacts",
+          "index": 1
+        },
+        {
+          "node": "s-hebrew",
+          "field": "artifacts",
+          "index": 1
+        },
+        {
+          "node": "s-phoenicia",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-히타이트-65.webp",
+      "title": "히타이트의 전차 부조",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "히타이트",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-hittite",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/세계/천재/1-3-에우로페의-납치-46.webp",
+      "title": "「에우로페의 납치」",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "페니키아",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-phoenicia",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/히타이트, 페니키아, 헤브라이/phoenician-greek-letters.webp",
+      "title": "페니키아 문자와 그리스 문자",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "페니키아",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-phoenicia",
+          "field": "sources",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/에게 문명/이미지 2026. 5. 26. 16.01.png",
+      "title": "크노소스 궁전",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "크노소스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-aegean",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/에게 문명/aegean-greece-map.webp",
+      "title": "에게해와 그리스 세계",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "폴리스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-aegean",
+          "field": "artifacts",
+          "index": 2
+        },
+        {
+          "node": "w-polis",
+          "field": "artifacts",
+          "index": 1
+        },
+        {
+          "node": "w-sparta",
+          "field": "artifacts",
+          "index": 2
+        },
+        {
+          "node": "w-athens",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/아메리카 문명/[비상교육] 고등_세계사_1-1_19p_아메리카 문명의 발상지.jpg",
+      "title": "아메리카 문명의 발상지",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "올메카",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-america",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/아메리카 문명/이미지 2026. 5. 26. 16.02.png",
+      "title": "올멕 인두상",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "올메카",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-america",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/이미지 2026. 5. 26. 16.02 (1).png",
+      "title": "마야 문명의 중심지, 치첸이트사",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "마야",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-america",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/불교 성립/fasting-buddha-gandhara.webp",
+      "title": "고행하는 석가모니",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "석가모니",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-buddhism",
+          "field": "artifacts",
+          "index": 3
+        },
+        {
+          "node": "s-kushan",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/불교 성립/buddha-footprint.webp",
+      "title": "부처의 발자국(불족적)",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "불교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-buddhism",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/마우리아 왕조/sanchi-stupa.webp",
+      "title": "산치 대탑",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "산치",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-buddhism",
+          "field": "artifacts",
+          "index": 5
+        },
+        {
+          "node": "s-magadha",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/마우리아 왕조/ashoka-lion-capital.webp",
+      "title": "아소카왕 석주의 사자 머리 장식",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "아소카",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-buddhism",
+          "field": "artifacts",
+          "index": 6
+        },
+        {
+          "node": "s-magadha",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/쿠샨 왕조/gandhara-bodhisattva.webp",
+      "title": "간다라 양식의 보살상",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "간다라",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-buddhism",
+          "field": "artifacts",
+          "index": 7
+        },
+        {
+          "node": "s-kushan",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/자이나교 성립/ellora-jain-relief.webp",
+      "title": "엘로라 석굴의 자이나교 조각",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "자이나교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-jainism",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/마우리아 왕조/maurya-ashoka-pillars-map.webp",
+      "title": "마우리아 왕조의 최대 영역과 아소카왕의 석주",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "마우리아",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-magadha",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-아소카-왕-524.webp",
+      "title": "아소카왕",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "아소카",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-magadha",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/쿠샨 왕조/kushan-empire-map.webp",
+      "title": "쿠샨 왕조의 최대 영역",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "쿠샨",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-kushan",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-카니슈카-금화1-581.webp",
+      "title": "카니슈카왕 금화",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "카니슈카",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-kushan",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-컷98--2-610.webp",
+      "title": "불교의 전파",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "불교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-kushan",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/굽타 왕조와 그 영향권.jpg",
+      "title": "굽타 왕조와 그 영향권",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "굽타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/비슈누 신상.jpg",
+      "title": "비슈누 신상",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "힌두교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/시바 신상.jpg",
+      "title": "시바 신상",
+      "textbook": "미래엔_세계사_교사용교과서_1.pdf",
+      "lookup_term": "시바",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/아잔타 석굴 사원.jpg",
+      "title": "아잔타 석굴 사원(인도)",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "아잔타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/아잔타 석굴2.jpg",
+      "title": "아잔타 석굴(인도) · 제26 석굴 열반상",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "열반상",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/연화수 보살 벽화.jpg",
+      "title": "연화수 보살 벽화(아잔타 제1석굴)",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "아잔타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/엘롤라 석굴 사원.jpg",
+      "title": "엘로라 석굴 사원(인도)",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "엘롤라",
+      "supplementary_sources": [
+        "https://whc.unesco.org/en/list/243/"
+      ],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/엘롤라 석굴 사원2.jpg",
+      "title": "엘로라 석굴(인도) · 자이나교의 창시자 마하비라상",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "자이나교",
+      "supplementary_sources": [
+        "https://whc.unesco.org/en/list/243/"
+      ],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/gupta-empire-map.webp",
+      "title": "굽타 왕조의 영역",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "굽타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/ajanta-padmapani.webp",
+      "title": "아잔타 석굴 벽화(연화수 보살)",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "아잔타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/shiva-nataraja.webp",
+      "title": "춤추는 시바 신상(나타라자)",
+      "textbook": "미래엔_세계사_교사용교과서_1.pdf",
+      "lookup_term": "시바",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-가네샤-413.webp",
+      "title": "가네샤",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "힌두교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-굽타-불상-423.webp",
+      "title": "굽타 양식 불상",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "굽타 양식",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-굽타-철-기둥-424.webp",
+      "title": "델리의 철 기둥",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "굽타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-다메크-대탑-434.webp",
+      "title": "사르나트 다메크 대탑",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "다메크",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-라마야나-442.webp",
+      "title": "『라마야나』",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "라마야나",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-마하바라타-451.webp",
+      "title": "『마하바라타』",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "마하바라타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-보로부두르-불탑-480.webp",
+      "title": "보로부두르 불탑",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "보로부두르",
+      "supplementary_sources": [
+        "https://whc.unesco.org/en/list/592/"
+      ],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-브라흐마-486.webp",
+      "title": "브라흐마",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "힌두교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-쁘람바난-사원-491.webp",
+      "title": "프람바난 사원",
+      "textbook": "미래엔_동아시아역사기행_교사용교과서_2단원.pdf",
+      "lookup_term": "프람바난",
+      "supplementary_sources": [
+        "https://whc.unesco.org/en/list/642"
+      ],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-앙코르-와트-545.webp",
+      "title": "앙코르 와트",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "앙코르",
+      "supplementary_sources": [
+        "https://whc.unesco.org/en/list/668/"
+      ],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-찬드라굽타-2세-579.webp",
+      "title": "찬드라굽타 2세",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "찬드라굽타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-컷109-2-596.webp",
+      "title": "불교와 힌두교의 전파",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "힌두교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/III-컷109p-3-597.webp",
+      "title": "동남아시아의 불교·힌두교 유적",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "보로부두르",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "artifacts",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/굽타 왕조의 국가 통합을 위한 노력.jpg",
+      "title": "굽타 왕조의 국가 통합을 위한 노력",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "굽타",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/마누법전에서 보는 카스트제.jpg",
+      "title": "『마누 법전』에서 보는 카스트제",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "마누",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "sources",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/오늘날 숫자의 유래.jpg",
+      "title": "오늘날 숫자의 유래",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "10진법",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "sources",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/굽타 왕조/종교 전파와 동아시아·인도의 상호작용.jpg",
+      "title": "종교 전파와 동아시아·인도의 상호 작용",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "불교",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-gupta",
+          "field": "sources",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/미래엔_세계사_이미지_22쪽_2_춘추_5패.JPG",
+      "title": "춘추 5패",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "춘추",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/미래엔_세계사_이미지_22쪽_3_전국_7웅.JPG",
+      "title": "전국 7웅",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "전국",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/이미지 2026. 5. 27. 14.14 (1).png",
+      "title": "철제 투구와 무기",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "철제",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/이미지 2026. 5. 27. 14.14.png",
+      "title": "우경(牛耕)을 하는 모습",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "우경",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/chunqiu-zhanguo-map.webp",
+      "title": "춘추 5패와 전국 7웅",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "춘추",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 4
+        },
+        {
+          "node": "e-qin",
+          "field": "artifacts",
+          "index": 2
+        },
+        {
+          "node": "e-zhou",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/sword-of-goujian.webp",
+      "title": "월왕 구천의 청동검",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "춘추",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/iron-helmet.webp",
+      "title": "철제 투구",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "철제",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/iron-farm-tools.webp",
+      "title": "철제 농기구",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "농기구",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/iron-ploughshare.webp",
+      "title": "철제 보습(쟁기 날)",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "우경",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/2-1-공자-70.webp",
+      "title": "공자",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "공자",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/2-1-맹가-82.webp",
+      "title": "맹자",
+      "textbook": "고_세계사(김)_2-0-0_교과서_15개정_천재교육.pdf",
+      "lookup_term": "맹자",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/춘추·전국 시대/이미지 2026. 5. 27. 14.15.jpeg",
+      "title": "제자백가",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "제자백가",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-chunqiu-zhanguo",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/진/이미지 2026. 5. 28. 09.17 (1).png",
+      "title": "만리장성",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "장성",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-qin",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/진/이미지 2026. 5. 28. 09.17.png",
+      "title": "진의 최대 영역과 주요 도로",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "군현제",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-qin",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/2-1-병마용갱-84.webp",
+      "title": "진시황릉 병마용갱",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "병마용",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-qin",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/2-1-진-시황-99.webp",
+      "title": "진시황제",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "시황제",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-qin",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/진/이미지 2026. 5. 28. 09.14 (1).png",
+      "title": "진시황제의 사상 통제 정책 (분서갱유)",
+      "textbook": "[비상교육] 고등_세계사_1-2_교사용 교과서.pdf",
+      "lookup_term": "분서갱유",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-qin",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/정통 칼리프 시대/스크린샷 2026-07-14 14.23.53.png",
+      "title": "이슬람 제국의 영역",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "칼리프",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-rashidun",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/서아시아·인도/이슬람 세계/caliphate-succession-chart.webp",
+      "title": "이슬람 왕조의 변천",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "우마이야",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-rashidun",
+          "field": "artifacts",
+          "index": 1
+        },
+        {
+          "node": "s-umayyad",
+          "field": "artifacts",
+          "index": 0
+        },
+        {
+          "node": "s-abbasid",
+          "field": "artifacts",
+          "index": 1
+        },
+        {
+          "node": "s-fatimid",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/서아시아·인도/이슬람 세계/islam-expansion-map.webp",
+      "title": "이슬람 세계의 확대",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "이슬람",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-rashidun",
+          "field": "artifacts",
+          "index": 2
+        },
+        {
+          "node": "s-umayyad",
+          "field": "artifacts",
+          "index": 1
+        },
+        {
+          "node": "s-abbasid",
+          "field": "artifacts",
+          "index": 2
+        },
+        {
+          "node": "s-cordoba",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/정통 칼리프 시대/스크린샷 2026-07-14 14.24.07.png",
+      "title": "이슬람 제국의 발전",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "아바스",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-rashidun",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/정통 칼리프 시대/스크린샷 2026-07-14 14.24.17.png",
+      "title": "정통 칼리프 시대의 시작 — 아부 바크르의 행적",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "칼리프",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-rashidun",
+          "field": "sources",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P056-조선-태조-어진.webp",
+      "title": "태조 어진 (전북 전주 경기전)",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "태조",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 0
+        },
+        {
+          "node": "k-js-taejo",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P065-왜란-당시-관군과-의병의-활동.webp",
+      "title": "임진왜란 전황도 / 거북선",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "임진왜란",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 3
+        },
+        {
+          "node": "k-js-imjin",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P058-세종대왕.webp",
+      "title": "세종대왕 동상 (서울 종로구)",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "세종",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 5
+        },
+        {
+          "node": "k-js-sejong",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근현대/한국/미래엔/P205-훈민정음-해례본.webp",
+      "title": "『훈민정음 해례본』 (간송미술관)",
+      "textbook": "한국사_교사용교과서_Ⅰ_전근대_한국사의_이해_미래엔.pdf",
+      "lookup_term": "훈민정음",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 6
+        },
+        {
+          "node": "k-js-sejong",
+          "field": "artifacts",
+          "index": 7
+        },
+        {
+          "node": "k-joseoneo",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P058-공법-여론-조사-결과.webp",
+      "title": "공법 여론 조사 결과 (찬성 57.1%)",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "공법",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 7
+        },
+        {
+          "node": "k-js-sejong",
+          "field": "sources",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/k-js-central-gov.webp",
+      "title": "조선의 중앙 정치 조직",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "중앙 정치 기구",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 8
+        },
+        {
+          "node": "k-js-taejong",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/k-js-status.webp",
+      "title": "조선의 신분 구조",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "양천제",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P055-천하도지도.webp",
+      "title": "천하도 지도",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "세계관",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P056-종묘-정전.webp",
+      "title": "종묘 정전",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "종묘",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P058-조선-지방-행정-조직.webp",
+      "title": "조선의 지방 행정 조직",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "8도",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P059-비변사등록1.webp",
+      "title": "『비변사등록』",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "비변사",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P059-비변사등록2.webp",
+      "title": "『비변사등록』 내용",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "비변사등록",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P060-소수서원.webp",
+      "title": "영주 소수서원",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "소수 서원",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 15
+        },
+        {
+          "node": "k-js-hungu-sarim",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P064-송조천객귀국시장.webp",
+      "title": "「송조천객귀국시장」",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "송조천객",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P065-만동묘.webp",
+      "title": "만동묘",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "명",
+      "supplementary_sources": [
+        "https://encykorea.aks.ac.kr/Article/E0017568"
+      ],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P067-연행도.webp",
+      "title": "연행도",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "연행도",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P067-조선통신사내조도.webp",
+      "title": "조선 통신사 내조도",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "통신사",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P068-곤여만국전도(실학박물관).webp",
+      "title": "곤여만국전도",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "세계관",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/미래엔/P070-선농단.webp",
+      "title": "선농단",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "농업",
+      "supplementary_sources": [
+        "https://encykorea.aks.ac.kr/Article/E0028646"
+      ],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/천재/70쪽-조선-통신사의-행로와-행렬-모습-68.webp",
+      "title": "조선 통신사의 행로와 행렬",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "통신사",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/천재/77쪽-과거-급제자의-행차-119.webp",
+      "title": "과거 급제자의 행차",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "삼일유가",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/한국/천재/78쪽-조선의-조세-제도-123.webp",
+      "title": "조선의 조세 제도",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "전세",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-joseon",
+          "field": "artifacts",
+          "index": 24
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근현대/한국/미래엔/P234-출옥한-독립-투사들.webp",
+      "title": "만세를 부르는 애국지사와 시민 (1945. 8. 16.)",
+      "textbook": "한국사_PDF_Ⅳ_대한민국의_발전_미래엔.pdf",
+      "lookup_term": "애국지사",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-liberation",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근현대/한국/미래엔/P241-제헌헌법관보.webp",
+      "title": "제헌 헌법이 실린 대한민국 1호 관보 (1948. 9. 1.)",
+      "textbook": "한국사_PDF_Ⅳ_대한민국의_발전_미래엔.pdf",
+      "lookup_term": "관보",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-liberation",
+          "field": "artifacts",
+          "index": 1
+        },
+        {
+          "node": "k-constitution",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근현대/한국/미래엔/P224-카이로-회담.webp",
+      "title": "카이로 회담",
+      "textbook": "한국사_PDF_Ⅳ_대한민국의_발전_미래엔.pdf",
+      "lookup_term": "카이로",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-liberation",
+          "field": "artifacts",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근현대/한국/미래엔/P235-38선-가족.webp",
+      "title": "38선과 이산가족",
+      "textbook": "한국사_PDF_Ⅳ_대한민국의_발전_미래엔.pdf",
+      "lookup_term": "38선",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-liberation",
+          "field": "artifacts",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근현대/한국/미래엔/P235-임시정부-환국-환영회.webp",
+      "title": "임시 정부 환국 환영회",
+      "textbook": "한국사_PDF_Ⅳ_대한민국의_발전_미래엔.pdf",
+      "lookup_term": "임시 정부",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-liberation",
+          "field": "artifacts",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근현대/한국/미래엔/P307-SCAPIN독도.webp",
+      "title": "SCAPIN 제677호 부속 지도",
+      "textbook": "한국사_PDF_Ⅳ_대한민국의_발전_미래엔.pdf",
+      "lookup_term": "SCAPIN",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "k-liberation",
+          "field": "artifacts",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/서아시아·인도/인도 문명/[비상교육] 고등_세계사_1-1_16p_모헨조다로 유적에서 발견된 인물상.jpg",
+      "title": "모헨조다로 유적에서 발견된 인물상",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "인물상",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "s-indus",
+          "field": "artifacts",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/에게 문명/[비상교육] 고등_세계사_1-1_18p_미노스의 프레스코화.jpg",
+      "title": "미노스의 프레스코화",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "미노아 항구",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-aegean",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/중세/세계/천재/2-2-서하-문자-131.webp",
+      "title": "서하 문자",
+      "textbook": "고_세계사(김)_2-0-0_교과서_15개정_천재교육.pdf",
+      "lookup_term": "서하 문자",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-xixia",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/동아시아/상/[비상교육] 고등_세계사_1-1_17p_상의 청동 정(鼎).jpg",
+      "title": "상의 청동 정(鼎)",
+      "textbook": "[비상교육] 고등_세계사_1-1_교사용 교과서.pdf",
+      "lookup_term": "청동기",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-shang",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/아테네/[비상교육] 고등_세계사_1-3_48p_파르테논 신전.jpg",
+      "title": "파르테논 신전",
+      "textbook": "[비상교육] 고등_세계사_1-3_교사용 교과서.pdf",
+      "lookup_term": "파르테논",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "w-athens",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/고대/유럽·미주/로마/[비상교육] 고등_세계사_1-3_52p_아피우스 가도.jpg",
+      "title": "아피우스 가도",
+      "textbook": "고_세계사(김)_4-0-0_교사용교과서_15개정_천재교육.pdf",
+      "lookup_term": "도로망",
+      "supplementary_sources": [
+        "https://whc.unesco.org/en/list/1708"
+      ],
+      "uses": [
+        {
+          "node": "w-rome-found",
+          "field": "artifacts",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "image": "assets/w1/근세/동아시아/명/kunyu-wanguo-quantu.webp",
+      "title": "곤여만국전도",
+      "textbook": "고_한국사(최)_1-0-0_교과서PDF_15개정_천재교육.pdf",
+      "lookup_term": "세계관",
+      "supplementary_sources": [],
+      "uses": [
+        {
+          "node": "e-mq-culture",
+          "field": "artifacts",
+          "index": 0
+        },
+        {
+          "node": "e-ming",
+          "field": "artifacts",
+          "index": 0
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "data_syntax_and_copies": "passed",
+    "unchanged_notes_audit_difference_count": 46,
+    "changed_fields_only": [
+      "artifacts[].note",
+      "sources[].gloss"
+    ],
+    "browser_sample": "구석기 자료 탭, 연구원·대응요원 접속, 1280×800·1440×900·1500×960·1920×1080. 설명 문단 가로 넘침 없음. 대응요원 1920에서 도판·설명 겹침 없음. 브라우저 오류 로그 없음. 대응요원 접속의 고조선 탐구 탭에서 8조법 이미지의 새 해설 표시와 문단 가로 넘침 없음을 추가 확인.",
+    "coverage_limit": "전체 노드와 모든 도판을 브라우저에서 전수 검증한 기록은 아니다."
+  }
+}
