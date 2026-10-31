@@ -89,12 +89,12 @@ The track list order stays 한국·동아시아·유럽·미주·서아시아·�
 
 Related: [timeline-ui-conventions](timeline-ui-conventions.md) [iba-emblem](iba-emblem.md)
 
-**P4-3 MNEMOSYNE speech assets (2026-10-31):**
-- The user selected the Qwen3-TTS VoiceDesign announcer sample with large-building PA reflections, then asked to produce all 126 dialogue lines and apply them to the site.
-- Generated speech files are grouped under `assets/mnemosyne-voice/<category>/<V-ID>.mp3`; `assets/mnemosyne-voice/manifest.json` maps IDs to the display text, spoken text, and file path.
-- Qwen3-TTS 0.6B Base clones the selected VoiceDesign sample as a reference so all lines retain one speaker timbre. Apply the same large interior PA processing to every generated line.
-- `window.VESTIGIA.voice(line)` plays a line's matching asset. Ordinary lines play when emitted; V-BC lines play after the four-note chime. The audio settings panel has an independent 「안내 음성」 toggle; it defaults on and is stored for the session. The lecture mode stops speech playback.
-- Audio assets are licensed/generated separately from the application source. Keep model attribution and licensing notes in the audio folder README. Do not add model weights to the public repository.
+**P4-3 MNEMOSYNE broadcast voice (2026-10-31):**
+- The user selected the Qwen3-TTS VoiceDesign announcer sample with large-building PA reflections. Only the 19 V-BC public-address announcements have voice audio; all other MNEMOSYNE lines remain text-only.
+- Broadcast MP3 files are under `assets/mnemosyne-voice/broadcast/`; `manifest.json` maps V-BC IDs to the display text, spoken text, and file path. No non-broadcast voice files are included.
+- Qwen3-TTS 0.6B Base uses the selected VoiceDesign sample as a reference; apply the same large interior PA processing to every broadcast line.
+- `window.VESTIGIA.voice(line)` accepts V-BC lines only. They play after the four-note chime. The audio settings panel has an independent 「관내 방송 음성」 toggle, on by default and stored for the session. The lecture mode stops playback.
+- Keep model attribution and licensing notes in the audio folder README. Do not add model weights to the public repository.
 
 - **2026-10-13 renames (user):**
   - The directorate is now 관리국 (formerly 제2국) in every in-game text, the 총람 and the emblem ring; English is "Directorate of Custody". Internal codes D-II and D2-0000 were left unchanged.

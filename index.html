@@ -4096,7 +4096,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
    VESTIGIA.say(id, { n })  — 관내 방송 띠(하단 바·기록 열람 창·관리국 문서 창·대문)에 한 줄 표시
    VESTIGIA.chain([id…])    — 차례로 표시 (접속 완료처럼 이어지는 문형)
    VESTIGIA.broadcast(true) — V-BC 순환 방송. 90~180초 무작위 간격, 같은 문구 연속 금지
-   'vestigia' 이벤트(detail = 현재 줄)로 알린다. MNEMOSYNE 음성은 assets/mnemosyne-voice/manifest.json에 따라 문형 ID로 재생한다. */
+   'vestigia' 이벤트(detail = 현재 줄)로 알린다. 음성 파일은 V-BC 관내 방송에만 사용한다. */
 (function () {
   var LINES = {
     /* 접속 · 시스템 */
@@ -4238,7 +4238,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   var cur = null, q = [], timer = null, seq = 0;
   var bcCur = null;          // 관내 방송(V-BC) — 하단 띠와 따로, 지부 패널 아래 방송 칸에만 뜬다
   var voiceEnabled = true, voiceAudio = null, voiceQueue = [];
-  var VOICE_DIR = { 'V-SYS':'access-system', 'V-RD':'reading', 'V-RG':'registry', 'V-RQ':'zero-reading-room', 'V-ZN':'zones', 'V-BC':'broadcast', 'V-RL':'rules', 'V-ER':'errors' };
+  var VOICE_DIR = { 'V-BC':'broadcast' };
   function voicePath(id) {
     var m = /^(V-[A-Z]+)-\d+$/.exec(id || '');
     return m && VOICE_DIR[m[1]] ? 'assets/mnemosyne-voice/' + VOICE_DIR[m[1]] + '/' + id + '.mp3' : null;
@@ -4279,7 +4279,6 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   function emit(line) {
     line.at = Date.now(); cur = line;
     window.dispatchEvent(new CustomEvent('vestigia', { detail: line }));
-    playVoice(line);
   }
   function emitBC(line) {
     line.at = Date.now(); bcCur = line;
@@ -31840,7 +31839,7 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
 
                 <div className="iba-aud__ch">
                   <button className={`iba-aud__tg ${voiceOn ? 'is-on' : ''}`} onClick={toggleVoice}
-                          aria-pressed={voiceOn}>안내 음성</button>
+                          aria-pressed={voiceOn}>관내 방송 음성</button>
                   <span className="iba-aud__vl">{voiceOn ? 'ON' : 'OFF'}</span>
                 </div>
 
@@ -31877,7 +31876,7 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
                 </div>
 
                 <div className="iba-aud__ft">
-                  안내 음성은 문형 발생 시 재생됩니다.<br/>본 설정은 갱신되지 않았습니다.
+                  관내 방송에서만 므네모시네 음성이 재생됩니다.<br/>본 설정은 갱신되지 않았습니다.
                 </div>
               </div>
             )}
