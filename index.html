@@ -3678,6 +3678,11 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 .d2-paper .d2-fig{margin:4px 0 22px}
 .d2-paper .d2-fig img{border:1px solid #8f8d84;filter:saturate(.72) contrast(1.04) sepia(.08);mix-blend-mode:multiply}
 .d2-paper .d2-fig figcaption{font-size:13px;color:#55574f;margin-top:8px}
+/* 관리국 도판 — 녹색 표식과 검은 외형은 원색으로 보존하고 원본 크기 이상 늘리지 않는다. */
+.d2-fig__open{display:block;width:100%;margin:0 auto;padding:0;border:0;background:transparent;cursor:zoom-in;appearance:none}
+.d2-fig__open:focus-visible{outline:2px solid #287449;outline-offset:4px}
+.d2-paper .d2-fig--concept img{height:auto;filter:none;mix-blend-mode:normal;background:#080c0b}
+.d2-paper .d2-fig--concept figcaption{font-family:var(--font-ko);font-size:14px;line-height:1.65;letter-spacing:.02em;word-break:keep-all}
 @media (max-width:820px){ .d2-paper{padding:28px 22px} }
 @media (max-width:820px){ .d2doc__body{grid-template-columns:1fr} .d2doc__tabs{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px dashed var(--amber-line)} }
 
@@ -4744,6 +4749,25 @@ We preserve, but do not possess.
 국장실은 지상 층 어디에도 없다. **도면 AR-1949-001-B에만 표기되어 있다.**
 측량 B의 탑 상부, 정점이 확인되지 않는 구간 어딘가다. 그곳에 가 본 요원은 기록에 없다.
 
+## 복장과 직책 식별
+
+관리국 안의 복장은 검정을 바탕으로 하며, 어깨의 녹색 띠에 직책을 구분하는 문양을 단다. 색은 같고 문양이 다르다. 표식은 서로의 맡은 일을 알아보기 위한 것이며, 직급이나 열람 권한을 대신하지 않는다.
+
+![관리국 구성원의 검은 복장과 일곱 직책의 녹색 식별 문양](../../assets/w1/기관/mb-uniform-role-insignia.webp "도판 · 관리국 복장과 직책 식별 문양")
+
+| 표식 | 직책 | 맡은 일 |
+|---|---|---|
+| **BR** | 지부장 | 하나의 기록 줄기와 지부를 총괄한다 |
+| **RV** | 대조관 | 대조관실에서 대조와 판정을 맡는다 |
+| **AR** | 기록관 | 검증을 마친 기록을 등재하고 보존한다 |
+| **RS** | 연구원 | 기록을 검증하고 주해를 남긴다 |
+| **FS** | 조사관 | 현장을 관찰하고 깊은 공백을 가져온다 |
+| **DA** | 평가관 | 분기를 평가하고 출입과 작전을 관리한다 |
+| **DA-R** | 대응요원 | 작전에 따라 현장에서 대응한다 |
+
+도판의 인물은 복장과 표식의 예시다. 특정 구성원의 초상이나 명부가 아니다. 국장의 모습은 수록하지 않는다.
+BR·RV는 직책 식별 표기이며, 지부 번호와 등록 코드의 표기는 각 절의 규정을 따른다.
+
 ## 지부
 
 관리국의 지부는 지리가 아니라 **기록 계통**에 따라 나뉜다. 경계는 기구의 역사문화권 지부와 같다. 관리국의 지부는 그 안에 숨어 있다.
@@ -5068,6 +5092,10 @@ LUMINA는 빛을 추구하며 어둠 속에서 움직인다. 어둠 속에서 �
 
 대응요원은 **팔찌의 무기**만 쓴다. 관리국은 드러나서는 안 된다. 팔찌는 암살용 도구만 구현한다. 소리 나지 않고, 그 시대의 눈에 띄지 않고, 남지 않는 것.
 쓰고 나면 팔찌로 돌아간다. 그 시대에 남는 것이 없다.
+
+![팔찌에서 구현되는 여러 소형 도구의 검은 외형](../../assets/w1/기관/mb-bracelet-tools.webp "도판 · 팔찌의 도구 형태")
+
+도판은 팔찌가 이루는 여러 외형을 함께 제시한 것이다. 별도로 반입하거나 몸에 더하는 장비의 목록이 아니다. 형태가 달라져도 청구 승인과 작전의 범위, 불가침과 불개입의 규정은 달라지지 않는다.
 
 > 저들은 어둠 속에서 빛을 섬긴다. 우리는 어둠 속에서 그 빛을 끈다.
 > 같은 밤 같은 골목에 서 있어도, 기록에 남는 것은 아무것도 없어야 한다.
@@ -5762,6 +5790,12 @@ BR-4 / RS
 반입 심사  받은 적 없음
 ```
 
+### 맺힘과 형태 변화
+
+![양 손목의 팔찌가 검은 모래처럼 풀려 판의 외형으로 다시 맺히는 연속 도판](../../assets/w1/기관/mb-bracelet-transformation.webp "도판 · 팔찌에서 판으로 이어지는 형태 변화")
+
+양 손목의 팔찌에서 풀린 검은 모래가 판의 외형으로 다시 맺히는 모습을 순서대로 나타낸다. 평소의 직원증 형태와 파견 청구가 승인된 뒤의 변화를 구분하여 본다. 형태가 바뀌는 원리는 밝혀지지 않았다.
+
 ### 할 수 있는 것
 
 | 기능 | 내용 |
@@ -5773,6 +5807,13 @@ BR-4 / RS
 | 집 안과 같음 | 팔찌를 차고 있는 동안 요원은 집 밖에 있어도 **집 안에 있는 것과 같다.** 업무의 기억에 검은 줄이 그어지지 않고, 그 시대의 말이 통한다 |
 
 요원은 하나를 판으로, 하나를 무기로 쓸지 스스로 고른다. 조사관도 같은 팔찌를 찬다. 조사관은 무기로 바꾸지 않는다. 바꿀 수는 있다.
+
+### 판의 표시
+
+![팔에 착용한 판과 손에 든 판에 나타난 녹색 기록 열람 화면](../../assets/w1/기관/mb-field-display.webp "도판 · 판의 착용형과 휴대형 표시")
+
+도판은 팔에 착용하여 열람하는 모습과 손에 든 모습을 함께 제시한다. 판에는 구성원과 임무에 관한 정보, 기록줄기와 항목이 표시된다. 요원은 VESTIGIUM의 원본을 불러와 당대의 문서와 대조하고, 돌아올 자리의 방향과 거리를 확인한다.
+화면을 열 수 있다는 것이 그 시대의 기록을 고쳐 써도 된다는 뜻은 아니다. 판은 원본을 대조하는 창이다.
 
 ### 팔찌가 흩어지면
 
@@ -6785,6 +6826,14 @@ VESTIGIUM v2.4 · 최종 갱신 1987
     var h1 = line.match(/^# 제(\d\d)장 · (.+)$/);
     if (h1) { cur = { num: h1[1], label: h1[2].trim(), html: '' }; tabs.push(cur); if (h1[1] === '00' && pre) { cur.html = pre.html; pre = null; } i++; continue; }
     if (!cur) { if (!pre) pre = { html: '' }; cur = pre; }   /* 장 앞머리 — 00 표제부 앞에 붙인다 */
+    // 정본의 Markdown 도판. 문서 기준 상대 경로를 앱 루트의 기관 도판으로만 해석한다.
+    var image = line.match(/^!\[([^\]]+)\]\(([^\s)]+)(?:\s+"([^"]+)")?\)$/);
+    if (image) {
+      var imageSrc = image[2].replace(/^\.\.\/\.\.\//, '');
+      if (/^assets\/w1\/기관\/[a-z0-9_-]+\.(?:webp|png|jpe?g)$/.test(imageSrc)) {
+        push(fig(imageSrc, image[1], image[3] || image[1], true)); i++; continue;
+      }
+    }
     if (/^# /.test(line)) { push('<h3 class="d2-h">' + inline(line.slice(2).trim()) + '</h3>'); i++; continue; }   /* 열람 종료 등 */
     if (/^### /.test(line)) { push('<h4 class="d2-h4">' + inline(line.slice(4).trim()) + '</h4>'); i++; continue; }
     if (/^## /.test(line)) { push('<h3 class="d2-h">' + inline(line.slice(3).trim()) + '</h3>'); i++; continue; }
@@ -6829,15 +6878,32 @@ VESTIGIUM v2.4 · 최종 갱신 1987
     }
     if (/^---+$/.test(line) || !line.trim()) { i++; continue; }
     var para = [];
-    while (i < lines.length && lines[i].trim() && !/^(#|>|\||```|- |---|\d+\. )/.test(lines[i])) { para.push(lines[i].trim()); i++; }
+    while (i < lines.length && lines[i].trim() && !/^(#|>|\||```|- |---|\d+\. |!\[)/.test(lines[i])) { para.push(lines[i].trim()); i++; }
+    if (!para.length) { para.push(lines[i].trim()); i++; } // 지원하지 않는 도판 문법도 파서를 멈추지 않는다
     push('<p class="d2-p">' + inline(para.join(' ')) + '</p>');
   }
-  var fig = function (src, alt, cap) {
-    return '<figure class="d2-fig">' +
-      '<img src="' + src + '" alt="' + alt + '" loading="eager"' +
-      ' onclick="window.__tmbLightbox &amp;&amp; window.__tmbLightbox(this.src, this.alt)"/>' +
-      '<figcaption>' + cap + '</figcaption></figure>';
-  };
+  function fig(src, alt, cap, concept) {
+    function attr(t) { return esc(t).replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+    var dimensions = {
+      'mb-bracelet-transformation.webp': [909, 186],
+      'mb-field-display.webp': [738, 189],
+      'mb-bracelet-tools.webp': [673, 168],
+      'mb-uniform-role-insignia.webp': [2775, 1644]
+    }[src.split('/').pop()];
+    var size = dimensions ? ' width="' + dimensions[0] + '" height="' + dimensions[1] + '"' : '';
+    var img = '<img src="' + attr(src) + '" alt="' + attr(alt) + '" loading="eager"' + size;
+    if (concept) {
+      img += ' decoding="async"/>';
+      img = '<button type="button" class="d2-fig__open"' +
+        (dimensions ? ' style="max-width:' + dimensions[0] + 'px"' : '') +
+        ' aria-label="' + attr('그림 크게 보기: ' + alt) + '"' +
+        ' onclick="window.__tmbLightbox &amp;&amp; window.__tmbLightbox(this.firstElementChild.src, this.firstElementChild.alt)">' + img + '</button>';
+    } else {
+      img += ' onclick="window.__tmbLightbox &amp;&amp; window.__tmbLightbox(this.src, this.alt)"/>';
+    }
+    return '<figure class="d2-fig' + (concept ? ' d2-fig--concept' : '') + '">' + img +
+      '<figcaption>' + inline(cap) + '</figcaption></figure>';
+  }
   tabs.forEach(function (t) {
     // 07 본부 — 「외관 — 두 측량」 도면 표 바로 뒤에 두 측량 사진 (캡션은 도면 번호만)
     if (t.num === '07') {

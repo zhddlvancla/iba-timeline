@@ -19,6 +19,12 @@
   - 너머의 집 · 출근 지점 · 검은 줄
   - LUMINA's oath
 
+**관리국 컨셉아트 배치 (2026-11-01):**
+- 사용자가 제공한 네 도판을 `assets/w1/기관/mb-*.webp`에 원본 비율과 색을 유지하여 저장했다.
+- 제03장 「복장과 직책 식별」에 복장·문양 도판과 일곱 직책 표, 제05장 「무기」에 팔찌의 도구 도판, 제08장 「팔찌」에 형태 변화와 판 표시 도판을 배치했다. 설명은 기존 정본의 권한·청구·불개입 규정을 따른다.
+- BR·RV는 도판의 직책 식별 표기다. 포털 부서 코드나 지부 번호 규칙을 확장하지 않는다. 인물은 복장 예시이며, 국장의 초상으로 해석하지 않는다.
+- 정본의 Markdown 이미지 구문을 `#d2-doc`에도 그대로 반영한다. 파서는 기관 도판의 로컬 경로만 처리하고, 클릭·키보드로 기존 확대 창을 연다. 기존 보존서고·제0열람실 사진과 제한 열람 층은 유지한다.
+
 Older (15th edition): in-world UI text followed `~/Downloads/files 3/IBA_DENDRO_canon.md` (관리국 열람 문서 제15판). The same folder has `DENDRO_fix_instructions.md` (the P0–P4 work order) and `vestigia_lines.csv` (126 VESTIGIA lines).
 
 **지역국 codes:**
