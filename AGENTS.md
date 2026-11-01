@@ -23,7 +23,8 @@
 | `audio-engine.js` | `window.DENDRO_AUDIO`. Web Audio로 효과음·앰비언트·배경음악을 합성한다(음원 파일 없음) |
 | `iba-emblem.js` | 기관 인장 SVG 생성기 |
 | `semantic-search.js`, `semantic-worker.js`, `search-index.js` | 검색창 Enter 의미 검색(e5-small) |
-| `assets/w1/<시대>/…` | 앱이 쓰는 이미지(webp). 시대 폴더는 고대·중세·근세·근현대·기관 |
+| `assets/w1/<시대>/…` | 역사 노드 이미지(webp). 시대 폴더는 고대·중세·근세·근현대 |
+| `assets/canon/` | 총람 이미지 전용. `management/` 관리국, `lumina/` 루미나, `archive/` 서고 사진. 목록은 `assets/canon/README.md` |
 | `tools/` | 데이터·이미지 작업 도구(아래 5절) |
 | `docs/handoff/` | 누적된 사용자 규칙과 결정 기록 |
 
