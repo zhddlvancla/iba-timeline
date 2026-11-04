@@ -35,6 +35,10 @@
 - 총람 이미지는 모두 `assets/canon/` 아래에 모은다. `management/`는 관리국, `lumina/`는 루미나, `archive/`는 기존 서고·제0열람실 사진이다. 목록과 배치 위치는 해당 폴더의 README에 있다.
 - 새 문양 도판에는 직책별 문자 라벨이 없다. 기존 직책 업무 표는 유지하되, 도판의 인물 순서나 문양 순서로 신원·직책을 새로 확정하지 않는다.
 
+**공개 청사 도판 (2026-11-04):**
+- 사용자 제공 공개 청사 이미지를 `assets/canon/archive/iba-public-building.webp`에 원본 크기·비율로 저장했다. 제02장 국제기록보존기구의 공개 업무 표 뒤 「공개 청사」에 배치한다.
+- 제07장의 관리국 제1보존서고 외관 도판과 구분한다. 소재지·건축 연도 등 제공되지 않은 설정은 추가하지 않는다.
+
 Older (15th edition): in-world UI text followed `~/Downloads/files 3/IBA_DENDRO_canon.md` (관리국 열람 문서 제15판). The same folder has `DENDRO_fix_instructions.md` (the P0–P4 work order) and `vestigia_lines.csv` (126 VESTIGIA lines).
 
 **지역국 codes:**

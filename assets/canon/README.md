@@ -4,7 +4,7 @@
 
 - `management/`: 관리국 요원 복장·직책 문양·팔찌·도구·판
 - `lumina/`: 루미나 복장·표식·작업 공간·기록 매체·팔찌 비교
-- `archive/`: 기존 서고·제0열람실 사진
+- `archive/`: 기구 공개 청사·서고·제0열람실 사진
 
 | 위치 | 파일 | 총람 배치 |
 |---|---|---|
@@ -25,6 +25,7 @@
 | lumina | lumina-uniform.webp | 제10장 제1층 · 복장 앞·뒷면 |
 | lumina | lumina-uniform-details.webp | 제10장 제1층 · 복장·휴대품 세부 |
 | lumina | lumina-bracelet-comparison.webp | 제10장 제1층 · 팔찌 색 비교 |
+| archive | iba-public-building.webp | 제02장 · 국제기록보존기구 공개 청사 |
 | archive | AR-1949-001.jpg | 제07장 · 서고 외관 두 측량 |
 | archive | FS-1952-000.jpg | 제08장 · 제0열람실 |
 
