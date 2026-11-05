@@ -4101,7 +4101,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
    목록에 없는 상황에는 문장을 새로 만들지 않는다(없는 id는 V-ER-001). [n] 슬롯은 화면에 숫자를 넣는다.
    VESTIGIA.say(id, { n })  — 관내 방송 띠(하단 바·기록 열람 창·관리국 문서 창·대문)에 한 줄 표시
    VESTIGIA.chain([id…])    — 차례로 표시 (접속 완료처럼 이어지는 문형)
-   VESTIGIA.broadcast(true) — V-BC 순환 방송. 90~180초 무작위 간격, 같은 문구 연속 금지
+   VESTIGIA.broadcast(true) — V-BC 19개를 한 회차마다 한 번씩 무작위 방송 (간격 90~180초)
    'vestigia' 이벤트(detail = 현재 줄)로 알린다. 음성 파일은 V-BC 관내 방송에만 사용한다. */
 (function () {
   var LINES = {
@@ -4327,13 +4327,31 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   }
   /* 관내 방송 · 순환 — V-BC 계열 */
   var BC = Object.keys(LINES).filter(function (k) { return k.indexOf('V-BC-') === 0; });
-  var bcTimer = null, bcLast = null, bcOn = false;
+  var bcTimer = null, bcLast = null, bcOn = false, bcDeck = [];
+  function shuffleBCDeck() {
+    bcDeck = BC.slice();
+    for (var i = bcDeck.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var item = bcDeck[i]; bcDeck[i] = bcDeck[j]; bcDeck[j] = item;
+    }
+    // pop()으로 꺼낼 다음 회차 첫 방송이 직전 회차 마지막 방송과 같으면 자리를 바꾼다.
+    if (bcDeck.length > 1 && bcDeck[bcDeck.length - 1] === bcLast) {
+      var last = bcDeck.length - 1, swapAt = Math.floor(Math.random() * last);
+      var edge = bcDeck[last]; bcDeck[last] = bcDeck[swapAt]; bcDeck[swapAt] = edge;
+    }
+  }
+  function nextBC() {
+    if (!bcDeck.length) shuffleBCDeck();
+    return bcDeck.pop() || null;
+  }
   function lectureOn() { return document.documentElement.classList.contains('lecture'); }
   function bcNext() {
-    if (lectureOn()) return;   // 강의 모드 — 관내 방송 순환 정지 (DENDRO P1-1)
+    if (!bcOn || lectureOn()) return;   // 강의 모드 — 관내 방송 순환 정지 (DENDRO P1-1)
     bcTimer = setTimeout(function () {
-      var pick;
-      do { pick = BC[Math.floor(Math.random() * BC.length)]; } while (pick === bcLast && BC.length > 1);
+      bcTimer = null;
+      if (!bcOn || lectureOn()) return;
+      var pick = nextBC();
+      if (!pick) return;
       say(pick); bcLast = pick;
       bcNext();
     }, (90 + Math.random() * 90) * 1000);

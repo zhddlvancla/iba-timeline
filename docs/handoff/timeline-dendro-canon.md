@@ -114,6 +114,7 @@ Related: [timeline-ui-conventions](timeline-ui-conventions.md) [iba-emblem](iba-
 - Broadcast MP3 files are under `assets/mnemosyne-voice/broadcast/`; `manifest.json` maps V-BC IDs to the display text, spoken text, and file path. No non-broadcast voice files are included.
 - Qwen3-TTS 0.6B Base uses the selected VoiceDesign sample as a reference; apply the same large interior PA processing to every broadcast line.
 - `window.VESTIGIA.voice(line)` accepts V-BC lines only. They play after the four-note chime. The audio settings panel has an independent 「관내 방송 음성」 toggle, on by default and stored for the session. The lecture mode stops playback.
+- The timed loop shuffles all 19 V-BC IDs into a deck, emits each once before reshuffling, and prevents the first item of a new deck from matching the previous deck's last item. Intervals remain randomized at 90–180 seconds.
 - Keep model attribution and licensing notes in the audio folder README. Do not add model weights to the public repository.
 
 - **2026-10-13 renames (user):**
