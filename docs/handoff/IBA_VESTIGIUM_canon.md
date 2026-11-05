@@ -1015,6 +1015,8 @@ BR-4 / RS
 | AR-1949-001 · 측량 A | 지상 4층 · 층고 5.1 m · 높이 20.4 m · 한 변 42 m |
 | AR-1949-001-B · 측량 B | 층수 미확정 · 한 변 19 m · 정점은 안개에 가려 확인 불가 |
 
+![같은 서고를 서로 다른 크기로 기록한 측량 A와 측량 B의 두 외관](../../assets/canon/archive/AR-1949-001.jpg "AR-1949-001 / AR-1949-001-B · 측량 A / 측량 B")
+
 측량 B의 평면은 측량 A의 중앙부와 정확히 일치한다. 그 부분만 위로 이어진다.
 지하 2층 이하의 평면은 측량 B와 같다. 지상에서 넓어지는 것은 1층뿐이다.
 
@@ -1061,6 +1063,22 @@ BR-4 / RS
 ![콘크리트 외벽에 연결된 조각 장식의 석조 아치와 철제 출입문](../../assets/canon/archive/archive-exterior-paris.webp "외관 기록 B-05-03 · 파리")
 
 ![안개 속 거대한 콘크리트 외벽 아래 단청과 기와지붕이 있는 출입문](../../assets/canon/archive/archive-exterior-seoul.webp "외관 기록 B-04-07 · 서울")
+
+런던·뉴욕·앙카라·로마·모스크바·베이징·케이프타운으로 표기된 외관 기록도 함께 수록한다.
+
+![시계탑이 보이는 도시 배경과 철책 안 석조 정면을 갖춘 서고 외관](../../assets/canon/archive/archive-exterior-london.webp "외관 기록 B-11-09 · 런던")
+
+![고층 건물이 보이는 배경과 기둥 및 삼각 박공을 갖춘 서고 출입구](../../assets/canon/archive/archive-exterior-new-york.webp "외관 기록 B-11-08 · 뉴욕")
+
+![기와지붕의 돌출 창과 장식 아치가 있는 서고 외관](../../assets/canon/archive/archive-exterior-ankara.webp "외관 기록 B-11-07 · 앙카라")
+
+![조각상과 삼각 박공 및 기둥으로 장식한 서고 정면 출입구](../../assets/canon/archive/archive-exterior-rome.webp "외관 기록 B-11-06 · 로마")
+
+![눈 덮인 강변과 둥근 지붕 장식 출입구가 있는 서고 외관](../../assets/canon/archive/archive-exterior-moscow.webp "외관 기록 B-11-05 · 모스크바")
+
+![푸른 기와지붕과 단청 및 큰 목조 문이 있는 서고 출입구](../../assets/canon/archive/archive-exterior-beijing.webp "외관 기록 B-11-04 · 베이징")
+
+![평평한 산 능선을 배경으로 곡선 박공의 낮은 정면과 거대한 외벽을 갖춘 서고](../../assets/canon/archive/archive-exterior-cape-town.webp "외관 기록 B-11-10 · 케이프타운")
 
 > 두 측량이 어긋났을 때 우리가 하는 일은 하나를 고르는 것이 아니다.
 > 어긋났다는 사실을 기록하는 것이다.
@@ -1282,6 +1300,8 @@ BR-4 / RS
 그가 제3석에 앉았는지는 기록되어 있지 않다. 돌아왔다는 기록만 있다. 그가 제출한 보고서가 현장조사과 제1호 파견 보고서다.
 
 ## 모습
+
+![제0열람실의 열람대와 기송관 단말 측 기록 사진](../../assets/canon/archive/FS-1952-000.jpg "FS-1952-000 · 제0열람실 · 기송관 단말 측")
 
 긴 열람대가 끝없이 이어진다. 초록 갓 스탠드가 좌석마다 놓여 있다. 천장에는 형광등이 켜져 있다.
 창은 없다. 벽에 시계가 걸려 있으나 바늘이 없다.
