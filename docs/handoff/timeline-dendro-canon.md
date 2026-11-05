@@ -121,3 +121,7 @@ Related: [timeline-ui-conventions](timeline-ui-conventions.md) [iba-emblem](iba-
   - The landing warning reads 「제1보존서고 접근 주의」.
   - The oath (briefing and 총람 제01장) is: 가장 선명한 흔적에도, 가장 깊은 공백에도, / 해석보다 먼저 흘렀고, 부정 너머에도 흐르니. / 진실을 자처하는 자들이여, 두려워하라. / 역사의 거대한 흐름을. / (blank) / -  우리는 보존하되, 주인이 되지 않는다.  -
   - The canon file in ~/Downloads still says 제2국; the app text is authoritative for these renames.
+
+**도시별 외관 기록 도판 (2026-11-05):**
+- 사용자 제공 리야드·도쿄·파리·서울 도판 4장을 `assets/canon/archive/archive-exterior-*.webp`에 원본 크기·비율로 저장했다. 제07장 「네 도시의 사진」 아래 「도시별 외관 기록 도판」에 추가 수록한다. 기존 사진 진술과 두 측량 도판은 유지한다.
+- 도시명과 B-11-02·B-03-01·B-05-03·B-04-07은 이미지에 인쇄된 표기를 따르며, 지부나 관측소 코드로 새로 대응시키지 않는다. 촬영자·촬영 연대·정확한 소재지는 추가로 확정하지 않는다.
