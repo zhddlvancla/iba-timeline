@@ -19,6 +19,7 @@
 | 파일 | 내용 |
 |---|---|
 | `index.html` | 앱 전체(약 3.5만 줄). CSS, 대사·세계관 문서, `<script type="text/babel">` React 18 UMD + Babel standalone(CDN), **TIMELINE_DATA·TIMELINE_DB 사본**까지 모두 들어 있다. 빌드 단계 없음 |
+| `mobile.css` | 아이폰·아이패드 등 1100px 이하 반응형 화면, 터치 버튼·문서 배치·안전 여백 |
 | `timeline-content.js` | 데이터 전용 파일. `window.TIMELINE_DATA`(노드 목록)와 `window.TIMELINE_DB`(노드별 기록). 맨 위 주석에 스키마가 있다 |
 | `audio-engine.js` | `window.DENDRO_AUDIO`. Web Audio로 효과음·앰비언트·배경음악을 합성한다(음원 파일 없음) |
 | `iba-emblem.js` | 기관 인장 SVG 생성기 |

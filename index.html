@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=1440, initial-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <title>IBA · 국제기록보존기구 — 기록보관소</title>
 <style>
 /* ============================================================
@@ -3886,6 +3886,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   .mode-glitch{display:none}
 }
 </style>
+<link rel="stylesheet" href="mobile.css?v=20261105-2"/>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -32369,6 +32370,7 @@ function SemanticPop({ sem, st, onPick, onClose }) {
 }
 
 function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack, accessMode = 'researcher' }) {
+  const [mobileInfo, setMobileInfo] = useState(false);
   const toggle = (k) => setTracks({ ...tracks, [k]: !tracks[k] });
 
   const visibleCount = TIMELINE_DATA.events.filter(e => tracks[e.track] && (!focusedTrack || e.track === focusedTrack) && (!e.focusOnly || focusedTrack === e.track)).length;
@@ -32437,7 +32439,8 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
   const BRANCH_YS = [18, 54, 90, 126];
 
   return (
-    <div className="subnav subnav--tracks">
+    <div className={`subnav subnav--tracks ${mobileInfo ? 'is-info-open' : ''}`}>
+      <button className="mobile-info-button" aria-expanded={mobileInfo} aria-controls="mobile-operator mobile-meta" onClick={() => setMobileInfo(v => !v)}>{mobileInfo ? '정보 접기' : '접속 정보'}</button>
       <div className="subnav__leftcol">
       <div className="trackbranch" role="tablist" aria-label="지부 선택">
         <div className="trackbranch__animwrap">
@@ -32537,7 +32540,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
       </div>
 
       {/* ===== 가운데 컬럼: 접속자(연구원) HUD — 얼굴 스캔 · 데이터 · 기록줄기 무결성 ===== */}
-      <div className="subnav__operator" aria-label="접속자 단말기 상황판">
+      <div id="mobile-operator" className="subnav__operator" aria-label="접속자 단말기 상황판">
         {/* (1) 접속자 얼굴 — 윤곽선 바이오 스캔 */}
         <div className="op-sect op-face">
           <div className="op-sect__cap"><span>{resp ? '대응 요원' : '접속자'}</span><b>{resp ? 'RESPONSE' : 'OPERATOR'}</b></div>
@@ -32607,7 +32610,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
       </div>
 
       <div className="subnav__rightcol">
-        <div className="subnav__sidemeta">
+        <div id="mobile-meta" className="subnav__sidemeta">
           <div className="subnav__sidemeta-row">
             <span className="k">{resp ? '▸ IBA · 대응요원 상황실' : '▸ IBA · 기록보관소'}</span>
           </div>
@@ -32637,7 +32640,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
         <div className="subnav__search" ref={searchRef}>
           <Icon.Search style={{color:'var(--amber)'}}/>
           <input
-            placeholder="검색 · ⏎ 연관 대조"
+            type="search" enterKeyHint="search" aria-label="기록 검색" placeholder="검색 · ⏎ 연관 대조"
             title="글자로 찾기 · Enter를 누르면 뜻이 가까운 기록을 찾는다(연관 기록 대조)"
             value={query}
             onChange={(e) => { setQuery(e.target.value); if (sem) setSem(null); }}
@@ -33278,17 +33281,23 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
   useEffectTC(() => () => clearTimeout(panHideRef.current), []);
   const viewportRef = useRefTC(null);
   const draggingRef = useRefTC(null);
+  const dragClickUntilRef = useRefTC(0);
   // 연표 박스 높이 — 기록줄기를 박스 안에 맞추는 기준 (창 크기가 바뀌면 다시 계산)
   const [vpH, setVpH] = useStateTC(0);
+  const [vpW, setVpW] = useStateTC(0);
   applySubScale(vpH);   // 갈래 레인 간격을 박스 높이에 맞춘다 — 아래 배치 계산들이 모두 이 값을 쓴다
   useEffectTC(() => {
     const el = viewportRef.current; if (!el) return;
-    const update = () => setVpH(el.clientHeight);
+    const update = () => { setVpH(el.clientHeight); setVpW(el.clientWidth); };
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
+  // 회전·창 크기 변경 뒤에도 이동 범위를 벗어난 빈 화면이 남지 않게 한다.
+  useEffectTC(() => {
+    setPanX(p => Math.max(0, Math.min(Math.max(0, trackWidth(scale) - vpW), p)));
+  }, [vpW, scale]);
 
   // Vertical rail (left-side scroll) refs + drag state
   const vrailBodyRef = useRefTC(null);
@@ -33699,24 +33708,46 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
     return () => el.removeEventListener('wheel', block);
   }, []);
   const onWheel = useCallbackTC((e) => {
+    const vp = viewportRef.current;
+    // 낮은 화면에서 아래쪽 기록줄기는 세로 스크롤로 읽는다. Shift+휠은 가로 이동이다.
+    if (vp && window.matchMedia('(max-width:1100px)').matches && vp.scrollHeight > vp.clientHeight + 1 && Math.abs(e.deltaY) > Math.abs(e.deltaX) && !e.shiftKey) return;
     const delta = e.deltaX !== 0 ? e.deltaX : e.deltaY;
     const w = viewportRef.current?.clientWidth || 800;
     const totalW = trackWidth(scale);
     setPanX(p => Math.max(0, Math.min(totalW - w, p + delta)));
   }, [scale]);
 
-  /* 끌어서 넘기기 — 포인터 이벤트라 마우스와 손가락(아이패드·휴대폰) 모두 된다. 마우스는 왼쪽 버튼만 */
-  const onMouseDown = (e) => { if (e.pointerType === 'mouse' && e.button !== 0) return; draggingRef.current = { x: e.clientX, panX, id: e.pointerId }; };
+  /* 가로 드래그는 연표 이동, 세로 스와이프·두 손가락 확대는 브라우저에 맡긴다.
+     캡처는 실제 가로 드래그를 시작할 때만 잡아, 짧게 누른 노드의 클릭을 유지한다. */
+  const onMouseDown = (e) => {
+    if ((e.pointerType === 'mouse' && e.button !== 0) || e.isPrimary === false) return;
+    dragClickUntilRef.current = 0;
+    draggingRef.current = { x: e.clientX, y: e.clientY, panX, id: e.pointerId, moved: false };
+  };
   const onMouseMove = (e) => {
-    if (!draggingRef.current || (draggingRef.current.id != null && e.pointerId !== draggingRef.current.id)) return;
+    const drag = draggingRef.current;
+    if (!drag || e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!drag.moved) {
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 6) return;
+      if (e.pointerType !== 'mouse' && Math.abs(dy) > Math.abs(dx)) { draggingRef.current = null; return; }
+      drag.moved = true;
+      if (e.currentTarget.setPointerCapture) e.currentTarget.setPointerCapture(e.pointerId);
+    }
     const w = viewportRef.current?.clientWidth || 800;
     const totalW = trackWidth(scale);
     // 강의 모드(zoom 1.4)에서는 마우스 이동량이 화면 px라 배율로 나눠 CSS px로 맞춘다
     const vp = viewportRef.current, z = vp && vp.offsetWidth ? vp.getBoundingClientRect().width / vp.offsetWidth : 1;
-    const newPan = Math.max(0, Math.min(totalW - w, draggingRef.current.panX - (e.clientX - draggingRef.current.x) / (z || 1)));
+    const newPan = Math.max(0, Math.min(totalW - w, drag.panX - dx / (z || 1)));
     setPanX(newPan);
   };
-  const onMouseUp = () => { draggingRef.current = null; };
+  const onMouseUp = (e) => {
+    const drag = draggingRef.current;
+    if (!drag || (e && e.pointerId !== drag.id)) return;
+    if (drag.moved || (e && e.type === 'pointercancel')) dragClickUntilRef.current = Date.now() + 400;
+    if (e && e.currentTarget.hasPointerCapture && e.currentTarget.hasPointerCapture(drag.id)) e.currentTarget.releasePointerCapture(drag.id);
+    draggingRef.current = null;
+  };
 
   // Vertical rail: click/drag to pan (rail's top = year start, bottom = year end)
   const onVrailMouseDown = useCallbackTC((e) => {
@@ -33761,6 +33792,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
   useEffectTC(() => {
     if (!vpH) return;
     const root = document.documentElement;
+    if (window.matchMedia('(max-width:1100px)').matches) { root.classList.remove('tl-tight'); return; }
     const sub = document.querySelector('.subnav');
     const on = root.classList.contains('tl-tight');
     const subH = sub ? sub.offsetHeight : 0;
@@ -33768,7 +33800,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
     const want = base + 24 < needMin;   // 맨 아래 여백(브래킷 자리) 24px까지는 모자라도 접지 않는다 — 전체 보기 1280×800은 원래대로
     if (want && !on) { tightRef.current.h0 = subH; root.classList.add('tl-tight'); }
     else if (!want && on) root.classList.remove('tl-tight');
-  }, [vpH, needMin]);
+  }, [vpH, vpW, needMin]);
   useEffectTC(() => () => document.documentElement.classList.remove('tl-tight'), []);
 
   // Korea 포커스 시 sub-lane 오프셋 — 3개 sub-lane
@@ -33856,24 +33888,36 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
           </div>
         )}
         <div className="canvas__zoom">
-          <button onClick={() => setScale(s => Math.max(0.6, s - 0.2))}>−</button>
-          <button onClick={() => setScale(1)} style={{width:'auto',padding:'0 10px',fontSize:12}}>{Math.round(scale * 100)}%</button>
-          <button onClick={() => setScale(s => Math.min(2.4, s + 0.2))}>+</button>
+          <button aria-label="기록줄기 축소" onClick={() => setScale(s => Math.max(0.6, s - 0.2))}>−</button>
+          <button aria-label="기록줄기 배율 초기화" onClick={() => setScale(1)} style={{width:'auto',padding:'0 10px',fontSize:12}}>{Math.round(scale * 100)}%</button>
+          <button aria-label="기록줄기 확대" onClick={() => setScale(s => Math.min(2.4, s + 0.2))}>+</button>
         </div>
       </div>
 
+      <div className="mobile-touch-hint">좌우로 밀어 연대 이동 · 위아래로 스크롤</div>
       <div
         className={`tl-viewport tl-viewport--quad ${focusedTrack ? 'has-focus' : ''} tl-viewport--${phase} ${accessMode === 'response' ? 'tl-viewport--response' : ''}`}
         data-focus={focusedTrack || ''}
+        role="region"
+        aria-label="기록줄기. 좌우로 밀어 이동하고 노드 이름을 눌러 열람합니다."
+        tabIndex={0}
         ref={viewportRef}
         onWheel={onWheel}
         onPointerDown={onMouseDown}
         onPointerMove={onMouseMove}
         onPointerUp={onMouseUp}
         onPointerCancel={onMouseUp}
-        onPointerLeave={(e) => { if (e.pointerType === 'mouse') onMouseUp(); }}
+        onLostPointerCapture={onMouseUp}
+        onPointerLeave={(e) => { if (e.pointerType === 'mouse' && !e.currentTarget.hasPointerCapture(e.pointerId)) onMouseUp(e); }}
+        onClickCapture={(e) => { if (e.detail && Date.now() < dragClickUntilRef.current) { e.preventDefault(); e.stopPropagation(); } }}
+        onKeyDown={(e) => {
+          if (e.target !== e.currentTarget || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const limit = Math.max(0, totalW - (viewportRef.current?.clientWidth || 800));
+          setPanX(p => e.key === 'Home' ? 0 : e.key === 'End' ? limit : Math.max(0, Math.min(limit, p + (e.key === 'ArrowLeft' ? -160 : 160))));
+        }}
       >
-        <div className="tl-inner" style={{width: totalW, left: -panX}}>
+        <div className="tl-inner" style={{width: totalW, height: totalLanesH, left: -panX}}>
           {/* Branching trunk — 고대 ORIGIN → 4 tracks */}
           <svg className="tl-trunk"
             style={{position:'absolute',left:0,top:0,width:LEAD_PAD*scale,height:totalLanesH,pointerEvents:'none',zIndex:1,overflow:'visible'}}>
@@ -34171,6 +34215,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                   onClick={(ev) => { ev.stopPropagation(); onSelect(isSelected ? null : e.id); }}
                   role="button"
                   tabIndex={0}
+                  onKeyDown={(ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); ev.stopPropagation(); onSelect(isSelected ? null : e.id); } }}
                   title={`${e.label} · ${e.year}`}
                 >
                   {!e.hideYear && (
@@ -34444,7 +34489,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
               </div>
               <div className="sync-head__ratio-n">부속 자료 {thick.annexN}건</div>
             </div>
-            <button className="sync-close" onClick={onClose} aria-label="Close">
+            <button className="sync-close" onClick={onClose} aria-label="닫기">
               <SyncIcon.Close/>
             </button>
           </div>
@@ -35757,6 +35802,8 @@ function Briefing({ onEnter }) {
   const [typed, setTyped] = useStateApp('');
   const [done, setDone]   = useStateApp(false);
   const fullText = IBA_DOCTRINE.join('\n');
+  const typingFinished = useRefApp(false);
+  const finishTyping = () => { typingFinished.current = true; setTyped(fullText); setDone(true); };
 
   useEffectApp(() => {
     let i = 0;
@@ -35768,7 +35815,7 @@ function Briefing({ onEnter }) {
     // mascot이 도착하기 직전에 타이핑 시작 → 사용자가 빈 말풍선을 오래 보지 않음
     const startTimer = setTimeout(() => {
       const tick = () => {
-        if (cancelled) return;
+        if (cancelled || typingFinished.current) return;
         // 한 번에 여러 글자씩 출력하여 체감 속도 향상
         i = Math.min(i + 1, fullText.length);
         setTyped(fullText.slice(0, i));
@@ -35795,7 +35842,7 @@ function Briefing({ onEnter }) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         if (done) onEnter();
-        else { setTyped(fullText); setDone(true); }
+        else finishTyping();
       }
     };
     window.addEventListener('keydown', onKey);
@@ -35828,6 +35875,7 @@ function Briefing({ onEnter }) {
           </div>
         </div>
         <div className="bf-foot">
+          {!done && <button className="bf-mobile-skip" onClick={finishTyping}>맹세 바로 읽기</button>}
           <span className="bf-skip">{done ? '맹세 낭독 완료' : '[ENTER] · [SPACE] TO SKIP TYPING'}</span>
           <button
             className={`bf-enter ${done ? 'is-ready' : ''}`}

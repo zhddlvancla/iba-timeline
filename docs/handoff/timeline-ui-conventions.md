@@ -51,9 +51,14 @@ Related: [timeline-labels-always-visible](timeline-labels-always-visible.md)
 - **Record tabs:** `.sync-tabs` is a container (`container-type`).
   - Labels never wrap.
   - Below 1160px the `FILE_REF` word is hidden; below 1090px (lecture mode at 1280) the English labels are hidden.
-- **Mobile:** the meta viewport is `width=1440`, so phones and iPads lay out at 1440 wide and scale down. Phone landscape is about 0.5 scale: tiny but intact, with 0 label overlaps at 1440×665.
-  - Timeline drag uses pointer events, so fingers work. `.tl-viewport` has `touch-action: pinch-zoom`.
-  - Always include 1440 in audits; the 1401–1500 band has its own topbar-title rule.
+- **Mobile (2026-11-05 사용자 요청으로 교체):** `width=device-width, initial-scale=1, viewport-fit=cover`를 사용한다. 예전 `width=1440` 축소 방식은 쓰지 않는다.
+  - `mobile.css`가 1100px 이하의 단말기·접속 화면·모달을 조정한다. 문서 본문 17px, 입력 16px, 주요 터치 버튼·닫기 44px 이상이다. 브라우저 확대를 막지 않는다.
+  - 화면 높이는 `100vh` 대체값과 `100dvh`, 노치 여백은 `env(safe-area-inset-*)`로 처리한다. 세로가 낮은 가로 화면은 페이지와 기록창을 스크롤하여 본문을 읽는다.
+  - 지부 선택과 검색은 유지하고, 접속자 정보·상황판은 「접속 정보」 버튼으로 펼친다. 총람·기록 탭은 가로로 스크롤하며 본문은 세로로 읽는다. 긴 표·코드만 해당 영역에서 가로로 스크롤한다.
+  - 기록줄기는 가로 포인터 이동 6px부터 드래그로 판단한다. 실제 드래그 중에만 포인터를 캡처하고 드래그 끝의 오클릭을 억제한다. 세로 스와이프와 브라우저 확대는 `touch-action:pan-y pinch-zoom`으로 허용한다. 아래 줄기는 내부 세로 스크롤로 접근하며 모바일에서는 `tl-tight`로 검색·지부 선택을 숨기지 않는다.
+  - 확대·축소·초기화 버튼에 접근성 이름을 두고, 노드 이름표는 키보드로도 선택한다. 글자 크기와 기존 이름표 배치 계산은 유지한다. 맹세에는 터치용 「맹세 바로 읽기」 버튼을 둔다.
+  - 검증: 375×667·390×844·430×932, iPad 크기 768×1024·1024×768, 가로 휴대전화 844×390·568×320, 데스크톱 1280×800·1440×900·1500×960·1920×1080의 두 모드. 휴대전화 기록 7개 탭과 총람 13개 장, 확대·닫기, 검색·접속 정보·포인터 회귀를 확인한다. 브라우저 크기 모사 검사이며 실제 iOS Safari 기기 검사는 별도로 필요하다.
+  - 1440 데스크톱 검사는 계속 유지한다. 1401–1500 구간의 기존 상단바 규칙도 유지한다.
 - 2026-10-10: the era name next to ▸ RECORD STREAM (`.canvas__era`) is a button. It opens a menu of the 7 `TIMELINE_ERAS` and `goEra` pans there. A short era is centred; a long one is placed with its start near the left edge. ESC or an outside click closes the menu.
 
 **2026-10-11 additions:**
