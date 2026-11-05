@@ -3,7 +3,7 @@
 !/.gitignore
 !/.nojekyll
 !/index.html
-!/mobile.css
+!/tablet.css
 !/timeline-content.js
 !/audio-engine.js
 !/iba-emblem.js

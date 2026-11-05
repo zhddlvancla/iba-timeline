@@ -2749,9 +2749,6 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
   font-family:var(--font-ko);font-size:12px;color:var(--amber-dim);
   text-align:center;line-height:1.4;
 }
-@media (max-width: 720px){
-  .sync-source__gallery{grid-template-columns:1fr}
-}
 .sync-source__kind{font-family:var(--font-mono);font-size:12px;letter-spacing:.20em;color:var(--amber-2);border:1px solid var(--amber);padding:2px 6px;text-transform:uppercase}
 .sync-source__title{font-family:var(--font-ko);font-weight:700;font-size:16px;color:var(--amber)}
 .sync-source__body{
@@ -3523,7 +3520,7 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
 }
 .iba-about__txt b{color:var(--amber-2);margin-right:6px;font-weight:700}
 .iba-about__note{color:var(--amber-dim) !important;font-size:12.5px !important}
-/* 1401~1500 — 휴대폰·아이패드는 화면 폭을 1440으로 잡으므로 이 구간에서 기관명이 잘리지 않게 */
+/* 1401~1500 — 기관명이 잘리지 않게 자간을 조정한다. */
 @media (min-width:1401px) and (max-width:1500px){ .topbar__title{letter-spacing:.22em} }
 /* ── 좁은 화면(노트북·1280 프로젝터) — 글자가 잘리거나 겹치지 않도록 간격을 줄이고 장식 요소를 뺀다 ── */
 @media (max-width:1400px){
@@ -3683,8 +3680,6 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 .d2-fig__open:focus-visible{outline:2px solid #287449;outline-offset:4px}
 .d2-paper .d2-fig--concept img{height:auto;filter:none;mix-blend-mode:normal;background:#080c0b}
 .d2-paper .d2-fig--concept figcaption{font-family:var(--font-ko);font-size:14px;line-height:1.65;letter-spacing:.02em;word-break:keep-all}
-@media (max-width:820px){ .d2-paper{padding:28px 22px} }
-@media (max-width:820px){ .d2doc__body{grid-template-columns:1fr} .d2doc__tabs{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px dashed var(--amber-line)} }
 
 
 /* 배속 승인 번호 입력 칸 — [부서]-[배속 연도]-[등록 일련번호]-[출입 관측소]. 버튼과 입력 칸이 같은 자리를 써서 인장이 움직이지 않게 높이를 고정 */
@@ -3886,7 +3881,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   .mode-glitch{display:none}
 }
 </style>
-<link rel="stylesheet" href="mobile.css?v=20261105-2"/>
+<link rel="stylesheet" href="tablet.css?v=20261105-3"/>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -32422,7 +32417,6 @@ function SemanticPop({ sem, st, onPick, onClose }) {
 }
 
 function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack, accessMode = 'researcher' }) {
-  const [mobileInfo, setMobileInfo] = useState(false);
   const toggle = (k) => setTracks({ ...tracks, [k]: !tracks[k] });
 
   const visibleCount = TIMELINE_DATA.events.filter(e => tracks[e.track] && (!focusedTrack || e.track === focusedTrack) && (!e.focusOnly || focusedTrack === e.track)).length;
@@ -32491,8 +32485,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
   const BRANCH_YS = [18, 54, 90, 126];
 
   return (
-    <div className={`subnav subnav--tracks ${mobileInfo ? 'is-info-open' : ''}`}>
-      <button className="mobile-info-button" aria-expanded={mobileInfo} aria-controls="mobile-operator mobile-meta" onClick={() => setMobileInfo(v => !v)}>{mobileInfo ? '정보 접기' : '접속 정보'}</button>
+    <div className="subnav subnav--tracks">
       <div className="subnav__leftcol">
       <div className="trackbranch" role="tablist" aria-label="지부 선택">
         <div className="trackbranch__animwrap">
@@ -32592,7 +32585,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
       </div>
 
       {/* ===== 가운데 컬럼: 접속자(연구원) HUD — 얼굴 스캔 · 데이터 · 기록줄기 무결성 ===== */}
-      <div id="mobile-operator" className="subnav__operator" aria-label="접속자 단말기 상황판">
+      <div className="subnav__operator" aria-label="접속자 단말기 상황판">
         {/* (1) 접속자 얼굴 — 윤곽선 바이오 스캔 */}
         <div className="op-sect op-face">
           <div className="op-sect__cap"><span>{resp ? '대응 요원' : '접속자'}</span><b>{resp ? 'RESPONSE' : 'OPERATOR'}</b></div>
@@ -32662,7 +32655,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
       </div>
 
       <div className="subnav__rightcol">
-        <div id="mobile-meta" className="subnav__sidemeta">
+        <div className="subnav__sidemeta">
           <div className="subnav__sidemeta-row">
             <span className="k">{resp ? '▸ IBA · 대응요원 상황실' : '▸ IBA · 기록보관소'}</span>
           </div>
@@ -33762,7 +33755,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
   const onWheel = useCallbackTC((e) => {
     const vp = viewportRef.current;
     // 낮은 화면에서 아래쪽 기록줄기는 세로 스크롤로 읽는다. Shift+휠은 가로 이동이다.
-    if (vp && window.matchMedia('(max-width:1100px)').matches && vp.scrollHeight > vp.clientHeight + 1 && Math.abs(e.deltaY) > Math.abs(e.deltaX) && !e.shiftKey) return;
+    if (vp && /auto|scroll/.test(getComputedStyle(vp).overflowY) && vp.scrollHeight > vp.clientHeight + 1 && Math.abs(e.deltaY) > Math.abs(e.deltaX) && !e.shiftKey) return;
     const delta = e.deltaX !== 0 ? e.deltaX : e.deltaY;
     const w = viewportRef.current?.clientWidth || 800;
     const totalW = trackWidth(scale);
@@ -33844,7 +33837,8 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
   useEffectTC(() => {
     if (!vpH) return;
     const root = document.documentElement;
-    if (window.matchMedia('(max-width:1100px)').matches) { root.classList.remove('tl-tight'); return; }
+    // 일반 열람에서는 PC와 태블릿 모두 지부·검색·상황판을 유지하고 기록줄기 안에서 스크롤한다.
+    if (!root.classList.contains('lecture')) { root.classList.remove('tl-tight'); return; }
     const sub = document.querySelector('.subnav');
     const on = root.classList.contains('tl-tight');
     const subH = sub ? sub.offsetHeight : 0;
@@ -33946,7 +33940,6 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
         </div>
       </div>
 
-      <div className="mobile-touch-hint">좌우로 밀어 연대 이동 · 위아래로 스크롤</div>
       <div
         className={`tl-viewport tl-viewport--quad ${focusedTrack ? 'has-focus' : ''} tl-viewport--${phase} ${accessMode === 'response' ? 'tl-viewport--response' : ''}`}
         data-focus={focusedTrack || ''}
@@ -35927,7 +35920,6 @@ function Briefing({ onEnter }) {
           </div>
         </div>
         <div className="bf-foot">
-          {!done && <button className="bf-mobile-skip" onClick={finishTyping}>맹세 바로 읽기</button>}
           <span className="bf-skip">{done ? '맹세 낭독 완료' : '[ENTER] · [SPACE] TO SKIP TYPING'}</span>
           <button
             className={`bf-enter ${done ? 'is-ready' : ''}`}

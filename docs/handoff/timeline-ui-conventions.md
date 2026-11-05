@@ -51,14 +51,12 @@ Related: [timeline-labels-always-visible](timeline-labels-always-visible.md)
 - **Record tabs:** `.sync-tabs` is a container (`container-type`).
   - Labels never wrap.
   - Below 1160px the `FILE_REF` word is hidden; below 1090px (lecture mode at 1280) the English labels are hidden.
-- **Mobile (2026-11-05 사용자 요청으로 교체):** `width=device-width, initial-scale=1, viewport-fit=cover`를 사용한다. 예전 `width=1440` 축소 방식은 쓰지 않는다.
-  - `mobile.css`가 1100px 이하의 단말기·접속 화면·모달을 조정한다. 문서 본문 17px, 입력 16px, 주요 터치 버튼·닫기 44px 이상이다. 브라우저 확대를 막지 않는다.
-  - 화면 높이는 `100vh` 대체값과 `100dvh`, 노치 여백은 `env(safe-area-inset-*)`로 처리한다. 세로가 낮은 가로 화면은 페이지와 기록창을 스크롤하여 본문을 읽는다.
-  - 지부 선택과 검색은 유지하고, 접속자 정보·상황판은 「접속 정보」 버튼으로 펼친다. 총람·기록 탭은 가로로 스크롤하며 본문은 세로로 읽는다. 긴 표·코드만 해당 영역에서 가로로 스크롤한다.
-  - 기록줄기는 가로 포인터 이동 6px부터 드래그로 판단한다. 실제 드래그 중에만 포인터를 캡처하고 드래그 끝의 오클릭을 억제한다. 세로 스와이프와 브라우저 확대는 `touch-action:pan-y pinch-zoom`으로 허용한다. 아래 줄기는 내부 세로 스크롤로 접근하며 모바일에서는 `tl-tight`로 검색·지부 선택을 숨기지 않는다.
-  - 확대·축소·초기화 버튼에 접근성 이름을 두고, 노드 이름표는 키보드로도 선택한다. 글자 크기와 기존 이름표 배치 계산은 유지한다. 맹세에는 터치용 「맹세 바로 읽기」 버튼을 둔다.
-  - 검증: 375×667·390×844·430×932, iPad 크기 768×1024·1024×768, 가로 휴대전화 844×390·568×320, 데스크톱 1280×800·1440×900·1500×960·1920×1080의 두 모드. 휴대전화 기록 7개 탭과 총람 13개 장, 확대·닫기, 검색·접속 정보·포인터 회귀를 확인한다. 브라우저 크기 모사 검사이며 실제 iOS Safari 기기 검사는 별도로 필요하다.
-  - 1440 데스크톱 검사는 계속 유지한다. 1401–1500 구간의 기존 상단바 규칙도 유지한다.
+- **태블릿 가로·PC 공통 화면 (2026-11-05 사용자 재지시):** 휴대전화 전용 배치를 제거했다. `mobile.css`, 접속 정보 접기 버튼, 휴대전화용 맹세 건너뛰기 버튼과 안내 줄을 사용하지 않는다.
+  - `tablet.css`는 960px 이상 화면에서 PC의 상단바·지부 갈래도·접속자 상황판·검색·기록 7개 탭·총람 왼쪽 목차를 유지한다. 960–1279px 구간은 같은 세 칸 구성을 두고 간격만 줄인다. 태블릿은 가로 모드로 사용한다.
+  - 일반 열람에서는 `tl-tight`로 상단 조작부를 숨기지 않는다. 기록줄기에 내부 세로 스크롤을 두어 네 줄기와 모든 이름표에 접근한다. 강의 모드의 패널 접기는 유지한다.
+  - 가로 포인터 이동 6px부터 드래그로 판단하며 브라우저 확대·세로 스와이프는 `touch-action:pan-y pinch-zoom`으로 허용한다. 휠은 기기 너비가 아니라 실제 내부 스크롤 가능 여부에 따라 처리한다. Shift+휠은 가로 이동이다.
+  - `width=device-width, initial-scale=1, viewport-fit=cover`, `100vh` 대체값과 `100dvh`, 노치 안전 여백을 사용한다. 큰 iPad·Galaxy Tab도 `any-pointer:coarse`로 터치 버튼을 보장한다.
+  - 검증 기준: 가로 태블릿 1024×768·1138×712·1194×834·1280×800·1366×1024, PC 1440×900·1500×960·1920×1080의 연구원·대응요원 두 모드. 브라우저 크기 모사와 실제 기기 검사를 구분해 보고한다. 960×600 경계와 1024×430 낮은 높이도 확인한다. 960px 미만의 분할 화면과 휴대전화는 전용 배치 지원 대상이 아니다.
 - 2026-10-10: the era name next to ▸ RECORD STREAM (`.canvas__era`) is a button. It opens a menu of the 7 `TIMELINE_ERAS` and `goEra` pans there. A short era is centred; a long one is placed with its start near the left edge. ESC or an outside click closes the menu.
 
 **2026-10-11 additions:**
