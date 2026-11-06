@@ -17,6 +17,10 @@ If a placement fails, the nodes that failed are placed first and the layout is r
 
 **Spacing:** the year scale (`_yearLookup`) enforces `SPACING_K`: neighbouring nodes in a track are at least 1.1 × the average of their label widths apart, and same-year nodes count as one block. This is so labels still fit in one row when another track is focused.
 
+**2026-11-06 지부 선택 시 빈 구간 조정.** 네 지부 전체 보기에서는 공통 연도 축을 쓰고, 지부를 선택하면 해당 줄기의 긴 공백을 줄인다. 노드·주요 눈금·기간 괄호·갈래 기준점을 잇는 구간은 기본 배율에서 480px를 기준으로 조정한다. 같은 자리에 있는 이름표 묶음은 60% 배율에서 필요한 여유까지 확보한다.
+
+줄기의 전체 노드로 축을 계산하므로 검색어를 입력해도 간격은 유지된다. 노드·눈금·괄호·갈래와 화면의 연대 표시는 같은 축을 사용한다. 지부를 바꿀 때는 화면 중앙의 연대를 유지하고, 새 노드로 이동할 때는 선택한 노드를 우선한다.
+
 **Verification:** use the sweep that checks overlaps, clipping and unlinked labels.
 - Run each sweep in the background and poll it; the JS tool times out after 45s.
 
