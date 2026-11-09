@@ -88,7 +88,9 @@
 @media (min-width:960px) and (any-pointer:coarse) {
   .trackbranch{height:176px}
   .trackseg__cell{min-height:44px}
+  .topbar__actions{grid-template-columns:repeat(3,minmax(44px,1fr))}
   .topbar__emblem,.topbar__volume__btn,.canvas__zoom button,.canvas__era,
+  .topbar__action,
   .sync-close,.iba-about__close,.detail__close,.tl-mapmodal__close,.tmb-lightbox__close,
   .subnav__search__clear,.sempop__x{min-width:44px;min-height:44px}
   .sync-tab,.d2doc__tab,.iba-aud__tg,.btn-sync,.sync-annexbtn{min-height:44px}

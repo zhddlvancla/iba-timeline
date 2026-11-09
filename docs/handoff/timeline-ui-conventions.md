@@ -1,29 +1,29 @@
 # timeline-ui-conventions
 
-> timeline-app 공통 동작 규칙 — ESC는 맨 위 창 하나만 닫기(useEscLayer), 배경음악+앰비언트 자동 재생·음량은 REBOOT 아래, 1280·1500·1920 폭에서 글자 잘림/겹침 0
+> timeline-app 공통 동작 규칙 — ESC는 맨 위 창 하나만 닫기(useEscLayer), 음량은 화면 조작 버튼 아래, 1280·1500·1920 폭에서 글자 잘림/겹침 0
 
 Rules the user set on 2026-09-23 for `ui_kits/timeline-app/index.html`:
 
 - **ESC closes only the topmost window.** The user complained that ESC closed everything at once. Every modal or popup must register through `window.useEscLayer(active, close)`, which is a global stack captured on window and registered before React. Do not add raw `keydown` Escape listeners.
-- **Background music and ambient sound both autoplay** when the 기록줄기 (timeline) screen starts (TopBar mount; changed 2026-09-24). A channel the user turns off is saved as `iba.aud.musOn/ambOn=false` in sessionStorage and does not autoplay again that session.
+- **열람용 audio.** Background music and ambient sound autoplay when the 기록줄기 screen starts. A channel the user turns off is saved as `iba.aud.musOn/ambOn=false` in sessionStorage.
 - **Sound stops only when the page closes.** On `pagehide`/`beforeunload` the AudioContext is suspended. This follows the user's 2026-09-27 rule: sound must stop when Claude or the site is closed.
-- **Sound keeps playing across screens and tabs** (user 2026-10-08). REBOOT → portal no longer calls `stopAll`. Switching browser tabs or minimizing does not suspend audio. Re-entering the timeline does not restart music (TopBar checks `state().music`).
+- **열람용 sound keeps playing across screens and tabs** (user 2026-10-08). REBOOT → portal keeps the playing channels. Switching browser tabs or minimizing does not suspend audio. Re-entering the timeline does not restart music (TopBar checks `state().music`).
   - Music is scheduled 15s ahead with a 1s poll, so throttled background timers don't cut it. After a long stall it skips ahead rather than bursting.
   - `track()` keeps up to 2400 nodes, so `stopMus` can still stop pre-scheduled notes.
   - Lecture mode stops music on entry and restores it on exit (2026-10-10).
 - The canvas-header era chip shows **only the era name** (고대/중세/근세/근대 태동기/근대/현대), not the 한국사 sub-label.
-- The volume control sits **under the REBOOT button** at the top-right of the topbar (`.topbar__ctl`), not in the brand box.
+- The volume control sits below the screen controls at the top right (`.topbar__ctl`). The order above it is enlarge, shrink, and icon-only restart.
 - **No overlapping or broken text in either mode (연구원 / 대응반).** Verify at 1280×800, 1500×960 and 1920×1080. A `@media (max-width:1400px)` block tightens spacing and hides the operator face column. Switching modes must not change any box width.
 
 - **Font floor (DENDRO P1-2, 2026-09-29):**
   - All text is at least 12px. Record body text is at least 16px. Node labels are 16px; sub-node labels are 14px.
   - When raising sizes, also update the label-layout estimates in the canvas code: `estWidth`/`estHeight` fs, `tickRects` char widths, `TICK_LABEL_BOTTOM`, and the group label `textW(…, 12)`.
 - **Lecture mode (DENDRO P1-1):**
-  - The `L` key (`e.code === 'KeyL'`) toggles `<html class="lecture">`, persisted in sessionStorage `iba.lecture`. It is ignored while typing.
+  - The topbar enlarge and shrink buttons set `<html class="lecture">` through `IBA_LECTURE.set()`. Restart returns to the standard scale.
   - It uses `zoom:1.4`. Every vw/vh size needs a `calc(… / var(--lz))` override.
   - Scanlines, vignette, glow and shadows are off. Greens are brighter.
-  - Music and ambient stop via `stopAll` on entry. **On exit they come back** (user 2026-10-10, overriding P4-2): TopBar `onLecture(false)` restarts each channel unless the user had turned it off (`load('musOn'/'ambOn', true)`). The VESTIGIA V-BC broadcast cycle also pauses. Sound effects stay.
-  - The seal is locked and a `강의 모드 · L` badge is shown.
+  - Music, ambient and the VESTIGIA V-BC broadcast cycle pause while enlarged. Shrink restores only the channels enabled for the current connection. Sound effects stay.
+  - The seal is locked and a `화면 확대 · 1.4배` badge is shown.
   - Screens under 1800px also hide the operator HUD, brand text, BUREAU/CASE cells and footer hint.
   - Verify with getBoundingClientRect, not screenshots: the pane's device emulation paints root `zoom` wrongly.
 
@@ -43,8 +43,9 @@ Rules the user set on 2026-09-23 for `ui_kits/timeline-app/index.html`:
 Related: [timeline-labels-always-visible](timeline-labels-always-visible.md)
 
 **2026-10-09 additions (user requests):**
-- **First notice:** `<Notice>` (view `'notice'`, sessionStorage `iba.notice`) appears once per tab before the portal. It is out-of-world text: an educational site built on a fictional setting, with IBA, codes and broadcasts invented and history real. REBOOT does not show it again.
-  - The user asked for no box and no button: only centred text that fades in over 1.2 s, holds until about 6.2 s, then fades out over 1.1 s into the portal. A click or key starts the fade-out.
+- **First notice (updated 2026-11-09):** `<Notice>` explains the educational and fictional setting and waits for `학습용 접속` or `열람용 접속` on page load.
+  - `학습용 접속` opens the ready timeline directly. It starts with the broadcast cycle and voice, ambient and music off. Audio choices apply only to that connection. Restart returns to the notice.
+  - `열람용 접속` opens the existing portal. Restart returns to the portal and keeps the audio choices.
 - **Portal 「단순 열람」:** a small link under 인증 enters with no code via `window.setGuestAgent()`. 접속자 데이터 then shows 등록 코드 「미등재 · 단순 열람」, 직급 열람자 and 명부 미등재.
 - **Detail panel:** the big slot shows the node name (`.detail__year--name`, 40px, 32px when the name is over 9 characters). The 26px slot shows the year text, and its sub-line reads COMMON ERA · era.
 - **Systab labels:** `[RS] RESEARCH` / `[DA-R] RESPONSE` (they were TEMPORAL/[T]). These aren't keyboard shortcuts.
@@ -60,11 +61,6 @@ Related: [timeline-labels-always-visible](timeline-labels-always-visible.md)
 - 2026-10-10: the era name next to ▸ RECORD STREAM (`.canvas__era`) is a button. It opens a menu of the 7 `TIMELINE_ERAS` and `goEra` pans there. A short era is centred; a long one is placed with its start near the left edge. ESC or an outside click closes the menu.
 
 **2026-10-11 additions:**
-- **Study mode (S key):** `<html class="study">` plus the `iba:study` event, persisted in sessionStorage `iba.study`.
-  - On entry it stops background music, suppresses the V-BC broadcast chime (`emitBC`), and keeps ambient on.
-  - On exit, music comes back according to the saved preference.
-  - Lecture mode takes priority. While lecture mode is on, study mode doesn't touch audio.
-  - A `학습 모드 · S` badge (`.footer__study`) shows at the right end of the footer.
 - **정리 tab layout:** `NotesStructured` first renders a single half-width column to measure real heights. It then splits at a section boundary near the halfway point.
   - Splitting inside a section costs a penalty of max(180px, 15% of total). A section continued in the right column gets a `(이어서)` heading. If there is only one section, no heading is repeated and the right column is padded to line up.
   - It re-measures when the width changes. Below 752px it stays one column.

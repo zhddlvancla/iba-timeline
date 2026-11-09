@@ -143,10 +143,14 @@ a{color:inherit;text-decoration:none}
   background:linear-gradient(180deg, transparent, transparent);
   position:relative;
 }
-/* REBOOT + 음량 조절 — 상단바 맨 오른쪽 칸에 위아래로 */
+/* 화면 조작과 음량 조절 — 상단바 맨 오른쪽 칸에 위아래로 */
 .topbar__ctl{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:6px;margin:0 18px}
-.topbar__ctl .topbar__back{display:flex;align-self:stretch;margin:0;justify-content:center}
-/* 지속 채널(앰비언트·배경음악) 음량 조절 — REBOOT 아래 */
+.topbar__actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}
+.topbar__action{display:grid;place-items:center;min-height:30px;padding:0;
+  border:1.5px solid var(--amber);color:var(--amber)}
+.topbar__action:hover:not(:disabled){background:var(--amber);color:var(--bg)}
+.topbar__action:disabled{cursor:default;color:var(--amber-dim);border-color:var(--amber-line)}
+/* 지속 채널(앰비언트·배경음악) 음량 조절 — 화면 조작 아래 */
 .topbar__volume{
   position:relative;
   display:flex;align-items:center;justify-content:center;gap:6px;
@@ -390,16 +394,6 @@ a{color:inherit;text-decoration:none}
   animation:tva-pulse 1.6s ease-in-out infinite;
 }
 @keyframes tva-pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.topbar__back{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:8px 14px;
-  border:1.5px solid var(--amber);
-  font-family:var(--font-mono);letter-spacing:.20em;font-size:12px;
-  text-transform:uppercase;
-  color:var(--amber);
-  align-self:center;margin:0 18px;
-}
-.topbar__back:hover{background:var(--amber);color:var(--bg)}
 
 /* ============================================================
    SUB NAV — track tabs + branching trunk animation on left
@@ -2005,10 +1999,6 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 .footer .l,.footer .r{display:flex;align-items:center;gap:14px}
 .footer .l > :nth-child(2){color:var(--green) !important}
 .footer .r > :last-child{color:var(--amber-2) !important;text-shadow:var(--shadow-text)}
-/* 학습 모드 표시 — S 키. 하단 바 오른쪽 기록 번호 앞에 둔다 */
-.footer__study{display:none;border:1px solid var(--amber);color:var(--amber-2);background:var(--panel);
-  font:600 12px/1.4 var(--font-ko);letter-spacing:.08em;padding:1px 8px;white-space:nowrap}
-html.study .footer__study{display:inline-block}
 
 /* ============================================================
    SYNC DIALOG — operator terminal fullscreen overlay
@@ -2881,18 +2871,19 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
 [style*="--red-300"], [style*="--red-500"]{color:var(--red) !important}
 
 /* ============================================================
-   NOTICE — 첫 안내문 (세계관 밖). 칸 없이 바탕 가운데 글씨만 — 나타났다가 사라진다
+   NOTICE — 첫 안내문과 접속 방식 선택 (세계관 밖)
    ============================================================ */
 .notice-view{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:24px 16px;
-  background:var(--bg);cursor:default}
+  background:var(--bg);overflow:auto}
 .notice-text{max-width:min(900px,100%);text-align:center;font-family:var(--font-ko);color:var(--amber);
-  font-size:16px;line-height:1.8;word-break:keep-all;opacity:0;transition:opacity 1.1s ease}
+  font-size:16px;line-height:1.8;word-break:keep-all}
 .notice-text p{margin:0 0 6px}
 .notice-text__t{font-size:22px !important;color:var(--amber-2);margin-bottom:18px !important;text-shadow:0 0 10px var(--amber-glow)}
-.notice-view.is-in .notice-text{animation:notice-in 1.2s ease forwards}
-.notice-view.is-hold .notice-text{opacity:1}
-.notice-view.is-out .notice-text{opacity:0}
-@keyframes notice-in{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:none}}
+.notice-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
+.notice-actions button{min-width:136px;min-height:44px;padding:8px 18px;
+  border:1.5px solid var(--amber);background:var(--panel-2);color:var(--amber-2);font-weight:700}
+.notice-actions button:hover{background:var(--amber);color:var(--bg)}
+.notice-actions button:focus-visible,.topbar__action:focus-visible{outline:2px solid var(--amber-2);outline-offset:2px}
 
 /* ============================================================
    PORTAL VIEW — 대외 포털 (대외판 인장 + 포털 우회 로그인)
@@ -3779,7 +3770,7 @@ html.lecture .footer__trace,html.lecture .footer__ro{display:none}
 @media (max-width:1700px){ .canvas__title-x{display:none} }
 html.lecture .canvas__title{display:none}
 /* ============================================================
-   강의 모드 (L 키) — 프로젝터 투사용. 디자인 원칙의 유일한 예외(DENDRO P1-1).
+   화면 확대 — 프로젝터 투사용 강의 표시(DENDRO P1-1).
    · 스캔라인·비네트·글로우·텍스트 섀도 해제
    · 전체 1.4배 (zoom) — vw/vh 크기는 배율로 나눠 화면 밖으로 넘치지 않게
    · 초록 문자 밝기↑ (색조는 초록 유지)
@@ -3797,7 +3788,7 @@ html.lecture *, html.lecture *::before, html.lecture *::after{text-shadow:none !
 html.lecture svg [filter]{filter:none !important}
 /* 스캔라인 자리에 강의 모드 표시 */
 html.lecture body::before{
-  content:'강의 모드 · L';
+  content:'화면 확대 · 1.4배';
   inset:auto;left:50%;bottom:3px;transform:translateX(-50%);
   background:var(--panel);border:1px solid var(--amber);color:var(--amber-2);
   font:600 12px/1.4 var(--font-ko);letter-spacing:.08em;padding:2px 10px;
@@ -3881,7 +3872,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   .mode-glitch{display:none}
 }
 </style>
-<link rel="stylesheet" href="tablet.css?v=20261105-3"/>
+<link rel="stylesheet" href="tablet.css?v=20261109"/>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -4015,9 +4006,11 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     try { sessionStorage.setItem(AGENT_KEY, JSON.stringify(window.IBA_AGENT)); } catch (e) {}
   };
   /* 단순 열람 — 승인 번호 없이 들어온 접속. 명부에 없으므로 코드 대신 「미등재」로 표시한다 */
-  window.setGuestAgent = function () {
+  window.setGuestAgent = function (persist = true) {
     window.IBA_AGENT = { guest: true, dept: '', year: '', serial: '', site: 'SIT' };
-    try { sessionStorage.setItem(AGENT_KEY, JSON.stringify(window.IBA_AGENT)); } catch (e) {}
+    if (persist) {
+      try { sessionStorage.setItem(AGENT_KEY, JSON.stringify(window.IBA_AGENT)); } catch (e) {}
+    }
   };
   window.isGuestAgent = function () { return !!(window.IBA_AGENT && window.IBA_AGENT.guest); };
   window.agentDept = function (resp) { return resp ? 'DA-R' : (window.isGuestAgent() ? '—' : (window.IBA_AGENT.dept || 'RS')); };
@@ -4040,57 +4033,20 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     }, [!!active]);
   };
 })();
-/* 강의 모드 — L 키 토글. 프로젝터 투사용으로 CRT 효과를 끄고 전체를 1.4배로 키운다.
-   <html class="lecture"> 로 표시하고 'iba:lecture' 이벤트로 알린다(오디오·인장은 TopBar가 처리).
-   글자 입력 중이거나 조합 키를 누른 경우는 무시한다. 세션 동안 유지된다. */
+/* 화면 확대·축소 — 상단 버튼으로 전환. 프로젝터 투사용으로 CRT 효과를 끄고 전체를 1.4배로 키운다.
+   <html class="lecture"> 로 표시하고 'iba:lecture' 이벤트로 알린다(오디오·인장은 TopBar가 처리). */
 (function () {
-  var KEY = 'iba.lecture';
   var root = document.documentElement;
-  function set(on) {
-    root.classList.toggle('lecture', on);
-    // 강의 모드를 바꿀 때마다 정리 빈칸을 다시 가린다
-    document.querySelectorAll('b.cloze.is-open').forEach(function (b) { b.classList.remove('is-open'); });
-    try { sessionStorage.setItem(KEY, on ? '1' : '0'); } catch (e) {}
-    window.dispatchEvent(new CustomEvent('iba:lecture', { detail: { on: on } }));
-  }
   window.IBA_LECTURE = {
     on: function () { return root.classList.contains('lecture'); },
-    set: set,
-    toggle: function () { set(!root.classList.contains('lecture')); }
+    set: function (on) {
+      if (this.on() === on) return;
+      root.classList.toggle('lecture', on);
+      // 표시 배율을 바꿀 때마다 요약 빈칸을 다시 가린다
+      document.querySelectorAll('b.cloze.is-open').forEach(function (b) { b.classList.remove('is-open'); });
+      window.dispatchEvent(new CustomEvent('iba:lecture', { detail: { on: on } }));
+    }
   };
-  try { if (sessionStorage.getItem(KEY) === '1') root.classList.add('lecture'); } catch (e) {}
-  window.addEventListener('keydown', function (e) {
-    if (e.code !== 'KeyL' || e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
-    var t = e.target;
-    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
-    e.preventDefault();
-    window.IBA_LECTURE.toggle();
-  });
-})();
-/* 학습 모드 — S 키 토글 (2026-10-11 사용자 요청). 개인 학습용으로 배경음악과 관내 방송 차임을 끄고 앰비언트만 남긴다.
-   <html class="study"> 로 표시하고 'iba:study' 이벤트로 알린다(오디오는 TopBar, 차임은 VESTIGIA가 처리).
-   화면 배율·효과는 바꾸지 않는다. 글자 입력 중이거나 조합 키를 누른 경우는 무시한다. 세션 동안 유지된다. */
-(function () {
-  var KEY = 'iba.study';
-  var root = document.documentElement;
-  function set(on) {
-    root.classList.toggle('study', on);
-    try { sessionStorage.setItem(KEY, on ? '1' : '0'); } catch (e) {}
-    window.dispatchEvent(new CustomEvent('iba:study', { detail: { on: on } }));
-  }
-  window.IBA_STUDY = {
-    on: function () { return root.classList.contains('study'); },
-    set: set,
-    toggle: function () { set(!root.classList.contains('study')); }
-  };
-  try { if (sessionStorage.getItem(KEY) === '1') root.classList.add('study'); } catch (e) {}
-  window.addEventListener('keydown', function (e) {
-    if (e.code !== 'KeyS' || e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
-    var t = e.target;
-    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
-    e.preventDefault();
-    window.IBA_STUDY.toggle();
-  });
 })();
 /* VESTIGIA 문형 (DENDRO P4-1) — mnemosyne_lines.csv 126행의 화면 문구. 문안은 고치지 않는다.
    목록에 없는 상황에는 문장을 새로 만들지 않는다(없는 id는 V-ER-001). [n] 슬롯은 화면에 숫자를 넣는다.
@@ -4238,6 +4194,7 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
   var DWELL = 2600;          // 이어지는 줄 사이 최소 표시 시간(ms)
   var cur = null, q = [], timer = null, seq = 0;
   var bcCur = null;          // 관내 방송(V-BC) — 하단 띠와 따로, 지부 패널 아래 방송 칸에만 뜬다
+  var bcVoiceTimer = null;
   var voiceEnabled = true, voiceAudio = null, voiceQueue = [];
   var VOICE_DIR = { 'V-BC':'broadcast' };
   function voicePath(id) {
@@ -4285,10 +4242,11 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     line.at = Date.now(); bcCur = line;
     window.dispatchEvent(new CustomEvent('vestigia-bc', { detail: line }));
     var A = window.DENDRO_AUDIO;
-    // 학습 모드에서는 차임을 울리지 않는다. 앰비언트를 끄면 방송 차임도 함께 끈다 (방송 문구는 그대로 뜬다)
+    // 앰비언트를 끄면 방송 차임도 함께 끈다 (방송 문구는 그대로 뜬다)
     var ambOn = !A || typeof A.state !== 'function' || !!A.state().ambient;
-    if (A && ambOn && !(window.IBA_STUDY && window.IBA_STUDY.on())) A.sfx('chime');
-    if (typeof window.VESTIGIA.voice === 'function') setTimeout(function () { window.VESTIGIA.voice(line); }, CHIME_MS);
+    if (A && ambOn) A.sfx('chime');
+    clearTimeout(bcVoiceTimer);
+    if (voiceEnabled && !lectureOn()) bcVoiceTimer = setTimeout(function () { playVoice(line); }, CHIME_MS);
   }
   function pump() {
     timer = null;
@@ -4355,12 +4313,18 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
     bcOn = !!on;
     clearTimeout(bcTimer); bcTimer = null;
     if (on) bcNext();
+    else {
+      clearTimeout(bcVoiceTimer);
+      bcCur = null;
+      window.dispatchEvent(new CustomEvent('vestigia-bc', { detail: null }));
+    }
   }
+  function stopVoice() { clearTimeout(bcVoiceTimer); voiceQueue = []; if (voiceAudio) voiceAudio.pause(); }
   window.VESTIGIA = {
     lines: LINES, text: text, say: say, chain: chain, broadcast: broadcast, voice: playVoice,
-    setVoiceEnabled: function (on) { voiceEnabled = !!on; if (!voiceEnabled) { voiceQueue = []; if (voiceAudio) voiceAudio.pause(); } return voiceEnabled; },
+    setVoiceEnabled: function (on) { voiceEnabled = !!on; if (!voiceEnabled) stopVoice(); return voiceEnabled; },
     voiceVolume: function (v) { if (voiceAudio) voiceAudio.volume = Math.max(0, Math.min(1, Number(v) || 0)); },
-    stopVoice: function () { voiceQueue = []; if (voiceAudio) voiceAudio.pause(); },
+    stopVoice: stopVoice,
     current: function () { return cur; },
     currentBroadcast: function () { return bcCur; },
     clear: function () { q = []; clearTimeout(timer); timer = null; cur = null; window.dispatchEvent(new CustomEvent('vestigia', { detail: null })); }
@@ -32085,7 +32049,7 @@ function D2Doc({ onClose }) {
   );
 }
 
-function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
+function TopBar({ accessMode = 'researcher', onAccessMode, study = false, onReboot } = {}) {
   const [time, setTime] = useState(new Date());
   // 기관 안내 — 인장을 누르면 뜨는 플로팅 창
   const [about, setAbout] = useState(false);
@@ -32101,12 +32065,19 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
     try { const v = sessionStorage.getItem('iba.aud.' + k); return v === null ? d : JSON.parse(v); }
     catch (e) { return d; }
   };
-  const save = (k, v) => { try { sessionStorage.setItem('iba.aud.' + k, JSON.stringify(v)); } catch (e) {} };
+  const save = (k, v) => {
+    if (study) return;
+    try { sessionStorage.setItem('iba.aud.' + k, JSON.stringify(v)); } catch (e) {}
+  };
 
   const [open, setOpen]   = useState(false);
   const [ambOn, setAmbOn] = useState(() => !!(window.DENDRO_AUDIO && window.DENDRO_AUDIO.state().ambient));
   const [musOn, setMusOn] = useState(() => !!(window.DENDRO_AUDIO && window.DENDRO_AUDIO.state().music));
-  const [voiceOn, setVoiceOn] = useState(() => load('voiceOn', true));
+  const [voiceEnabled, setVoiceEnabled] = useState(() => !study && load('voiceOn', true));
+  const audioPrefs = useRef(null);
+  if (!audioPrefs.current) audioPrefs.current = { ambient: !study && load('ambOn', true), music: !study && load('musOn', true) };
+  const [lecture, setLecture] = useState(() => window.IBA_LECTURE.on());
+  const voiceOn = !lecture && voiceEnabled;
   const [vMaster, setVMaster] = useState(() => load('master', 0.70));
   const [vAmb, setVAmb]       = useState(() => load('ambient', 0.55));
   const [vMus, setVMus]       = useState(() => load('music', 0.62));
@@ -32119,50 +32090,40 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
     A.volume('master', vMaster); A.volume('ambient', vAmb);
     A.volume('music', vMus);     A.density(density);
   }, [vMaster, vAmb, vMus, density]);
-  useEffect(() => { pushVolumes(); }, [pushVolumes]);
-  useEffect(() => { if (window.VESTIGIA && window.VESTIGIA.setVoiceEnabled) window.VESTIGIA.setVoiceEnabled(voiceOn); }, [voiceOn]);
   useEffect(() => {
     const A = window.DENDRO_AUDIO;
-    if (!A) return;
-    pushVolumes();
-    if (window.IBA_LECTURE && window.IBA_LECTURE.on()) return;   // 강의 모드에서는 자동 재생하지 않는다
-    const study = window.IBA_STUDY && window.IBA_STUDY.on();     // 학습 모드는 배경음악 없이 앰비언트만
-    if (!study && load('musOn', true) && !A.state().music) setMusOn(!!A.music(true));
-    if (load('ambOn', true) && !A.state().ambient) setAmbOn(!!A.ambient(true));
-  }, []);
-
-  /* 강의 모드 — 배경음악·앰비언트를 stopAll()로 멈춘다(효과음은 유지).
-     해제하면 저장된 재생 설정대로 다시 켠다 (2026-10-10 사용자 요청 — 예전에는 음향 패널에서 직접 켜야 했다).
-     사용자가 저장한 재생 설정(sessionStorage)은 바꾸지 않는다. 인장(기관 안내)도 열리지 않는다. */
-  const [lecture, setLecture] = useState(() => !!(window.IBA_LECTURE && window.IBA_LECTURE.on()));
-  useEffect(() => {
-    const onLecture = (e) => {
-      const on = !!(e.detail && e.detail.on);
-      setLecture(on);
-      const A = window.DENDRO_AUDIO; if (!A) return;
-      if (on) { A.stopAll(); if (A.typing) A.typing(false); if (window.VESTIGIA && window.VESTIGIA.stopVoice) window.VESTIGIA.stopVoice(); setMusOn(false); setAmbOn(false); return; }
-      if (A.typing) A.typing(load('ambOn', true));
-      const study = window.IBA_STUDY && window.IBA_STUDY.on();
-      if (!study && load('musOn', true) && !A.state().music) setMusOn(!!A.music(true));
-      if (load('ambOn', true) && !A.state().ambient) setAmbOn(!!A.ambient(true));
+    if (!study || !A) return;
+    const previous = A.state();
+    return () => {
+      Object.entries(previous.volume).forEach(([ch, v]) => A.volume(ch, v));
+      A.density(previous.density);
     };
+  }, [study]);
+  useEffect(() => { pushVolumes(); }, [pushVolumes]);
+  useEffect(() => { window.VESTIGIA.setVoiceEnabled(voiceOn); }, [voiceOn]);
+  useEffect(() => { if (study) window.VESTIGIA.broadcast(voiceEnabled); }, [study, voiceEnabled]);
+
+  /* 화면 확대 중 지속 음향을 멈추고, 축소하면 접속 중 선택한 채널만 복원한다. */
+  useEffect(() => {
+    const A = window.DENDRO_AUDIO;
+    const resumeChannels = () => {
+      if (!A) return;
+      const { ambient, music } = audioPrefs.current;
+      if (A.typing) A.typing(ambient);
+      setMusOn(music ? !!(A.state().music || A.music(true)) : false);
+      setAmbOn(ambient ? !!(A.state().ambient || A.ambient(true)) : false);
+    };
+    const onLecture = ({ detail: { on } }) => {
+      setLecture(on);
+      if (on) {
+        window.VESTIGIA.stopVoice();
+        if (A) { A.stopAll(); if (A.typing) A.typing(false); }
+        setMusOn(false); setAmbOn(false);
+      } else resumeChannels();
+    };
+    if (!window.IBA_LECTURE.on()) resumeChannels();
     window.addEventListener('iba:lecture', onLecture);
     return () => window.removeEventListener('iba:lecture', onLecture);
-  }, [pushVolumes]);
-
-  /* 학습 모드 — 배경음악을 멈추고 앰비언트만 남긴다. 해제하면 저장된 설정대로 배경음악을 다시 켠다.
-     강의 모드 중에는 소리를 건드리지 않는다(강의 모드가 이미 모두 멈춰 둔다). 저장된 재생 설정은 바꾸지 않는다. */
-  useEffect(() => {
-    const onStudy = (e) => {
-      const on = !!(e.detail && e.detail.on);
-      const A = window.DENDRO_AUDIO; if (!A) return;
-      if (window.IBA_LECTURE && window.IBA_LECTURE.on()) return;
-      if (on) { if (A.state().music) A.music(false); setMusOn(false); }
-      else if (load('musOn', true) && !A.state().music) setMusOn(!!A.music(true));
-      if (load('ambOn', true) && !A.state().ambient) setAmbOn(!!A.ambient(true));
-    };
-    window.addEventListener('iba:study', onStudy);
-    return () => window.removeEventListener('iba:study', onStudy);
   }, []);
 
   /* 재생 중인 채널이 있을 때만 패널 밖 클릭으로 닫는다 */
@@ -32178,7 +32139,8 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
     const A = window.DENDRO_AUDIO; if (!A) return;
     pushVolumes();
     const on = A.ambient(!A.state().ambient);
-    setAmbOn(!!on); save('ambOn', !!on);
+    setAmbOn(!!on); audioPrefs.current.ambient = !!on;
+    save('ambOn', !!on);
     if (A.typing) A.typing(!!on);   // 타자기 소리도 앰비언트와 함께 켜고 끈다
     window.VESTIGIA.say(on ? 'V-SYS-013' : 'V-SYS-014');
   };
@@ -32186,13 +32148,14 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
     const A = window.DENDRO_AUDIO; if (!A) return;
     pushVolumes();
     const on = A.music(!A.state().music);
-    setMusOn(!!on); save('musOn', !!on);
+    setMusOn(!!on); audioPrefs.current.music = !!on;
+    save('musOn', !!on);
     window.VESTIGIA.say(on ? 'V-SYS-013' : 'V-SYS-014');
   };
   const toggleVoice = () => {
-    const on = !voiceOn;
-    setVoiceOn(on); save('voiceOn', on);
-    if (window.VESTIGIA && window.VESTIGIA.setVoiceEnabled) window.VESTIGIA.setVoiceEnabled(on);
+    const on = !voiceEnabled;
+    setVoiceEnabled(on);
+    save('voiceOn', on);
     if (on) window.VESTIGIA.say('V-SYS-013');
   };
   const setVol = (ch, v, setter, key) => {
@@ -32255,11 +32218,21 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
         <span><b>STAMP</b><span className="topbar__stamp" style={{fontFeatureSettings:'"tnum"'}}><span>{stamp.slice(0, 10)}</span><span>{stamp.slice(11)}</span></span></span>
         <span className={`topbar__sync ${accessMode === 'response' ? 'is-alert' : ''}`}><b><span className="dot"></span>DISTORTION</b><span>{accessMode === 'response' ? 'DETECTED' : 'NONE'}</span></span>
         <div className="topbar__ctl">
-          <a className="topbar__back" href="#" onClick={(e) => { e.preventDefault(); if (window.__tmbReboot) window.__tmbReboot(); }} title="대문으로 돌아가기">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
-            <span>REBOOT</span>
-          </a>
-          {/* 지속 채널(앰비언트·배경음악) 컨트롤 — REBOOT 아래 */}
+          <div className="topbar__actions" role="group" aria-label="화면 조작">
+            <button type="button" className="topbar__action" onClick={() => window.IBA_LECTURE.set(true)}
+                    disabled={lecture} title="화면 확대 (1.4배)" aria-label="화면 확대">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M3 8h10M8 3v10"/></svg>
+            </button>
+            <button type="button" className="topbar__action" onClick={() => window.IBA_LECTURE.set(false)}
+                    disabled={!lecture} title="화면 축소 (기본 크기)" aria-label="화면 축소">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M3 8h10"/></svg>
+            </button>
+            <button type="button" className="topbar__action" onClick={onReboot}
+                    title={study ? '접속 방식 선택으로 돌아가기' : '대문으로 돌아가기'} aria-label="재시작">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            </button>
+          </div>
+          {/* 지속 채널 컨트롤 — 화면 조작 아래 */}
           <div
             className={`topbar__volume ${anyOn ? '' : 'topbar__volume--muted'}`}
             title={anyOn ? `재생 중 · 전체 음량 ${volPct}` : '지속 채널 꺼짐 — 클릭하여 설정'}
@@ -32308,30 +32281,30 @@ function TopBar({ accessMode = 'researcher', onAccessMode } = {}) {
 
                 <div className="iba-aud__ch">
                   <button className={`iba-aud__tg ${voiceOn ? 'is-on' : ''}`} onClick={toggleVoice}
-                          aria-pressed={voiceOn}>관내 방송 음성</button>
+                          disabled={lecture} aria-pressed={voiceOn}>{study ? '관내 방송' : '관내 방송 음성'}</button>
                   <span className="iba-aud__vl">{voiceOn ? 'ON' : 'OFF'}</span>
                 </div>
 
                 <div className="iba-aud__ch">
                   <button className={`iba-aud__tg ${ambOn ? 'is-on' : ''}`} onClick={toggleAmb}
-                          aria-pressed={ambOn}>앰비언트</button>
+                          disabled={lecture} aria-pressed={ambOn}>앰비언트</button>
                   <input type="range" min="0" max="1" step="0.05" value={vAmb}
                     onChange={(e) => setVol('ambient', parseFloat(e.target.value), setVAmb, 'ambient')}
                     className="topbar__volume__slider"
                     style={{'--vol-pct': `${Math.round(vAmb*100)}%`, width:'68px'}}
                     aria-label="앰비언트 음량"/>
-                  <span className="iba-aud__vl">{Math.round(vAmb*100)}</span>
+                  <span className="iba-aud__vl">{study && !ambOn ? 'OFF' : Math.round(vAmb*100)}</span>
                 </div>
 
                 <div className="iba-aud__ch">
                   <button className={`iba-aud__tg ${musOn ? 'is-on' : ''}`} onClick={toggleMus}
-                          aria-pressed={musOn}>배경음악</button>
+                          disabled={lecture} aria-pressed={musOn}>배경음악</button>
                   <input type="range" min="0" max="1" step="0.05" value={vMus}
                     onChange={(e) => setVol('music', parseFloat(e.target.value), setVMus, 'music')}
                     className="topbar__volume__slider"
                     style={{'--vol-pct': `${Math.round(vMus*100)}%`, width:'68px'}}
                     aria-label="배경음악 음량"/>
-                  <span className="iba-aud__vl">{Math.round(vMus*100)}</span>
+                  <span className="iba-aud__vl">{study && !musOn ? 'OFF' : Math.round(vMus*100)}</span>
                 </div>
 
                 <div className="iba-aud__row">
@@ -32846,7 +32819,6 @@ function Footer({ event, focusedTrack, accessMode = 'researcher' }) {
       </div>
       <VLine className="footer__v"/>
       <div className="r">
-        <span className="footer__study">학습 모드 · S</span>
         <span style={{color:'var(--gold-2)'}}>REC-2469-2</span>
       </div>
     </div>
@@ -33375,12 +33347,12 @@ function VPosWatch({ era, kaejak }) {
   return null;
 }
 
-function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onFocusTrack, accessMode = 'researcher' }) {
+function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onFocusTrack, accessMode = 'researcher', study }) {
   const [scale, setScale] = useStateTC(1);
   const axis = useMemoTC(() => focusedTrack ? buildFocusedAxis(focusedTrack) : BASE_TIMELINE_AXIS, [focusedTrack]);
   const projectYear = useCallbackTC(year => axis.xAtYear(year) * scale, [axis, scale]);
   const totalW = axis.width * scale;
-  const [phase, setPhase] = useStateTC('idle'); // idle → loading → ready
+  const [phase, setPhase] = useStateTC(study ? 'ready' : 'idle'); // 열람용은 idle → loading → ready
   const [mapModal, setMapModal] = useStateTC(null); // track id of floating map, or null
   const [eraMenu, setEraMenu] = useStateTC(false);   // 머리줄 시대 이름 → 시대 이동 메뉴
   const eraWrapRef = useRefTC(null);
@@ -35283,43 +35255,21 @@ const { useState: useStateApp, useCallback: useCallbackApp, useEffect: useEffect
 // ====================================================================
 const IbaSealBF = window.IbaSeal;
 /* ====================================================================
-   첫 안내문 — 세계관 밖의 안내. 사이트를 처음 열면 대외판 화면보다 먼저 한 번 보인다(같은 탭에서는 다시 안 뜸).
-   확인 클릭이 브라우저의 첫 사용자 조작이 되어 이후 효과음이 바로 난다.
+   첫 안내문 — 세계관 밖의 안내와 학습용·열람용 접속 선택
    ==================================================================== */
-function Notice({ onOk }) {
-  /* 바탕 가운데 글씨가 서서히 나타났다 잠시 머문 뒤 사라지고 대외판 화면으로 넘어간다. 누르거나 키를 치면 바로 사라지기 시작 */
-  const [phase, setPhase] = useStateApp('in');   // in → hold → out
-  const doneRef = useRefApp(false);
-  const finish = useCallbackApp(() => {
-    if (doneRef.current) return;
-    doneRef.current = true;
-    try { sessionStorage.setItem('iba.notice', '1'); } catch (e) {}
-    onOk();
-  }, [onOk]);
-  const leave = useCallbackApp(() => { setPhase(p => (p === 'out' ? p : 'out')); }, []);
-  useEffectApp(() => {
-    const t1 = setTimeout(() => setPhase(p => (p === 'in' ? 'hold' : p)), 1200);
-    const t2 = setTimeout(leave, 6200);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, [leave]);
-  useEffectApp(() => {
-    if (phase !== 'out') return;
-    const t = setTimeout(finish, 1100);
-    return () => clearTimeout(t);
-  }, [phase, finish]);
-  useEffectApp(() => {
-    const onKey = () => leave();
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [leave]);
+function Notice({ onStudy, onRead }) {
   return (
-    <div className={`notice-view is-${phase}`} onClick={leave} aria-live="polite">
+    <main className="notice-view">
       <div className="notice-text">
         <p className="notice-text__t">이 웹사이트는 가상의 설정으로 만든 교육용 사이트입니다</p>
         <p>국제기록보존기구(IBA)를 비롯해 화면에 나오는 기구·인물·코드·문서는 모두 지어낸 것이며, 실제 기관과 관계가 없습니다.</p>
         <p>연표에 실린 사건·연도·설명은 실제 역사를 바탕으로 합니다.</p>
+        <div className="notice-actions" role="group" aria-label="접속 방식 선택">
+          <button type="button" onClick={onStudy}>학습용 접속</button>
+          <button type="button" onClick={onRead}>열람용 접속</button>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -35756,7 +35706,7 @@ function Loader({ onDone }) {
 // ====================================================================
 // TIMELINE TERMINAL — the existing IBA app
 // ====================================================================
-function Terminal({ onReboot }) {
+function Terminal({ study, onReboot }) {
   const [tracks, setTracks] = useStateApp({ korea: true, eastasia: true, west: true, westasia: true });
   const [query, setQuery] = useStateApp('');
   const [selectedId, setSelectedId] = useStateApp(null);
@@ -35792,14 +35742,14 @@ function Terminal({ onReboot }) {
   useEffectApp(() => {
     const V = window.VESTIGIA;
     V.chain(['V-SYS-009', 'V-SYS-010']);
-    V.broadcast(true);
+    if (!study) V.broadcast(true);
     let idle = null;
     const arm = () => { clearTimeout(idle); idle = setTimeout(() => V.say('V-SYS-015'), 180000); };
     const evs = ['pointerdown', 'keydown', 'wheel'];
     evs.forEach(ev => window.addEventListener(ev, arm, { passive: true }));
     arm();
     return () => { V.broadcast(false); clearTimeout(idle); evs.forEach(ev => window.removeEventListener(ev, arm)); };
-  }, []);
+  }, [study]);
 
   useEffectApp(() => {
     const onKey = (e) => {
@@ -35846,9 +35796,6 @@ function Terminal({ onReboot }) {
     setSelectedId(id);
   }, []);
 
-  // Expose a global reboot hook so TopBar (rendered without props) can use it
-  useEffectApp(() => { window.__tmbReboot = onReboot; return () => { delete window.__tmbReboot; }; }, [onReboot]);
-
   // 이미지 라이트박스 — 기록 열람 내 모든 이미지 클릭 시 확대 표시
   const [lightbox, setLightbox] = useStateApp(null);
   useEffectApp(() => {
@@ -35870,7 +35817,7 @@ function Terminal({ onReboot }) {
           {sweep.bands.map(([top, h, d], i) => <i key={i} style={{top: top + '%', height: h + '%', animationDelay: d + 's'}}/>)}
         </div>
       )}
-      <TopBar accessMode={accessMode} onAccessMode={changeAccessMode}/>
+      <TopBar accessMode={accessMode} onAccessMode={changeAccessMode} study={study} onReboot={onReboot}/>
       <SubNav
         tracks={tracks} setTracks={setTracks}
         query={query} setQuery={setQuery}
@@ -35882,7 +35829,7 @@ function Terminal({ onReboot }) {
           tracks={tracks} query={query}
           selectedId={selectedId} onSelect={setSelectedId}
           focusedTrack={focusedTrack} onFocusTrack={onFocusTrack}
-          accessMode={accessMode}
+          accessMode={accessMode} study={study}
         />
         <MemoryDetail event={selected} accessMode={accessMode} onSync={openSync} onJumpTo={jumpToNode} onClose={() => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setSelectedId(null); }}/>
       </div>
@@ -36010,27 +35957,46 @@ function Briefing({ onEnter }) {
 }
 
 // ====================================================================
-// ROOT APP — view router: portal → landing → loader → briefing → terminal → (REBOOT → portal)
+// ROOT APP — 안내문에서 학습용(기록줄기 직행) 또는 열람용(대외판 경유)을 선택한다.
 // ====================================================================
 function App() {
-  // 'notice' | 'portal' | 'landing' | 'loader' | 'briefing' | 'terminal' — 첫 안내문은 탭마다 한 번
-  const [view, setView] = useStateApp(() => { try { return sessionStorage.getItem('iba.notice') ? 'portal' : 'notice'; } catch (e) { return 'notice'; } });
+  const [view, setView] = useStateApp('notice');
   const rebootRef = useRefApp(false);   // REBOOT로 돌아온 대문 — 열람 종료(V-SYS-017)부터 알린다
+  const readAgent = useRefApp(window.IBA_AGENT);
+  const study = view === 'study';
 
   // 접속 시 오디오 장치 기동 — 브라우저 자동재생 정책상 최초 1회는
   // 반드시 사용자 조작(클릭) 안에서 호출되어야 한다.
-  // 지속 채널(앰비언트·배경음악)은 기본 OFF이며 상단바에서 직접 켠다.
   const bootAudio = useCallbackApp(() => {
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('connect');
   }, []);
 
-  if (view === 'notice')   return <Notice onOk={() => setView('portal')}/>;
+  const enterStudy = () => {
+    window.setGuestAgent(false);
+    window.VESTIGIA.clear();
+    setView('study');
+  };
+  const reboot = () => {
+    window.IBA_LECTURE.set(false);
+    if (study) {
+      const A = window.DENDRO_AUDIO;
+      if (A) { A.stopAll(); if (A.typing) A.typing(true); }
+      window.VESTIGIA.stopVoice();
+      window.IBA_AGENT = readAgent.current;
+      setView('notice');
+    } else {
+      // 열람용에서 켜 둔 지속 음향은 대외판에서도 이어진다.
+      rebootRef.current = true;
+      setView('portal');
+    }
+  };
+
+  if (view === 'notice')   return <Notice onStudy={enterStudy} onRead={() => setView('portal')}/>;
   if (view === 'portal')   return <Portal   rebooted={rebootRef.current} onBypass={() => { rebootRef.current = false; setView('landing'); }}/>;
   if (view === 'landing')  return <Landing  onConnect={() => { bootAudio(); setView('loader'); }}/>;
   if (view === 'loader')   return <Loader   onDone={() => setView('briefing')}/>;
   if (view === 'briefing') return <Briefing onEnter={() => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('connect'); setView('terminal'); }}/>;
-  // REBOOT으로 대문에 돌아가도 켜 둔 배경음악·앰비언트는 끊지 않고 이어 간다 (사용자 요청 2026-10-08)
-  return <Terminal onReboot={() => { rebootRef.current = true; setView('portal'); }}/>;
+  return <Terminal study={study} onReboot={reboot}/>;
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
@@ -36045,7 +36011,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
 (function () {
   /* 열림·닫힘 소리는 상태 핸들러(openSync/closeSync 등)가 직접 낸다.
      여기서 또 울리면 같은 소리가 두 번 겹치므로 아래 요소는 위임에서 제외한다. */
-  var SKIP = '.btn-sync, .sync-close, .detail__close, .tl-mapmodal__close,' +
+  var SKIP = '.notice-actions button, .btn-sync, .sync-close, .detail__close, .tl-mapmodal__close,' +
              '.tmb-lightbox__close, .tl-mapbtn, .tmb-zoomable,' +
              '.sync-source__img, .sync-art__img';
   /* 요소 종류별 효과음 배정 — 지시서 3항 표에 따름 */
