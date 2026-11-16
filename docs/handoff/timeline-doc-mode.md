@@ -9,6 +9,7 @@ On 2026-09-22 the user asked to restyle 기록 열람 (SyncDialog) as scanned pa
 - Tabs for every record: 지도 01 · 요약 02 · 상세 03 · 자료 04 · 탐구 05 · 연결 06 · 연구원 기록 07.
 - 2026-11-16: 지도 탭은 해당 기록의 연도와 관련 장소에 맞춰 시대별 지구본을 연다. 기록줄기의 「위치 확인」도 같은 창을 사용한다. 지구본에서 지역 또는 기록 지점을 선택해 기존 기록 열람 창으로 이동하며, ESC는 지구본만 닫는다. 지도 문서의 표시 지점과 조사 소견은 지구본을 닫은 뒤 읽을 수 있다.
 - 역사 경계의 자료 범위는 3400 BCE~2024 CE다. 현대 국경은 별도 보기에서 제공한다. 연결 목록은 IBA의 등재 기록 가운데 선택한 시기와 장소에 해당하는 항목을 표시한다. 대표 위치의 출처와 지도 자료의 가공 내역은 [지도 자료 출처](../../assets/geography/ATTRIBUTION.md)에 있다.
+- 지구본은 PC와 가로 태블릿에 2열로 표시한다. 지도 자료는 웹과 로컬 HTML에서 같은 스크립트 파일을 불러온다.
   - 연결 was kept as a doc-styled 관련 기록 대조표. If the user wants 발해's original 5 tabs, it can be dropped.
 - The 부속 자료 열람 button shows on every record, including 발해.
 - The old CRT tab components (NotesTab/OverviewTab/SourcesTab/MapTab/ArtifactsTab/LinkedTab/ResearchTab) were deleted. `EntryList` remains only for AnnexModal.

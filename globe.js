@@ -5,22 +5,40 @@
   let libraryPromise;
   let landImage;
 
+  // 클래식 스크립트로 읽어 파일로 연 미리보기에서도 같은 지리 자료를 사용한다.
+  function loadScript(file) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = dataRoot + file;
+      script.onload = () => {
+        script.remove();
+        resolve(script.ibaMapData);
+      };
+      script.onerror = () => {
+        script.remove();
+        reject(new Error(`지도 파일을 읽지 못했습니다: ${file}`));
+      };
+      document.head.append(script);
+    });
+  }
+
   function readData(file) {
     if (!jsonCache.has(file)) {
-      const request = fetch(dataRoot + file).then(response => {
-        if (!response.ok) throw new Error(`지도 자료 HTTP ${response.status}`);
-        if (file.endsWith('.gz')) {
-          const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
+      const request = loadScript(file).then(payload => {
+        if (typeof payload === 'string') {
+          const bytes = Uint8Array.from(atob(payload), character => character.charCodeAt(0));
+          const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
           return new Response(stream).json();
         }
-        return response.json();
+        if (!payload) throw new Error(`지도 파일에 자료가 없습니다: ${file}`);
+        return payload;
       }).catch(error => {
         if (jsonCache.get(file) === request) jsonCache.delete(file);
         throw error;
       });
       // 연도를 오래 탐색해도 이미 지나간 모든 구간을 보관하지 않는다.
       if (jsonCache.size >= 8) {
-        const old = [...jsonCache.keys()].find(key => key !== 'manifest.json');
+        const old = [...jsonCache.keys()].find(key => key !== 'manifest.js');
         jsonCache.delete(old);
       }
       jsonCache.set(file, request);
@@ -30,15 +48,9 @@
 
   function loadLibrary() {
     if (libraryPromise) return libraryPromise;
-    libraryPromise = new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = dataRoot + 'globe.gl.min.js';
-      script.onload = () => {
-        if (typeof window.Globe === 'function') resolve(window.Globe);
-        else reject(new Error('Globe.gl 초기화 실패'));
-      };
-      script.onerror = () => reject(new Error('Globe.gl 로드 실패'));
-      document.head.append(script);
+    libraryPromise = loadScript('globe.gl.min.js').then(() => {
+      if (typeof window.Globe !== 'function') throw new Error('Globe.gl 초기화 실패');
+      return window.Globe;
     }).catch(error => {
       libraryPromise = null;
       throw error;
@@ -167,21 +179,25 @@
     };
     for (const [event, handler] of Object.entries(gestures)) element.addEventListener(event, handler, true);
 
-    const manifest = readData('manifest.json');
     Promise.all([
       loadLibrary(),
-      manifest.then(data => readData(data.land.file))
+      readData('land.js').catch(() => null)
     ]).then(([Globe, land]) => {
       if (disposed) return;
-      landImage ||= drawLand(land);
       globe = new Globe(element, {
         animateIn: false, waitForGlobeReady: false,
         rendererConfig: { antialias: true, alpha: false }
       });
       globe.renderer().setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      if (land) {
+        landImage ||= drawLand(land);
+        globe.globeImageUrl(landImage);
+      } else {
+        globe.globeMaterial().color.set('#183d2e');
+        rendererNotice = '육지 윤곽 자료를 불러오지 못했습니다.';
+      }
       globe
         .backgroundColor('#091513')
-        .globeImageUrl(landImage)
         .showAtmosphere(true)
         .atmosphereColor('#699484')
         .atmosphereAltitude(0.11)
@@ -239,7 +255,7 @@
       renderSelection();
       report({ state: 'loading', message: '국경 자료를 불러오는 중입니다.' });
       try {
-        const { modern, historical } = await manifest;
+        const { modern, historical } = await readData('manifest.js');
         const entry = nextYear === null ? modern : historical.chunks.find(chunk => chunk.start <= nextYear && nextYear <= chunk.end);
         if (request !== revision || disposed) return;
         if (!entry || nextYear === 0) {

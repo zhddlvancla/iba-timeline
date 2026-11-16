@@ -1,6 +1,7 @@
 """Create IBA's map files from the official sources listed in assets/geography/ATTRIBUTION.md."""
 
 import argparse
+import base64
 import gzip
 import json
 from pathlib import Path
@@ -10,12 +11,13 @@ from shapely.geometry import shape
 from shapely.geometry.polygon import orient
 
 
-def write_json(output, name, data):
+def write_data_script(output, name, data, compress=False):
     contents = json.dumps(data, ensure_ascii=False, separators=(',', ':'), allow_nan=False) + '\n'
-    encoded = contents.encode('utf-8')
-    if name.endswith('.gz'):
-        encoded = gzip.compress(encoded, mtime=0)
-    (output / name).write_bytes(encoded)
+    if compress:
+        packed = gzip.compress(contents.encode('utf-8'), mtime=0)
+        contents = json.dumps(base64.b64encode(packed).decode('ascii'))
+    # Store data on its own script element. File previews load it by classic script.
+    (output / name).write_text('document.currentScript.ibaMapData = ' + contents.rstrip('\n') + ';\n', encoding='utf-8')
 
 
 def feature(properties, geometry):
@@ -99,8 +101,8 @@ def build_historical(source, output):
     chunks = []
     for start, end in year_chunks(min_year, max_year):
         chunk = [row for row in rows if row['properties']['start'] <= end and row['properties']['end'] >= start]
-        name = f'history-{start}.geojson.gz'
-        write_json(output, name, collection(chunk))
+        name = f'history-{start}.js'
+        write_data_script(output, name, collection(chunk), compress=True)
         chunks.append({'file': name, 'start': start, 'end': end})
     return {'minYear': min_year, 'maxYear': max_year, 'chunks': chunks}
 
@@ -121,15 +123,14 @@ def main():
             'nameKo': props['NAME_KO'], 'wikidata': props['WIKIDATAID'],
             'iso2': props['ISO_A2_EH'], 'iso3': props['ISO_A3_EH'],
         }, item['geometry']))
-    write_json(output, 'modern.geojson', collection(modern))
+    write_data_script(output, 'modern.js', collection(modern))
 
     land = json.loads((args.source / 'land.geojson').read_text(encoding='utf-8'))['features']
-    write_json(output, 'land.geojson', collection([feature({}, item['geometry']) for item in land]))
+    write_data_script(output, 'land.js', collection([feature({}, item['geometry']) for item in land]))
     historical = build_historical(args.source / 'cliopatria.zip', output)
-    write_json(output, 'manifest.json', {
+    write_data_script(output, 'manifest.js', {
         'historical': historical,
-        'modern': {'file': 'modern.geojson'},
-        'land': {'file': 'land.geojson'},
+        'modern': {'file': 'modern.js'},
     })
 
 
