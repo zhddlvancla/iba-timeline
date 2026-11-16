@@ -4,6 +4,9 @@
 !/.nojekyll
 !/index.html
 !/tablet.css
+!/globe.css
+!/globe.js
+!/iba-globe-records.js
 !/timeline-content.js
 !/audio-engine.js
 !/iba-emblem.js
@@ -21,6 +24,7 @@
 !/assets/w1/중세/
 !/assets/w1/근세/
 !/assets/canon/
+!/assets/geography/
 !/assets/w1/근현대/
 !/assets/mnemosyne-voice/
 /assets/mnemosyne-voice/*

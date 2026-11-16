@@ -1604,7 +1604,7 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 @keyframes tl-branching-in{from{opacity:0;transform:translate(-50%,-12px)}to{opacity:1;transform:translate(-50%,0)}}
 
 /* ============================================================
-   MAP — floating modal (Google Maps) triggered by 위치 확인
+   MAP — 시대별 지구본과 위치 확인 버튼
    ============================================================ */
 .tl-stickywrap{position:absolute;left:30px;display:flex;flex-direction:column;gap:6px;z-index:4}
 .tl-stickywrap .tl-stickylabel{position:static !important;left:auto !important}
@@ -1666,10 +1666,6 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
   font-family:var(--font-mono);font-size:17px;line-height:1;
 }
 .tl-mapmodal__close:hover{color:var(--amber-2);text-shadow:0 0 8px var(--amber-glow)}
-.tl-mapmodal__iframe{
-  width:100%;height:100%;border:0;flex:1;
-  filter:sepia(1) saturate(2.5) hue-rotate(-18deg) contrast(.95) brightness(.7);
-}
 
 /* ============================================================
    IMAGE LIGHTBOX — fullscreen zoom for inserted images
@@ -2398,20 +2394,6 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
   border:1px solid #8f8d84;
   filter:saturate(.72) contrast(1.04) sepia(.08);mix-blend-mode:multiply;
 }
-.docx-mapframe{position:relative;border:1px solid #8f8d84;height:420px;background:#cfcbc0}
-.docx-mapframe__hit{
-  position:absolute;inset:0;z-index:2;border:0;padding:0;margin:0;background:transparent;cursor:zoom-in;
-  display:flex;align-items:flex-start;justify-content:flex-end;   /* 안내는 오른쪽 위 — 아래쪽은 구글 지도 조작 버튼 자리 */
-}
-.docx-mapframe__hint{
-  margin:10px;padding:5px 10px;font-family:var(--font-ko);font-size:14px;color:#f1efe8;
-  background:rgba(20,20,18,.72);border:1px solid rgba(255,255,255,.25);
-  opacity:.85;transition:opacity .2s;
-}
-.docx-mapframe__hit:hover .docx-mapframe__hint,.docx-mapframe__hit:focus-visible .docx-mapframe__hint{opacity:1}
-.tl-mapmodal__win--doc{width:min(1400px,94vw);height:min(900px,90vh)}
-.tl-mapmodal__iframe--plain{filter:none}
-.docx-mapframe iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.7) contrast(1.05) sepia(.1)}
 .docx-pins{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .docx-pins li{display:flex;align-items:baseline;font-size:18px;line-height:1.6;padding:7px 0;border-bottom:1px dotted #a9a79e}
 .docx-pins li:first-child{padding-top:0}
@@ -3812,10 +3794,8 @@ html.lecture .topbar__title{letter-spacing:.06em}
   html.lecture .topbar__meta > span:nth-child(2){display:none}
 }
 html.lecture .app.timeline-root{height:calc(100vh / var(--lz));max-height:calc(100vh / var(--lz))}
-html.lecture .tl-mapmodal__win{width:min(960px, calc(90vw / var(--lz)));height:min(640px, calc(80vh / var(--lz)))}
 html.lecture .tmb-lightbox__img{width:calc(98vw / var(--lz));height:calc(94vh / var(--lz))}
 html.lecture .sync-dialog{width:min(1640px, calc(98vw / var(--lz)));height:min(1080px, calc(97vh / var(--lz)))}
-html.lecture .tl-mapmodal__win--doc{width:min(1400px, calc(94vw / var(--lz)));height:min(900px, calc(90vh / var(--lz)))}
 html.lecture .portal-view .pt-stage{gap:clamp(28px, calc(6vh / var(--lz)), 60px)}
 html.lecture .portal-view .pt-seal{height:min(calc(64vh / var(--lz)), 600px);max-width:calc(78vw / var(--lz))}
 html.lecture .landing-view .lv-bgseal{width:min(calc(100vh / var(--lz)), 1040px, calc(120vw / var(--lz)))}
@@ -3873,6 +3853,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 }
 </style>
 <link rel="stylesheet" href="tablet.css?v=20261109"/>
+<link rel="stylesheet" href="globe.css?v=20261116"/>
+<script src="globe.js?v=20261116"></script>
+<script src="iba-globe-records.js?v=20261116"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -33320,13 +33303,178 @@ function VPosWatch({ era, kaejak }) {
   return null;
 }
 
-function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onFocusTrack, accessMode = 'researcher', study }) {
+// 시대별 지구본 — 지부 위치 확인과 기록 열람 지도 탭의 공통 창
+function IbaGlobeDialog({ event, track, startYear, startRecord, label, onClose, onOpenRecord }) {
+  const records = window.IBA_GLOBE_RECORDS;
+  const loading = { state: 'loading', message: '국경 자료를 불러오는 중입니다.' };
+  const [initial] = useStateTC(() => records?.initialView({ event, track, year: startYear }) || {
+    lat: 20, lng: 10, altitude: 2, year: event?.year ?? startYear ?? 1
+  });
+  const [year, setYear] = useStateTC(initial.year);
+  const [enteredYear, setEnteredYear] = useStateTC(() => String(Math.abs(initial.year || 1)));
+  const [epoch, setEpoch] = useStateTC(initial.year < 0 ? 'BCE' : 'CE');
+  const [region, setRegion] = useStateTC(null);
+  const [boundaryStatus, setBoundaryStatus] = useStateTC(() => ({ ...loading, year: initial.year }));
+  const [hasScene, setHasScene] = useStateTC(false);
+  const hostRef = useRefTC(null);
+  const closeRef = useRefTC(null);
+  const controllerRef = useRefTC(null);
+  const appliedYear = useRefTC(initial.year);
+  const requestedYear = useRefTC(initial.year);
+  const status = boundaryStatus.year === year ? boundaryStatus : loading;
+  const points = useMemoTC(() => records?.pointsForYear(year) || [], [records, year]);
+  const matches = useMemoTC(() => region && records ? records.recordsForRegion(region, year) : [], [records, region, year]);
+  const regions = useMemoTC(() => [...(status.regions || [])].sort((a, b) => a.label.localeCompare(b.label, 'ko')), [status.regions]);
+  const updateYear = (next) => {
+    if (next !== null) {
+      setEnteredYear(String(Math.abs(next)));
+      setEpoch(next < 0 ? 'BCE' : 'CE');
+    }
+    if (next !== requestedYear.current) {
+      requestedYear.current = next;
+      if (region) controllerRef.current?.setSelected(null);
+      setRegion(null);
+      setYear(next);
+    }
+  };
+  const submitYear = (e) => {
+    e.preventDefault();
+    const amount = Number(enteredYear);
+    if (Number.isInteger(amount) && amount > 0) updateYear(epoch === 'BCE' ? -amount : amount);
+  };
+  window.useEscLayer(true, onClose);
+  useEffectTC(() => {
+    const trigger = document.activeElement;
+    closeRef.current?.focus({ preventScroll: true });
+    return () => { if (trigger?.isConnected) trigger.focus({ preventScroll: true }); };
+  }, []);
+  useEffectTC(() => {
+    if (!window.IBA_GLOBE || !records) {
+      setBoundaryStatus({ year: initial.year, state: 'error', message: '시대별 지구본을 불러오지 못했습니다. 창을 다시 열어 주세요.' });
+      return;
+    }
+    const controller = window.IBA_GLOBE.mount(hostRef.current, {
+      year: initial.year, view: initial, points,
+      onRegion: (next) => { if (requestedYear.current === appliedYear.current) setRegion(next); },
+      onStatus: (next) => {
+        setBoundaryStatus({ ...next, year: appliedYear.current });
+        if (typeof next.interactive === 'boolean') setHasScene(next.interactive);
+        else if (next.state === 'ready' || next.state === 'unavailable') setHasScene(true);
+      }
+    });
+    controllerRef.current = controller;
+    return () => { controllerRef.current = null; controller.destroy(); };
+  }, []);
+  useEffectTC(() => {
+    if (year === appliedYear.current) return;
+    const timer = setTimeout(() => {
+      appliedYear.current = year;
+      controllerRef.current?.setPoints(points);
+      controllerRef.current?.setYear(year);
+    }, 130); // 슬라이더를 연속해서 움직일 때는 멈춘 연도의 경계를 불러온다
+    return () => clearTimeout(timer);
+  }, [year, points]);
+
+  const trapFocus = (e) => {
+    if (e.key !== 'Tab') return;
+    const controls = e.currentTarget.querySelectorAll('button:not(:disabled),select:not(:disabled),input:not(:disabled),a[href]');
+    const first = controls[0], last = controls[controls.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  };
+  const sliderYear = Math.max(-3400, Math.min(2024, year ?? initial.year ?? 2024));
+  const sliderValue = sliderYear > 0 ? sliderYear - 1 : sliderYear;
+  const dateRecord = event || startRecord;
+  const prehistoricDate = year !== null && year === initial.year && year < -3400 && dateRecord?.yearLabel;
+  const yearText = year === null ? '현대 기준 지도' : prehistoricDate
+    ? window.eventYearText(dateRecord) : (records?.yearLabel(year) || window.fmtYear(year));
+  const selectRegion = (id) => {
+    if (id) controllerRef.current?.select(id);
+    else {
+      controllerRef.current?.setSelected(null);
+      setRegion(null);
+    }
+  };
+  const openRecord = (id) => {
+    onClose();
+    if (id !== event?.id) onOpenRecord(id);
+  };
+  return ReactDOM.createPortal(
+    <div className="tl-mapmodal iba-globe" onClick={e => { e.stopPropagation(); onClose(); }}>
+      <section className="tl-mapmodal__win iba-globe__window" role="dialog" aria-modal="true" aria-labelledby="iba-globe-heading"
+        onClick={e => e.stopPropagation()} onKeyDown={trapFocus}>
+        <header className="tl-mapmodal__head iba-globe__head">
+          <h2 id="iba-globe-heading" className="tl-mapmodal__title">▸ 시대별 지구본</h2>
+          <span className="tl-mapmodal__sub">{label}{event ? ` · ${window.eventYearText(event)}` : ''}
+            {initial.placeLabel ? ` · ${initial.placeLabel}` : ''}</span>
+          <button type="button" ref={closeRef} className="tl-mapmodal__close" onClick={onClose} aria-label="지구본 닫기">✕</button>
+        </header>
+        <div className="iba-globe__dates">
+          <form className="iba-globe__year" onSubmit={submitYear}>
+            <label htmlFor="iba-globe-year">연도</label>
+            <select aria-label="연도 구분" value={epoch} onChange={e => setEpoch(e.target.value)}>
+              <option value="BCE">BCE</option><option value="CE">CE</option>
+            </select>
+            <input id="iba-globe-year" type="number" inputMode="numeric" min="1" max="9999999" required value={enteredYear} onChange={e => setEnteredYear(e.target.value)}/>
+            <button type="submit">적용</button>
+          </form>
+          <input type="range" className="iba-globe__range" aria-label="역사 연도 조절" aria-valuetext={window.fmtYear(sliderYear || 1)}
+            min="-3400" max="2023" value={sliderValue} onChange={e => { const value = Number(e.target.value); updateYear(value < 0 ? value : value + 1); }}/>
+          <button type="button" className="iba-globe__modern" aria-pressed={year === null} onClick={() => updateYear(null)}>현대 국경</button>
+          <output aria-live="polite" className="iba-globe__year-now">{yearText}</output>
+        </div>
+        <div className="iba-globe__body">
+          <div className="iba-globe__stage">
+            <div ref={hostRef} className="iba-globe__host" aria-label="드래그로 돌리는 시대별 지구본"/>
+            <div className="iba-globe__view" role="group" aria-label="지구본 조작">
+              <button type="button" title="지구본 확대" aria-label="지구본 확대" disabled={!hasScene} onClick={() => controllerRef.current?.zoom(1)}>+</button>
+              <button type="button" title="지구본 축소" aria-label="지구본 축소" disabled={!hasScene} onClick={() => controllerRef.current?.zoom(-1)}>−</button>
+              <button type="button" title="처음 위치로 돌아가기" aria-label="처음 위치로 돌아가기" disabled={!hasScene} onClick={() => controllerRef.current?.reset()}>↺</button>
+            </div>
+            <p className="iba-globe__status" role="status">{status.message || '지구본을 돌리고 국가·지역을 선택하세요.'}</p>
+          </div>
+          <aside className="iba-globe__aside">
+            <div className="iba-globe__picker">
+              <label htmlFor="iba-globe-region">국가·지역</label>
+              <select id="iba-globe-region" value={region?.id || ''} onChange={e => selectRegion(e.target.value)}
+                disabled={status.state === 'loading' || (!regions.length && !points.length)}>
+                <option value="">선택하세요</option>
+                {regions.length > 0 && <optgroup label="국경 자료">{regions.map(place => <option key={place.id} value={place.id}>{place.label}</option>)}</optgroup>}
+                {points.length > 0 && <optgroup label="기록 지점">{points.map(place => <option key={place.id} value={place.id}>{place.label}</option>)}</optgroup>}
+              </select>
+              <p className="iba-globe__place-note">{event && !initial.placeLabel
+                ? '이 기록의 위치 정보는 등재되지 않았습니다.' : '기록 지점은 자료에 나온 장소의 대략적인 위치입니다.'}</p>
+            </div>
+            <section className="iba-globe__matches" aria-live="polite" aria-label="연결된 역사 기록">
+              <h3>{region ? region.label : '연결된 역사 기록'}</h3>
+              {year === null ? <p>기록을 찾으려면 역사 연도를 선택하세요.</p>
+                : region && matches.length > 0 ? <ul>{matches.map(record => (
+                  <li key={record.id}><button type="button" onClick={() => openRecord(record.id)}>
+                    <span>{record.label}</span><small>{window.eventYearText(record)} · 기록 열람 ↗</small>
+                  </button></li>
+                ))}</ul>
+                : <p>{region ? '이 연도와 지역에 연결된 기록이 없습니다.' : '지도나 목록에서 국가·지역 또는 기록 지점을 선택하세요.'}</p>}
+            </section>
+          </aside>
+        </div>
+        <footer className="iba-globe__credits">
+          <span>역사 경계 <a href="https://doi.org/10.5281/zenodo.23128623" target="_blank" rel="noopener noreferrer">Cliopatria v0.2.1</a> · Ed Chalstrey, James Bennett, Seshat 기여자 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · 경계 도형 단순화</span>
+          <span>현대 경계 <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener noreferrer">Natural Earth · 퍼블릭 도메인</a></span>
+          <span>지구본 <a href="assets/geography/Globe.gl-LICENSE.txt" target="_blank" rel="noopener noreferrer">Globe.gl · MIT</a></span>
+          <a href="assets/geography/ATTRIBUTION.md" target="_blank" rel="noopener noreferrer">전체 출처·가공 내역</a>
+        </footer>
+      </section>
+    </div>, document.body
+  );
+}
+
+function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onFocusTrack, onOpenMapRecord, accessMode = 'researcher', study }) {
   const [scale, setScale] = useStateTC(1);
   const axis = useMemoTC(() => focusedTrack ? buildFocusedAxis(focusedTrack) : BASE_TIMELINE_AXIS, [focusedTrack]);
   const projectYear = useCallbackTC(year => axis.xAtYear(year) * scale, [axis, scale]);
   const totalW = axis.width * scale;
   const [phase, setPhase] = useStateTC(study ? 'ready' : 'idle'); // 열람용은 idle → loading → ready
-  const [mapModal, setMapModal] = useStateTC(null); // track id of floating map, or null
+  const [mapModal, setMapModal] = useStateTC(null); // 선택한 지부와 현재 연도
   const [eraMenu, setEraMenu] = useStateTC(false);   // 머리줄 시대 이름 → 시대 이동 메뉴
   const eraWrapRef = useRefTC(null);
 
@@ -33767,9 +33915,6 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('transition');
   };
 
-  // ESC 닫기 — 플로팅 지도 모달(위치 확인)
-  window.useEscLayer(!!mapModal, () => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setMapModal(null); });
-
   // Wheel + drag panning
   // React onWheel 은 passive 라 preventDefault 가 막힌다 — 가로 휠(뒤로 가기 스와이프 방지)만 네이티브로 막는다
   useEffectTC(() => {
@@ -33896,12 +34041,31 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
   };
 
   const trackMeta = {
-    korea:    { ko: '한국',           en: 'KOREA',         map: 'https://www.google.com/maps?q=Korea&t=k&z=5&output=embed' },
-    eastasia: { ko: '동아시아',        en: 'EAST ASIA',     map: 'https://www.google.com/maps?q=East+Asia&t=k&z=4&output=embed' },
-    west:     { ko: '유럽·미주',       en: 'EUROPE & AMERICAS', map: 'https://www.google.com/maps?q=Rome+Italy&t=k&z=4&output=embed' },
-    westasia: { ko: '서아시아·인도',   en: 'WEST ASIA · INDIA', map: 'https://www.google.com/maps?q=Mesopotamia+Iran&t=k&z=4&output=embed' }
+    korea:    { ko: '한국',         en: 'KOREA' },
+    eastasia: { ko: '동아시아',     en: 'EAST ASIA' },
+    west:     { ko: '유럽·미주',    en: 'EUROPE & AMERICAS' },
+    westasia: { ko: '서아시아·인도', en: 'WEST ASIA · INDIA' }
   };
-
+  const openTrackMap = (track) => {
+    const centerX = panX + (viewportRef.current?.clientWidth || 1200) / 2;
+    const selected = TIMELINE_DATA.events.find(item => item.id === selectedId && item.track === track);
+    let reference = selected;
+    if (!reference) {
+      let distance = Infinity;
+      for (const item of TIMELINE_DATA.events) {
+        if (item.track !== track || item.hidden || item.noSync || !window.TIMELINE_DB?.[item.id]) continue;
+        const gap = Math.abs(projectYear(posYear(item)) - centerX);
+        if (gap < distance) { distance = gap; reference = item; }
+      }
+    }
+    const year = reference?.year ?? Math.round(yearAtAxisX(axis, centerX / scale));
+    if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('open');
+    setMapModal({ track, year: year || 1, reference });
+  };
+  const closeTrackMap = () => {
+    if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close');
+    setMapModal(null);
+  };
 
   return (
     <section className="canvas">
@@ -34306,10 +34470,10 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
               <span className="tl-stickylabel__hint">{focusedTrack === t ? '◆ FOCUSED' : '◇ FOCUS'}</span>
             </button>
             {focusedTrack === t && (
-              <button
+              <button type="button"
                 className="tl-mapbtn"
-                onClick={(e) => { e.stopPropagation(); if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('open'); setMapModal(t); }}
-                title="구글 지도로 위치 확인"
+                onClick={(e) => { e.stopPropagation(); openTrackMap(t); }}
+                title="시대별 지구본으로 위치 확인" aria-haspopup="dialog"
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M12 22s-7-7.5-7-12a7 7 0 1 1 14 0c0 4.5-7 12-7 12Z"/>
@@ -34334,25 +34498,8 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
         </div>
       </div>
 
-      {/* Floating Google Map modal — opens when 위치 확인 is clicked */}
-      {mapModal && (
-        <div className="tl-mapmodal" role="dialog" aria-modal="true" onClick={() => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setMapModal(null); }}>
-          <div className="tl-mapmodal__win" onClick={(e) => e.stopPropagation()}>
-            <div className="tl-mapmodal__head">
-              <span className="tl-mapmodal__title">▸ REGION MAP · {trackMeta[mapModal].en}</span>
-              <span className="tl-mapmodal__sub">{trackMeta[mapModal].ko} · 위치 확인</span>
-              <button className="tl-mapmodal__close" onClick={() => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setMapModal(null); }} aria-label="닫기">✕</button>
-            </div>
-            <iframe
-              className="tl-mapmodal__iframe"
-              src={trackMeta[mapModal].map}
-              title={`${trackMeta[mapModal].ko} map`}
-              loading="eager"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      )}
+      {mapModal && <IbaGlobeDialog track={mapModal.track} startYear={mapModal.year} startRecord={mapModal.reference} label={trackMeta[mapModal.track].ko}
+        onClose={closeTrackMap} onOpenRecord={onOpenMapRecord}/>}
 
       {/* Intro overlay — idle: button to load; loading: progress; branching: gone */}
       {(phase === 'idle' || phase === 'loading') && (
@@ -34422,6 +34569,7 @@ const SyncIcon = {
 // =================================================
 function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   const [tab, setTab] = useStateSync('notes');
+  const [mapFor, setMapFor] = useStateSync(null);
   const [restored, setRestored] = useStateSync(() => new Set());   // 복원된 말소 구간 id
   const [phase, setPhase] = useStateSync('boot'); // boot → ready
   const scanRef = useRefSync(null);
@@ -34433,6 +34581,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
     // 대응요원 접속으로 위험 노드를 열면 LUMINA 보고서부터 보여 준다
     setTab(dbx && dbx.lumina && event.risk && accessMode === 'response' && docCountRedactions(dbx) > 0 ? 'lumina' : (window.hasNotes(dbx) ? 'notes' : 'overview'));   // 요약이 비었으면 상세부터
     setRestored(new Set());
+    setMapFor(null);
     setPhase('boot');
     const t = setTimeout(() => setPhase('ready'), 900);
     return () => clearTimeout(t);
@@ -34466,6 +34615,14 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
 
   if (!event) return null;
   const db = (window.TIMELINE_DB && window.TIMELINE_DB[event.id]) || null;
+  const openMap = () => {
+    if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('open');
+    setMapFor(event.id);
+  };
+  const closeMap = () => {
+    if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close');
+    setMapFor(null);
+  };
 
   // 모든 메인 노드 — 스캔 문서 연출 (2026-10-28 발해 문서를 전 노드로 확대). 요약 = 옛 정리, 상세 = 옛 개요
   let TABS = [
@@ -34568,7 +34725,8 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
               role="tab"
               aria-selected={tab === t.id}
               className={`sync-tab ${tab === t.id ? 'sync-tab--on' : ''} ${t.risk ? 'sync-tab--risk' : ''} ${t.unlock ? 'sync-tab--unlock' : ''}`}
-              onClick={() => setTab(t.id)}
+              aria-haspopup={db && t.id === 'map' ? 'dialog' : undefined}
+              onClick={() => { setTab(t.id); if (db && t.id === 'map') openMap(); }}
             >
               <span className="sync-tab__icon">{t.icon}</span>
               <span className="sync-tab__label">{t.label}</span>
@@ -34585,7 +34743,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
         {/* BODY */}
         <div className={`sync-body ${db ? 'sync-body--doc' : ''}`}>
           {!db && <NoDataView event={event}/>}
-          {db && <DocView tab={tab} db={db} event={event} redactOn={redactOn} restored={restored} onRestore={restore} onJumpTo={onJumpTo}/>}
+          {db && <DocView tab={tab} db={db} event={event} redactOn={redactOn} restored={restored} onRestore={restore} onJumpTo={onJumpTo} onOpenMap={openMap}/>}
         </div>
 
         {/* FOOTER */}
@@ -34596,6 +34754,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
         </footer>
       </div>
       {annexOpen && db && <AnnexModal event={event} db={db} onClose={closeAnnex}/>}
+      {db && mapFor === event.id && <IbaGlobeDialog event={event} label={event.label} onClose={closeMap} onOpenRecord={onJumpTo}/>}
     </div>
   );
 }
@@ -34832,7 +34991,7 @@ function DocVoid({ label = '도판', children }) {
     </div>
   );
 }
-function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo }) {
+function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOpenMap }) {
   // 정정 — 맞게 찾으면 알림 줄에 잠깐 결과를 띄운다
   const [probe, setProbe] = useStateSync(null);
   const probeT = useRefSync(0);
@@ -34851,10 +35010,6 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo }) {
     }
   };
   const pageRef = useRefSync(null);
-  const [bigMap, setBigMap] = useStateSync(null);   // 위성 지도 크게 보기
-  const openMap = (m) => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('open'); setBigMap(m); };
-  const closeMap = () => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setBigMap(null); };
-  window.useEscLayer(!!bigMap, closeMap);   // ESC는 지도 창만 닫고 기록 열람 창은 유지
   const meta = DOC_META[tab] || DOC_META.notes;
   const base = docBase(db, event);
   const docNo = `${base}-${meta.no}`;
@@ -34923,24 +35078,15 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo }) {
     </>;
     tail = window.cleanCite(L.cite) ? `대조 근거는 ${window.cleanCite(L.cite)} 참고.` : null;
   } else if (tab === 'map') {
-    // 지도 자료가 없는 기록은 노드 이름으로 위성 지도를 찾는다
     const m = db.map || {};
     const pins = Array.isArray(m.pins) ? m.pins : [];
     const notes = Array.isArray(m.notes) ? m.notes : [];
-    const keyPin = pins.find(p => p.amber);
     const title = m.title || event.label;
-    const q = m.googleQuery || (keyPin && keyPin.label) || m.title || event.en || event.label;
-    const url = `https://www.google.com/maps?q=${encodeURIComponent(q)}&t=k&z=${m.googleZoom || 5}&output=embed`;
     body = <>
-      <h4 className="docx-h">첨부 1. 위성 지도 — {title}</h4>
-      <div className="docx-mapframe">
-        <iframe src={url} title={`지도 · ${title}`} loading="eager" referrerPolicy="no-referrer-when-downgrade" allowFullScreen tabIndex={-1}/>
-        <button type="button" className="docx-mapframe__hit" onClick={() => openMap({ url, title, q })}
-          aria-label="위성 지도 크게 보기">
-          <span className="docx-mapframe__hint">⤢ 클릭하여 지도 크게 보기</span>
-        </button>
-      </div>
-      <div className="docx-cap">▲ 위성 지도 — 조회 좌표: {q}</div>
+      <h4 className="docx-h">첨부 1. 시대별 지구본 · {title}</h4>
+      <button type="button" className="docx-globebtn" onClick={onOpenMap} aria-haspopup="dialog">
+        <SyncIcon.Map/><span>시대별 지구본 열기</span><span aria-hidden="true">↗</span>
+      </button>
       {(pins.length > 0 || notes.length > 0) && <div className={`docx-cols ${pins.length && notes.length ? 'docx-cols--map' : ''}`}>
         {pins.length > 0 && <section>
           <h4 className="docx-h">표시 지점:</h4>
@@ -35199,20 +35345,6 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo }) {
         {tail && <p className="docx-tail">{tail}</p>}
         <footer className="docx-foot">{tab === 'lumina' ? '— 부속 보고 · 대응요원 전용 —' : `— ${Number(meta.no)} / ${DOC_PAGES} —`}</footer>
       </article>
-      {bigMap && ReactDOM.createPortal(
-        <div className="tl-mapmodal" role="dialog" aria-modal="true" onClick={closeMap}>
-          <div className="tl-mapmodal__win tl-mapmodal__win--doc" onClick={(e) => e.stopPropagation()}>
-            <div className="tl-mapmodal__head">
-              <span className="tl-mapmodal__title">▸ SATELLITE MAP · {event.en}</span>
-              <span className="tl-mapmodal__sub">{bigMap.title} · 조회 좌표 {bigMap.q}</span>
-              <button className="tl-mapmodal__close" onClick={closeMap} aria-label="닫기">✕</button>
-            </div>
-            <iframe className="tl-mapmodal__iframe tl-mapmodal__iframe--plain" src={bigMap.url} title={`위성 지도 · ${bigMap.title}`}
-              loading="eager" referrerPolicy="no-referrer-when-downgrade" allowFullScreen/>
-          </div>
-        </div>,
-        document.body
-      )}
     </div>
   );
 }
@@ -35802,6 +35934,7 @@ function Terminal({ study, onReboot }) {
           tracks={tracks} query={query}
           selectedId={selectedId} onSelect={setSelectedId}
           focusedTrack={focusedTrack} onFocusTrack={onFocusTrack}
+          onOpenMapRecord={(id) => { setSelectedId(id); openSync(id); }}
           accessMode={accessMode} study={study}
         />
         <MemoryDetail event={selected} accessMode={accessMode} onSync={openSync} onJumpTo={jumpToNode} onClose={() => { if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close'); setSelectedId(null); }}/>
