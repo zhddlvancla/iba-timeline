@@ -166,23 +166,64 @@
     ["이스라엘·팔레스타인 일대", 31.74, 35.16, "s-oslo"],
   ];
 
-  // 대표 연도만 있는 기록 중 상세 탭에 시작과 종료가 명시된 기간.
+  // 기록의 상세 연표·요약과 다음 정권의 시작을 대조해 확인한 연도 범위.
+  // 고조선의 시작은 정본에 적힌 전승상의 대표 연도를 따른다.
   const dossierPeriods = {
+    "k-gojoseon": [-2333, -108],
+    "k-silla": [-57, 935],
     "k-goguryeo": [-37, 668],
     "k-baekje": [-18, 660],
     "k-gaya": [42, 562],
+    "k-goguryeo-tang": [645, 668],
     "k-unify": [676, 935],
     "k-balhae": [698, 926],
+    "k-goryeo": [918, 1392],
+    "k-joseon": [1392, 1897],
     "k-js-imjin": [1592, 1598],
     "k-js-jeongyu": [1597, 1598],
+    "k-js-byeongja": [1636, 1637],
+    "k-daewongun": [1863, 1873],
+    "k-agwan": [1896, 1897],
+    "k-land-survey": [1910, 1918],
+    "k-provisional": [1919, 1945],
+    "k-sanmi": [1920, 1934],
+    "k-gwangju-student": [1929, 1930],
+    "k-vnarod": [1931, 1935],
+    "k-jeju43": [1947, 1954],
     "k-625": [1950, 1953],
+    "k-gov-rhee": [1948, 1960],
+    "k-gov-chang": [1960, 1961],
+    "k-gov-park": [1963, 1979],
+    "k-gov-choi": [1979, 1980],
+    "k-gov-chun": [1980, 1988],
+    "k-gov-roh": [1988, 1993],
+    "k-gov-kys": [1993, 1998],
+    "k-gov-kdj": [1998, 2003],
+    "k-gov-rmh": [2003, 2008],
+    "k-gov-lmb": [2008, 2013],
+    "k-gov-pgh": [2013, 2017],
+    "k-gov-moon": [2017, 2022],
+    "k-gov-yoon": [2022, 2025],
+    "e-jomon": [-8050, -300],
+    "e-xia": [-2000, -1600],
+    "e-shang": [-1600, -1046],
+    "e-zhou": [-1046, -256],
     "e-qin": [-221, -206],
     "e-han-founded": [-202, 8],
     "e-wang": [8, 23],
     "e-later-han": [25, 220],
+    "e-yayoi": [-300, 300],
+    "e-3kingdoms": [220, 265],
+    "e-jin": [265, 316],
+    "e-wuhu": [304, 439],
+    "e-beiwei": [386, 534],
+    "e-dongjin": [317, 420],
     "e-sui": [581, 618],
     "e-tang": [618, 907],
+    "e-liao": [916, 1125],
     "e-song": [960, 1127],
+    "e-xixia": [1038, 1227],
+    "e-jin-jurchen": [1115, 1234],
     "e-nansong": [1127, 1279],
     "e-yuan": [1271, 1368],
     "e-ming": [1368, 1644],
@@ -190,12 +231,57 @@
     "e-nara": [710, 794],
     "e-heian": [794, 1185],
     "e-kamakura": [1192, 1336],
+    "e-muromachi": [1336, 1573],
+    "e-sengoku": [1467, 1590],
     "e-edo": [1603, 1868],
+    "e-houjin": [1616, 1636],
+    "e-qing": [1636, 1912],
+    "e-nguyen": [1802, 1945],
+    "e-taiping": [1851, 1864],
+    "e-yangwu": [1861, 1895],
+    "e-xinhai": [1911, 1912],
+    "e-civilwar": [1946, 1949],
+    "s-hittite": [-1650, -1200],
+    "s-assyria": [-2000, -612],
+    "s-persia": [-550, -330],
+    "s-magadha": [-322, -185],
+    "s-parthia": [-247, 224],
+    "s-kushan": [50, 320],
+    "s-sasan": [226, 651],
+    "s-gupta": [320, 550],
     "s-rashidun": [632, 661],
     "s-umayyad": [661, 750],
     "s-abbasid": [750, 1258],
     "s-cordoba": [756, 1031],
     "s-fatimid": [909, 1171],
+    "s-ghazni": [977, 1186],
+    "s-chola": [870, 1279],
+    "s-ghur": [1150, 1215],
+    "s-delhi": [1206, 1526],
+    // https://www.ktb.gov.tr/EN-103933/1922.html
+    "s-ottoman": [1299, 1922],
+    "s-timurid": [1369, 1507],
+    // https://resources.metmuseum.org/resources/metpublications/pdf/Islamic_art_in_the_Metropolitan_Museum_the_historical_context.pdf
+    "s-safavid": [1501, 1736],
+    "s-mughal": [1526, 1858],
+    "s-sepoy": [1857, 1859],
+    "w-rome-found": [-753, 476],
+    "w-rome-rep": [-509, -27],
+    "w-greco-persian": [-492, -479],
+    "w-peloponnesian": [-431, -404],
+    "w-macedonia": [-650, -168],
+    "w-alexander-empire": [-336, -323],
+    "w-rome-emp": [-27, 476],
+    "w-byzantine": [395, 1453],
+    "w-frank": [481, 843],
+    "w-crusade": [1096, 1270],
+    "w-hundred": [1337, 1453],
+    "w-roses": [1455, 1485],
+    "w-french-rev": [1789, 1799],
+    // https://palazzo.quirinale.it/luoghi/pdf/it/sala-regno-italia.pdf
+    "w-italy": [1861, 1946],
+    // https://www.bundestag.de/en/parliament/history/parliamentarism/empire/empire-200352
+    "w-germany": [1871, 1918],
   };
 
   const trackViews = {
@@ -252,25 +338,35 @@
       const last = signedYear(range[3], range[4] || range[2]);
       return {range: first <= last ? [first, last] : [last, first]};
     }
-    const individual = /^(\d+)·(\d+)\s*(BCE|CE)?$/.exec(label);
+    const individual = /^(\d+)\s*·\s*(\d+)\s*(BCE|CE)?$/.exec(label);
     if (individual) return {years: [signedYear(individual[1], individual[3]), signedYear(individual[2], individual[3])]};
     const decades = /^(\d+)~(\d+)년대$/.exec(label);
     if (decades) return {range: [Number(decades[1]), Number(decades[2]) + 9]};
-    const centuries = /^(\d+)(?:~(\d+))?세기\s*(BCE|CE)?(?:\s*(?:경|무렵|전반|후반))?$/.exec(label);
+    const centuries = /^(\d+)(?:~(\d+))?세기\s*(BCE|CE)?\s*(경|무렵|전반|후반)?\s*(BCE|CE)?$/.exec(label);
     if (centuries) {
       const first = Number(centuries[1]);
       const last = Number(centuries[2] || centuries[1]);
       const min = Math.min(first, last);
       const max = Math.max(first, last);
-      const bce = centuries[3] === "BCE";
+      const bce = (centuries[3] || centuries[5]) === "BCE";
       let start = bce ? -100 * max : 100 * (min - 1) + 1;
       let end = bce ? -100 * (min - 1) - 1 : 100 * max;
-      if (label.endsWith("전반")) end = Math.floor((start + end) / 2);
-      if (label.endsWith("후반")) start = Math.floor((start + end) / 2) + 1;
+      if (centuries[4] === "전반") end = Math.floor((start + end) / 2);
+      if (centuries[4] === "후반") start = Math.floor((start + end) / 2) + 1;
       return {range: [start, end]};
     }
-    if (dossierPeriods[event.id]) return {range: dossierPeriods[event.id]};
     return {years: [recordYear(event)]};
+  }
+
+  function dateBounds(event) {
+    const year = recordYear(event);
+    if (year === null) return null;
+    const {years, range} = recordDates(event);
+    const period = dossierPeriods[event.id] || range;
+    if (period) return {start: period[0], end: period[1]};
+    const dates = [...new Set(years.filter(validYear))].sort((a, b) => a - b);
+    if (dates.length > 1) return {start: dates[0], end: dates[dates.length - 1], years: dates};
+    return {start: year, end: year};
   }
 
   function browseableRecords(year, track) {
@@ -282,6 +378,8 @@
       // 노드를 연 대표 연도에는 원문 기록을 언제나 선택할 수 있다.
       if (recordYear(event) === year) return true;
       const {years, range} = recordDates(event);
+      const period = dossierPeriods[event.id];
+      if (period && year >= period[0] && year <= period[1]) return true;
       return range ? year >= range[0] && year <= range[1] : years.includes(year);
     });
   }
@@ -344,6 +442,6 @@
   }
 
   global.IBA_GLOBE_RECORDS = {
-    initialView, pointsForYear, recordsForRegion, recordYear, yearLabel, contains,
+    initialView, pointsForYear, recordsForRegion, recordYear, dateBounds, yearLabel, contains,
   };
 })(window);

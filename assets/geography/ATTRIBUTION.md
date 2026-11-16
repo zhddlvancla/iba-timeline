@@ -10,6 +10,10 @@
 
 파일은 연도 구간별로 나누어 gzip으로 압축하고 Base64로 인코딩했다. 역사 경계와 Natural Earth 데이터는 로컬 HTML에서도 읽을 수 있는 스크립트 파일에 담았다. 앱은 선택한 연도의 구간만 불러와 원자료의 시작·종료 연도에 따라 표시한다. 압축 해제에는 브라우저의 `DecompressionStream`이 필요하다. 역사 경계의 제공 범위는 3400 BCE ~ 2024 CE이며 개별 정치체와 지역의 기록 밀도는 서로 다르다.
 
+## 지도 한글 명칭
+
+`names-ko.js`는 Cliopatria 정치체 명칭 1,587종을 한글 표시명과 연결한다. 995종은 원자료에 연결된 위키데이터 항목의 한국어 이름을 받아 사용했고, 나머지 592종은 한국어 이름이 없거나 원자료 명칭과 연결 항목이 어긋나는 경우 등을 검토해 번역·음역했다. 현대 국경 명칭은 Natural Earth의 `NAME_KO` 필드를 사용한다. [위키데이터 데이터 이용 방법](https://www.wikidata.org/wiki/Wikidata:Data_access) · [위키데이터 사용 조건](https://www.wikidata.org/wiki/Wikidata:Licensing) · [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
 ## 현재 국경과 육지
 
 **Natural Earth 1:110m**의 Admin 0 Countries 및 Land, Tom Patterson, Nathaniel Vaughn Kelso 및 기여자. [Admin 0 Countries](https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/) · [Land](https://www.naturalearthdata.com/downloads/110m-physical-vectors/110m-land/) · [공식 배포 태그 v5.1.2](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2) · [퍼블릭 도메인 이용 조건](https://www.naturalearthdata.com/about/terms-of-use/)

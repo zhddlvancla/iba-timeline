@@ -12,7 +12,7 @@
   max-width: 100%;
   max-height: 100%;
   font-family: var(--font-ko);
-  box-shadow: 0 22px 80px rgba(0, 0, 0, .65);
+  box-shadow: 0 0 22px rgba(47, 174, 94, .19), 0 22px 80px rgba(0, 0, 0, .65);
 }
 
 .iba-globe__head { flex-wrap: wrap; gap: 4px 14px; padding: 5px 14px; }
@@ -34,6 +34,7 @@
 .iba-globe__year input { width: 8ch; }
 .iba-globe__range { flex: 1 1 140px; min-width: 75px; accent-color: var(--amber); }
 .iba-globe__year-now { min-width: 8ch; color: var(--amber-2); font: 700 14px/1.5 var(--font-ui); }
+.iba-globe__period { color: var(--amber-2); font-size: 13px; }
 .iba-globe__dates button,
 .iba-globe__year input,
 .iba-globe__year select,
@@ -63,23 +64,61 @@
   grid-template-columns: minmax(0, 1fr) minmax(240px, 25%);
   overflow: auto;
 }
-.iba-globe__stage { min-width: 0; min-height: 210px; position: relative; overflow: hidden; background: #080f0e; }
+.iba-globe__stage { min-width: 0; min-height: 210px; position: relative; overflow: hidden; background: var(--bg); }
 .iba-globe__host { position: absolute; inset: 0; overflow: hidden; cursor: grab; touch-action: none; }
 .iba-globe__host:active { cursor: grabbing; }
 .iba-globe__host canvas { display: block; touch-action: none; }
-.iba-globe__view { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 5px; }
+.iba-globe__host::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(0, 0, 0, .11) 3px 4px);
+  pointer-events: none;
+}
+html.lecture .iba-globe__host::after { display: none; }
+.iba-globe__country-label {
+  color: #b2eac5;
+  font: 600 12px/1.3 var(--font-ko);
+  white-space: nowrap;
+  text-shadow: 0 1px 2px #040806, 1px 0 #040806, -1px 0 #040806, 0 0 5px #040806;
+  pointer-events: none;
+}
+.iba-globe__record-marker {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  pointer-events: auto;
+}
+.iba-globe__record-marker::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--amber);
+  border: 1px solid var(--amber-2);
+  box-shadow: 0 0 7px var(--amber-2), 0 0 14px var(--amber-glow);
+}
+.iba-globe__record-marker:hover::before,
+.iba-globe__record-marker.is-selected::before {
+  background: #afffd0;
+  box-shadow: 0 0 9px var(--amber-2), 0 0 20px var(--amber-glow);
+}
+.iba-globe__view { position: absolute; top: 10px; right: 10px; z-index: 2; display: flex; flex-direction: column; gap: 5px; }
 .iba-globe__view button { width: 39px; padding: 0; opacity: .96; font-size: 19px; }
 .iba-globe__status {
   position: absolute;
   bottom: 8px;
   left: 10px;
   right: 10px;
+  z-index: 2;
   width: fit-content;
   max-width: calc(100% - 20px);
   margin: 0;
   padding: 4px 7px;
   color: var(--amber-2);
-  background: rgba(8, 15, 14, .92);
+  background: rgba(4, 8, 6, .94);
   font-size: 12px;
   pointer-events: none;
 }
@@ -89,6 +128,7 @@
   min-width: 0;
   padding: 10px 14px;
   border-left: 1px solid var(--amber-line);
+  background: linear-gradient(180deg, var(--bg-1), var(--panel) 60%);
   overflow: auto;
   overscroll-behavior-y: contain;
   overflow-wrap: anywhere;
@@ -128,26 +168,10 @@
 }
 .iba-globe__credits a { color: var(--amber-2); text-decoration: underline; text-underline-offset: 2px; }
 
-.docx-globebtn {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  width: fit-content;
-  min-height: 44px;
-  max-width: 100%;
-  margin-bottom: 14px;
-  padding: 6px 12px;
-  border: 1px solid #447950;
-  color: #1d5132;
-  background: #e4ecdf;
-  font: 700 16px/1.35 var(--font-ko);
-}
-.docx-globebtn:hover { background: #d6e6d3; }
-.docx-globebtn svg { flex: none; }
-
 @media (min-width: 960px) and (orientation: landscape) and (any-pointer: coarse) {
   .tl-mapbtn, .iba-globe__dates button, .iba-globe__year input, .iba-globe__year select,
   .iba-globe__picker select, .iba-globe__view button, .iba-globe__head .tl-mapmodal__close { min-height: 44px; }
   .iba-globe__view button, .iba-globe__head .tl-mapmodal__close { min-width: 44px; }
+  .iba-globe__record-marker { width: 32px; height: 32px; }
   .iba-globe__year input, .iba-globe__year select, .iba-globe__picker select { font-size: 16px; }
 }

@@ -38,7 +38,7 @@
       });
       // 연도를 오래 탐색해도 이미 지나간 모든 구간을 보관하지 않는다.
       if (jsonCache.size >= 8) {
-        const old = [...jsonCache.keys()].find(key => key !== 'manifest.js');
+        const old = [...jsonCache.keys()].find(key => key !== 'manifest.js' && key !== 'names-ko.js');
         jsonCache.delete(old);
       }
       jsonCache.set(file, request);
@@ -60,6 +60,7 @@
 
   const features = data => Array.isArray(data) ? data : data.features;
   const polygons = geometry => geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+  const shortCountryNames = { CHN: '중국', PRK: '북한', USA: '미국', GBR: '영국' };
 
   // Natural Earth의 육지 윤곽을 구 표면에 한 번 그린다. 현대 국경은 여기에 그리지 않는다.
   function drawLand(data) {
@@ -67,10 +68,10 @@
     canvas.width = 2048;
     canvas.height = 1024;
     const context = canvas.getContext('2d');
-    context.fillStyle = '#102520';
+    context.fillStyle = '#08140e';
     context.fillRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = '#375442';
-    context.strokeStyle = '#54725c';
+    context.fillStyle = '#122b1c';
+    context.strokeStyle = '#285039';
     context.lineWidth = 1;
     for (const feature of features(data)) {
       for (const polygon of polygons(feature.geometry)) {
@@ -88,19 +89,87 @@
         context.stroke();
       }
     }
+    context.strokeStyle = 'rgba(87, 193, 128, .15)';
+    context.beginPath();
+    for (let longitude = -170; longitude <= 170; longitude += 10) {
+      const x = (longitude + 180) / 360 * canvas.width;
+      context.moveTo(x, 0);
+      context.lineTo(x, canvas.height);
+    }
+    for (let latitude = -80; latitude <= 80; latitude += 10) {
+      const y = (90 - latitude) / 180 * canvas.height;
+      context.moveTo(0, y);
+      context.lineTo(canvas.width, y);
+    }
+    context.stroke();
     return canvas.toDataURL('image/png');
   }
 
-  function boundaryRegions(data, year) {
+  function boundaryRegions(data, year, koreanNames) {
     return features(data).flatMap(({ geometry, properties }, index) => {
       if (!geometry || (year !== null && !(properties.start <= year && year <= properties.end))) return [];
       return [{
         id: `boundary:${properties.id ?? index}:${index}`,
-        label: properties.nameKo || properties.name,
+        label: shortCountryNames[properties.id] || properties.nameKo || koreanNames[properties.name] || '이름 미등재',
         kind: 'boundary',
         geometry
       }];
     });
+  }
+
+  const wrapLongitude = longitude => ((longitude + 180) % 360 + 360) % 360 - 180;
+
+  // 여러 조각 중 넓은 영토를 고르고, 내부의 넓은 구간에 이름을 놓는다.
+  // 바깥 윤곽과 호수 등 내부 구멍을 함께 잘라 이름의 기준점이 영토 안에 오도록 한다.
+  function labelAnchor(geometry) {
+    let bestArea = 0, largest;
+    for (const polygon of polygons(geometry)) {
+      const reference = polygon[0][0][0];
+      const rings = polygon.map(ring => {
+        let previous = reference;
+        return ring.map(([lng, lat]) => {
+          previous += wrapLongitude(lng - previous);
+          return [previous, lat];
+        });
+      });
+      const outer = rings[0];
+      let area = 0, minLat = 90, maxLat = -90;
+      for (let i = 1; i < outer.length; i++) {
+        const [x0, y0] = outer[i - 1], [x1, y1] = outer[i];
+        area += (x0 - reference) * y1 - (x1 - reference) * y0;
+        minLat = Math.min(minLat, y1);
+        maxLat = Math.max(maxLat, y1);
+      }
+      area = Math.abs(area) / 2 * Math.cos((minLat + maxLat) * Math.PI / 360);
+      if (area > bestArea) {
+        bestArea = area;
+        largest = { rings, minLat, maxLat };
+      }
+    }
+    if (!largest) return null;
+
+    const { rings, minLat, maxLat } = largest;
+    let anchor = null, bestScore = 0;
+    for (const fraction of [0.5, 0.32, 0.68, 0.16, 0.84]) {
+      const lat = minLat + (maxLat - minLat) * fraction;
+      const crossings = [];
+      for (const ring of rings) {
+        for (let i = 1; i < ring.length; i++) {
+          const [x0, y0] = ring[i - 1], [x1, y1] = ring[i];
+          if ((y0 > lat) !== (y1 > lat)) crossings.push(x0 + (x1 - x0) * (lat - y0) / (y1 - y0));
+        }
+      }
+      crossings.sort((a, b) => a - b);
+      for (let i = 0; i + 1 < crossings.length; i += 2) {
+        const left = crossings[i], right = crossings[i + 1];
+        const score = (right - left) * (1 - Math.abs(fraction - 0.5));
+        if (score > bestScore) {
+          bestScore = score;
+          anchor = { lat, lng: wrapLongitude((left + right) / 2), span: right - left, area: bestArea };
+        }
+      }
+    }
+    return anchor;
   }
 
   // 목록으로 지역을 고를 때는 가장 큰 외곽선의 대략적인 중앙으로 카메라를 이동한다.
@@ -124,7 +193,7 @@
     return label;
   }
 
-  function mount(element, { year, view, points = [], onRegion, onStatus }) {
+  function mount(element, { year, view, points = [], showLabels = false, onRegion, onStatus }) {
     const home = { lat: view.lat, lng: view.lng, altitude: view.altitude ?? 2.25 };
     let disposed = false;
     let revision = 0;
@@ -132,6 +201,10 @@
     let resize;
     let selected;
     let regions = [];
+    let mapLabels = [];
+    let labelFrame = null;
+    const overlayElements = new Map();
+    const globeFacing = new WeakMap();
     let rendererNotice = '';
     const pointers = new Map();
     let dragged = false;
@@ -159,16 +232,17 @@
     const renderSelection = () => {
       if (!globe) return;
       globe
-        .polygonCapColor(region => region.id === selected ? '#8da66d' : '#416b50')
-        .polygonStrokeColor(region => region.id === selected ? '#e7ed9f' : '#8ab594')
-        .pointColor(point => point.id === selected ? '#fff4b5' : '#e5b972');
+        .polygonCapColor(region => region.id === selected ? '#217348' : '#143e28')
+        .polygonStrokeColor(region => region.id === selected ? '#86f0ae' : '#4daf70');
+      for (const point of points) overlayElements.get(point.id)?.classList.toggle('is-selected', point.id === selected);
+      scheduleLabels();
     };
     function pick(region, move = false) {
       if (disposed) return;
       selected = region.id;
       renderSelection();
       if (move && globe) {
-        const { lat, lng } = regionView(region);
+        const { lat, lng } = mapLabels.find(item => item.id === region.id) || regionView(region);
         globe.pointOfView({ lat, lng }, 280);
       }
       onRegion(region);
@@ -178,6 +252,73 @@
       pointerdown: startGesture, pointermove: moveGesture, pointerup: endGesture, pointercancel: endGesture
     };
     for (const [event, handler] of Object.entries(gestures)) element.addEventListener(event, handler, true);
+
+    function makeOverlay(item) {
+      const isLabel = item.kind === 'boundary';
+      const overlay = document.createElement(isLabel ? 'span' : 'button');
+      overlay.className = isLabel ? 'iba-globe__country-label' : 'iba-globe__record-marker';
+      if (isLabel) {
+        overlay.textContent = item.label;
+        overlay.setAttribute('aria-hidden', 'true');
+      } else {
+        overlay.type = 'button';
+        overlay.title = item.label;
+        overlay.setAttribute('aria-label', `기록 지점 · ${item.label}`);
+        overlay.tabIndex = -1; // 국가·지역 목록에서도 같은 지점을 선택할 수 있다.
+        overlay.classList.toggle('is-selected', item.id === selected);
+        // Globe.gl은 pointerup에서 뒤쪽 영역을 선택하므로 네모 버튼의 조작과 분리한다.
+        for (const type of ['pointerdown', 'pointerup']) {
+          overlay.addEventListener(type, event => event.stopPropagation());
+        }
+        overlay.addEventListener('click', event => {
+          event.stopPropagation();
+          pickOnGlobe(item);
+        });
+      }
+      overlay.style.visibility = 'hidden';
+      overlayElements.set(item.id, overlay);
+      return overlay;
+    }
+
+    function scheduleLabels() {
+      if (!mapLabels.length || labelFrame !== null) return;
+      labelFrame = requestAnimationFrame(() => {
+        labelFrame = null;
+        const placed = [];
+        const width = element.clientWidth, height = element.clientHeight;
+        const preferred = mapLabels.find(item => item.id === selected);
+        const labels = preferred ? [preferred, ...mapLabels.filter(item => item !== preferred)] : mapLabels;
+        for (const item of labels) {
+          const label = overlayElements.get(item.id);
+          if (!label) continue;
+          let visible = false;
+          if (globeFacing.get(label) && label.isConnected) {
+            const { x, y } = globe.getScreenCoords(item.lat, item.lng, 0.012);
+            const halfW = label.offsetWidth / 2 + 3, halfH = label.offsetHeight / 2 + 2;
+            const east = globe.getScreenCoords(item.lat, item.lng + Math.min(item.span / 2, 18), 0.012);
+            const west = globe.getScreenCoords(item.lat, item.lng - Math.min(item.span / 2, 18), 0.012);
+            const projectedWidth = Math.hypot(east.x - west.x, east.y - west.y);
+            const box = { left: x - halfW, right: x + halfW, top: y - halfH, bottom: y + halfH };
+            visible = (item === preferred || projectedWidth >= label.offsetWidth * 0.72) &&
+              box.left >= 4 && box.right <= width - 4 && box.top >= 4 && box.bottom <= height - 4 &&
+              !placed.some(other => box.left < other.right && box.right > other.left && box.top < other.bottom && box.bottom > other.top);
+            if (visible) placed.push(box);
+          }
+          label.style.visibility = visible ? 'visible' : 'hidden';
+        }
+      });
+    }
+
+    function showOverlays() {
+      if (!globe) return;
+      const items = [...mapLabels, ...points];
+      const ids = new Set(items.map(item => item.id));
+      for (const id of overlayElements.keys()) {
+        if (!ids.has(id)) overlayElements.delete(id);
+      }
+      globe.htmlElementsData(items);
+      scheduleLabels();
+    }
 
     Promise.all([
       loadLibrary(),
@@ -193,38 +334,45 @@
         landImage ||= drawLand(land);
         globe.globeImageUrl(landImage);
       } else {
-        globe.globeMaterial().color.set('#183d2e');
+        globe.globeMaterial().color.set('#122b1c');
         rendererNotice = '육지 윤곽 자료를 불러오지 못했습니다.';
       }
       globe
-        .backgroundColor('#091513')
+        .backgroundColor('#040806')
         .showAtmosphere(true)
-        .atmosphereColor('#699484')
-        .atmosphereAltitude(0.11)
-        .showGraticules(true)
+        .atmosphereColor('#36ae65')
+        .atmosphereAltitude(0.08)
         .polygonGeoJsonGeometry('geometry')
         .polygonAltitude(0.009)
         .polygonCapCurvatureResolution(5)
-        .polygonSideColor(() => '#254638')
+        .polygonSideColor(() => '#123323')
         .polygonsTransitionDuration(0)
         .polygonLabel(tooltip)
         .onPolygonClick(pickOnGlobe)
         .polygonsData(regions)
-        .pointRadius(0.62)
-        .pointAltitude(0.022)
-        .pointsTransitionDuration(0)
-        .pointLabel(tooltip)
-        .onPointClick(pickOnGlobe)
-        .pointsData(points)
+        .htmlAltitude(item => item.kind === 'boundary' ? 0.012 : 0.018)
+        .htmlTransitionDuration(0)
+        .htmlElement(makeOverlay)
+        .htmlElementVisibilityModifier((overlay, front) => {
+          if (overlay.classList.contains('iba-globe__country-label')) {
+            globeFacing.set(overlay, front);
+            scheduleLabels();
+          } else {
+            overlay.style.visibility = front ? 'visible' : 'hidden';
+          }
+        })
+        .onZoom(scheduleLabels)
         .onGlobeClick(({ lat, lng }) => pickOnGlobe({ id: '', label: '선택한 위치', kind: 'unmapped', lat, lng }));
       const radius = globe.getGlobeRadius();
       globe.controls().minDistance = radius * 1.26;
       globe.controls().maxDistance = radius * 5;
       resize = new ResizeObserver(() => {
         if (globe && element.clientWidth && element.clientHeight) globe.width(element.clientWidth).height(element.clientHeight);
+        scheduleLabels();
       });
       resize.observe(element);
       renderSelection();
+      showOverlays();
       globe.pointOfView(home);
       report(status);
     }).catch(() => {
@@ -236,6 +384,8 @@
 
     function releaseGlobe() {
       resize?.disconnect();
+      if (labelFrame !== null) cancelAnimationFrame(labelFrame);
+      labelFrame = null;
       if (globe) {
         const renderer = globe.renderer();
         // 공식 UMD의 해제 훅으로 애니메이션과 OrbitControls를 정리한다.
@@ -244,6 +394,7 @@
         renderer.forceContextLoss();
         globe = null;
       }
+      overlayElements.clear();
       element.replaceChildren();
     }
 
@@ -251,7 +402,9 @@
       const request = ++revision;
       selected = '';
       regions = [];
+      mapLabels = [];
       globe?.polygonsData([]);
+      showOverlays();
       renderSelection();
       report({ state: 'loading', message: '국경 자료를 불러오는 중입니다.' });
       try {
@@ -262,10 +415,19 @@
           report({ state: 'unavailable', message: '이 연도의 역사 국경 자료가 없습니다.' });
           return;
         }
-        const data = await readData(entry.file);
+        const [data, koreanNames] = await Promise.all([
+          readData(entry.file), nextYear === null ? {} : readData('names-ko.js')
+        ]);
         if (request !== revision || disposed) return;
-        regions = boundaryRegions(data, nextYear);
+        regions = boundaryRegions(data, nextYear, koreanNames);
+        if (showLabels) {
+          mapLabels = regions.flatMap(region => {
+            const anchor = labelAnchor(region.geometry);
+            return anchor ? [{ ...anchor, id: region.id, label: region.label, kind: region.kind }] : [];
+          }).sort((a, b) => b.area - a.area);
+        }
         globe?.polygonsData(regions);
+        showOverlays();
         report(regions.length
           ? { state: 'ready', message: '' }
           : { state: 'unavailable', message: '이 연도의 역사 국경 자료가 없습니다.' });
@@ -283,7 +445,7 @@
       },
       setPoints(nextPoints) {
         points = nextPoints;
-        globe?.pointsData(points);
+        showOverlays();
       },
       select(id) {
         const region = regions.find(item => item.id === id) || points.find(item => item.id === id);

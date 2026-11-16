@@ -2346,7 +2346,6 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
 /* 상세 · 지도 — 2단 */
 .docx-cols{display:grid;gap:14px 52px;align-items:start}
 .docx-cols--detail{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
-.docx-cols--map{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr)}
 .docx-olist{margin:0;padding:0;list-style:none;counter-reset:ol}
 .docx-olist li{
   position:relative;counter-increment:ol;padding:0 0 12px 38px;margin-bottom:12px;
@@ -2394,14 +2393,6 @@ html.tl-tight.lecture .subnav.subnav--tracks{display:none}
   border:1px solid #8f8d84;
   filter:saturate(.72) contrast(1.04) sepia(.08);mix-blend-mode:multiply;
 }
-.docx-pins{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.docx-pins li{display:flex;align-items:baseline;font-size:18px;line-height:1.6;padding:7px 0;border-bottom:1px dotted #a9a79e}
-.docx-pins li:first-child{padding-top:0}
-.docx-pins em{display:block;font-style:normal;color:#55574f;font-size:14.5px;font-weight:400}
-.docx-pins__mk{display:inline-block;width:22px;color:#55574f}
-.docx-pins li.is-key{font-weight:700}
-.docx-pins li.is-key .docx-pins__mk{color:#1f6b40}
-.docx-pins li.is-red .docx-pins__mk{color:#a3322a}
 .docx-plate{margin:6px 0 30px;padding:0 0 28px;border-bottom:1px solid #b3b0a6}
 .docx-plate:last-of-type{border-bottom:0}
 .docx-plate.is-measuring{visibility:hidden}
@@ -2530,9 +2521,6 @@ html.lecture .docx-notes > .docx-h::after{content:'빈칸을 누르면 낱말이
 .docx-gallery figure{margin:0}
 .docx-gallery .docx-img{display:block}
 .docx-gallery .docx-img img{width:100%}
-/* 지도 — 소견 없이 지점만 있을 때는 여러 줄로 흘린다 */
-.docx-pins--flow{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));column-gap:40px}
-.docx-pins--flow li:first-child{padding-top:7px}
 /* 연결 — 관련 기록 대조표. 행을 누르면 그 기록으로 간다 */
 .docx-xref{border-collapse:collapse;width:100%}
 .docx-xref th{font-size:14px;font-weight:600;text-align:left;padding:7px 12px;border-top:2px solid #2a2b27;border-bottom:1px solid #2a2b27;background:rgba(40,38,30,.06);color:#3d3f39}
@@ -2559,7 +2547,7 @@ html.lecture .docx-notes > .docx-h::after{content:'빈칸을 누르면 낱말이
 @container (max-width: 1000px){
   .docx-head{grid-template-columns:1fr auto;grid-template-areas:'kind mark' 'node node'}
   .docx-head__kind{grid-area:kind}.docx-head__mark{grid-area:mark}.docx-head__node{grid-area:node}
-  .docx-cols--detail,.docx-cols--map,.docx-plate--port,.docx-plate--inq.docx-plate--port{grid-template-columns:1fr}
+  .docx-cols--detail,.docx-plate--port,.docx-plate--inq.docx-plate--port{grid-template-columns:1fr}
   .docx-plate--port .docx-plate__fig{max-width:460px}
   .docx-secgrid{columns:1}
   .docx-plate--void{grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:24px}
@@ -3853,9 +3841,9 @@ html.lecture .d2doc{width:min(1180px, calc(95vw / var(--lz)));height:min(880px, 
 }
 </style>
 <link rel="stylesheet" href="tablet.css?v=20261109"/>
-<link rel="stylesheet" href="globe.css?v=20261116-2"/>
-<script src="globe.js?v=20261116-2"></script>
-<script src="iba-globe-records.js?v=20261116"></script>
+<link rel="stylesheet" href="globe.css?v=20261117"/>
+<script src="globe.js?v=20261117"></script>
+<script src="iba-globe-records.js?v=20261117"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -33307,11 +33295,18 @@ function VPosWatch({ era, kaejak }) {
 function IbaGlobeDialog({ event, track, startYear, startRecord, label, onClose, onOpenRecord }) {
   const records = window.IBA_GLOBE_RECORDS;
   const loading = { state: 'loading', message: '국경 자료를 불러오는 중입니다.' };
-  const [initial] = useStateTC(() => records?.initialView({ event, track, year: startYear }) || {
-    lat: 20, lng: 10, altitude: 2, year: event?.year ?? startYear ?? 1
+  const bounds = event ? records?.dateBounds?.(event) || { start: event.year, end: event.year } : null;
+  const allowedYears = bounds?.years;
+  const [initial] = useStateTC(() => {
+    const view = records?.initialView({ event, track, year: startYear }) ||
+      { lat: 20, lng: 10, altitude: 2, year: event?.year ?? startYear ?? 1 };
+    if (!bounds) return { ...view, year: view.year >= -3400 && view.year <= 2024 ? view.year : null };
+    const year = allowedYears && !allowedYears.includes(view.year) ? allowedYears[0]
+      : Math.max(bounds.start, Math.min(bounds.end, view.year ?? bounds.start));
+    return { ...view, year };
   });
   const [year, setYear] = useStateTC(initial.year);
-  const [enteredYear, setEnteredYear] = useStateTC(() => String(Math.abs(initial.year || 1)));
+  const [enteredYear, setEnteredYear] = useStateTC(() => String(Math.abs(initial.year ?? 2024)));
   const [epoch, setEpoch] = useStateTC(initial.year < 0 ? 'BCE' : 'CE');
   const [region, setRegion] = useStateTC(null);
   const [boundaryStatus, setBoundaryStatus] = useStateTC(() => ({ ...loading, year: initial.year }));
@@ -33326,6 +33321,8 @@ function IbaGlobeDialog({ event, track, startYear, startRecord, label, onClose, 
   const matches = useMemoTC(() => region && records ? records.recordsForRegion(region, year) : [], [records, region, year]);
   const regions = useMemoTC(() => [...(status.regions || [])].sort((a, b) => a.label.localeCompare(b.label, 'ko')), [status.regions]);
   const updateYear = (next) => {
+    if (bounds && (!Number.isInteger(next) || next === 0 || next < bounds.start || next > bounds.end ||
+        (allowedYears && !allowedYears.includes(next)))) return;
     if (next !== null) {
       setEnteredYear(String(Math.abs(next)));
       setEpoch(next < 0 ? 'BCE' : 'CE');
@@ -33356,7 +33353,7 @@ function IbaGlobeDialog({ event, track, startYear, startRecord, label, onClose, 
       return;
     }
     const controller = window.IBA_GLOBE.mount(hostRef.current, {
-      year: initial.year, view: initial, points,
+      year: initial.year, view: initial, points, showLabels: !event,
       onRegion: (next) => { if (requestedYear.current === appliedYear.current) setRegion(next); },
       onStatus: (next) => {
         setBoundaryStatus({ ...next, year: appliedYear.current });
@@ -33384,8 +33381,10 @@ function IbaGlobeDialog({ event, track, startYear, startRecord, label, onClose, 
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   };
-  const sliderYear = Math.max(-3400, Math.min(2024, year ?? initial.year ?? 2024));
-  const sliderValue = sliderYear > 0 ? sliderYear - 1 : sliderYear;
+  const sliderMin = bounds?.start ?? -3400;
+  const sliderMax = bounds?.end ?? 2024;
+  const sliderYear = Math.max(sliderMin, Math.min(sliderMax, year ?? initial.year ?? 2024));
+  const toSlider = (y) => y > 0 ? y - 1 : y;
   const dateRecord = event || startRecord;
   const prehistoricDate = year !== null && year === initial.year && year < -3400 && dateRecord?.yearLabel;
   const yearText = year === null ? '현대 기준 지도' : prehistoricDate
@@ -33407,23 +33406,32 @@ function IbaGlobeDialog({ event, track, startYear, startRecord, label, onClose, 
         onClick={e => e.stopPropagation()} onKeyDown={trapFocus}>
         <header className="tl-mapmodal__head iba-globe__head">
           <h2 id="iba-globe-heading" className="tl-mapmodal__title">▸ 시대별 지구본</h2>
-          <span className="tl-mapmodal__sub">{label}{event ? ` · ${window.eventYearText(event)}` : ''}
+          <span className="tl-mapmodal__sub">{label}
             {initial.placeLabel ? ` · ${initial.placeLabel}` : ''}</span>
           <button type="button" ref={closeRef} className="tl-mapmodal__close" onClick={onClose} aria-label="지구본 닫기">✕</button>
         </header>
-        <div className="iba-globe__dates">
-          <form className="iba-globe__year" onSubmit={submitYear}>
+        <div className={`iba-globe__dates${bounds ? ' iba-globe__dates--record' : ''}`}>
+          {!bounds && <form className="iba-globe__year" onSubmit={submitYear}>
             <label htmlFor="iba-globe-year">연도</label>
             <select aria-label="연도 구분" value={epoch} onChange={e => setEpoch(e.target.value)}>
               <option value="BCE">BCE</option><option value="CE">CE</option>
             </select>
             <input id="iba-globe-year" type="number" inputMode="numeric" min="1" max="9999999" required value={enteredYear} onChange={e => setEnteredYear(e.target.value)}/>
             <button type="submit">적용</button>
-          </form>
-          <input type="range" className="iba-globe__range" aria-label="역사 연도 조절" aria-valuetext={window.fmtYear(sliderYear || 1)}
-            min="-3400" max="2023" value={sliderValue} onChange={e => { const value = Number(e.target.value); updateYear(value < 0 ? value : value + 1); }}/>
-          <button type="button" className="iba-globe__modern" aria-pressed={year === null} onClick={() => updateYear(null)}>현대 국경</button>
+          </form>}
+          {allowedYears ? <label className="iba-globe__year">기록 연도
+            <select aria-label="기록 연도" value={year} onChange={e => updateYear(Number(e.target.value))}>
+              {allowedYears.map(value => <option key={value} value={value}>{window.fmtYear(value)}</option>)}
+            </select>
+          </label> : sliderMin !== sliderMax && <>
+            {bounds && <span className="iba-globe__period">{window.fmtYear(sliderMin)} ~ {window.fmtYear(sliderMax)}</span>}
+            <input type="range" className="iba-globe__range" aria-label={bounds ? '기록 기간의 연도 조절' : '역사 연도 조절'}
+              aria-valuetext={window.fmtYear(sliderYear)} min={toSlider(sliderMin)} max={toSlider(sliderMax)}
+              value={toSlider(sliderYear)} onChange={e => { const value = Number(e.target.value); updateYear(value < 0 ? value : value + 1); }}/>
+          </>}
+          {!bounds && <button type="button" className="iba-globe__modern" aria-pressed={year === null} onClick={() => updateYear(null)}>현대 국경</button>}
           <output aria-live="polite" className="iba-globe__year-now">{yearText}</output>
+          {bounds && status.state === 'error' && <button type="button" onClick={() => updateYear(year)}>다시 불러오기</button>}
         </div>
         <div className="iba-globe__body">
           <div className="iba-globe__stage">
@@ -33460,9 +33468,9 @@ function IbaGlobeDialog({ event, track, startYear, startRecord, label, onClose, 
           </aside>
         </div>
         <footer className="iba-globe__credits">
-          <span>역사 경계 <a href="https://doi.org/10.5281/zenodo.23128623" target="_blank" rel="noopener noreferrer">Cliopatria v0.2.1</a> · Ed Chalstrey, James Bennett, Seshat 기여자 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · 경계 도형 단순화</span>
-          <span>현대 경계 <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener noreferrer">Natural Earth · 퍼블릭 도메인</a></span>
-          <span>지구본 <a href="assets/geography/Globe.gl-LICENSE.txt" target="_blank" rel="noopener noreferrer">Globe.gl · MIT</a></span>
+          <span>역사 경계 <a href="https://doi.org/10.5281/zenodo.23128623" target="_blank" rel="noopener noreferrer">클리오파트리아 0.2.1</a> · 에드 찰스트리, 제임스 베넷, 세샤트 기여자 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · 경계 도형 단순화</span>
+          <span>현대 경계 <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener noreferrer">내추럴 어스 · 퍼블릭 도메인</a></span>
+          <span>지구본 <a href="assets/geography/Globe.gl-LICENSE.txt" target="_blank" rel="noopener noreferrer">글로브 · MIT</a></span>
           <a href="assets/geography/ATTRIBUTION.md" target="_blank" rel="noopener noreferrer">전체 출처·가공 내역</a>
         </footer>
       </section>
@@ -34481,7 +34489,7 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                   <path d="M12 22s-7-7.5-7-12a7 7 0 1 1 14 0c0 4.5-7 12-7 12Z"/>
                   <circle cx="12" cy="10" r="2.5"/>
                 </svg>
-                <span>위치 확인 · CHECK LOCATION</span>
+                <span>위치 확인</span>
               </button>
             )}
           </div>
@@ -34575,6 +34583,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   const [restored, setRestored] = useStateSync(() => new Set());   // 복원된 말소 구간 id
   const [phase, setPhase] = useStateSync('boot'); // boot → ready
   const scanRef = useRefSync(null);
+  const mapTabRef = useRefSync(null);
 
   // Reset to overview + restart boot animation every time event changes
   useEffectSync(() => {
@@ -34624,7 +34633,9 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   const closeMap = () => {
     if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('close');
     setMapFor(null);
+    requestAnimationFrame(() => mapTabRef.current?.focus({ preventScroll: true }));
   };
+  const mapOpen = !!db && mapFor === event.id;
 
   // 모든 메인 노드 — 스캔 문서 연출 (2026-10-28 발해 문서를 전 노드로 확대). 요약 = 옛 정리, 상세 = 옛 개요
   let TABS = [
@@ -34658,7 +34669,8 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
   const thick = window.recordThickness(db);
 
   return (
-    <div className="sync-overlay" onClick={onClose}>
+    <>
+    <div className="sync-overlay" onClick={onClose} style={mapOpen ? { display: 'none' } : undefined}>
       <div
         className={`sync-dialog ${phase === 'boot' ? 'sync-dialog--boot' : ''}`}
         role="dialog"
@@ -34728,7 +34740,8 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
               aria-selected={tab === t.id}
               className={`sync-tab ${tab === t.id ? 'sync-tab--on' : ''} ${t.risk ? 'sync-tab--risk' : ''} ${t.unlock ? 'sync-tab--unlock' : ''}`}
               aria-haspopup={db && t.id === 'map' ? 'dialog' : undefined}
-              onClick={() => { setTab(t.id); if (db && t.id === 'map') openMap(); }}
+              ref={t.id === 'map' ? mapTabRef : undefined}
+              onClick={() => { if (db && t.id === 'map') openMap(); else setTab(t.id); }}
             >
               <span className="sync-tab__icon">{t.icon}</span>
               <span className="sync-tab__label">{t.label}</span>
@@ -34745,7 +34758,7 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
         {/* BODY */}
         <div className={`sync-body ${db ? 'sync-body--doc' : ''}`}>
           {!db && <NoDataView event={event}/>}
-          {db && <DocView tab={tab} db={db} event={event} redactOn={redactOn} restored={restored} onRestore={restore} onJumpTo={onJumpTo} onOpenMap={openMap}/>}
+          {db && <DocView tab={tab} db={db} event={event} redactOn={redactOn} restored={restored} onRestore={restore} onJumpTo={onJumpTo}/>}
         </div>
 
         {/* FOOTER */}
@@ -34756,8 +34769,9 @@ function SyncDialog({ event, onClose, onJumpTo, accessMode = 'researcher' }) {
         </footer>
       </div>
       {annexOpen && db && <AnnexModal event={event} db={db} onClose={closeAnnex}/>}
-      {db && mapFor === event.id && <IbaGlobeDialog event={event} label={event.label} onClose={closeMap} onOpenRecord={onJumpTo}/>}
     </div>
+    {mapOpen && <IbaGlobeDialog event={event} label={event.label} onClose={closeMap} onOpenRecord={onJumpTo}/>}
+    </>
   );
 }
 
@@ -34865,7 +34879,6 @@ function notesEm(item) {
 //   검은 막대 — LUMINA의 접근 흔적. 문서를 열 때 훑고 지나가며, 사료 이미지에는 먹칠로 남는다.
 // =================================================
 const DOC_META = {
-  map:       { no: '01', head: '지리 조사 기록', en: 'GEOGRAPHIC SURVEY' },
   lumina:    { no: 'L',  head: 'LUMINA 접근·왜곡 보고', en: 'INCIDENT REPORT' },
   notes:     { no: '02', head: '기록 요약',     en: 'SUMMARY' },
   overview:  { no: '03', head: '기록 상세 조사', en: 'DETAILED RECORD' },
@@ -34902,7 +34915,7 @@ const DIST_RE = /(\{\{[^}]*\}\})/g;
 const docStrip = (str) => String(str || '').replace(/\{\{([^|}]*)\|[^}]*\}\}/g, '$1');
 const docDistCount = (x) => (JSON.stringify(x || '').match(/\{\{/g) || []).length;
 // 탭별 왜곡 수 — 정정 id 접두어와 짝을 이룬다
-// 왜곡은 지도·요약·상세에만 들어간다. 자료·탐구는 봉인 문서 — 모두 정정하면 열린다
+// 지리 조사·요약·상세의 왜곡을 정정하면 봉인된 자료·탐구가 열린다
 const DOC_SEALED = ['artifacts', 'sources'];
 function docSections(db) {
   return [
@@ -34993,7 +35006,7 @@ function DocVoid({ label = '도판', children }) {
     </div>
   );
 }
-function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOpenMap }) {
+function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo }) {
   // 정정 — 맞게 찾으면 알림 줄에 잠깐 결과를 띄운다
   const [probe, setProbe] = useStateSync(null);
   const probeT = useRefSync(0);
@@ -35006,7 +35019,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOp
     if (!redactOn || tab === 'lumina') return;
     const t = e.target;
     if (t.closest('.docx-dist, .docx-fixed, .docx-imgbar, img, button, iframe, a')) return;
-    if (t.closest('.docx-p, .docx-list li, .docx-olist li, .docx-terms dd, .docx-find td, .docx-vtl li, .docx-pins li, .docx-quote')) {
+    if (t.closest('.docx-p, .docx-list li, .docx-olist li, .docx-terms dd, .docx-find td, .docx-vtl li, .docx-quote')) {
       if (window.DENDRO_AUDIO) window.DENDRO_AUDIO.sfx('click');
       flash('clean');
     }
@@ -35020,6 +35033,16 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOp
   const secs = docSections(db).map(sec => ({ ...sec, done: [...restored].filter(id => sec.pre.some(p => id.startsWith(p))).length }));
   const allDone = redactOn && total > 0 && done >= total;
   const yearStr = window.eventYearText(event);
+  const mapNotes = Array.isArray(db.map?.notes) ? db.map.notes : [];
+  const mapCorrections = redactOn && secs[0].n > 0 && (
+    <section>
+      <h4 className="docx-h">지리 조사 정정</h4>
+      <ol className="docx-olist">
+        {mapNotes.map((text, i) => typeof text === 'string' && text.includes('{{') &&
+          <li key={i}><DocText text={text} id={`map.${i}`} ctx={ctx}/></li>)}
+      </ol>
+    </section>
+  );
 
   let body = null, tail = null;
   if (tab === 'lumina') {
@@ -35042,7 +35065,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOp
           <ol className="docx-olist docx-claims">
             {L.claims.map((c, i) => <li key={i}>「{c}」</li>)}
           </ol>
-          <p className="docx-p docx-p--sm">위 주장은 원본 기록이 아니다. 지도·요약·상세 문서 곳곳에 이 주장에 맞춘 문장이 빨간 글씨로 섞여 들어가 있다.</p>
+          <p className="docx-p docx-p--sm">위 주장은 원본 기록이 아니다. 지리 조사·요약·상세 기록에서 왜곡된 문장은 빨간 글씨로 표시한다.</p>
         </section>}
         {Array.isArray(L.evidence) && <section>
           <h4 className="docx-h">대조 근거 — 원본 기록:</h4>
@@ -35051,6 +35074,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOp
           </ul>
         </section>}
       </div>
+      {mapCorrections}
       <h4 className="docx-h">영향 범위 · 정정 현황:</h4>
       <table className="docx-find docx-prog"><tbody>
         <tr><th>문서</th><th>왜곡</th><th>정정</th><th>상태</th></tr>
@@ -35075,41 +35099,10 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOp
       <ol className="docx-olist">
         <li>각 문서의 빨간 글씨는 LUMINA가 바꿔 쓴 문장이다. 이 보고서의 「대조 근거」와 맞대어 읽는다.</li>
         <li>빨간 글씨를 누르면 줄을 긋고 원본 기록을 옆에 적는다. 왜곡은 지우지 않는다 — 정정한 흔적을 남긴다.</li>
-        <li>지도·요약·상세의 왜곡을 모두 정정하면 봉인된 부속 자료철과 사료 탐구 보고가 열린다.</li>
+        <li>지리 조사·요약·상세 기록의 왜곡을 모두 정정하면 봉인된 부속 자료철과 사료 탐구 보고가 열린다.</li>
       </ol>
     </>;
     tail = window.cleanCite(L.cite) ? `대조 근거는 ${window.cleanCite(L.cite)} 참고.` : null;
-  } else if (tab === 'map') {
-    const m = db.map || {};
-    const pins = Array.isArray(m.pins) ? m.pins : [];
-    const notes = Array.isArray(m.notes) ? m.notes : [];
-    const title = m.title || event.label;
-    body = <>
-      <h4 className="docx-h">첨부 1. 시대별 지구본 · {title}</h4>
-      <button type="button" className="docx-globebtn" onClick={onOpenMap} aria-haspopup="dialog">
-        <SyncIcon.Map/><span>시대별 지구본 열기</span><span aria-hidden="true">↗</span>
-      </button>
-      {(pins.length > 0 || notes.length > 0) && <div className={`docx-cols ${pins.length && notes.length ? 'docx-cols--map' : ''}`}>
-        {pins.length > 0 && <section>
-          <h4 className="docx-h">표시 지점:</h4>
-          <ul className={`docx-pins ${notes.length ? '' : 'docx-pins--flow'}`}>
-            {pins.map((p, i) => (
-              <li key={i} className={p.amber ? 'is-key' : p.red ? 'is-red' : ''}>
-                <span className="docx-pins__mk">{p.amber ? '◆' : p.red ? '✕' : '◇'}</span>
-                <span>{p.label}{p.sub ? <em>{p.sub}</em> : null}</span>
-              </li>
-            ))}
-          </ul>
-        </section>}
-        {notes.length > 0 && <section>
-          <h4 className="docx-h">조사 소견:</h4>
-          <ol className="docx-olist">
-            {notes.map((t, i) => <li key={i}><DocText text={t} id={`map.${i}`} ctx={ctx}/></li>)}
-          </ol>
-        </section>}
-      </div>}
-    </>;
-    tail = window.cleanCite(m.cite) ? `지도 원본은 ${window.cleanCite(m.cite)} 참고.` : null;
   } else if (tab === 'notes') {
     // 요약 = 옛 정리. 항목은 문자열 또는 { t, sub:[...] } — 머리 항목 아래 세부 항목을 들여 단다. **강조**는 강의 모드 빈칸
     const notes = db.notes;
@@ -35174,6 +35167,7 @@ function DocView({ tab, db, event, redactOn, restored, onRestore, onJumpTo, onOp
           </ol>
         </section>}
       </div>
+      {!db.lumina && mapCorrections}
     </>;
     tail = `요약본은 문서 ${base}-02 참고.`;
   } else if (tab === 'artifacts') {

@@ -7,8 +7,9 @@ On 2026-09-22 the user asked to restyle 기록 열람 (SyncDialog) as scanned pa
 **2026-10-28: applied to EVERY record.** The user asked: 「모든 메인 노드를 발해 노드와 같이 변경 … 정리→요약, 개요→상세, 각 탭의 미감과 구성도 변경」.
 - `db.docMode` no longer gates anything. Any node with a TIMELINE_DB record renders `DocView`.
 - Tabs for every record: 지도 01 · 요약 02 · 상세 03 · 자료 04 · 탐구 05 · 연결 06 · 연구원 기록 07.
-- 2026-11-16: 지도 탭은 해당 기록의 연도와 관련 장소에 맞춰 시대별 지구본을 연다. 기록줄기의 「위치 확인」도 같은 창을 사용한다. 지구본에서 지역 또는 기록 지점을 선택해 기존 기록 열람 창으로 이동하며, ESC는 지구본만 닫는다. 지도 문서의 표시 지점과 조사 소견은 지구본을 닫은 뒤 읽을 수 있다.
-- 역사 경계의 자료 범위는 3400 BCE~2024 CE다. 현대 국경은 별도 보기에서 제공한다. 연결 목록은 IBA의 등재 기록 가운데 선택한 시기와 장소에 해당하는 항목을 표시한다. 대표 위치의 출처와 지도 자료의 가공 내역은 [지도 자료 출처](../../assets/geography/ATTRIBUTION.md)에 있다.
+- 지도 탭은 종이 문서 없이 해당 기록의 지구본을 연다. 단일 연도는 고정하고, 기간이 명시된 기록은 그 기간 안에서, 별개 연도가 명시된 기록은 해당 연도들 중에서 선택한다. ESC로 지구본을 닫으면 이전 기록 탭으로 돌아간다.
+- 기록줄기의 「위치 확인」에서는 전체 연도 범위와 현대 국경을 열 수 있다. 국가명은 한글로 표시하고 줌과 표시 공간을 기준으로 지도 위 이름의 겹침을 조정한다. 역사 경계 자료의 범위는 3400 BCE~2024 CE다.
+- 지구본에서 지역 또는 초록색 네모로 표시한 기록 지점을 선택하면 해당 시기와 장소에 연결된 IBA 등재 기록을 열 수 있다. 대표 위치의 출처와 지도 자료의 가공 내역은 [지도 자료 출처](../../assets/geography/ATTRIBUTION.md)에 있다.
 - 지구본은 PC와 가로 태블릿에 2열로 표시한다. 지도 자료는 웹과 로컬 HTML에서 같은 스크립트 파일을 불러온다.
   - 연결 was kept as a doc-styled 관련 기록 대조표. If the user wants 발해's original 5 tabs, it can be dropped.
 - The 부속 자료 열람 button shows on every record, including 발해.
@@ -28,7 +29,7 @@ On 2026-09-22 the user asked to restyle 기록 열람 (SyncDialog) as scanned pa
   - Landscape images put their text below; portrait images put it beside.
   - 요약 uses 2 columns. 상세 has a lead box, then 핵심 개념 | vertical 연표. 지도: clicking the map opens a large modal.
 - **Risk-node mechanic (user feedback 2026-09-26):** risk nodes must not simply hide text. They carry distorted content based on the node, and 대응반 finds and fixes it.
-  - Data syntax is `{{원본|왜곡}}`, used **only in 지도·요약·상세** (user 2026-09-27). 연구원 접속 shows the original. 대응반 접속 shows the distortion in red text; clicking it strikes it through and writes the original beside it (정정 — never erase). Clicking a normal sentence shows "원본과 일치".
+  - 데이터 문법은 `{{원본|왜곡}}`이며 지도·요약·상세 데이터에 사용한다. 지도 데이터의 왜곡은 대응요원 접속 시 「왜곡 보고 → 지리 조사 정정」에서, 보고서가 없는 기록은 상세 탭에서 정정한다. 왜곡을 눌러 줄을 긋고 원본을 옆에 표시한다.
   - Distortions must be the real claims of the risk kind (e.g. 동북공정: 말갈인 건국, 당의 지방 정권, 발해군왕, 홀한주 도독부). Originals stay textbook-accurate.
   - **Images inside risk nodes get no black treatment** — no ink over images (`inquiry.redact` was removed). Black appears only as `████` unreadable fields in the LUMINA report. The black-bar sweep on doc open was removed — don't re-add it.
   - **자료·탐구 are sealed in 대응반 mode.** Tabs are LUMINA · 지도 · 요약 · 상세. When every distortion is fixed (원본 복원), the 자료 and 탐구 tabs appear with a short RGB-split glitch (`sync-tab--unlock`) and a transition sfx. 연구원 mode always shows all 5 tabs. Fixes reset when the dialog closes.
