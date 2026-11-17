@@ -12,7 +12,9 @@
 
 ## 지도 한글 명칭
 
-`names-ko.js`는 Cliopatria 정치체 명칭 1,587종을 한글 표시명과 연결한다. 995종은 원자료에 연결된 위키데이터 항목의 한국어 이름을 받아 사용했고, 나머지 592종은 한국어 이름이 없거나 원자료 명칭과 연결 항목이 어긋나는 경우 등을 검토해 번역·음역했다. 현대 국경 명칭은 Natural Earth의 `NAME_KO` 필드를 사용한다. [위키데이터 데이터 이용 방법](https://www.wikidata.org/wiki/Wikidata:Data_access) · [위키데이터 사용 조건](https://www.wikidata.org/wiki/Wikidata:Licensing) · [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+`names-ko.js`는 Cliopatria 정치체 명칭 1,587종을 한글 표시명과 연결한다. 초기 표기 가운데 995종은 원자료에 연결된 위키데이터 항목의 한국어 이름을 받아 사용했고, 나머지 592종은 한국어 이름이 없거나 원자료 명칭과 연결 항목이 어긋나는 경우 등을 검토해 번역·음역했다. 현대 국경의 기본 명칭은 Natural Earth의 `NAME_KO` 필드에 따른다. [위키데이터 데이터 이용 방법](https://www.wikidata.org/wiki/Wikidata:Data_access) · [위키데이터 사용 조건](https://www.wikidata.org/wiki/Wikidata:Licensing) · [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+기록줄기의 근거 교과서와 같은 대상을 확인한 국가·지역은 기록줄기에서 쓰는 명칭으로 맞췄다. 같은 원자료 이름이 여러 정치체나 시기를 아우르면 해당 명칭의 적용 연도를 제한한다. 교과서에서 확인되지 않는 이름은 기존 표기를 쓴다. 이 규칙은 화면에 표시되는 이름에 적용된다. [기록줄기 교과서 목록](../../docs/handoff/timeline-textbook-sources.md)
 
 ## 현재 국경과 육지
 

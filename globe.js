@@ -1,6 +1,7 @@
 /* IBA 기록 지구본. Globe.gl은 지도 창을 열 때 불러온다. */
 (() => {
   const dataRoot = 'assets/geography/';
+  const koreanNamesFile = 'names-ko.js?v=20261117.1';
   const jsonCache = new Map();
   let libraryPromise;
   let landImage;
@@ -38,7 +39,7 @@
       });
       // 연도를 오래 탐색해도 이미 지나간 모든 구간을 보관하지 않는다.
       if (jsonCache.size >= 8) {
-        const old = [...jsonCache.keys()].find(key => key !== 'manifest.js' && key !== 'names-ko.js');
+        const old = [...jsonCache.keys()].find(key => key !== 'manifest.js' && key !== koreanNamesFile);
         jsonCache.delete(old);
       }
       jsonCache.set(file, request);
@@ -60,7 +61,30 @@
 
   const features = data => Array.isArray(data) ? data : data.features;
   const polygons = geometry => geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
-  const shortCountryNames = { CHN: '중국', PRK: '북한', USA: '미국', GBR: '영국' };
+  const modernCountryNames = {
+    CHN: '중국', ESP: '에스파냐', GBR: '영국', PRK: '북한', TUR: '튀르키예', TWN: '타이완', USA: '미국'
+  };
+
+  // 원자료가 여러 시기를 한 이름으로 묶은 경우, 기록에서 확인되는 기간에만 세부 명칭을 쓴다.
+  const historicalNamePeriods = {
+    Babylonia: [[-1894, -1500, '바빌로니아 왕국']],
+    'French Indochina': [[1887, 1954, '프랑스령 인도차이나 연방']],
+    'Han Dynasty': [[-202, 8, '전한(前漢)'], [25, 220, '후한(後漢)']],
+    'Macedonian Empire': [[-336, -323, '알렉산드로스 제국']],
+    'Middle Franks': [[843, 855, '중프랑크 왕국']],
+    'Sultanate of Malacca': [[1402, 1511, '믈라카 왕국']]
+  };
+
+  function boundaryName(properties, year, koreanNames) {
+    if (year === null) return modernCountryNames[properties.id] || properties.nameKo || '이름 미등재';
+
+    const { name } = properties;
+    const aggregate = name.startsWith('(') && name.endsWith(')');
+    const sourceName = aggregate ? name.slice(1, -1) : name;
+    const label = historicalNamePeriods[sourceName]?.find(([start, end]) => start <= year && year <= end)?.[2];
+    if (!label) return koreanNames[name] || '이름 미등재';
+    return aggregate ? `(${label})` : label;
+  }
 
   // Natural Earth의 육지 윤곽을 구 표면에 한 번 그린다. 현대 국경은 여기에 그리지 않는다.
   function drawLand(data) {
@@ -110,7 +134,7 @@
       if (!geometry || (year !== null && !(properties.start <= year && year <= properties.end))) return [];
       return [{
         id: `boundary:${properties.id ?? index}:${index}`,
-        label: shortCountryNames[properties.id] || properties.nameKo || koreanNames[properties.name] || '이름 미등재',
+        label: boundaryName(properties, year, koreanNames),
         kind: 'boundary',
         geometry
       }];
@@ -416,7 +440,7 @@
           return;
         }
         const [data, koreanNames] = await Promise.all([
-          readData(entry.file), nextYear === null ? {} : readData('names-ko.js')
+          readData(entry.file), nextYear === null ? {} : readData(koreanNamesFile)
         ]);
         if (request !== revision || disposed) return;
         regions = boundaryRegions(data, nextYear, koreanNames);
