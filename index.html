@@ -3359,7 +3359,7 @@ html.lecture .sync-pane--notes b.cloze.is-open{animation:cloze-open .25s steps(4
 .canvas__era-wrap{position:relative;margin-left:18px;flex:none;z-index:70}
 .canvas__era{
   display:flex;align-items:baseline;justify-content:center;gap:8px;padding:3px 10px;
-  min-width:112px;   /* 시대 이름(고대~근대 태동기) 길이가 달라도 머리글이 밀리지 않게 */
+  min-width:112px;   /* 시대를 바꿔도 머리글 폭을 일정하게 유지 */
   border:1px solid var(--amber-line);background:rgba(47,174,94,.06);white-space:nowrap;
   font-family:var(--font-ko);font-size:12px;color:var(--amber-dim);
   cursor:pointer;transition:border-color .15s, background .15s;
@@ -6964,19 +6964,28 @@ VESTIGIUM v2.4 · 최종 갱신 1987
 </script>
 <script>
 // ============================================================
-// 시대 구분 — 기록줄기 전체를 고대부터 현대까지 한 화면에서 다룬다 (한국사 기준)
-//   고대: ~ 통일신라·발해 / 중세: 고려 / 근세: 조선 전기(~양 난)
-//   근대 태동기: 조선 후기(양 난 이후 ~ 개항 전) / 근대: 개항(1876)부터 / 현대: 광복(1945)부터
-//   sub는 한국사 기준, subs는 다른 기록줄기를 골랐을 때 그 지역 기준 설명(시대 이동 메뉴)
-// ============================================================
+// 시대 구분 — 유럽·미주 교과서의 전개에 맞춘 여섯 공통 탐색 구간.
+// 문자·문명(3500 BCE), 서로마 멸망(476), 르네상스(14세기경),
+// 영국 혁명(1642), 제1차 세계 대전(1914)을 대표 경계로 삼는다.
+// 지역별 역사의 전환 시점은 노드와 기간 기록에서 확인한다.
 window.TIMELINE_ERAS = [
-  { key: 'prehistory',   ko: '선사',        en: 'PREHISTORY',   sub: '구석기·신석기', subs: { eastasia: '구석기·신석기', west: '구석기·신석기', westasia: '구석기·신석기' },        start: -4498050, end: -4000 },
-  { key: 'ancient',      ko: '고대',        en: 'ANCIENT',      sub: '~ 통일신라·발해', subs: { eastasia: '중국 문명 ~ 당', west: '그리스·로마 ~ 프랑크 왕국', westasia: '오리엔트·인도 문명 ~ 아바스 왕조' },      start: -4000, end: 918  },
-  { key: 'medieval',     ko: '중세',        en: 'MEDIEVAL',     sub: '고려', subs: { eastasia: '송·원 · 가마쿠라 막부', west: '봉건 사회 · 십자군 전쟁', westasia: '셀주크 튀르크 · 델리 술탄 왕조' },                 start: 918,   end: 1392 },
-  { key: 'earlymodern',  ko: '근세',        en: 'EARLY MODERN', sub: '조선 전기', subs: { eastasia: '명 · 무로마치 막부·센고쿠 시대', west: '신항로 개척 · 종교 개혁', westasia: '오스만 제국 · 사파비 왕조 · 무굴 제국' },            start: 1392,  end: 1637 },
-  { key: 'protomodern',  ko: '근대 태동기', en: 'PRE-MODERN',   sub: '조선 후기', subs: { eastasia: '청 · 에도 막부', west: '시민 혁명 · 산업 혁명', westasia: '오스만 제국의 개혁 · 영국의 인도 지배' },            start: 1637,  end: 1876 },
-  { key: 'modern',       ko: '근대',        en: 'MODERN',       sub: '개항(1876) 이후', subs: { eastasia: '제국주의 침략 · 중화민국', west: '제국주의 · 두 차례 세계 대전', westasia: '민족 운동 · 튀르키예 공화국' },      start: 1876,  end: 1945 },
-  { key: 'contemporary', ko: '현대',        en: 'CONTEMPORARY', sub: '광복(1945) 이후', subs: { eastasia: '중화 인민 공화국 · 전후 일본', west: '냉전 · 유럽 연합', westasia: '인도·파키스탄 독립 · 중동 분쟁' },      start: 1945,  end: 2030 }
+  { key: 'prehistory', ko: '선사', en: 'PREHISTORY', sub: '인류 등장 · 구석기·신석기',
+    start: -4498050, end: -3500 },
+  { key: 'ancient', ko: '고대', en: 'ANCIENT', sub: '고대 문명 · 그리스·로마 · 아메리카 문명',
+    subs: { korea: '청동기 · 고조선 · 여러 나라 · 삼국', eastasia: '중국 문명 · 진·한 · 위·진·남북조', westasia: '오리엔트·인도 문명 · 페르시아 · 마우리아·쿠샨·굽타 왕조' },
+    start: -3500, end: 476 },
+  { key: 'medieval', ko: '중세', en: 'MEDIEVAL', sub: '프랑크 왕국 · 봉건 사회 · 비잔티움 제국',
+    subs: { korea: '삼국 · 통일신라·발해 · 고려', eastasia: '수·당 · 송·원 · 가마쿠라 막부', westasia: '이슬람 세계 · 셀주크 튀르크 · 델리 술탄 왕조' },
+    start: 476, end: 1300 },
+  { key: 'earlymodern', ko: '근세', en: 'EARLY MODERN', sub: '르네상스 · 신항로 개척 · 종교 개혁 · 절대 왕정',
+    subs: { korea: '고려 후기 · 조선 전기 · 양 난', eastasia: '원·명·청 · 무로마치·에도 막부', westasia: '티무르 왕조 · 오스만 제국 · 사파비 왕조 · 무굴 제국' },
+    start: 1300, end: 1642 },
+  { key: 'modern', ko: '근대', en: 'MODERN', sub: '시민 혁명 · 산업 혁명 · 국민 국가 · 제국주의',
+    subs: { korea: '조선 후기 · 개항 · 대한 제국 · 국권 피탈', eastasia: '청 · 에도 막부 · 메이지 유신 · 중화민국', westasia: '오스만 제국의 개혁 · 영국의 인도 지배 · 민족 운동' },
+    start: 1642, end: 1914 },
+  { key: 'contemporary', ko: '현대', en: 'CONTEMPORARY', sub: '두 차례 세계 대전 · 냉전 · 현대 세계',
+    subs: { korea: '일제 강점기 · 독립운동 · 광복 · 대한민국', eastasia: '세계 대전 · 중화 인민 공화국 · 전후 일본', westasia: '튀르키예 공화국 · 인도·파키스탄 독립 · 중동 분쟁' },
+    start: 1914, end: 2030 }
 ];
 window.eraOfYear = (y) => window.TIMELINE_ERAS.find(e => y < e.end) || window.TIMELINE_ERAS[window.TIMELINE_ERAS.length - 1];
 
@@ -7317,7 +7326,7 @@ window.TIMELINE_DATA = {
     { id: 'k-js-sedo', track: 'korea', year: 1800, yearLabel: '1800~1863 CE', label: '세도 정치 시기', en: 'Sedo Politics',
       state: '조선', theme: '정치', kind: 'turning', focusOnly: true,
       body: '순조가 어린 나이로 즉위한 뒤 안동 김씨 등 소수 가문이 철종 때까지 60여 년간 권력을 독점하였다. 삼정이 문란해지고 농민 봉기가 잇따랐다.' },
-    // ── 근대 태동기 · 조선 후기 (양 난 이후 ~ 개항 전) ──
+    // ── 조선 후기 기록 (양 난 이후 ~ 개항 전) ──
     { id: 'k-donghak', track: 'korea', year: 1860, label: '동학 창시', en: 'Founding of Donghak',
       state: '조선', theme: '종교', kind: 'event', noSync: true,
       body: '1860년 경주의 몰락 양반 최제우가 동학을 창시하였다. 동학은 유교·불교·도교에 민간 신앙의 요소를 결합하였으며, 사람은 누구나 마음속에 하늘님을 모시고 있다는 ‘시천주’ 사상으로 모든 사람이 평등하다고 주장하여 농민층에 널리 퍼졌다. 정부는 세상을 어지럽히고 백성을 속인다는 죄로 최제우를 처형하였으나, 2대 교주 최시형이 『동경대전』과 『용담유사』를 펴내 교리를 정리하고 교단을 정비하였다. 동학은 훗날 동학 농민 운동의 사상적 바탕이 되었다.' },
@@ -32591,7 +32600,7 @@ function SubNav({ tracks, setTracks, query, setQuery, focusedTrack, onFocusTrack
           </div>
           <div className="subnav__sidemeta-row">
             <span className="k">RANGE</span>
-            <span className="v">고대 → 현대</span>
+            <span className="v">선사 → 현대</span>
           </div>
           <div className="subnav__sidemeta-row">
             <span className="k">FOCUS</span>
@@ -32792,14 +32801,16 @@ const HOLO_START = BP_REF - 10000;          // 약 1만 년 전 = 기원전 8050
 const PRE_LOG_W = 1150, PRE_LIN_W = 560;    // 두 조각의 폭(px)
 const PRE_W = PRE_LOG_W + PRE_LIN_W;
 const PRE_START_YEAR = BP_REF - PRE_BP_MAX;
-const YEAR_SPLIT = 900;            // 이 해까지는 기존 고대 배치를 그대로 쓴다
-const PX_PER_YEAR_BASE = 1.6;      // 고대 구간 평균 폭(px/년)
-// 900년 이후: 시대별 기본 폭(px/년) × 사건 밀도(±12년)
-//   근현대처럼 짧은 기간에 사건이 몰린 구간은 넓게, 사건이 드문 구간은 좁게 편다
-const ERA_PX_PER_YEAR = { ancient: 4.5, medieval: 4.5, earlymodern: 5, protomodern: 5, modern: 14, contemporary: 11 };  // 60% 축소에서도 밀집 구간 라벨이 들어가도록
-// 밀도 반영 상한(±12년 안 사건 수) — 근대(개항~광복)는 한 해에 메인 노드가 여럿 몰려(1920년 5개 등) 더 넓게 편다.
-// 떨어진 라벨은 모두 지시선으로 잇기 때문에 선이 지나갈 틈까지 필요해 근세·근대 태동기·현대도 조금 더 편다
-const ERA_DENSITY_CAP = { earlymodern: 12, protomodern: 12, modern: 24, contemporary: 12 };
+const YEAR_SPLIT = 900;            // 밀도 계산의 해상도를 5년에서 1년으로 바꾸는 지점
+const PX_PER_YEAR_BASE = 1.6;      // 초기 연대의 평균 폭(px/년)
+// 사건 밀도(±12년)에 따른 배치 계수. 시대 분류와 별도로 기존 간격을 유지한다.
+// 1876~1944년은 한 해에 여러 노드가 몰리므로 라벨과 지시선이 들어갈 여유를 확보한다.
+const AXIS_SPACING = [
+  { end: 1392, pixels: 4.5, densityCap: 8 },
+  { end: 1876, pixels: 5, densityCap: 12 },
+  { end: 1945, pixels: 14, densityCap: 24 },
+  { end: Infinity, pixels: 11, densityCap: 12 }
+];
 
 const TRACK_ORDER = ['korea', 'eastasia', 'west', 'westasia'];
 
@@ -32830,7 +32841,7 @@ const _yearLookup = (() => {
   // focusOnly(한국 줄기 포커스 전용) 노드도 밀도에 넣는다 — 포커스했을 때 삼국 시대 왕·사건 라벨이 들어갈 폭을 미리 둔다
   const all = (window.TIMELINE_DATA?.events || []).map(e => e.year);
 
-  // ── 고대 (YEAR_START ~ YEAR_SPLIT): 기존 밀도 배치 그대로 ──
+  // ── 초기 연대 (YEAR_START ~ YEAR_SPLIT): 5년 단위의 밀도 배치 ──
   // For each sample year we compute local event-density and turn that
   // into a per-year stretch factor; cumulative sum becomes our X axis.
   const ancientEv = all.filter(y => y < YEAR_SPLIT);
@@ -32855,7 +32866,7 @@ const _yearLookup = (() => {
   const k = (TOTAL * PX_PER_YEAR_BASE) / (cum[N-1] || 1);
   for (let i = 0; i < N; i++) cum[i] *= k;
 
-  // ── 중세 ~ 현대 (YEAR_SPLIT ~ YEAR_END): 1년 단위, 시대별 기본 폭 × 밀도 ──
+  // ── 후기 연대 (YEAR_SPLIT ~ YEAR_END): 1년 단위의 배치 계수 × 밀도 ──
   const lateEv = all.filter(y => y >= YEAR_SPLIT - 12);
   const M = YEAR_END - YEAR_SPLIT + 1;
   const inc = new Array(M).fill(0);                    // inc[i] = (YEAR_SPLIT+i-1) → (YEAR_SPLIT+i) 한 해의 폭
@@ -32863,8 +32874,8 @@ const _yearLookup = (() => {
     const y = YEAR_SPLIT + i - 1;
     let c = 0;
     for (const ey of lateEv) if (Math.abs(ey - y) <= 12) c++;
-    const era = window.eraOfYear ? window.eraOfYear(y).key : 'medieval';
-    inc[i] = (ERA_PX_PER_YEAR[era] || 3.2) * (0.5 + Math.min(c, ERA_DENSITY_CAP[era] || 8) * 0.35);
+    const spacing = AXIS_SPACING.find(segment => y < segment.end);
+    inc[i] = spacing.pixels * (0.5 + Math.min(c, spacing.densityCap) * 0.35);
   }
   /* 최소 간격 — 같은 줄기에서 이웃한 두 노드(같은 해는 한 덩어리) 사이는 두 라벨 폭 평균의 SPACING_K 배 이상.
      다른 트랙을 포커스하면 라벨 자리가 한 단만 남기도 하므로, 한 단으로 늘어서도 겹치지 않고
@@ -34105,11 +34116,11 @@ function TimelineCanvas({ tracks, query, selectedId, onSelect, focusedTrack, onF
                 </button>
                 {eraMenu && (
                   <ul className="canvas__era-menu" role="listbox" aria-label="시대 이동">
-                    {/* 시대 설명은 기록줄기를 골랐을 때만 — 한국은 sub(고려·조선 전기 등), 다른 줄기는 그 지역 기준 subs */}
+                    {/* 공통 시대 구분에 해당하는 각 기록줄기의 내용을 표시한다. */}
                     {window.TIMELINE_ERAS.map(er => (
                       <li key={er.key}>
                         <button type="button" role="option" aria-selected={er.key === era.key} className={er.key === era.key ? 'is-cur' : ''} onClick={() => goEra(er)}>
-                          <b>{er.ko}</b><span>{er.en}</span>{focusedTrack && <i>{focusedTrack === 'korea' ? er.sub : ((er.subs && er.subs[focusedTrack]) || er.sub)}</i>}
+                          <b>{er.ko}</b><span>{er.en}</span>{focusedTrack && <i>{er.subs?.[focusedTrack] || er.sub}</i>}
                         </button>
                       </li>
                     ))}

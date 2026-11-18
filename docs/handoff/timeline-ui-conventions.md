@@ -11,7 +11,7 @@ Rules the user set on 2026-09-23 for `ui_kits/timeline-app/index.html`:
   - Music is scheduled 15s ahead with a 1s poll, so throttled background timers don't cut it. After a long stall it skips ahead rather than bursting.
   - `track()` keeps up to 2400 nodes, so `stopMus` can still stop pre-scheduled notes.
   - Lecture mode stops music on entry and restores it on exit (2026-10-10).
-- The canvas-header era chip shows **only the era name** (고대/중세/근세/근대 태동기/근대/현대), not the 한국사 sub-label.
+- The canvas-header era chip shows **only the era name** (선사/고대/중세/근세/근대/현대). Era menu descriptions use the selected track's content within those common periods.
 - The volume control sits below the screen controls at the top right (`.topbar__ctl`). The order above it is enlarge, shrink, and icon-only restart.
 - **No overlapping or broken text in either mode (연구원 / 대응반).** Verify at 1280×800, 1500×960 and 1920×1080. A `@media (max-width:1400px)` block tightens spacing and hides the operator face column. Switching modes must not change any box width.
 
@@ -58,7 +58,7 @@ Related: [timeline-labels-always-visible](timeline-labels-always-visible.md)
   - 가로 포인터 이동 6px부터 드래그로 판단하며 브라우저 확대·세로 스와이프는 `touch-action:pan-y pinch-zoom`으로 허용한다. 휠은 기기 너비가 아니라 실제 내부 스크롤 가능 여부에 따라 처리한다. Shift+휠은 가로 이동이다.
   - `width=device-width, initial-scale=1, viewport-fit=cover`, `100vh` 대체값과 `100dvh`, 노치 안전 여백을 사용한다. 큰 iPad·Galaxy Tab도 `any-pointer:coarse`로 터치 버튼을 보장한다.
   - 검증 기준: 가로 태블릿 1024×768·1138×712·1194×834·1280×800·1366×1024, PC 1440×900·1500×960·1920×1080의 연구원·대응요원 두 모드. 브라우저 크기 모사와 실제 기기 검사를 구분해 보고한다. 960×600 경계와 1024×430 낮은 높이도 확인한다. 960px 미만의 분할 화면과 휴대전화는 전용 배치 지원 대상이 아니다.
-- 2026-10-10: the era name next to ▸ RECORD STREAM (`.canvas__era`) is a button. It opens a menu of the 7 `TIMELINE_ERAS` and `goEra` pans there. A short era is centred; a long one is placed with its start near the left edge. ESC or an outside click closes the menu.
+- 2026-10-10: the era name next to ▸ RECORD STREAM (`.canvas__era`) is a button. It opens a menu of the 6 `TIMELINE_ERAS` and `goEra` pans there. A short era is centred; a long one is placed with its start near the left edge. ESC or an outside click closes the menu.
 
 **2026-10-11 additions:**
 - **정리 tab layout:** `NotesStructured` first renders a single half-width column to measure real heights. It then splits at a section boundary near the halfway point.
@@ -75,3 +75,5 @@ Related: [timeline-labels-always-visible](timeline-labels-always-visible.md)
   - Rejected: flash/scan line/stamp, and the dim-lights → emergency-lamp version.
 - Typewriter sfx (`key`/`carriageReturn`) follows the ambient toggle via `DENDRO_AUDIO.typing()`.
 - **LUMINA is the enemy, never an operation name.** 「제3층」 means the bureau's own restoration layer (fiction that must be labelled), not distortion. Response-zone broadcasts talk about 왜곡/정정.
+
+**2026-11-18 시대 구분.** 유럽·미주 교과서의 전개에 맞춘 공통 여섯 단계다. 경계는 3500 BCE, 476 CE, 1300 CE경, 1642 CE, 1914 CE다. 노드 간격 계산은 별도의 연도별 배치 계수를 써서 시대 변경으로 간격이 과도하게 벌어지지 않게 한다.

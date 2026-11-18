@@ -100,6 +100,7 @@ python3 tools/audit_notes.py       # 정리본 원문 보존 감사
 
 ## 6. 데이터 모델 요약 (자세히는 `timeline-content.js` 머리 주석, `docs/handoff/timeline-node-standard.md`)
 
+- **공통 시대 구분:** 선사·고대·중세·근세·근대·현대 여섯 단계다. 유럽·미주 교과서의 전개에 맞춰 3500 BCE, 476 CE, 1300 CE경, 1642 CE, 1914 CE를 경계로 삼는다. `TIMELINE_ERAS`는 두 데이터 사본에서 일치시킨다. 지역별 왕조·사건의 기간은 각 기록을 따른다.
 - **노드 종류**(`docs/handoff/timeline-node-terminology.md`):
   - **메인 노드:** `kind:'turning'`, 기록 열람 있음.
   - **서브 노드:** `noSync:true`, 본문(`body`)만 있음.

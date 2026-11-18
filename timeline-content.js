@@ -82,18 +82,28 @@
  * ============================================================================ */
 
 // ============================================================
-// 시대 구분 — 기록줄기 전체를 고대부터 현대까지 한 화면에서 다룬다 (한국사 기준)
-//   고대: ~ 통일신라·발해 / 중세: 고려 / 근세: 조선 전기(~양 난)
-//   근대 태동기: 조선 후기(양 난 이후 ~ 개항 전) / 근대: 개항(1876)부터 / 현대: 광복(1945)부터
-// ============================================================
+// 시대 구분 — 유럽·미주 교과서의 전개에 맞춘 여섯 공통 탐색 구간.
+// 문자·문명(3500 BCE), 서로마 멸망(476), 르네상스(14세기경),
+// 영국 혁명(1642), 제1차 세계 대전(1914)을 대표 경계로 삼는다.
+// 지역별 역사의 전환 시점은 노드와 기간 기록에서 확인한다.
 window.TIMELINE_ERAS = [
-  { key: 'prehistory',   ko: '선사',        en: 'PREHISTORY',   sub: '구석기·신석기',        start: -4498050, end: -4000 },
-  { key: 'ancient',      ko: '고대',        en: 'ANCIENT',      sub: '~ 통일신라·발해',      start: -4000, end: 918  },
-  { key: 'medieval',     ko: '중세',        en: 'MEDIEVAL',     sub: '고려',                 start: 918,   end: 1392 },
-  { key: 'earlymodern',  ko: '근세',        en: 'EARLY MODERN', sub: '조선 전기',            start: 1392,  end: 1637 },
-  { key: 'protomodern',  ko: '근대 태동기', en: 'PRE-MODERN',   sub: '조선 후기',            start: 1637,  end: 1876 },
-  { key: 'modern',       ko: '근대',        en: 'MODERN',       sub: '개항(1876) 이후',      start: 1876,  end: 1945 },
-  { key: 'contemporary', ko: '현대',        en: 'CONTEMPORARY', sub: '광복(1945) 이후',      start: 1945,  end: 2030 }
+  { key: 'prehistory', ko: '선사', en: 'PREHISTORY', sub: '인류 등장 · 구석기·신석기',
+    start: -4498050, end: -3500 },
+  { key: 'ancient', ko: '고대', en: 'ANCIENT', sub: '고대 문명 · 그리스·로마 · 아메리카 문명',
+    subs: { korea: '청동기 · 고조선 · 여러 나라 · 삼국', eastasia: '중국 문명 · 진·한 · 위·진·남북조', westasia: '오리엔트·인도 문명 · 페르시아 · 마우리아·쿠샨·굽타 왕조' },
+    start: -3500, end: 476 },
+  { key: 'medieval', ko: '중세', en: 'MEDIEVAL', sub: '프랑크 왕국 · 봉건 사회 · 비잔티움 제국',
+    subs: { korea: '삼국 · 통일신라·발해 · 고려', eastasia: '수·당 · 송·원 · 가마쿠라 막부', westasia: '이슬람 세계 · 셀주크 튀르크 · 델리 술탄 왕조' },
+    start: 476, end: 1300 },
+  { key: 'earlymodern', ko: '근세', en: 'EARLY MODERN', sub: '르네상스 · 신항로 개척 · 종교 개혁 · 절대 왕정',
+    subs: { korea: '고려 후기 · 조선 전기 · 양 난', eastasia: '원·명·청 · 무로마치·에도 막부', westasia: '티무르 왕조 · 오스만 제국 · 사파비 왕조 · 무굴 제국' },
+    start: 1300, end: 1642 },
+  { key: 'modern', ko: '근대', en: 'MODERN', sub: '시민 혁명 · 산업 혁명 · 국민 국가 · 제국주의',
+    subs: { korea: '조선 후기 · 개항 · 대한 제국 · 국권 피탈', eastasia: '청 · 에도 막부 · 메이지 유신 · 중화민국', westasia: '오스만 제국의 개혁 · 영국의 인도 지배 · 민족 운동' },
+    start: 1642, end: 1914 },
+  { key: 'contemporary', ko: '현대', en: 'CONTEMPORARY', sub: '두 차례 세계 대전 · 냉전 · 현대 세계',
+    subs: { korea: '일제 강점기 · 독립운동 · 광복 · 대한민국', eastasia: '세계 대전 · 중화 인민 공화국 · 전후 일본', westasia: '튀르키예 공화국 · 인도·파키스탄 독립 · 중동 분쟁' },
+    start: 1914, end: 2030 }
 ];
 window.eraOfYear = (y) => window.TIMELINE_ERAS.find(e => y < e.end) || window.TIMELINE_ERAS[window.TIMELINE_ERAS.length - 1];
 
@@ -423,7 +433,7 @@ window.TIMELINE_DATA = {
     { id: 'k-js-sedo', track: 'korea', year: 1800, yearLabel: '1800~1863 CE', label: '세도 정치 시기', en: 'Sedo Politics',
       state: '조선', theme: '정치', kind: 'turning', focusOnly: true,
       body: '순조가 어린 나이로 즉위한 뒤 안동 김씨 등 소수 가문이 철종 때까지 60여 년간 권력을 독점하였다. 삼정이 문란해지고 농민 봉기가 잇따랐다.' },
-    // ── 근대 태동기 · 조선 후기 (양 난 이후 ~ 개항 전) ──
+    // ── 조선 후기 기록 (양 난 이후 ~ 개항 전) ──
     { id: 'k-donghak', track: 'korea', year: 1860, label: '동학 창시', en: 'Founding of Donghak',
       state: '조선', theme: '종교', kind: 'event', noSync: true,
       body: '1860년 경주의 몰락 양반 최제우가 동학을 창시하였다. 동학은 유교·불교·도교에 민간 신앙의 요소를 결합하였으며, 사람은 누구나 마음속에 하늘님을 모시고 있다는 ‘시천주’ 사상으로 모든 사람이 평등하다고 주장하여 농민층에 널리 퍼졌다. 정부는 세상을 어지럽히고 백성을 속인다는 죄로 최제우를 처형하였으나, 2대 교주 최시형이 『동경대전』과 『용담유사』를 펴내 교리를 정리하고 교단을 정비하였다. 동학은 훗날 동학 농민 운동의 사상적 바탕이 되었다.' },
