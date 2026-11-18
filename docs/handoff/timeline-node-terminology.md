@@ -15,3 +15,5 @@ Node naming rules in timeline-app (`index.html`):
 Render logic: the `is-sync` class is added only when `!e.linkTo && !e.noSync`, so sub nodes never get `is-sync`. `tl-node--turn` is added only when `kind==='turning'`. `is-risk` is added only when response mode is on and `e.risk` exists. `hidden` nodes are dropped from the track render list, but `TIMELINE_DATA.events.find()` still finds them, so the right panel and dossier work normally.
 
 **Why:** The user refers to nodes by these terms in future conversations.
+
+**2026-11-18 중국 국가·왕조 표기.** 동아시아 줄기의 중국 국가·왕조 노드에는 `수(隋)`처럼 국가명에 한자를 병기한다. 같은 이름을 쓰는 남조·북조의 국가와 현대 중국의 국가명에도 적용한다. 역사 지구본의 해당 명칭도 노드와 맞춘다.

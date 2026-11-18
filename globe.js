@@ -1,7 +1,7 @@
 /* IBA 기록 지구본. Globe.gl은 지도 창을 열 때 불러온다. */
 (() => {
   const dataRoot = 'assets/geography/';
-  const koreanNamesFile = 'names-ko.js?v=20261117.1';
+  const koreanNamesFile = 'names-ko.js?v=20261118';
   const jsonCache = new Map();
   let libraryPromise;
   let landImage;
