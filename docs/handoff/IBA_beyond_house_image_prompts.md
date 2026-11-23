@@ -38,9 +38,8 @@
 | **접수실 (3층)** | 참나무 카드 목록함 · 기송관 중앙국 · 표기 없는 대조관실 문 | 참나무 카드함이 **한 벽 전체를 바닥에서 천장까지** 덮는다. 작은 서랍이 수천 개이고 황동 손잡이가 달려 있다. 긴 참나무 카운터 위에 기계식 타자기 두 대와 고무인 꽂이. 한 서랍은 살짝 열려 카드가 비어져 나와 있다 |
 | **기송관 단말 (지하 5층)** | 레버에 층·연대 표기 · 하나만 표기 없음 · 닳음 | 황동과 회색 강철 관이 천장에서 내려와 벽의 단말 함에 모인다. **같은 모양의 검은 레버가 약 스무 개**, 각각 흰 에나멜 플레이트에 숫자만 찍혀 있다. 맨 끝 레버 하나만 플레이트가 없고, 손잡이가 오래 쓴 듯 **윤이 난다** |
 | **정본실** | 구조가 변하지 않음 · 정본실끼리 문 하나로 연결 | **약 9 m 정방형, 천장 3 m, 창 없음.** 벽 · 바닥 · 천장이 같은 콘크리트로 줄눈까지 정확히 맞는다. 중앙에 낮은 참나무 단 위 무광 회색 보관 상자들(숫자만 찍힘). 광원이 한 방향이라 **그림자가 또렷하다.** 먼지가 쌓이지 않는다. 안쪽 벽에 표기 없는 평범한 회색 강철문 한 개 |
-| **결손** | 서가가 비고 층고가 낮다 | 서가 **뼈대만** 서 있고 선반이 없다. 천장이 누르듯 낮다 |
-| **소실** | 칸이 뜯겨 있다 | 선반 칸이 뜯겨 나간 틈이 들쭉날쭉하고, 프레임이 일부 휘었다. 바닥에 옅은 종이 조각과 **검은 줄이 그어진 글줄** |
-| **개작** | 서가가 멀쩡하다 | **그림자 없는 균일한 흰빛.** 모든 상자가 밀리미터 단위로 정렬되어 있고 먼지도, 벽의 주해도 없다. 서가 뒷면에 작은 흰 스텐실 표기 하나(LUMINA) |
+| **공백** | 비어 있거나 훼손된 서가 · 낮아진 층고 · 원인은 단정하지 않음 | 서가 **뼈대만** 서 있거나 선반 칸이 뜯겨 나간 틈이 들쭉날쭉하다. 천장이 누르듯 낮고 프레임이 일부 휘었다. 바닥에 옅은 종이 조각과 **검은 줄이 그어진 글줄**. 처음부터 비었는지 나중에 사라졌는지 화면만으로 알 수 없게 둔다 |
+| **개작** | 때로는 아무 이상 없이 멀쩡한 서가 · 원본과 대조해야 앎 | **그림자 없는 균일한 흰빛.** 모든 상자가 밀리미터 단위로 정렬되어 있고 먼지도, 벽의 주해도 없다. 서가 뒷면에 작은 흰 스텐실 표기 하나(LUMINA) |
 | **폐가의 빛** | 구역 조명 없음 · 요원이 조명 한 줄 | 어둡다. 요원이 든 조명의 **가는 빛 한 줄**만 지나간다 |
 | **제0열람실** | 끝없는 열람대 · 초록 스탠드 · 형광등 · 바늘 없는 시계 · 이미 앉은 이들 | 참나무 열람대가 **흰 안개 속으로** 이어진다. 나무 의자. 형광등은 켜져 있으나 낮은 조도이고, **켜진 스탠드는 대여섯 개**뿐이라 작은 초록 웅덩이처럼 보인다. 바늘 없는 둥근 흰 시계. 이미 앉은 이들은 **뒷모습으로 고개를 숙인 채 움직이지 않는다** |
 | **팔찌** | 검은 모래가 모여 맺힘 · 빨려 들어갈 듯한 검정 | **폭 약 1.5 cm의 이음매 없는 띠.** 빛을 되비추지 않는 완전 무광 검정이라 하이라이트가 없다. 가장자리에서 가는 모래알이 흘러내린다 |
@@ -158,7 +157,7 @@ A concrete wall beside a sealed grey steel vault door in a basement. A long vert
 A small perfectly square windowless room, about nine metres wide with a three-metre ceiling. Walls, floor and ceiling are the same raw concrete with vertical joints aligned exactly. In the centre, a low row of matte grey steel archive boxes on an oak plinth, each stamped only with a number. One ceiling light panel casts crisp, sharply defined shadows. In the far wall, an ordinary grey steel door with a single handle and no label. Not a speck of dust. Cool white light, absolute stillness. Aspect ratio 3:2.
 ```
 
-### 장면 10 · 폐가 (결손과 소실)
+### 장면 10 · 폐가 (공백)
 
 ```
 A collapsed archive zone with no ceiling lights. Only one thin beam from a handheld torch, carried by a small figure seen from behind, cuts a narrow line through the darkness. Grey steel shelving frames stand at slightly wrong angles. Some bays are bare skeleton frames under a low pressing ceiling. In other bays the shelf boards have been torn out, leaving ragged gaps. Pale paper scraps on the floor, with solid black bars across their lines of text. Heavy shadow, deep grain, very quiet. Aspect ratio 3:2.

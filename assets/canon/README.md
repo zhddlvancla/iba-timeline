@@ -14,7 +14,7 @@
 | management | mb-field-display.webp | 제08장 · 판 화면 |
 | lumina | lumina-workroom.webp | 제10장 제1층 · 작업 공간 재구성 |
 | lumina | lumina-record-media.webp | 제10장 제1층 · 기록 매체 |
-| lumina | lumina-emblem.webp | 제10장 제1층 · 빛살 표식 |
+| lumina | lumina-emblem.webp | 제10장 제1층 · 표식 |
 | lumina | lumina-bracelet-comparison.webp | 제10장 제1층 · 팔찌 색 비교 |
 | archive | iba-public-building.webp | 제02장 · 국제기록보존기구 공개 청사 |
 | archive | archive-exterior-riyadh.webp | 제07장 · 리야드 외관 기록 B-11-02 |
