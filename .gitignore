@@ -24,14 +24,20 @@
 !/assets/w1/고대/
 !/assets/w1/중세/
 !/assets/w1/근세/
-!/assets/canon/
 !/assets/geography/
 !/assets/w1/근현대/
-!/assets/mnemosyne-voice/
-/assets/mnemosyne-voice/*
-!/assets/mnemosyne-voice/README.md
-!/assets/mnemosyne-voice/manifest.json
-!/assets/mnemosyne-voice/broadcast/
+
+# 웹사이트 반영 소스 — 총람 도판(이미지/archive·lumina·management)과 관내 방송 음성만 올린다.
+# 이미지 폴더 바로 아래의 인장·대표 이미지와 배경 음악(audio-engine.js 사본)은 올리지 않는다.
+!/웹사이트 반영 소스/
+/웹사이트 반영 소스/*
+!/웹사이트 반영 소스/이미지/
+/웹사이트 반영 소스/이미지/*
+!/웹사이트 반영 소스/이미지/README.md
+!/웹사이트 반영 소스/이미지/archive/
+!/웹사이트 반영 소스/이미지/lumina/
+!/웹사이트 반영 소스/이미지/management/
+!/웹사이트 반영 소스/관내 음성/
 
 # 백업·시스템 파일
 _pre_upscale_backup/

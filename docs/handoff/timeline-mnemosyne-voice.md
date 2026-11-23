@@ -14,7 +14,7 @@
 ## 현재 구현
 
 - 관내 방송 문형은 `index.html` 안 `LINES`의 `V-BC-001`부터 `V-BC-050`까지다. 방송은 일반 므네모시네 문형 표시와 분리되어 지부 패널 아래 관내 방송 칸에 나온다.
-- 음성 파일 50개는 `assets/mnemosyne-voice/broadcast/V-BC-001.mp3`부터 `V-BC-050.mp3`까지 둔다. 제작 정보·이용 안내는 [음성 폴더 README](../../assets/mnemosyne-voice/README.md), 화면 문구와 발음용 낭독 문구 대응표는 [manifest.json](../../assets/mnemosyne-voice/manifest.json)에 있다.
+- 음성 파일 50개는 `웹사이트 반영 소스/관내 음성/V-BC-001.mp3`부터 `V-BC-050.mp3`까지 둔다(2026-11-23에 `assets/mnemosyne-voice/broadcast/`에서 옮김). 제작 정보·이용 안내는 [음성 폴더 README](../../웹사이트%20반영%20소스/관내%20음성/README.md), 화면 문구와 발음용 낭독 문구 대응표는 [manifest.json](../../웹사이트%20반영%20소스/관내%20음성/manifest.json)에 있다.
 - 합성은 로컬 Qwen3-TTS 0.6B Base로 기록되어 있다. 사용자가 고른 VoiceDesign 샘플을 기준으로 하며, 큰 실내 확성기 대역·압축·다중 반사음을 적용했다. 모델 가중치는 공개 저장소에 넣지 않는다. 사용자가 고른 최종 음성을 임의로 다시 합성하거나 교체하지 않는다.
 - 2026-11-23에는 첨부된 최신 총람의 규정·업무 절차를 근거로 V-BC-020–050을 추가했다. 새 음성은 사용자가 고른 기존 V-BC-004 파일을 화자 참조로 사용했고, 큰 실내 반향을 5개 반사음 탭으로 처리했다.
 - README는 모델의 Apache-2.0 출처와 합성 음성임을 밝힌다. 이를 유지하고, 저작권·라이선스에 대해 README에 적힌 범위를 넘어 단정하지 않는다.
@@ -33,6 +33,6 @@
 
 - [사이트 구현](../../index.html)
 - [총람 정본](IBA_VESTIGIUM_canon.md)
-- [음성 제작 및 라이선스 안내](../../assets/mnemosyne-voice/README.md)
-- [50개 문형·낭독 문구 목록](../../assets/mnemosyne-voice/manifest.json)
+- [음성 제작 및 라이선스 안내](../../웹사이트%20반영%20소스/관내%20음성/README.md)
+- [50개 문형·낭독 문구 목록](../../웹사이트%20반영%20소스/관내%20음성/manifest.json)
 - [화면과 음향 공통 규칙](timeline-ui-conventions.md)

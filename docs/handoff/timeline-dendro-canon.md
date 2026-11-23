@@ -32,7 +32,7 @@
 
 **관리국 요원 도판 교체·총람 이미지 분리 (2026-11-01):**
 - 이전 복장·직책 통합 이미지 `mb-uniform-role-insignia.webp`는 폐기했다. 새로 제공된 7장 중 복장·문양 6장은 제03장, 검은 팔찌 1장은 제08장에 배치한다. 기존 팔찌 변형·판·도구 도판은 유지한다.
-- 총람 이미지는 모두 `assets/canon/` 아래에 모은다. `management/`는 관리국, `lumina/`는 루미나, `archive/`는 기존 서고·제0열람실 사진이다. 목록과 배치 위치는 해당 폴더의 README에 있다.
+- 총람 이미지는 모두 `assets/canon/` 아래에 모은다(2026-11-23부터는 `웹사이트 반영 소스/이미지/`, 아래 기록 참고). `management/`는 관리국, `lumina/`는 루미나, `archive/`는 기존 서고·제0열람실 사진이다. 목록과 배치 위치는 해당 폴더의 README에 있다.
 - 새 문양 도판에는 직책별 문자 라벨이 없다. 기존 직책 업무 표는 유지하되, 도판의 인물 순서나 문양 순서로 신원·직책을 새로 확정하지 않는다.
 
 **공개 청사 도판 (2026-11-04):**
@@ -111,7 +111,7 @@ Related: [timeline-ui-conventions](timeline-ui-conventions.md) [iba-emblem](iba-
 
 **P4-3 MNEMOSYNE broadcast voice (2026-10-31):**
 - The user selected the Qwen3-TTS VoiceDesign announcer sample with large-building PA reflections. Only the 50 V-BC public-address announcements have voice audio; all other MNEMOSYNE lines remain text-only.
-- Broadcast MP3 files are under `assets/mnemosyne-voice/broadcast/`; `manifest.json` maps V-BC IDs to the display text, spoken text, and file path. No non-broadcast voice files are included.
+- Broadcast MP3 files are under `assets/mnemosyne-voice/broadcast/` (moved to `웹사이트 반영 소스/관내 음성/` on 2026-11-23); `manifest.json` maps V-BC IDs to the display text, spoken text, and file path. No non-broadcast voice files are included.
 - Qwen3-TTS 0.6B Base uses the selected VoiceDesign sample as a reference; apply the same large interior PA processing to every broadcast line.
 - `window.VESTIGIA.voice(line)` accepts V-BC lines only. They play after the four-note chime. The audio settings panel has an independent 「관내 방송 음성」 toggle, on by default and stored for the session. The lecture mode stops playback.
 - The timed loop shuffles all 50 V-BC IDs into a deck, emits each once before reshuffling, and prevents the first item of a new deck from matching the previous deck's last item. Intervals remain randomized at 90–180 seconds.
@@ -132,3 +132,10 @@ Related: [timeline-ui-conventions](timeline-ui-conventions.md) [iba-emblem](iba-
 **외관 기록 7장 추가·기존 이미지 전체 점검 (2026-11-05):**
 - 런던·뉴욕·앙카라·로마·모스크바·베이징·케이프타운 도판을 제07장 도시별 외관 기록에 추가했다. 도판의 도시명과 기록 번호만 옮기며 새 지부나 소재지를 확정하지 않는다.
 - 기존 총람 이미지 24개 파일과 연결은 남아 있었다. 정본 Markdown에서 빠져 앱 코드로만 삽입하던 `AR-1949-001.jpg`와 `FS-1952-000.jpg`를 각각 제07장 두 측량 표 뒤·제08장 모습에 명시해 복구하고, 중복 자동 삽입을 제거했다. 새 7장을 포함한 전체 도판은 31장이다. 제한 열람의 봉인 조건과 폐기된 구 관리국 복장 도판은 유지한다.
+
+**웹사이트 반영 소스 폴더로 이전 (2026-11-23):**
+- 사용자 요청으로 총람 도판 22장과 목록 README를 `assets/canon/`에서 `웹사이트 반영 소스/이미지/`로 옮겼다. `archive/`·`lumina/`·`management/` 하위 구분은 유지한다.
+- 관내 방송 음성 50개와 `manifest.json`·README를 `assets/mnemosyne-voice/`에서 `웹사이트 반영 소스/관내 음성/`으로 옮겼다. manifest의 `file`은 `V-BC-001.mp3`처럼 폴더 안 파일명만 적는다.
+- 배경음악은 음원 파일 없이 `audio-engine.js`가 실시간 합성한다. `웹사이트 반영 소스/배경 음악/`에는 그 사본만 둔다. 공개하지 않으며, 사이트는 루트의 `audio-engine.js`를 쓴다.
+- 정본과 앱 내장 원문의 도판 경로는 `../../웹사이트%20반영%20소스/이미지/<구분>/<파일>`이다. 렌더러는 공백을 `%20`으로 적은 이 경로만 총람 도판으로 받는다. 음성 경로는 `index.html`의 `VOICE_DIR`에 있다.
+- `.gitignore`는 이 폴더의 `이미지/` 하위 세 폴더와 README, `관내 음성/`만 공개한다. `이미지/` 바로 아래의 인장·대표 이미지와 `배경 음악/`은 Mac에만 둔다.

@@ -27,7 +27,9 @@ Claude Code는 저장소 루트의 `CLAUDE.md`를 통해 이 안내서를 읽는
 | `iba-emblem.js` | 기관 인장 SVG 생성기 |
 | `semantic-search.js`, `semantic-worker.js`, `search-index.js` | 검색창 Enter 의미 검색(e5-small) |
 | `assets/w1/<시대>/…` | 역사 노드 이미지(webp). 시대 폴더는 고대·중세·근세·근현대 |
-| `assets/canon/` | 총람 이미지 전용. `management/` 관리국, `lumina/` 루미나, `archive/` 서고 사진. 목록은 `assets/canon/README.md` |
+| `웹사이트 반영 소스/이미지/` | 총람 도판 전용. `management/` 관리국, `lumina/` 루미나, `archive/` 서고 사진. 목록은 `웹사이트 반영 소스/이미지/README.md`. 폴더 바로 아래의 인장·대표 이미지는 공개하지 않는다 |
+| `웹사이트 반영 소스/관내 음성/` | 므네모시네 관내 방송 음성 `V-BC-001~050.mp3`, `manifest.json`, README |
+| `웹사이트 반영 소스/배경 음악/` | 배경음악을 합성하는 `audio-engine.js`의 보관용 사본(공개하지 않음). 사이트는 루트의 `audio-engine.js`를 쓰므로 수정은 루트 파일에 하고 사본을 맞춘다 |
 | `tools/` | 데이터·이미지 작업 도구(아래 5절) |
 | `docs/handoff/` | 누적된 사용자 규칙과 결정 기록 |
 
