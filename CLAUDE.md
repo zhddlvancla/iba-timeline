@@ -25,7 +25,7 @@ git config --local user.email "iba-timeline@local"
 - **연표와 역사 기록**은 `timeline-content.js`와 `index.html`을 함께 수정한다. 여섯 시대의 경계와 연표의 시각적 간격은 별도로 관리한다. 중국 국가·왕조 이름표는 수(隋) 형식을 따른다. [역사 데이터 규칙](docs/handoff/timeline-history-data-rules.md) · [노드 표기](docs/handoff/timeline-node-terminology.md)
 - **지구본**은 `index.html`의 `IbaGlobeDialog`, `globe.js`, `globe.css`, `iba-globe-records.js`에서 이어간다. 줄기의 ‘위치 확인’은 전체 시대를 열고, 노드의 ‘지도’는 해당 연도·기간만 연다. 녹색 네모에서 기존 기록으로 이동한다. 화면 하단에는 ‘지도 자료 출처·라이선스’ 링크 하나를 둔다. 42 Apps의 코드·화면·그래픽을 가져오지 않는다는 사용자 결정을 따른다. [지도 동작](docs/handoff/timeline-doc-mode.md) · [데이터 출처와 재생성 방법](assets/geography/ATTRIBUTION.md)
 - **총람**은 [제16판 원문](docs/handoff/IBA_VESTIGIUM_canon.md)과 앱 내장 원문을 함께 유지한다. 도판의 현행 목록과 사용자가 폐기한 조직·루미나 복장 도판은 [총람 이미지 목록](assets/canon/README.md)에서 확인한다.
-- **므네모시네 관내 방송 음성**은 [음성 인계 문서](docs/handoff/timeline-mnemosyne-voice.md)를 먼저 읽는다. 사용자가 고른 차갑고 절제된 여성 아나운서 톤과 큰 건물의 실내 반향을 유지한다. 음성은 V-BC 관내 방송 19개에만 쓰며, 일반 므네모시네 문형에 음성을 붙이지 않는다.
+- **므네모시네 관내 방송 음성**은 [음성 인계 문서](docs/handoff/timeline-mnemosyne-voice.md)를 먼저 읽는다. 사용자가 고른 차갑고 절제된 여성 아나운서 톤과 큰 건물의 실내 반향을 유지한다. 음성은 V-BC 관내 방송 50개에만 쓰며, 일반 므네모시네 문형에 음성을 붙이지 않는다.
 - **교과서 원본이 필요한 작업**은 권한이 있는 Mac의 비공개 자료를 사용한다. 배포용 이미지와 지도 자료만으로도 사이트를 실행할 수 있다. 교과서 원본과 개인 설정은 공개 저장소로 복사하지 않는다. [교과서 목록](docs/handoff/timeline-textbook-sources.md)
 
 과거 대화의 결정은 `docs/handoff/`에 날짜별로 남아 있다. 이전 설명과 현재 동작이 다르면 해당 기능의 최근 결정과 구현을 대조한다. `AGENTS.md`의 열린 질문은 사용자가 다시 요청할 때 다룬다.
