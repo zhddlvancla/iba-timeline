@@ -181,6 +181,7 @@ python3 tools/audit_notes.py       # 정리본 원문 보존 감사
 | `timeline-ui-conventions.md` | UI·소리·강의 모드·검증 해상도 |
 | `timeline-labels-always-visible.md` | 이름표 배치와 겹침 규칙 |
 | `timeline-dendro-canon.md` | 세계관 정본 용어와 대사 시스템 |
+| `timeline-mnemosyne-voice.md` | 므네모시네 관내 방송 음성 사용자 결정·파일·순환 구현 인계 |
 | `timeline-semantic-search.md` | 의미 검색과 색인 재생성 |
 | `timeline-notes-source.md` | 정리본 원본(넘버스 파일)과 추출 방법 |
 | `timeline-textbook-sources.md` | 교과서 PDF 목록 |

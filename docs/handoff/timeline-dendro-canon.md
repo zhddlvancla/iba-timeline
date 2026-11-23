@@ -90,7 +90,7 @@ The track list order stays 한국·동아시아·유럽·미주·서아시아·�
 - Never write new VESTIGIA sentences; an unknown id falls back to V-ER-001. The briefing bubble uses only V-SYS-008, the rules, and V-SYS-002.
 - V-BC 관내 방송 lines no longer appear in the footer or other VLine spots. Since 2026-10-08 (user request) they go to their own channel: `vestigia-bc` event, `VESTIGIA.currentBroadcast()`. They render in `<BroadcastBox/>` (`.bcbox`), the 22px strip under the 지역국 panel, inside `.subnav__leftcol`. The chime still plays.
 - Lines stay one line (`nowrap`) so the footer height never changes. Side labels are hidden when space is short. The footer's SCROLL/DRAG hint was removed.
-- No voice mp3s exist yet; only screen text is used.
+- At the original P4-1 stage, no voice MP3s existed; this was superseded by P4-3 below. Current scope and assets are documented in [timeline-mnemosyne-voice.md](timeline-mnemosyne-voice.md).
 - RG/RQ lines have no app feature, so they are not wired.
 
 **P4-2 audio (2026-09-30):**
@@ -115,6 +115,7 @@ Related: [timeline-ui-conventions](timeline-ui-conventions.md) [iba-emblem](iba-
 - Qwen3-TTS 0.6B Base uses the selected VoiceDesign sample as a reference; apply the same large interior PA processing to every broadcast line.
 - `window.VESTIGIA.voice(line)` accepts V-BC lines only. They play after the four-note chime. The audio settings panel has an independent 「관내 방송 음성」 toggle, on by default and stored for the session. The lecture mode stops playback.
 - The timed loop shuffles all 19 V-BC IDs into a deck, emits each once before reshuffling, and prevents the first item of a new deck from matching the previous deck's last item. Intervals remain randomized at 90–180 seconds.
+- A complete deck takes about 28 minutes 30 seconds to 57 minutes at those intervals. Short visits can therefore hear only part of the set; see [the voice handoff](timeline-mnemosyne-voice.md) before changing timing or selection behavior.
 - Keep model attribution and licensing notes in the audio folder README. Do not add model weights to the public repository.
 
 - **2026-10-13 renames (user):**
