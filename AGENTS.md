@@ -2,6 +2,7 @@
 
 이 저장소에서 일하는 코딩 에이전트(Codex 등)가 가장 먼저 읽는 문서다. 2026-10-30까지 Claude Code에서 진행한 작업을 그대로 이어받도록 정리했다.
 세부 규칙과 지난 결정의 이유는 `docs/handoff/*.md`에 있다. 작업 주제에 해당하는 문서를 먼저 열어 보고 시작한다.
+Claude Code는 저장소 루트의 `CLAUDE.md`를 통해 이 안내서를 읽는다. 새 환경에서 현재 사이트를 복원하는 방법도 그 파일에 있다.
 
 ---
 
@@ -20,6 +21,7 @@
 |---|---|
 | `index.html` | 앱 전체(약 3.5만 줄). CSS, 대사·세계관 문서, `<script type="text/babel">` React 18 UMD + Babel standalone(CDN), **TIMELINE_DATA·TIMELINE_DB 사본**까지 모두 들어 있다. 빌드 단계 없음 |
 | `tablet.css` | 태블릿 가로 화면과 PC의 공통 배치, 터치·내부 스크롤·안전 여백 |
+| `globe.js`, `globe.css`, `iba-globe-records.js` | 시대별 지구본 표시와 기록 연결. 지도 창은 `index.html`의 `IbaGlobeDialog`, 경계 데이터·한글 이름·고지는 `assets/geography/`에 있다 |
 | `timeline-content.js` | 데이터 전용 파일. `window.TIMELINE_DATA`(노드 목록)와 `window.TIMELINE_DB`(노드별 기록). 맨 위 주석에 스키마가 있다 |
 | `audio-engine.js` | `window.DENDRO_AUDIO`. Web Audio로 효과음·앰비언트·배경음악을 합성한다(음원 파일 없음) |
 | `iba-emblem.js` | 기관 인장 SVG 생성기 |
