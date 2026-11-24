@@ -10,6 +10,8 @@ from zipfile import ZipFile
 from shapely.geometry import shape
 from shapely.geometry.polygon import orient
 
+import geography_corrections
+
 
 def write_data_script(output, name, data, compress=False):
     contents = json.dumps(data, ensure_ascii=False, separators=(',', ':'), allow_nan=False) + '\n'
@@ -95,7 +97,8 @@ def year_chunks(min_year, max_year):
 
 
 def build_historical(source, output):
-    rows = list(historical_rows(source))
+    # History of Nations 감사본에 따른 표시 연도·표시명 교정 (geography_corrections.py)
+    rows = geography_corrections.apply(list(historical_rows(source)))
     min_year = min(row['properties']['start'] for row in rows)
     max_year = max(row['properties']['end'] for row in rows)
     chunks = []

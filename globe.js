@@ -2,6 +2,7 @@
 (() => {
   const dataRoot = 'assets/geography/';
   const koreanNamesFile = 'names-ko.js?v=20261118';
+  const dataVersion = '20261124';
   const jsonCache = new Map();
   let libraryPromise;
   let landImage;
@@ -10,7 +11,8 @@
   function loadScript(file) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = dataRoot + file;
+      // 지도 자료를 고치면 dataVersion을 올려 브라우저에 남은 옛 파일을 쓰지 않게 한다.
+      script.src = dataRoot + file + (file.includes('?') ? '' : `?v=${dataVersion}`);
       script.onload = () => {
         script.remove();
         resolve(script.ibaMapData);
@@ -82,8 +84,10 @@
     const aggregate = name.startsWith('(') && name.endsWith(')');
     const sourceName = aggregate ? name.slice(1, -1) : name;
     const label = historicalNamePeriods[sourceName]?.find(([start, end]) => start <= year && year <= end)?.[2];
-    if (!label) return koreanNames[name] || '이름 미등재';
-    return aggregate ? `(${label})` : label;
+    // 감사본 교정: 같은 영역에서 국호·지위가 바뀐 해에는 그 시기의 표시명을 쓴다 (tools/geography_corrections.py).
+    const corrected = label || properties.labelKo;
+    if (!corrected) return koreanNames[name] || '이름 미등재';
+    return aggregate ? `(${corrected})` : corrected;
   }
 
   // Natural Earth의 육지 윤곽을 구 표면에 한 번 그린다. 현대 국경은 여기에 그리지 않는다.
