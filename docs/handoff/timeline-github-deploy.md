@@ -7,7 +7,7 @@ On 2026-10-08 the user chose a **public** GitHub repo named `iba-timeline`, serv
 **Repo setup:**
 - `~/ui_kits/timeline-app` was re-initialized with fresh history. The first commit is f346709.
 - The old history is kept at `~/timeline-app-git-backup`. It is 1.8GB because it contains textbook PDFs; never push it.
-- `.gitignore` is a whitelist. Only `index.html`, `timeline-content.js`, `audio-engine.js`, `iba-emblem.js`, `.nojekyll`, `assets/w1/고대/` and `assets/w1/기관/` go up.
+- `.gitignore` is a whitelist. **The current `.gitignore` file is the source of truth for what is published**; the list below is the initial 2026-10-08 setup. Initially only `index.html`, `timeline-content.js`, `audio-engine.js`, `iba-emblem.js`, `.nojekyll`, `assets/w1/고대/` and `assets/w1/기관/` go up.
   - Textbooks, `vestigia-voic`, `_removed`, `_pre_upscale_backup` and 5 unused textbook-scan images are excluded.
 - A new top-level file or asset folder must be un-ignored in `.gitignore`, or it won't publish.
 - The local git identity is `IBA timeline <iba-timeline@local>`, so the user's gmail is never exposed on a public repo.

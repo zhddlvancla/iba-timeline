@@ -21,7 +21,7 @@
 User rules for timeline-app history data, set 2026-09-29 during DENDRO P0:
 
 1. **All years and content follow the textbook files added to the project.**
-   - World and East Asia: `assets/w1/교과서` (미래엔 세계사 1, 비상 세계사, and the 동아시아 역사 기행 texts).
+   - World and East Asia: repo-root `교과서/` (formerly `assets/w1/교과서`) (미래엔 세계사 1, 비상 세계사, and the 동아시아 역사 기행 texts).
    - Korea: 동아출판 22개정 한국사1/2 in ~/Downloads.
    - Never guess. Remove years the textbooks don't support, and replace conflicting ones with the textbook value, even when a more precise real date exists. Example: the textbook's 기원전 1500년경 Babylon conquest beats the precise 1595.
 2. **If the textbook has no year, search and use the mainstream view of Korean historiography (한국 사학계 주류).** The user set this on 2026-09-29.
