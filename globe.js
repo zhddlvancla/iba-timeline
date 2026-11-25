@@ -301,7 +301,28 @@
       }
       onRegion(region);
     }
-    const pickOnGlobe = region => { if (!dragged) pick(region); };
+    // 이미 켜진 국경이나 선택한 기록 지점을 다시 누르면 끈다. 노드의 국경도 같은 방식으로 끌 수 있다.
+    function isLit(region) {
+      if (region.kind !== 'boundary') return region.id === selected;
+      if (region.id === selected || focused.has(region.id)) return true;
+      const point = points.find(item => item.id === selected);
+      return !!point && focusRegions(regions, [point]).has(region.id);
+    }
+    function unlight(region) {
+      focused.delete(region.id);
+      const point = points.find(item => item.id === selected);
+      const pointRegion = point && region.kind === 'boundary' && focusRegions(regions, [point]).has(region.id);
+      if (region.id === selected || pointRegion) {
+        selected = '';
+        onRegion(null);
+      }
+      renderSelection();
+    }
+    const pickOnGlobe = region => {
+      if (dragged || disposed) return;
+      if (region.id && isLit(region)) unlight(region);
+      else pick(region);
+    };
     const gestures = {
       pointerdown: startGesture, pointermove: moveGesture, pointerup: endGesture, pointercancel: endGesture
     };
