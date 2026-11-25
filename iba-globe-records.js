@@ -431,6 +431,10 @@
     return false;
   }
 
+  function placesForRecord(id) {
+    return (placesByRecord.get(id) || []).map(({lat, lng, label}) => ({lat, lng, label}));
+  }
+
   function recordsForRegion(region, year, track) {
     if (!region) return [];
     const records = browseableRecords(year, track);
@@ -442,6 +446,6 @@
   }
 
   global.IBA_GLOBE_RECORDS = {
-    initialView, pointsForYear, recordsForRegion, recordYear, dateBounds, yearLabel, contains,
+    initialView, pointsForYear, recordsForRegion, placesForRecord, recordYear, dateBounds, yearLabel, contains,
   };
 })(window);

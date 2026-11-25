@@ -139,6 +139,7 @@
       return [{
         id: `boundary:${properties.id ?? index}:${index}`,
         label: boundaryName(properties, year, koreanNames),
+        sourceName: properties.name || '',
         kind: 'boundary',
         geometry
       }];
@@ -215,19 +216,37 @@
     return { lat: latitudes / ring.length, lng: Math.atan2(y, x) * 180 / Math.PI };
   }
 
+  // 노드의 장소를 품은 국경을 고른다. 그중 노드 이름과 같은 국경이 있으면 그것만,
+  // 없으면 괄호로 묶인 상위 집합명을 뺀 개별 정치체를, 그것도 없으면 집합명을 쓴다.
+  const baseName = text => (text || '').replace(/\(.*?\)/g, '').replace(/\s+/g, '');
+  function focusRegions(regions, places, focusLabel) {
+    if (!places.length || !window.IBA_GLOBE_RECORDS) return new Set();
+    const { contains } = window.IBA_GLOBE_RECORDS;
+    const hits = regions.filter(region => places.some(place => contains(place, region.geometry)));
+    const title = baseName(focusLabel);
+    const named = title ? hits.filter(region => {
+      const name = baseName(region.label);
+      return name && (title.includes(name) || name.includes(title));
+    }) : [];
+    const own = hits.filter(region => !region.sourceName.startsWith('('));
+    return new Set((named.length ? named : own.length ? own : hits).map(region => region.id));
+  }
+
   function tooltip(item) {
     const label = document.createElement('span');
     label.textContent = item.label;
     return label;
   }
 
-  function mount(element, { year, view, points = [], showLabels = false, onRegion, onStatus }) {
+  function mount(element, { year, view, points = [], showLabels = false, focusPlaces = [], focusLabel = '', onRegion, onStatus }) {
     const home = { lat: view.lat, lng: view.lng, altitude: view.altitude ?? 2.25 };
     let disposed = false;
     let revision = 0;
     let globe;
     let resize;
     let selected;
+    // 노드에서 연 지도는 그 기록의 장소를 품은 국경만 처음부터 색을 켠다.
+    let focused = new Set();
     let regions = [];
     let mapLabels = [];
     let labelFrame = null;
@@ -259,9 +278,12 @@
     };
     const renderSelection = () => {
       if (!globe) return;
+      // 평소에는 경계선만 그리고, 선택한 국경과 노드의 해당 국경만 면을 채운다.
+      const lit = region => region.id === selected || focused.has(region.id);
       globe
-        .polygonCapColor(region => region.id === selected ? '#217348' : '#143e28')
-        .polygonStrokeColor(region => region.id === selected ? '#86f0ae' : '#4daf70');
+        .polygonCapColor(region => lit(region) ? 'rgba(54, 174, 101, 0.5)' : 'rgba(0, 0, 0, 0)')
+        .polygonSideColor(region => lit(region) ? 'rgba(54, 174, 101, 0.35)' : 'rgba(0, 0, 0, 0)')
+        .polygonStrokeColor(region => region.id === selected ? '#c4ffd9' : lit(region) ? '#86f0ae' : '#4daf70');
       for (const point of points) overlayElements.get(point.id)?.classList.toggle('is-selected', point.id === selected);
       scheduleLabels();
     };
@@ -373,7 +395,6 @@
         .polygonGeoJsonGeometry('geometry')
         .polygonAltitude(0.009)
         .polygonCapCurvatureResolution(5)
-        .polygonSideColor(() => '#123323')
         .polygonsTransitionDuration(0)
         .polygonLabel(tooltip)
         .onPolygonClick(pickOnGlobe)
@@ -448,6 +469,7 @@
         ]);
         if (request !== revision || disposed) return;
         regions = boundaryRegions(data, nextYear, koreanNames);
+        focused = focusRegions(regions, focusPlaces, focusLabel);
         if (showLabels) {
           mapLabels = regions.flatMap(region => {
             const anchor = labelAnchor(region.geometry);
@@ -455,6 +477,7 @@
           }).sort((a, b) => b.area - a.area);
         }
         globe?.polygonsData(regions);
+        renderSelection();
         showOverlays();
         report(regions.length
           ? { state: 'ready', message: '' }
