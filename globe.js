@@ -279,7 +279,10 @@
     const renderSelection = () => {
       if (!globe) return;
       // 평소에는 경계선만 그리고, 선택한 국경과 노드의 해당 국경만 면을 채운다.
-      const lit = region => region.id === selected || focused.has(region.id);
+      // 기록 지점(초록 네모)을 고르면 그 지점이 속한 국경의 면을 켠다.
+      const point = points.find(item => item.id === selected);
+      const pointLit = point ? focusRegions(regions, [point]) : new Set();
+      const lit = region => region.id === selected || focused.has(region.id) || pointLit.has(region.id);
       globe
         // 완전 투명(0)이면 라이브러리가 면을 그리지 않아 클릭도 잡히지 않으므로 보이지 않을 만큼만 남긴다.
         .polygonCapColor(region => lit(region) ? 'rgba(54, 174, 101, 0.5)' : 'rgba(8, 20, 14, 0.02)')
