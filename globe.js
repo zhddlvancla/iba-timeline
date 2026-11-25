@@ -281,7 +281,8 @@
       // 평소에는 경계선만 그리고, 선택한 국경과 노드의 해당 국경만 면을 채운다.
       const lit = region => region.id === selected || focused.has(region.id);
       globe
-        .polygonCapColor(region => lit(region) ? 'rgba(54, 174, 101, 0.5)' : 'rgba(0, 0, 0, 0)')
+        // 완전 투명(0)이면 라이브러리가 면을 그리지 않아 클릭도 잡히지 않으므로 보이지 않을 만큼만 남긴다.
+        .polygonCapColor(region => lit(region) ? 'rgba(54, 174, 101, 0.5)' : 'rgba(8, 20, 14, 0.02)')
         .polygonSideColor(region => lit(region) ? 'rgba(54, 174, 101, 0.35)' : 'rgba(0, 0, 0, 0)')
         .polygonStrokeColor(region => region.id === selected ? '#c4ffd9' : lit(region) ? '#86f0ae' : '#4daf70');
       for (const point of points) overlayElements.get(point.id)?.classList.toggle('is-selected', point.id === selected);
