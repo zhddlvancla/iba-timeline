@@ -2,7 +2,7 @@
 (() => {
   const dataRoot = 'assets/geography/';
   const koreanNamesFile = 'names-ko.js?v=20261118';
-  const dataVersion = '20261124';
+  const dataVersion = '20261127';
   const jsonCache = new Map();
   let libraryPromise;
   let landImage;
@@ -74,7 +74,14 @@
     'Han Dynasty': [[-202, 8, '전한(前漢)'], [25, 220, '후한(後漢)']],
     'Macedonian Empire': [[-336, -323, '알렉산드로스 제국']],
     'Middle Franks': [[843, 855, '중프랑크 왕국']],
-    'Sultanate of Malacca': [[1402, 1511, '믈라카 왕국']]
+    'Sultanate of Malacca': [[1402, 1511, '믈라카 왕국']],
+    // 2026-11-27 지도 전수 검사: 교과서 국가의 개창 연도 (docs/handoff/timeline-map-audit-2026-11-27.md)
+    'Western Jin': [[317, 419, '동진(東晉)'], [420, 425, '송(宋)']],
+    'Sui Dynasty': [[618, 622, '당(唐)']],
+    'Later Jin Dynasty': [[1636, 1644, '청(淸)']],
+    'Parthian Empire': [[226, 237, '사산 왕조 페르시아']],
+    'Umayyad Caliphate': [[750, 750, '아바스 왕조'], [756, 756, '후우마이야 왕조']],
+    'Tokugawa Shogunate': [[1868, 1869, '일본 제국']]
   };
 
   function boundaryName(properties, year, koreanNames) {

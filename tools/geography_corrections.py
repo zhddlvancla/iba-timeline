@@ -6,8 +6,22 @@ globe.js의 historicalNamePeriods는 건드리지 않는다. 원자료의 정치
 CLIPS    인용 문헌이 모두 존속하지 않았다고 보는 해에만 표시를 지운다. 값은 남길 [시작, 끝]이고
          None은 그쪽 끝을 원자료대로 둔다. 자료마다 연대가 다르면 가장 넓은 범위를 남긴다.
 RELABELS 같은 영역에서 국호·지위가 바뀐 해에 표시명(labelKo)만 바꾼다. [시작, 끝, 표시명]
-도형을 새로 만들거나 늘리지 않는다. 표시가 빠진 해를 채우는 일은 하지 않는다.
+GEOMETRY 지구본 전수 검사(2026-11-27, docs/handoff/timeline-map-audit-2026-11-27.md)에서 사용자가 승인한
+         도형 교정. tools/make_geography_geometry.py가 미리 계산한 geography_geometry.json.gz를 읽는다.
+         replace는 해당 이름·연도의 도형을 바꾸고(None이면 그 해 표시를 지운다), add는 도형을 새로 넣는다.
+         한국사 교과서 서술(고구려 중심지, 초기 백제·신라, 대가야, 원 간섭기 고려, 왜란·호란 시기 조선),
+         원·명 개창 연도, 원자료 오류 조각 제거만 다룬다. 그 밖에 표시가 빠진 해는 채우지 않는다.
 """
+
+import gzip
+import json
+import os
+from pathlib import Path
+
+GEOMETRY_FILE = Path(__file__).resolve().parent / 'geography_geometry.json.gz'
+# 도형 교정을 다시 계산할 때는 IBA_NO_GEOMETRY=1로 교정 전 도형을 먼저 만든다 (make_geography_geometry.py 참조).
+GEOMETRY = ({'replace': [], 'add': []} if os.environ.get('IBA_NO_GEOMETRY') or not GEOMETRY_FILE.exists()
+            else json.loads(gzip.decompress(GEOMETRY_FILE.read_bytes())))
 
 CLIPS = {
     # 한국·중국·동아시아
@@ -21,9 +35,9 @@ CLIPS = {
     'Gao Kaidao': (None, 624), '(Eighteen Kingdoms)': (-206, None), 'Western Chu': (-206, None),
     'Dai': (-206, None), 'Jibei': (-206, None), 'Zhai': (-206, None), 'Henan': (None, -205),
     'Jiaodong': (None, -206), 'Kenmu Restoration': (None, 1336), 'Trưng sisters': (None, 43),
-    'Kingdom of Pinya': (None, 1365), 'Sagaing Kingdom': (None, 1365), 'Prome Kingdom': (None, 1542),
+    'Kingdom of Pinya': (None, 1365), 'Byeonhan': (None, 562), 'Sagaing Kingdom': (None, 1365), 'Prome Kingdom': (None, 1542),
     # 서아시아·인도·북아프리카
-    'Abbasid Caliphate': (None, 1258), '(Delhi Sultanate)': (None, 1526), 'Tulunids': (None, 905),
+    'Abbasid Caliphate': (None, 1258), '(Delhi Sultanate)': (None, 1525), 'Tulunids': (None, 905),
     'Rustamid dynasty': (None, 909), 'Caliphate of Córdoba': (None, 1031), 'Marinid Sultanate': (None, 1465),
     'Wattasid dynasty': (1472, 1554), 'Saadi Sultanate': (None, 1659), 'Zengid dynasty': (None, 1251),
     'Sultanate of Rum': (None, 1307), 'Zand Dynasty': (1751, None), 'Danishmendids': (None, 1178),
@@ -61,13 +75,21 @@ CLIPS = {
 
 RELABELS = {
     # 한국·중국·베트남: 같은 영역의 후계 왕조
-    'Taebong': [(919, 921, '고려')],
-    'Goryeo': [(1393, 1394, '조선')],
+    'Taebong': [(918, 921, '고려')],
+    'Goryeo': [(1392, 1394, '조선')],
+    'Joseon': [(1897, 1897, '대한 제국')],
+    # 2026-11-27 전수 검사: 변한 지역의 가야(기원후 42년 건국 ~ 562년 대가야 멸망)
+    'Byeonhan': [(42, 562, '가야')],
+    'Northern Song': [(1127, 1127, '남송(南宋)')],
+    'Kenmu Restoration': [(1336, 1336, '무로마치(室町) 막부')],
+    'Tây Sơn dynasty': [(1802, 1802, '응우옌 왕조')],
+    # 원자료 'Kuomintang'은 베이징 정부 시기의 중국 전역을 덮는다. 국가 표시는 중화민국.
+    'Kuomintang': [(1917, 1929, '중화민국(中華民國)')],
     'Later Liang Dynasty': [(924, 925, '후당')],
     'Former Jin': [(922, 922, '진(晉)'), (923, 925, '후당')],
     'Later Jin': [(911, 921, '진(晉)')],
     'Later Han': [(951, 959, '후주')],
-    'Later Zhou': [(-750, -257, '동주(東周)')],
+    'Later Zhou': [(-750, -257, '동주(東周)'), (960, 960, '북송')],
     'Song': [(-750, -285, '송(宋)')],
     'Southern Wu': [(911, 937, '오(양오)'), (938, 959, '남당')],
     'Cao Cao': [(220, 223, '위(魏)')],
@@ -77,9 +99,11 @@ RELABELS = {
     'Mamluk Dynasty': [(1291, 1293, '할지 왕조')],
     'Khalji Dynasty': [(1321, 1325, '투글루크 왕조')],
     'Sayyid Dynasty': [(1452, 1452, '로디 왕조')],
-    'Lodi Dynasty': [(1527, 1528, '무굴 제국')],
+    'Lodi Dynasty': [(1526, 1528, '무굴 제국')],
+    'Nanda Empire': [(-322, -321, '마우리아 왕조')],
+    'Aq Qoyunlu': [(1501, 1501, '사파비 왕조')],
     'Fatimid Caliphate': [(1172, 1176, '아이유브 왕조')],
-    'Aghlabid Dynasty': [(910, 910, '파티마 왕조')],
+    'Aghlabid Dynasty': [(909, 910, '파티마 왕조')],
     'Ottoman Empire': [(1923, 1923, '튀르키예 공화국')],
     # 유럽
     'Nicaean Empire': [(1262, 1278, '동로마 제국(비잔티움 제국)')],
@@ -118,6 +142,26 @@ RELABELS = {
 }
 
 
+def _geometry_pieces(name, pieces, orig):
+    """GEOMETRY['replace']를 연도 조각에 적용한다. pieces: [(시작, 끝, 표시명, 도형)]"""
+    for entry in GEOMETRY['replace']:
+        if entry['name'] != name or entry['within'][1] < orig[0] or entry['within'][0] > orig[1]:
+            continue
+        a, b = entry['start'], entry['end']
+        split = []
+        for s, e, label, geometry in pieces:
+            if e < a or s > b:
+                split.append((s, e, label, geometry))
+                continue
+            if s < a:
+                split.append((s, a - 1, label, geometry))
+            split.append((max(s, a), min(e, b), label, entry['geometry']))
+            if e > b:
+                split.append((b + 1, e, label, geometry))
+        pieces = split
+    return pieces
+
+
 def apply(features):
     """Feature 목록을 받아 교정한 새 목록을 돌려준다. 같은 입력에 여러 번 적용해도 결과가 같다."""
     out = []
@@ -145,10 +189,17 @@ def apply(features):
                 if e > b:
                     split.append((b + 1, e, None))
             pieces = split
-        for s, e, label in pieces:
+        pieces = _geometry_pieces(name, [(s, e, l, feature['geometry']) for s, e, l in pieces], (start, end))
+        for s, e, label, geometry in pieces:
+            if geometry is None:
+                continue
             new = dict(props, start=s, end=e, id=f'{name}:{s}:{e}')
             new.pop('labelKo', None)
             if label:
                 new['labelKo'] = label
-            out.append({**feature, 'properties': new})
+            out.append({**feature, 'properties': new, 'geometry': geometry})
+    ids = {row['properties']['id'] for row in out}
+    for row in GEOMETRY['add']:
+        if row['properties']['id'] not in ids:
+            out.append(row)
     return out

@@ -19,6 +19,8 @@ User decision (2026-11-24): 첨부한 감사 파일(`A_History_of_Nations_Audit.
 - 원자료부터 다시 만들 때는 `build_geography.py`가 같은 교정을 자동 적용한다.
 - 지도 자료를 바꾸면 `globe.js`의 `dataVersion`과 `index.html`의 `globe.js?v=`를 올린다.
 
+**2026-11-27 전수 검사 교정.** 사용자가 지도 전수 검사 결과의 A·B·C·D·E 교정을 승인했다. 이 범위에 한해 도형 교정(`GEOMETRY`, `tools/geography_geometry.json.gz`)과 교과서 명칭 정치체의 개창 연도 기간 명칭(`globe.js` `historicalNamePeriods`)을 추가했다. 대한제국 1897년, 사산 왕조 226년, 우마이야→아바스 750년은 이 결정으로 반영했다. 도형을 다시 계산하는 절차는 `tools/make_geography_geometry.py` 머리말에 있다. 검사 재현: `node tools/map_audit.js`. [보고서](timeline-map-audit-2026-11-27.md)
+
 **남은 공백.** 북송 도형을 1127년에서 끊어 1128~1138년 강남에는 송 표시가 없다(남송은 교과서 명칭이라 확장하지 않음). 교과서 명칭 정치체 중 감사 파일이 지적한 항목(예: 대한제국 1897년, 위(魏) 220년 시작, 사산 왕조 224~651년, 우마이야 왕조 661~750년)은 사용자 확인 전까지 그대로 둔다.
 
 Related: [timeline-doc-mode](timeline-doc-mode.md) [ATTRIBUTION](../../assets/geography/ATTRIBUTION.md)
